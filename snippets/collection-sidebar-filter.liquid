@@ -1,0 +1,119 @@
+<div class="sidebar">
+  <div class="row">
+  <div class="col-6 col-md-12">
+  <button class="heading button filter-button d-md-none first view-toggle">Filter:</button>
+  <div class="filter-items">
+  <h3 class="heading d-none d-md-block first">Filter: {% include 'icon-filter-svg' %}</h3>
+
+  {% for link in linklists.collection-filters.links %}
+    {% if link.url == collection.url %}
+      {% if link.links != blank %}
+        <h3 class="heading" id="{{ collection.title }}">{{ collection.title }}</h3>
+        <ul class="collection__filter-list">
+
+          {% for sub_link in link.links %}
+            {% if sub_link.active == true %}
+              <li class="selected"><a href="{{ collection.url }}" onclick="ga('send', 'event', 'Collection Filter', 'Click', '{{ sub_link.title }}');">{{ sub_link.title }} &nbsp;<span>x</span></a></li>
+            {% else %}
+              <li><a href="{{ sub_link.url }}" onclick="ga('send', 'event', 'Collection Filter', 'Click', '{{ sub_link.title }}');">{{ sub_link.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
+
+
+  {% if template contains 'collection' and collection.all_tags.size > 1 %}
+    {% comment %}<!-- A recursive loop to catch and filter out the different tag categories -->{% endcomment %}
+    {% assign counter = 0 %}
+    {% assign c = 0 %}
+    {% for t in collection.all_tags %}
+      {% capture cat %}{{ cat }}{% capture temp_cat %}{% if t contains ':' %}{% assign cat_grp = t | split: ':' %}{{ cat_grp.first }}{% endif %}{% endcapture %}{% unless cat contains temp_cat %}{% if t contains ':' %}{% assign new_cat_grp = t | split: ':' %}{{ new_cat_grp.first }}{% endif %}{% unless forloop.last %}+{% endunless %}{% assign c = c | plus: 1 %}{% endunless %}{% endcapture %}
+    {% endfor %}
+    {% comment %}<!-- create array of tag categories -->{% endcomment %}
+    {% assign cat_array = cat | split: '+' %}
+    {% comment %}<!-- loop through tag categories -->{% endcomment %}
+    {% for i in cat_array %}
+      {% comment %}<!-- ignore if tag category is empty -->{% endcomment %}
+      {% unless i == '' %}
+        {% assign counter = 0 %}
+        <h3 class="subheading" id="{{ i | lowercase | remove: 'brand:' }}"><i class="icon accordion"></i>{{ i | capitalize }}</h3>
+        <ul class="collection__filter-list {{ i | lowercase }}">
+        {% comment %}<!-- loop through collection tags -->{% endcomment %}
+        {% for t in collection.all_tags %}
+          {% comment %}<!-- if tag contains the category title -->{% endcomment %}
+          {% if t contains i %}
+            {% comment %}<!-- strip out tag category prefix and add/remove link for tag filtering -->{% endcomment %}
+            {% if current_tags contains t %}
+            {% assign counter =  counter | plus: 1 %}
+            {% if counter == 11 %}<div class="see-more">{% endif %}
+                <li class="selected">{{ t | remove: i | remove: '_' | replace: '-', ' ' | replace: ':', ' ' | append: '&nbsp;<span>x</span>' | link_to_remove_tag: t }}</li>
+            {% else %}
+            {% assign counter =  counter | plus: 1 %}
+            {% if counter == 11 %}<div class="see-more">{% endif %}
+                <li onclick="ga('send', 'event', 'Collection Filter', 'Click', '{{ t }}');">{{ t | remove: i | remove: '_' | replace: '-', ' ' | replace: ':', ' '  | link_to_add_tag: t }}</li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endunless %}
+      {% if counter > 10 %}<div class="view-toggle"><span>See More</span><div class="small-chevron"> {% include 'icon-chevron', fill_color: '#58B0E3', direction: 'down' %} </div></div>{% endif %}
+    {% endfor %}
+
+  {% endif %}
+  </div>
+  </div>
+    <div class="col-6 d-md-none sort-by-options">
+    {% include 'sort-by-options' %}
+  </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('.view-toggle').click(function(){
+            if($(this).children('span').text() == 'See Less') {
+                $(this).children('span').text('See Less');
+            } else {
+                $(this).children('span').text('See More');
+            }
+            $(this).children('.small-chevron').toggleClass('active');
+            $(this).siblings('.collection__filter-list').find('.see-more').slideToggle(500);
+        });
+
+        $('.subheading').click(function(){
+            var thisID = $(this).attr('id')
+            $(this).toggleClass('open');
+            $('body').find('.' + thisID).slideToggle(500);
+            // $(this).closest('.collection__filter-list').slideToggle(500);
+        });
+
+        $('.view-toggle').click(function(){
+            $('.filter-items').slideToggle(500);
+            // $(this).closest('.collection__filter-list').slideToggle(500);
+        });
+
+    })
+    </script>
+
+    <style>
+    .small-chevron {
+        display: inline-block;
+        transition: 0.5s ease-in-out;
+    }
+
+    .small-chevron svg {
+        transition: 0.5s ease-in-out;
+    }
+
+    .small-chevron.active svg {
+        transform: rotate(90deg)!important;
+        transition: 0.5s ease-in-out;
+    }
+
+    .small-chevron svg {
+        height: 10px;
+    }
+  </style>

@@ -1,0 +1,104 @@
+<section class="container page__container">
+	<div class="row">
+        <div class="col-12 col-12 col-sm-12">
+            <img loading="lazy" style="width:100%" src="{{ 'pay-less-header.jpg' | asset_url }}" alt="">
+		</div>
+		<div class="col-12 col-sm-12 8@md">
+			<h1 class="title">{{ page.title }}</h1>
+			<article class="rte">
+				{{ page.content }}
+			</article>
+		</div>
+		<div class="col-12 col-sm-12 4@md">
+            <a href="{{ section.settings.aside-link }}"><img loading="lazy" src="{{ section.settings.aside-image | img_url: '365x' }}" alt=""></a>
+		</div>
+        <div class="col-12 col-sm-12">
+            <hr>
+		</div>
+        <div class="col-12 col-sm-12 col-md-3 text-center">
+            <img loading="lazy" src="{{ section.settings.circle-one-image | img_url: 'master' }}" alt="">
+            <p class="blue">{{ section.settings.circle-one-text }}</p>
+		</div>
+        <div class="col-12 col-sm-12 col-md-3 text-center">
+            <img loading="lazy" src="{{ section.settings.circle-two-image | img_url: 'master' }}" alt="">
+            <p class="blue">{{ section.settings.circle-two-text }}</p>
+		</div>
+        <div class="col-12 col-sm-12 col-md-3 text-center">
+            <img loading="lazy" src="{{ section.settings.circle-three-image | img_url: 'master' }}" alt="">
+            <p class="blue">{{ section.settings.circle-three-text }}</p>
+		</div>
+        <div class="col-12 col-sm-12 col-md-3 text-center">
+            <img loading="lazy" src="{{ section.settings.circle-four-image | img_url: 'master' }}" alt="">
+            <p class="blue">{{ section.settings.circle-four-text }}</p>
+		</div>
+	</div>
+</section>
+{% schema %}
+{
+	"name": "About Page Content",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "aside-image",
+            "label": "Aside Image"
+        },
+        {
+            "type": "url",
+            "id": "aside-link",
+            "label": "Aside URL"
+        },
+        {
+            "type": "image_picker",
+            "id": "circle-one-image",
+            "label": "Circle Image One"
+        },
+        {
+            "type": "text",
+            "id": "circle-one-text",
+            "label": "Circle One Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "circle-two-image",
+            "label": "Circle Image Two"
+        },
+        {
+            "type": "text",
+            "id": "circle-two-text",
+            "label": "Circle Two Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "circle-three-image",
+            "label": "Circle Image Three"
+        },
+        {
+            "type": "text",
+            "id": "circle-three-text",
+            "label": "Circle Three Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "circle-four-image",
+            "label": "Circle Image Four"
+        },
+        {
+            "type": "text",
+            "id": "circle-four-text",
+            "label": "Circle Four Text"
+        }
+    ]
+}
+{% endschema %}
+<style>
+html,body {
+    background: #FDFDFD!important;
+}
+
+p.blue {
+    font-size: 14px;
+    color: #3eaafd;
+    font-weight: bold;
+    line-height: 20px;
+}
+</style>

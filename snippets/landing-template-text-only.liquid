@@ -1,0 +1,15 @@
+<div class="container container-size__small">
+	<div class="row">
+		<div class="col-12 text-center py-5">
+			<h2 class="title mb-4">{{ block.settings.title }}</h2>
+			<p class="margin-bottom--none text-left text-md-center">{{ block.settings.text }}</p>
+			{%- if block.settings.button_text != blank -%}
+				{% if block.settings.enable_text_link %}
+					<a class="call-to-action mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }} {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
+				{% else %}
+					<a class="button tertiary mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }}</a>
+				{% endif %}
+			{%- endif -%}
+		</div>
+	</div>
+</div>

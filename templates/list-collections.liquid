@@ -1,0 +1,87 @@
+<meta http-equiv="refresh" content="0;URL='https://getsetpet.com/collections/all'" /> 
+
+<section class="container collection">
+	{% include 'breadcrumbs' %}
+    <header class="row" class="collection__introduction">
+        <div class="col-12 col-md-12 col-lg-8 offset-lg-3 text-center">
+            {% if page_title != '' %}
+                <h1 class="title">{{ page_title }}</h1>
+            {% endif %}
+            {% if collection.description != '' %}
+                <div class="rte collection__description">
+                    {{ collection.description }}
+                </div>
+            {% endif %}
+        </div>
+    </header>
+        
+    <div class="row">
+        {% assign grid_item_width = 'col-12 col-sm-12 col-md-6 3@lg' %}
+        {% for collection in collections %}
+            {% unless collection.handle == 'frontpage' %}
+                <div class="{{ grid_item_width }}" class="shop-by-block">
+                    <a href="{{ collection.url }}" class="image">
+                        {% if collection.products.first != blank %}
+                            <figure>
+                                {%- if collection.products.first != blank -%}
+                                    <img loading="lazy" 
+                                        src="{{ collection.products.first | img_url: '300x300' }}"
+                                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ collection.products.first .image.alt | escape }}">
+                                {%- else -%}
+                                    <img loading="lazy" 
+                                        src="{{ 'placeholder.png' | asset_url }}"
+                                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                        data-sizes="auto"
+                                        alt="{{ child_link.title }}">
+                                {%- endif -%}
+                            </figure>
+                        {% else %}
+                            {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                            {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                        {% endif %}
+                    </a>
+                    <a href="{{ collection.url }}"></a><h3 class="subheading">{{ collection.title }}</h3></a>
+                    <p class="product-sku">{% if collection.all_products.size >= 50 %}50+{% else %}{{ collection.all_products.size }}{% endif %} products</p>
+                </div>
+                <!-- //productItem -->
+            {% endunless %}
+        {% endfor %}
+    </div>
+    <!-- grid -->
+</section>
+
+<style>
+    .shop-by-block {
+        background: white;
+        box-shadow: 0 1px 5px 0 #DDDDDD;
+        padding: 15px;
+        border-radius: 5px;
+    }
+    
+    .shop-by-block figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .shop-by-block h3 {
+        margin-bottom: 10px;
+    }
+    
+    .shop-by-block a {
+        display: block;
+        color: #3eaafd;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .shop-by-block svg {
+        height: 13px;
+        float: right;
+        position: relative;
+        top: 3px;
+    }
+    
+</style>

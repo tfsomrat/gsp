@@ -1,0 +1,59 @@
+{% include 'check-wholesale' %}
+</div>
+<!-- page-width - breaks pagewidth from theme.liquid -->
+<header class="page-header collection">
+  <div class="page-width">
+    <h1>{{ collection.title }}{% if current_tags != blank %} - <small>{{current_tags}}</small>{% endif %}</h1>
+    {% if collection.all_tags.size > 0 %}
+      {% include 'sort-collections' %}
+    {% endif %}
+  </div>
+  <!-- page-wdith -->
+</header>
+<div class="page-width">
+<!-- re-opens page-width from theme.liquid -->
+  {% if collection.description != blank %}
+    <div class="rte collection-description">
+        {{ collection.description }}
+    </div>
+  {% endif %}
+  {% if collection.handle == 'metal-signs' %}
+
+    <!-- left herre in coment in case it wants ot be added back in -->
+
+    {% capture thisCollection %}{{ collection.handle }}{% endcapture %}
+    {% if linklists[thisCollection].links.size > 0 %}
+      <div class="grid subcollections">
+        <div class="grid__item one-whole">
+          <h2>Browse Sub Collections:</h2>
+        </div>
+        <!-- grid__item -->
+        <!-- if this collection has sub collections available show these -->
+        {% for link in linklists[thisCollection].links %}
+          {% include 'list-sub-collections', grid_item_width:'small--one-half medium--one-half large-up--one-quarter' %}
+        {% endfor %}
+        <div class="grid__item one-whole">
+          <h2>or Browse all <em>{{ collection.title }}</em></h2>
+        </div>
+        <!-- grid__item -->
+      </div>
+      <!-- grid -->
+    {% endif %}
+
+  {% endif %}
+
+  <div class="grid">
+    <!-- otherwise just show products in the collection instead -->
+    {% for product in collection.products %}
+      {% include 'product-list-item', grid_item_width:'medium--one-half large-up--one-quarter' %}
+    {% endfor %}
+  </div>
+  <!-- grid -->
+  <header class="page-header collection bottom">
+    <div class="page-width">
+      {% if collection.all_tags.size > 0 %}
+        {% include 'sort-collections-bottom' %}
+      {% endif %}
+    </div>
+    <!-- page-wdith -->
+  </header>

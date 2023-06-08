@@ -1,0 +1,99 @@
+<form action="/search" method="get" role="search">
+    <label for="Search" class="label-hidden">{{ 'general.search.placeholder' | t }}</label>
+    <input type="hidden" name="type" value="article">
+    <input type="hidden" name="view" value="pet-portal">
+    <input type="search" name="q" class="Search" value="" placeholder="{% if search.performed %}Search Again{% else %}{{ 'general.search.placeholder' | t }}{% endif %}">
+    <button class="search-button blog" type="submit">{% include 'icon-search' %}<span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span></button>
+  </form>
+
+  {% assign counter = 0 %}
+    <!-- A recursive loop to catch and filter out the different tag categories -->
+    {% assign c = 0 %}
+    {% for t in blog.all_tags %}
+        {% capture cat %}{{ cat }}{% capture temp_cat %}{% if t contains '_' %}{% assign cat_grp = t | split: '_' %}{{ cat_grp.first }}{% endif %}{% endcapture %}{% unless cat contains temp_cat %}{% if t contains '_' %}{% assign new_cat_grp = t | split: '_' %}{{ new_cat_grp.first }}{% endif %}{% unless forloop.last %}+{% endunless %}{% assign c = c | plus: 1 %}{% endunless %}{% endcapture %}
+    {% endfor %}
+    <!-- create array of tag categories -->
+    {% assign cat_array = cat | split: '+' %}
+    <!-- loop through tag categories -->
+    {% for i in cat_array %}
+    <!-- ignore if tag category is empty -->
+        {% unless i == '' %}
+        <hr class="mt-4 mb-4">
+        {% assign counter = 0 %}
+            <h3 class="subheading" id="{{ i | lowercase }}">{{ i  | replace: '-', ' ' | capitalize }}</h3>
+            <ul class="collection__filter-list {{ i | lowercase }}">
+              {% assign view_all_selected = false %}
+            <!-- loop through blogs tags -->
+            {% for t in blog.all_tags %}
+
+                <!-- if tag contains the category title -->
+                {% if t contains i %}
+                    <!-- strip out tag category prefix and add/remove link for tag filtering -->
+                    {% if current_tags contains t %}
+                        {% assign counter =  counter | plus: 1 %}
+                        {% if counter == 6 %}<div class="see-more">{% endif %}
+
+              			{% assign cat_link = t | remove: i | remove: '_' | replace: '-', ' ' | replace: ':', ' ' %}
+                        {% if cat_link == blank %}
+                        	{% assign cat_link = 'View All' %}
+                        	{% assign view_all_selected = true %}
+                        {% endif %}
+                                <li class="selected">{{ cat_link | append: '&nbsp;<span>x</span>' | link_to_remove_tag: t }}</li>
+                        {% else %}
+                        {% assign counter =  counter | plus: 1 %}
+                        {% if counter == 6 %}<div class="see-more">{% endif %}
+                            <li>{{ t | remove: i | remove: '_' | replace: '-', ' ' | link_to_tag: t }}</li>
+                        {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% if counter > 5 %}</div>{% endif %}
+              {% if view_all_selected == false %}
+            <li><a href="/blogs/{{ blog.handle }}/tagged/{{ i  | replace: '-', ' ' | replace: ' ', '-' | downcase }}">View All</a></li>
+              {% endif %}
+            </ul>
+        {% endunless %}
+        {% if counter > 5 %}<div class="view-toggle"><span>See More</span><div class="small-chevron"> {% include 'icon-chevron', fill_color: '#58B0E3', direction: 'down' %} </div></div>{% endif %}
+    {% endfor %}
+
+<script>
+$(document).ready(function(){
+    $('.view-toggle').click(function(){
+        if($(this).children('span').text() == 'See Less') {
+            $(this).children('span').text('See More');
+        } else {
+            $(this).children('span').text('See Less');
+        }
+        $(this).children('.small-chevron').toggleClass('active');
+        $(this).siblings('.collection__filter-list').find('.see-more').slideToggle(500);
+    });
+
+    $('.subheading').click(function(){
+        if ($(window).width() < 968) {
+            var thisID = $(this).attr('id')
+            $('body').find('.' + thisID).slideToggle(500);
+            // $(this).closest('.collection__filter-list').slideToggle(500);
+        }
+    });
+
+})
+</script>
+
+<style>
+.small-chevron {
+    display: inline-block;
+    transition: 0.5s ease-in-out;
+}
+
+.small-chevron svg {
+    transition: 0.5s ease-in-out;
+}
+
+.small-chevron.active svg {
+    transform: rotate(90deg)!important;
+    transition: 0.5s ease-in-out;
+}
+
+.small-chevron svg {
+    height: 10px;
+}
+</style>

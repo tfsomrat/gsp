@@ -1,0 +1,69 @@
+<section class="container page__container">
+	<div class="grid">
+		<div>
+			<h1 class="title">{{ page.title }}</h1>
+			{%- if page.content contains '<h5>' -%}
+			<div class="accordion-description" id="page__description">
+				<div class="accordion-content">
+					{% assign pageWriteUp = page.content | strip_newlines | replace: '<h5>', '</div></div><div class="accordion-tab"><h5 class="accordion-toggle"><i class="icon plus-minus"></i><span class="toggle-text">' %}
+					{% assign pageWriteUp = pageWriteUp | replace: '</h4></div><h5>', '</span></h5><div class="accordion-content">' %}
+					{% assign pageWriteUp = pageWriteUp | replace: '</h5>', '</span></h5><div class="accordion-content">' %}
+					{% assign pageWriteUp = pageWriteUp | replace: '</p><h4>', '</p></div></div><h2 class="title mt-5 mb-4">' %}
+					{% assign pageWriteUp = pageWriteUp | replace: '</p><h4 id="shipping">', '</p></div></div><h2 class="title mt-5 mb-4" id="shipping">' %}
+            {% assign pageWriteUp = pageWriteUp | replace: '</p><h4 id="GetSetSave">', '</p></div></div><h2 class="title mt-5 mb-4" id="GetSetSave">' %}
+            {% assign pageWriteUp = pageWriteUp | replace: '</p><h4 id="clickCollect">', '</p></div></div><h2 class="title mt-5 mb-4" id="clickCollect">' %}
+					{% assign pageWriteUp = pageWriteUp | replace: '</h4></div>', '</h2>' %}
+					{{ pageWriteUp }}
+				</div>
+			</div>
+			{%- else -%}
+				{{ page.content }}
+			{%- endif -%}
+		</div>
+	</div>
+</section>
+<style media="screen">
+	.accordion-toggle {
+		margin: 0px 0px 0px 0px;
+	}
+
+	.accordion-tab {
+		display: block;
+		position: relative;
+		padding: 35px 60px 35px 30px;
+		margin: 0 0 35px 0;
+		background-color: #FFFFFF;
+		border-radius: 5px;
+		box-shadow: 0 0 8px 0 #E6E5E5;
+	}
+
+	.toggle-text {
+		font-size: 18px;
+		color: black;
+	}
+	.accordion-content {
+		display: none;
+		margin-top: 30px;
+		padding-top: 30px;
+		border-top: 1px solid #E6E6E6;
+		margin-right: 50px;
+	}
+	.accordion-content p {
+		margin: 0;
+		font-size: 14px;
+	}
+</style>
+<script>
+	$('.accordion-tab').click(function(){
+		if($(this).find('i').hasClass('active')) {
+			$(this).find('i').removeClass('active');
+			$(this).find('.accordion-content').slideUp('fast');
+		} else {
+			$('.accordion-toggle').find('i').removeClass('active');
+			$('.accordion-content').slideUp();
+			$(this).find('i').toggleClass('active');
+			$(this).find('.accordion-content').slideToggle('fast');
+
+		}
+	});
+</script>

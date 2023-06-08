@@ -1,0 +1,55 @@
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 section-title" >
+            <h1 class="title" style="margin-bottom: 0px;">Get Set Blog</h1>
+        </div>
+        {% for block in section.blocks %}
+        <div class="col-12 col-sm-12 col-md-44@md blog-tag-box box-with-shadow" >
+            <div class="image">
+                <img loading="lazy" src="{{ block.settings.image | img_url: '138x' }}" alt="{{ block.tag }}">
+            </div>
+            <div class="text">
+                <div>
+                    <h2 class="heading">{{ block.settings.tag_title }}</h2>
+                    <a href="blogs/news/tagged/{{ block.settings.blog_tag }}" class="button primary">See All</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Blog Post Tag Categories",
+    "max_blocks": 3,
+    "blocks" : [
+        {
+            "type": "tag",
+            "name": "Tags",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tag_title",
+                    "label": "Title"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image for Blog Tags"
+                },
+                {
+                    "type": "text",
+                    "id": "blog_tag",
+                    "label": "Blog Tag ( Lowercase )"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Tag Categories",
+            "category": "Modules"
+        }
+    ]
+}
+{% endschema %}

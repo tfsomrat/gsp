@@ -1,0 +1,77 @@
+<div class="col-12 col-sm-12">
+	{% unless template == 'index' or template == 'cart' %}
+	 <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+	    <a href="/" title="Home">Home</a>
+    	{% if template contains 'page' %}
+    		<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    		<span>{{ page.title }}</span>
+    	{% elsif template contains 'collection' %}
+
+        {% for link in linklists.shop-by-pet.links %}
+          {% if link.active == true or link.child_active == true %}
+          	<span aria-hidden="true">&nbsp;/&nbsp;</span>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% for sub_link in link.links %}
+              {% if sub_link.active == true or sub_link.child_active == true %}
+                <span aria-hidden="true">&nbsp;/&nbsp;</span>
+                <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                {% for sub_sub_link in sub_link.links %}
+                  {% if sub_sub_link.active == true or sub_sub_link.child_active == true %}
+                    <span aria-hidden="true">&nbsp;/&nbsp;</span>
+                    <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+
+      
+
+
+      {% elsif template contains 'product' %}
+        {% for link in linklists.shop-by-pet.links %}
+          {% if link.active == true or link.child_active == true %}
+            <span aria-hidden="true">&nbsp;/&nbsp;</span>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% for sub_link in link.links %}
+              {% if sub_link.active == true or sub_link.child_active == true %}
+                <span aria-hidden="true">&nbsp;/&nbsp;</span>
+                <a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                {% for sub_sub_link in sub_link.links %}
+                  {% if sub_link.active == true or sub_sub_link.child_active == true %}
+                    <span aria-hidden="true">&nbsp;/&nbsp;</span>
+                    <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% if collection.url %}
+          <span aria-hidden="true">&nbsp;/&nbsp;</span>
+          {{ collection.title | link_to: collection.url }}
+        {% endif %}
+        <span aria-hidden="true">&nbsp;/&nbsp;</span>
+        {{ product.title }}
+    	{% elsif template == 'blog' %}
+    		<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    		{% if current_tags %}
+    		{{ blog.title | link_to: blog.url }}
+    		<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    		<span>{{ current_tags | join: " + " }}</span>
+    		{% else %}
+    		<span>{{ blog.title }}</span>
+    		{% endif %}
+    	{% elsif template == 'article' %}
+    		<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    		{{ blog.title | link_to: blog.url }}
+    		<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    		<span>{{ article.title }}</span>
+    	{% else %}
+    	<span aria-hidden="true">&nbsp;/&nbsp;</span>
+    	<span>{{ page_title }}</span>
+    	{% endif %}
+	</nav>
+	{% endunless %}
+	</div>

@@ -1,0 +1,28 @@
+<div class="row py-5">
+    <div class="col-12">
+        <div class="text-image-bg-{{block.id}}">
+            <div class="text-center">
+                <div class="container container-size__medium">
+                    <p class="title text-white text-center mb-0">{{ block.settings.text }}</p>
+                </div>
+            </div>
+        </div>
+        <style>
+            .text-image-bg-{{block.id}} {
+                background-image:url('{{ block.settings.image | img_url: 'master' }}');
+                    background-position: center center;
+                    background-size: cover;
+                padding: 100px 0px;
+            }
+
+            @media(max-width: 568px) {
+                .text-image-bg-{{block.id}} {
+                    background-image:url('{{ block.settings.image_mobile | img_url: 'master' }}');
+                    background-position: center center;
+                    background-size: cover;
+                    padding: 50px 0px;
+                }
+            }
+        </style>
+    </div>
+</div>

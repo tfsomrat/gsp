@@ -1,0 +1,57 @@
+{{ 'section-lp-banner.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div class="banner-container">
+  <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/image_1_84c9f14f-f913-43b7-b22a-915112573b81.png?v=1669017930" alt="banner" class="bcimg2">
+  <div class="info-container">
+    <h1 id="banh1">{{ section.settings.lp-banner-h }}
+    </h1>
+    <p id="banp">{{ section.settings.lp-banner-p }}
+    </p>
+    <button id="b1" onclick="document.location='/collections/oscar-milo'">{{ section.settings.lp-b1-t }}
+    </button>
+    <button id="b2" onclick="document.location='/pages/oscar-milo-about'">{{ section.settings.lp-b2-t }}
+    </button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "LP Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Banner Image",
+        "id": "lp-banner-i"
+      },
+      {
+        "type": "image_picker",
+        "label": "Banner Image Mobile",
+        "id": "lp-banner-im"
+      },
+      {
+        "type": "text",
+        "label": "Header",
+        "id": "lp-banner-h"
+      },
+      {
+        "type": "text",
+        "label": "Description",
+        "id": "lp-banner-p"
+      },
+      {
+        "type": "text",
+        "label": "Button 1",
+        "id": "lp-b1-t"
+      }, {
+        "type": "text",
+        "label": "Button 2",
+        "id": "lp-b2-t"
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Banner"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,50 @@
+{% if section.blocks.size > 0 %}
+  <div class="page-width">
+    <div class="slick_slider">
+        {% for block in section.blocks %}
+            <a href="{{ block.settings.slide_link }}" class="slide-item">
+                <img loading="lazy"  src="{{ block.settings.image | img_url: '1900x' }}" alt="{{ block.settings.image.alt | escape }}"
+                      data-src="{{ img_url }}"
+                      data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+                      data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                      data-sizes="auto"
+                      data-parent-fit="cover"
+                      class="bg-image"
+                      >
+            </a>
+        {% endfor %}
+    </div>
+    <!-- slide_slider -->
+  </div>
+  <!-- page-width -->
+{% endif %}
+{% schema %}
+{
+"name": "Slideshow",
+"max_blocks": 6,
+"blocks" : [
+  {
+    "type": "slide",
+    "name": "Slide",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "slide_link",
+        "label": "Slide link"
+      }
+    ]
+  }
+  ],
+"presets": [
+  {
+    "name": "Slideshow",
+    "category": "Media"
+  }
+]
+}
+{% endschema %}

@@ -1,0 +1,697 @@
+{% assign nhs_product = false %}
+{% assign nhs_customer = false %}
+{% assign already_in_cart = false %}
+
+{% for item in cart.items %}
+{% if item.product.title == product.title %}
+{% assign already_in_cart = true %}
+{% endif %}
+{% endfor %}
+
+{% for tag in product.tags %}
+{% if tag contains 'NHS' %}
+{% assign nhs_product = true %}
+{% endif %}
+{% endfor %}
+
+{% for tag in customer.tags %}
+{% if tag contains 'nhs_staff' %}
+{% assign nhs_customer = true %}
+{% endif %}
+{% endfor %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+<!-- START Breadcrumbs -->
+<section class="container">
+	<div class="row">
+		{% include 'breadcrumbs' %}
+	</div>
+</section>
+<!-- END Breadcrumbs -->
+<!-- START Product Thumbnails, Product Featured Image and Form -->
+{% if nhs_product == true and product.price <= 0 %}
+	<section class="container" data-section-id="{{ section.id }}" data-section-type="product" test
+		data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+		<div class="row product__main" test> 
+			{%- assign current_variant = product.selected_or_first_available_variant -%}
+			{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+			<!-- START Product Image Thumbnails -->
+			<div class="col-12 col-sm-12 col-md-12 col-lg-1 product__thumbnails">
+				{% if product.images.size > 1 %}
+				<div class="product-image-thumbs">
+					{% for image in product.images %} 
+					<div class="thumb">
+						<img loading="lazy" src="{{ image.src | img_url: '175x175', crop: 'center' }}" alt="{{ image.alt | escape }}">
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+			<!-- END Product Image Thumbnails -->
+			<!-- START Product Featured Image -->
+			<div class="col-12 col-sm-12 col-md-12 col-lg-5 product__featured test">
+				<div class="product-image-large">  
+					{%- if featured_image != blank -%}
+					{% for image in product.images %}
+					{% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+					<div data-slide="{{ image | img_url: 'master' }}" class="embed-responsive embed-responsive-16by9">
+						{{ image.alt | replace: '<iframe', '<iframe class="embed-responsive-item"' }}
+					</div>
+					{% else %}
+					<div data-image-src="{{ image.id }}" test class="chocolat"><a href="{{ image | img_url: 'master' }}"
+							class="chocolat-image" class="glightbox3" data-gallery="gallery1"><img loading="lazy" src="{{ image | img_url: '500x500' }}"
+								alt="{{ featured_image.alt | escape }}" data-product-featured-image></a></div> 
+					{% endif %}
+					{% endfor %}
+					{% else %}
+					<div class="collection__listing-image">
+						<img loading="lazy" style="background: #58b0e3; width:100%;" src="{{ 'missing-image.svg' | asset_url }}" alt="">
+					</div>
+					{%- endif -%}
+					
+				</div>
+			</div>
+			<!-- END Product Featured Image -->
+			<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+				<!-- START Meta -->
+				<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+					<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+					<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+					<link itemprop="availability"
+						href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+				</div>
+				<!-- END Meta -->
+				<h1 class="title product__title" itemprop="name">{{ product.title }}</h1>
+				<div class="see-reviews">
+					<div class="ruk_rating_snippet"
+						data-sku="{{ product.handle }};{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}">
+					</div>
+				</div>
+				<!-- START Form -->
+				<form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data"
+					class="add-to-cart" data-cart-submit>
+					<div class="product__form">
+						<!-- START Product Price -->
+						<div style="margin-top:15px" class="price-wrapper" data-price-wrapper>
+
+							<div class="product__was-price product-page">
+								<span class="save" data-compare-price>
+									{%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+										{{ product.selected_or_first_available_variant.compare_at_price | money }}
+									{%- endif -%}
+								</span>
+							</div>
+
+							{% include 'saw_compute_discount' with product %}
+							<span data-product-price class="price product__price">
+								{{ current_variant.price | money }}
+							</span>
+
+							<!-- START Stock -->
+							<div data-stock-message>
+
+								{% for variant in product.variants %}
+								<div class="variant-inventory varstock-{{ variant.id }}"
+									{% unless variant.id == current_variant.id %}style="display:none;" {% endunless %}>
+									{% if variant.available %}
+									{% if variant.inventory_quantity > 0 and variant.inventory_quantity <= 5 %}
+									<p class="low-stock">Only {{ variant.inventory_quantity }} left in stock.</p>
+									{% else %}
+									<p class="in-stock"><img loading="lazy" src="{{ 'in-stock-tick.svg' | asset_url }}" alt="Tick"> In
+										Stock</p>
+									{% endif%}
+									{% else %}
+									<p class="out-of-stock"><img loading="lazy" src="{{ 'out-of-stock-tick.svg' | asset_url }}" alt="Tick">
+										Out Of Stock</p>
+									{% endif %}
+								</div>
+								{% endfor %}
+
+
+							</div>
+							<!-- END Stock -->
+
+							{% if product.description contains '--' %}
+							<p class="mb-3">{{ product.description | split: '--' | first }}</p>
+							{% endif %}
+						</div>
+						<!-- END Product Price -->
+						<!-- START Hidden Variants -->
+						{% if nhs_product == true and nhs_customer == true %}
+						{% for option in product.options_with_values %}
+						{% unless option.values contains 'Default Title' %}
+						<div class="selector-wrapper option-dropdown js">
+							<label for="SingleOptionSelector-{{ forloop.index0 }}">
+								{{ option.name }}
+							</label>
+							<select id="SingleOptionSelector-{{ forloop.index0 }}" data-single-option-selector
+								data-class="{{ option.name }}" data-index="option{{ option.position }}">
+								{% for value in option.values %}
+								<option value="{{ value | escape }}"
+									{% if option.selected_value == value %}selected="selected" {% endif %}>
+									{{ value }}
+								</option>
+								{% endfor %}
+							</select>
+						</div>
+						<label class="black-label" style="display:block; padding: 5px 0px 0 0;"
+							for="SingleOptionSelector-{{ forloop.index0 }}">
+							{{ option.name }}
+						</label>
+						<div class="option-buttons">
+							{% for value in option.values %}
+							<label class="product__variant-box {% if option.selected_value == value %}selected{% endif %}"
+								for="{{ value }}"><input type="radio" data-sku="{{ product.sku }}"
+									data-rel="{{ option.name }}" name="variant-box" value="{{ value }}" id="{{ value }}"
+									{% if option.selected_value == value %} checked="checked" {% endif %}>{{ value }}
+							</label>
+							{% endfor %}
+						</div>
+						{% endunless %}
+						{% endfor %}
+
+						<!-- END Hidden Variants -->
+						<!-- START Size Boxes -->
+						<select name="id" data-productid="{{ product.id }}" data-productid="{{product.id}}" class="no-js" data-product-select>
+							{% for variant in product.variants %}
+							<option {% if variant == current_variant %}selected="selected" {% endif %}
+								{% unless variant.available %}disabled="disabled" {% endunless %} value="{{ variant.id }}">
+								{{ variant.title }}
+							</option>
+							{% endfor %}
+						</select>
+						<!-- Begin ReCharge code -->
+						{% if product.available %}{% include 'subscription-product' %}{% endif %}
+						<!-- End ReCharge code -->
+
+						<!-- START Quantity Selector -->
+						<div class="product__qty-container ">
+							<br /><label style="padding-right:10px;" class="black-label" for="Quantity">Qty</label>
+							<select class="product__qty" type="text" id="Quantity" name="quantity">
+								<option value="1">1</option>
+							</select>
+						</div>
+						<!-- END Quantity Selector -->
+						{% if already_in_cart == true %}
+						<button type="submit" name="add" style="margin-left: 20px;"
+							class="ml-0 mr-0 ml-md-2 mr-md-2 button primary add_to_cart only-once {% unless current_variant.available %}disabled{% endunless %}"
+							data-add-to-cart {% unless current_variant.available %}disabled="disabled" {% endunless %}>
+							<span data-add-to-cart-text>
+								{% if current_variant.available %}
+								{{ 'products.product.add_to_cart' | t }}
+								{% else %}
+								{{ 'products.product.sold_out' | t }}
+								{% endif %}
+							</span>
+						</button>
+						{% else %}
+						<button type="submit" name="add" style="margin-left: 20px;"
+							class="ml-0 mr-0 ml-md-2 mr-md-2 button primary add_to_cart {% unless current_variant.available %}disabled{% endunless %}"
+							data-add-to-cart {% unless current_variant.available %}disabled="disabled" {% endunless %}>
+							<span data-add-to-cart-text>
+								{% if current_variant.available %}
+								{{ 'products.product.add_to_cart' | t }}
+								{% else %}
+								{{ 'products.product.sold_out' | t }}
+								{% endif %}
+							</span>
+						</button>
+						{% endif %}
+						{% else %}
+						<p>Sorry, this product is only available to NHS staff</p>
+						{% endif %}
+					</div>
+				</form>
+				{% for tag in product.tags %}
+				{% if tag contains 'collect' %}
+				<div class="click-and-collect">
+					<p><img loading="lazy" src="{{ 'icon-mouse.svg' | asset_url }}" alt="Mouse"><strong>Click & collect</strong> -
+						Available at the checkout</p>
+				</div>
+				{% endif %}
+				{% endfor %}
+				
+				<div class="nosto_element" id="productpage-nosto-1"></div>
+		
+				<!-- END Form --> 
+			</div>
+			{%- include 'saw_product_json' with product -%}
+			<script type="application/json" data-product-json>
+			{{- saw_json -}}
+			</script>
+	</section>
+	<script>
+		$(document).ready(function () {
+			$('.add_to_cart').click(function () {
+				$(this).addClass('only-once');
+			})
+		})
+	</script>
+	<style>
+		.only-once {
+			pointer-events: none;
+			opacity: 0.3;
+		}
+	</style>
+{% else %}
+
+<section class="container" data-section-id="{{ section.id }}" data-section-type="product"
+	data-enable-history-state="true" itemscope itemtype="http://schema.org/Product">
+	<div class="row product__main">
+		{%- assign current_variant = product.selected_or_first_available_variant -%}
+		{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+		<!-- START Product Image Thumbnails -->
+		{%- comment -%}
+		<div class="col-12 col-sm-12 col-md-12 col-lg-1 product__thumbnails">
+			{% if product.images.size > 1 %}
+			<div class="product-image-thumbs">
+				{% for image in product.images %}
+				<div class="thumb">
+					<img src="{{ image.src | img_url: '175x175', crop: 'center' }}" alt="{{ image.alt | escape }}">
+				</div>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		{%- endcomment -%}
+		<!-- END Product Image Thumbnails -->
+		<!-- START Product Featured Image -->
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 product__featured">
+			<div class="product-image-large-wrapper">
+			<div class="product-image-large">
+				{%- if featured_image != blank -%}
+				{% for image in product.images %}
+				{% if image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+				<div data-slide="{{ image | img_url: 'master' }}" class="embed-responsive embed-responsive-16by9">
+					{{ image.alt | replace: '<iframe', '<iframe class="embed-responsive-item"' }}
+				</div>
+				{% else %}
+				<div data-image-src="{{ image.id }}" test class="chocolat"><a href="{{ image | img_url: 'master' }}"
+						class="chocolat-image glightbox3" data-gallery="gallery1"
+						href="{{ image | img_url: '500x500' }}"><img loading="lazy"
+							src="{{ image | img_url: '500x500' }}"
+							alt="{{ featured_image.alt | escape }}" data-product-featured-image></a></div>
+				{% endif %} 
+				{% endfor %}
+				{% else %}
+				<div class="collection__listing-image">
+					<img style="background: #58b0e3; width:100%;" src="{{ 'missing-image.svg' | asset_url }}" alt="">
+				</div>
+				{%- endif -%}
+			</div>
+			
+			</div>
+			<div class="row accordion-desktop">
+				<div class="col-12">
+					<div class="accordion">
+						<h5 class="accordion-toggle"><i class="icon accordion"></i><span class="toggle-text">Description</span>
+						</h5>
+						<div class="accordion-content">
+							{% assign productWriteUp = product.description | replace: '<h5>', '</div><h5 class="accordion-toggle"><i class="icon accordion"></i><span class="toggle-text">' %}
+							{% assign productWriteUp = productWriteUp | replace: '</h5>', '</span></h5><div class="accordion-content">' %}
+							{{ productWriteUp | replace: 'src="', 'loading="lazy" src="' }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END Product Featured Image -->
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+			<!-- START Meta -->
+			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+				<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+				<link itemprop="availability"
+					href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+			</div>
+			<!-- END Meta -->
+			<h1 class="title product__title" itemprop="name">{{ product.title }}</h1>
+			<div class="see-reviews">
+				<div class="ruk_rating_snippet"
+					data-sku="{{ product.handle }};{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}">
+				</div>
+			</div>
+			<!-- START Form -->
+			<form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data"
+				class="add-to-cart" data-cart-submit>
+				<div class="product__form">
+					<!-- START Product Price -->
+					<div style="margin-top:15px" class="price-wrapper" data-price-wrapper>
+
+						<div class="product__was-price product-page">
+							<span class="save" data-compare-price>
+								{%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+									{{ product.selected_or_first_available_variant.compare_at_price | money }}
+								{%- endif -%}
+							</span>
+						</div>
+
+						{% include 'saw_compute_discount' with product %}
+						<span data-product-price class="price product__price">
+							{{ current_variant.price | money }}
+						</span>
+
+						<!-- START Stock -->
+						<div data-stock-message>
+
+							{% for variant in product.variants %}
+							<div class="variant-inventory varstock-{{ variant.id }}"
+								{% unless variant.id == current_variant.id %}style="display:none;" {% endunless %}>
+								{% if variant.available %}
+								{% if variant.inventory_quantity > 0 and variant.inventory_quantity <= 5 %}
+								<p class="low-stock">Only {{ variant.inventory_quantity }} left in stock.</p>
+								{% else %}
+								<p class="in-stock"><img src="{{ 'in-stock-tick.svg' | asset_url }}" alt="Tick"> In
+									Stock</p>
+								{% endif%}
+								{% else %}
+								<p class="out-of-stock"><img src="{{ 'out-of-stock-tick.svg' | asset_url }}" alt="Tick">
+									Out Of Stock</p>
+								{% endif %}
+								
+							</div>
+							{% endfor %}
+
+
+						</div>
+						<!-- END Stock -->
+						{% if product.description contains '--' %}
+						<p class="mb-3">{{ product.description | split: '--' | first }}</p>
+						{% endif %}
+					</div>
+
+
+					<!-- END Product Price -->
+					<!-- START Hidden Variants -->
+					{% for option in product.options_with_values %}
+					{% unless option.values contains 'Default Title' %}
+					<div class="selector-wrapper option-dropdown js">
+						<label for="SingleOptionSelector-{{ forloop.index0 }}">
+							{{ option.name }}
+						</label>
+						<select id="SingleOptionSelector-{{ forloop.index0 }}" data-single-option-selector
+							data-class="{{ option.name }}" data-index="option{{ option.position }}">
+							{% for value in option.values %}
+							<option value="{{ value | escape }}"
+								{% if option.selected_value == value %}selected="selected" {% endif %}>
+								{{ value }}
+							</option>
+							{% endfor %}
+						</select>
+					</div>
+					<label class="black-label" style="display:block; padding: 5px 0px 0 0;"
+						for="SingleOptionSelector-{{ forloop.index0 }}">
+						{{ option.name }}
+					</label>
+					<div class="option-buttons">
+						{% for value in option.values %}
+						<label class="product__variant-box {% if option.selected_value == value %}selected{% endif %}"
+							for="{{ value }}"><input type="radio" data-sku="{{ product.sku }}"
+								data-rel="{{ option.name }}" name="variant-box" value="{{ value }}" id="{{ value }}"
+								{% if option.selected_value == value %} checked="checked" {% endif %}>{{ value }}
+						</label>
+						{% endfor %}
+					</div>
+					{% endunless %}
+					{% endfor %}
+
+					<!-- END Hidden Variants -->
+					<!-- START Size Boxes -->
+					<select name="id" data-productid="{{ product.id }}" data-productid="{{product.id}}" class="no-js" data-product-select>
+						{% for variant in product.variants %}
+						<option {% if variant == current_variant %}selected="selected" {% endif %}
+							{% unless variant.available %}disabled="disabled" {% endunless %} value="{{ variant.id }}">
+							{{ variant.title }}
+						</option>
+						{% endfor %}
+					</select>
+					<!-- Begin ReCharge code -->
+					{% if product.available %}{% include 'subscription-product' %}{% endif %}
+					<!-- End ReCharge code -->
+
+					<!-- START Quantity Selector -->
+					<div class="product__qty-container ">
+						<br /><label style="padding-right:10px;" class="black-label quantity-label" for="Quantity">Qty</label>
+						<select class="product__qty" type="text" id="Quantity" name="quantity">
+						    {% assign inventory = current_variant.inventory_quantity %}
+							{% if inventory == 0 %}
+									<option value="0">0</option>
+							{% else %}
+								{% for i in (1..inventory) limit:10 %}
+									<option value="{{ i }}">{{ i }}</option>
+								{% endfor %}
+							{% endif %}
+							
+							{% comment %} <option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option> {% endcomment %}
+						</select>
+					</div>
+
+						<script>
+							var inv_qty = {};
+							{% for var in product.variants %}
+								inv_qty[{{- var.id -}}] = {{ var.inventory_quantity | default: 0 }};
+							{% endfor %}
+						</script>
+
+						{% comment %} <span class="var-inventory">{{ current_variant.inventory_quantity }}</span> {% endcomment %}
+
+					<!-- END Quantity Selector -->
+					<button type="submit" name="add" style="margin-left: 20px;"
+						class="ml-0 mr-0 ml-md-2 mr-md-2 button primary add_to_cart {% unless current_variant.available %}disabled{% endunless %}"
+						data-add-to-cart {% unless current_variant.available %}disabled="disabled" {% endunless %}>
+						<span data-add-to-cart-text>
+							{% if current_variant.available %}
+							{{ 'products.product.add_to_cart' | t }}
+							{% else %}
+							{{ 'products.product.sold_out' | t }}
+							{% endif %}
+						</span>
+					</button>
+			<div class="row accordion-mobile">
+				<div class="col-12">
+					<div class="accordion">
+						<h5 class="accordion-toggle"><i class="icon accordion"></i><span class="toggle-text">Description</span>
+						</h5>
+						<div class="accordion-content">
+							{% assign productWriteUp = product.description | replace: '<h5>', '</div><h5 class="accordion-toggle"><i class="icon accordion"></i><span class="toggle-text">' %}
+							{% assign productWriteUp = productWriteUp | replace: '</h5>', '</span></h5><div class="accordion-content">' %}
+							{% assign weightAmount = variant.weight | weight_with_unit: variant.weight_unit | remove: ' ' %}
+							{{ productWriteUp | prepend: '</p><br>' | prepend: weightAmount | prepend: '<span class="weight-text">Weight:</span>' | prepend: '<p class="weight-description">' | replace: 'src="', 'loading="lazy" src="' }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(document).ready(function() {
+					$('.accordion').find('.accordion-toggle').click(function(){
+					//Expand or collapse this panel
+					$(this).next().slideToggle('fast')
+					$(this).toggleClass('open');
+					//Hide the other panels
+					$(".accordion-content").not($(this).next()).slideUp('fast')
+					$('.accordion-toggle').not(this).removeClass('open');
+					});
+
+					// show the first accordion element on page load
+					$(".accordion .accordion-toggle:first").trigger("click");
+				});
+			</script>
+				</div>
+			</form>
+			{% for tag in product.tags %}
+			{% if tag contains 'collect' %}
+			<div class="click-and-collect">
+				<p><img src="{{ 'icon-mouse.svg' | asset_url }}" alt="Mouse"><strong>Click & collect</strong> -
+					Available at the checkout</p>
+			</div>
+			{% endif %}
+			{% endfor %}
+			<div id="productBoughtTogether"></div>
+			<!-- END Form -->
+		</div>
+
+		{%- include 'saw_product_json' with product -%}
+		<script type="application/json" data-product-json>
+		{{- saw_json -}}
+		</script>
+</section>
+{% endif %}
+
+
+<script>
+	$(document).ready(function () {
+		$('.chocolat').Chocolat({
+			imageSize: 'contain'
+		});
+	});
+
+	$(document).ready(function () {
+		{% if product.images.size > 1 %}
+		$('.product-image-large').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			fade: false,
+			infinite: false,
+			adaptiveHeight: true,
+			dots: true,
+			responsive: [{
+				breakpoint: 968,
+				settings: {
+					dots: false
+				}
+			}]
+		});
+		$('.product-image-thumbs').slick({
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			asNavFor: '.product-image-large',
+			dots: false,
+			infinite: false,
+			center: false,
+			arrows: true,
+			vertical: true,
+			verticalSwiping: true,
+			focusOnSelect: true,
+			responsive: [{
+				breakpoint: 968,
+				settings: {
+					slidesToShow: 3,
+					dots: true,
+					arrows: false,
+					vertical: false
+				}
+			}, ]
+		}); {% endif %}
+
+
+		$('ul.tabs li').click(function () {
+			var tab_id = $(this).attr('data-tab');
+			$('ul.tabs li').removeClass('current');
+			$('.tab-content').removeClass('current');
+			$(this).addClass('current');
+			$("#" + tab_id).addClass('current');
+			if ($(window).width() < 768) {
+				$(this).appendTo('ul.tabs');
+			} 
+		});
+
+		function productThumnailPlacement() {
+			if ($(window).width() < 968) {
+				$('.product__featured').prependTo($('.product__main'))
+			} else {
+				$('.product__thumbnails').prependTo($('.product__main'))
+			}
+		}
+
+		productThumnailPlacement();
+
+		$(window).resize(function () {
+			// productThumnailPlacement();
+		});
+
+		$('#tab-1').addClass('current');
+
+		if ($(window).width() < 768) {
+			$('ul.tabs li.current').appendTo('ul.tabs');
+		}
+	});
+
+	function imageChange() {
+		var productSku = $('[data-product-sku]').text();
+		var productSkuCounter = 0;
+		$('.thumb').each(function () {
+			if ($(this).children('img').attr('alt') == productSku) {
+				$(this).removeClass('hidden-thumb');
+				productSkuCounter = productSkuCounter + 1;
+				console.log(productSkuCounter);
+			} else {
+				$(this).addClass('hidden-thumb');
+			}
+		});
+
+		if (productSkuCounter == 0) {
+			$('.thumb').removeClass('hidden-thumb');
+		}
+	}
+
+	$(document).on('change', 'input[type="radio"]', function () {
+		var swatch_value = $(this).val();
+		var swatch_type = $(this).attr("data-rel");
+		var data_select = $('body').find('select[data-class="' + swatch_type + '"]');
+		data_select.val(swatch_value);
+		data_select.trigger('change');
+		$(this).parents().children($('.product__variant-box')).removeClass('selected');
+		$(this).parent('.product__variant-box').addClass('selected');
+		imageChange();
+	});
+
+	$(document).ready(function () {
+
+		$('.frequency__container').hide();
+	});
+</script>
+<!-- END JS -->
+
+<style>
+	.product-image-thumbs {
+		margin-top: 45px;
+	}
+
+	.slick-prev {
+		/* display: block;
+    position: absolute;
+    top: -20px;
+    transform: rotate(90deg);
+    left: 55%;
+	width: auto; */
+		display: block;
+		position: absolute;
+		top: -20px;
+		transform: rotate(90deg);
+		left: 45%;
+		width: 22px;
+		height: 26px;
+	}
+
+	.slick-dots li {
+		background: white !important;
+		border: 2px solid #26536D !important;
+		border-radius: 100% !important;
+		height: 10px !important;
+		width: 10px !important;
+	}
+
+	.slick-dots li.slick-active {
+		background: #26536D !important;
+		border: 2px solid #26536D !important;
+		border-radius: 100% !important;
+	}
+
+	.slick-dots li button:before {
+		display: none;
+	}
+
+	.slick-next {
+		display: block;
+		position: absolute;
+		top: 100%;
+		transform: rotate(90deg);
+		left: 55%;
+		width: 10px;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		width: 10px;
+	}
+</style>

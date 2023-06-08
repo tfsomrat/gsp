@@ -1,0 +1,61 @@
+{{ 'section-custom-banner.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div id="cb-container">
+  <div id="cb-img">
+    <a href="{{ section.settings.cb-iu-s }}">
+      <img 
+        id="cb-img-d" 
+        srcset="{{ section.settings.cb-img-s | img_url: 'master' }} 1355w, {{ section.settings.cb-img-sm | img_url: 'master' }} 600w"
+        sizes="(max-width: 600px) 600px, 1355px"
+        alt="Banner"
+        loading="lazy">
+    </a>
+  </div>
+  <div class="cb-desc">
+    <p class="custom-p">{{ section.settings.cb-p-s }}</p>
+    <a href="{{ section.settings.cb-bu-s }}" id="cb-button">{{ section.settings.cb-bt-s }}</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Image Desktop",
+        "id": "cb-img-s"
+      },
+      {
+        "type": "image_picker",
+        "label": "Image Mobile",
+        "id": "cb-img-sm"
+      },
+      {
+        "type": "url",
+        "label": "Image URL",
+        "id": "cb-iu-s"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "cb-p-s"
+      },
+      {
+        "type": "text",
+        "label": "Button Text",
+        "id": "cb-bt-s"
+      }, 
+      {
+        "type": "url",
+        "label": "Button URL",
+        "id": "cb-bu-s"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Banner"
+      }
+    ]
+  }
+{% endschema %}

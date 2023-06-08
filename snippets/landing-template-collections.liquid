@@ -1,0 +1,107 @@
+{%- capture section_id -%}slider-{{section.id}}{%- endcapture -%}
+<div class="container">
+    <div class="row py-5">
+        {% if block.settings.title != blank %}
+            <div class="col-12 col-sm-12 text-center">
+                <h2 class="title text-center mb-3 mb-sm-4{{ block.settings.title_icon }}">{{ block.settings.title }}</h2>
+            </div>
+        {% endif %}
+        <div class="{{ section_id }}">
+        {%- for link in linklists[block.settings.navigation_list].links -%}
+            {%- assign collection = collections[link.handle] -%}
+            <div class="{{ section_id }}-slide">
+                <a href="{% if collection == empty %}#{% else %}{{ collection.url }}{% endif %}" class="image">
+                {% if collection.image != blank %}
+                    {{ collection | img_url: '175x175' | img_tag: collection.title }}
+                {% elsif collection.products.first != blank %}
+                    {{ collection.products.first | img_url: 'large' | img_tag: collection.title }}
+                {% elsif collection == empty %}
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                {%- else -%}
+                    <img loading="lazy" 
+                        src="{{ 'placeholder.png' | asset_url }}"
+                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-sizes="auto"
+                        alt="{{ collection }}">
+                {% endif %}
+                </a>
+                <p class="detail">
+                    {% if collection == empty %}
+                        {{ 'homepage.onboarding.collection_title' | t }}
+                    {% else %}
+                        <a href="{{ collection.url }}">{{ collection.title }}</a>
+                    {% endif %}
+                </p>
+            </div>
+        {%- endfor -%}
+        </div>
+    </div>
+    <style>
+        .{{ section_id }}-slide {
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 0 8px 0 #E6E5E5;
+            margin: 10px;
+        }
+    
+        .{{ section_id }}-slide img {
+            margin: auto;
+            padding: 20px 10px 10px 10px;
+            max-width: 190px;
+        }
+    
+        .{{ section_id }}-slide .detail, .{{ section_id }}-slide .detail a {
+            color: black;
+            text-decoration: none;
+            margin: 15px 0px 25px;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.{{ section_id }}').slick({
+                infinite: true,
+                slidesToShow: 6,
+                arrows: false,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [
+                    {
+                        breakpoint: 920,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 4,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 720,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 568,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        })
+    </script>
+</div>

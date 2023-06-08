@@ -1,0 +1,8 @@
+{% assign wholesale_customer = "" %}
+{% for tag in customer.tags %}
+    {% if customer.tags contains 'wholesale' or customer.tags contains 'trade'  %}
+        {% assign wholesale_customer = "trade" %}
+    {% else %}
+        {% assign wholesale_customer = "" %}
+    {% endif %}
+{% endfor %}

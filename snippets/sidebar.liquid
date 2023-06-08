@@ -1,0 +1,101 @@
+<div class="sidebar">
+  {% unless template == 'search' %}
+
+
+    {% if template == 'blog' or template == 'article' %}
+    <div class="sidebar-block">
+      <h3>{{ 'blogs.general.categories' | t }}</h3>
+      <ul class="categories">
+        {% for tag in blog.all_tags %}
+          {% if current_tags contains tag %}
+            <li>{{ tag }}</li>
+          {% else %}
+            <li>{{ tag | link_to_tag: tag }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <!-- sidebar-block -->
+
+    <div class="sidebar-block">
+      <h3>Newsletters</h3>
+      <form method="post" {% if section.settings.form_action != '' %} action="{{ section.settings.form_action }}"  {% else %}  action="/contact#contact_form" {% endif %} accept-charset="UTF-8">
+          <input type="hidden" value="customer" name="form_type" />
+          <input type="hidden" name="utf8" value="✓" />
+          <input type="email" value="" placeholder="{{ 'general.ui.newsletter_placeholder_text' | t }}" name="contact[email]" id="Email" aria-label="email@example.com">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="submit" class="btn" name="subscribe" id="subscribe" value="&rarr;">
+      </form>
+      <div class="clearfix"></div>
+    </div>
+    <!-- sidebar-block -->
+    {% endif %}
+
+  {% else %}
+
+  <div class="sidebar-block">
+    <h3>Search Again</h3>
+    {% include 'search' %}
+  </div>
+  
+    {% unless search.results_count == 0 %}
+      <div class="sidebar-block">
+        <h3>Filter</h3>
+        <h4>Category</h4>
+        <ul class="filter-list">
+        {% assign tagList = ',' %}
+          {% for item in search.results %}
+            {% for tag in item.tags  %}
+              {% unless tagList contains tag %}
+                {% unless tag contains 'linksto:' or tag contains 'cost:' or tag contains 'sku:' %}
+                  <li><a href="search?q={{ search.terms | handleize }}+{{ tag | handleize }}">- {{ tag }}</a></li>
+                  {% capture tagList %}{{ tagList }},{{ tag }},{% endcapture %}
+                {% endunless %}
+              {% endunless %}
+            {% endfor %}
+          {% endfor %}
+        </ul>
+        <hr />
+        <h4>Brand</h4>
+        <ul class="filter-list">
+          {% assign vendorList = ',' %}
+            {% for item in search.results %}
+              {% capture compareVendor %},{{ item.vendor }},{% endcapture %}
+              {% unless vendorList contains compareVendor %}
+                <li><a href="search?q={{ search.terms | handleize }}+{{ item.vendor | escape | handleize }}">- {{ item.vendor }}</a></li>
+                {% capture tempList %}{{ vendorList }}{{ item.vendor }},{% endcapture %}
+                {% assign vendorList = tempList %}
+              {% endunless %}
+            {% endfor %}
+        </ul>
+        {%- assign p1 = "" -%}
+        {%- assign p2 = "" -%}
+        {%- assign p3 = "" -%}
+        {%- assign p4 = "" -%}
+        {%- for item in search.results -%}
+          {%- for tag in item.tags -%}
+            {% if tag contains 'cost:p1' %}{%- assign p1 = "found" -%}{% endif %}
+            {% if tag contains 'cost:p2' %}{%- assign p2 = "found" -%}{% endif %}
+            {% if tag contains 'cost:p3' %}{%- assign p3 = "found" -%}{% endif %}
+            {% if tag contains 'cost:p4' %}{%- assign p4 = "found" -%}{% endif %}
+          {%- endfor -%}
+        {%- endfor -%}
+        {% if p1 == 'found' or p2 == 'found' or p3 == 'found' or p4 == 'found' %}
+          <hr />
+          <h4>Cost</h4>
+          <ul class="filter-list">
+            {% if p1 == 'found' %}<li><a href="search?q={{ search.terms | handleize }}+cost:p1">&pound;</a></li>{% endif %}
+            {% if p2 == 'found' %}<li><a href="search?q={{ search.terms | handleize }}+cost:p2">&pound; &pound;</a></li>{% endif %}
+            {% if p3 == 'found' %}<li><a href="search?q={{ search.terms | handleize }}+cost:p3">&pound; &pound; &pound;</a></li>{% endif %}
+            {% if p4 == 'found' %}<li><a href="search?q={{ search.terms | handleize }}+cost:p4">&pound; &pound; &pound; &pound;</a></li>{% endif %}
+          </ul>
+        {% else %}
+          <p>&nbsp;</p>
+        {% endif %}
+      </div>
+      <!-- sidebar-block -->
+    {% endunless %}
+  {% endunless %}
+
+</div>
+<!-- sidebar -->

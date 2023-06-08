@@ -1,0 +1,227 @@
+{% capture minimumthreshold %}
+	{% for block in section.blocks %}
+		{% if forloop.first == true %}
+			{{ block.settings.price_threshold | times: 1 }}
+		{% endif %}
+	{% endfor %}
+{% endcapture %}
+{% if section.settings.enable-popup %}
+<div class="cart-popup hidden">
+	<div class="cart-popup--content">
+		<div class="cart-popup--content-text">
+			<h2>Free Gift Available!</h2>
+			<p class="description">Thanks for Spending</h2>
+			<hr>
+			<div class="row align-self-center">
+			{% assign cart_total = cart.total_price | remove: '.' | times: 1 %}
+			{% for block in section.blocks %}
+			{% assign thisThreshold = block.settings.price_threshold | times: 1 %}
+				{% if cart_total >= thisThreshold %}
+					{% assign product = all_products[block.settings.offer_product] %}
+					{%- assign current_variant = product.selected_or_first_available_variant -%}
+					<div class="col-12 col-sm-12 col-md-6 pop-up-image {{ product.handle }}"  >
+						{{ product.featured_image | img_url:'300x300' | img_tag }}
+						<h3 class="heading">{{ product.title }}</h3>
+						{% assign before_discount = section.settings.before_discount %}
+						{% assign after_discount = section.settings.after_discount %}
+						{% if after_discount != blank %}
+						<p class="now product__price">
+						{% if after_discount == '00.00' %}
+						Free
+						{% else %}
+						&pound;{{ after_discount }}
+						{% endif %}</p>
+						{% endif %}
+						{% if before_discount != blank %}
+						<p class="was product__exc-vat">&pound;<span>{{ section.settings.before_discount }}</span></p>
+						{% endif %}
+						{% form 'product', product %}
+							<div style="display:none;">
+								<div class="product-variants-holder">
+								{% for option in product.options_with_values %}
+									<div class="product-variant selector-wrapper hidden">
+										<label for="product-{{ option.name | downcase | strip }}">{{ option.name }}</label>
+										<select class="product-variants" id="product-{{ option.name | downcase | strip }}">
+										{% for value in option.values %}
+											<option {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+										{% endfor %}
+										</select>
+									</div>
+								{% endfor %}
+									<select id="productSelect" name="id" class="styled" style="display: none;">
+									{% for variant in product.variants %}
+									{% if variant.available %}
+										<option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+										{{ variant.title }}
+										</option>
+									{% else %}
+										<option disabled="disabled">{{ variant.title }}</option>
+									{% endif %}
+									{% endfor %}
+									</select>
+									<input type="number" name="quantity" value="1" min="1" max="999" class="quantity-selector" aria-label="{{ 'product.quantity' | t }}">
+								</div>
+							</div>
+							<div style="text-align: center;">
+							<button
+								type="submit"
+								name="add"
+								data-attr="{{ product.handle }}"
+								class="button primary full-width add_to_cart {% unless current_variant.available %}disabled{% endunless %}"
+								data-add-to-cart
+								{% unless current_variant.available %}disabled="disabled"{% endunless %}>
+								<span data-add-to-cart-text>
+									{% if current_variant.available %}
+									{{ 'products.product.add_to_cart' | t }}
+									{% else %}
+									{{ 'products.product.sold_out' | t }}
+									{% endif %}
+								</span>
+							</button>
+							</div>
+						{% endform %}
+					</div>
+				{% endif %}
+			{% endfor %}
+			</div>
+			<div class="col-12 col-sm-12 col-md-12">
+				<a href="/checkout" class="button full-width secondary">Checkout</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% assign offer_prod_in_cart = 'not_incart' %}
+{% capture free_gift_products %}
+	{% for block in section.blocks %}
+	{% assign product = all_products[block.settings.offer_product] %}
+		{{ product.title}}
+	{% endfor %}
+{% endcapture %}
+
+{% for item in cart.items %}
+	{% if free_gift_products contains item.product.title %}
+	{% assign offer_prod_in_cart = 'incart' %}
+	<script>
+		$(document).ready(function(){
+			$('.checkout-button').hide();
+			$('.checkout-btn').show();
+		});
+	</script>
+	{% endif %}
+{% endfor %}
+
+{% assign cart_total = cart.total_price | remove: '.' | times: 1 %}
+{% assign minimumthreshold = minimumthreshold | times: 1 %}
+{% if offer_prod_in_cart == 'not_incart' %}
+	{% if cart_total > minimumthreshold %}
+		<style>
+			.ajaxified-cart-feedback {
+				display: none!important;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+
+				$(document).on('click', '.add_to_cart', function() {
+					var thisHandle = $(this).attr('data-attr');
+					$('body').find('.' + thisHandle).addClass('added');
+				});
+
+				$('.checkout-button').click(function() {
+					console.log("Works");
+					$('.cart-popup').removeClass('hidden');
+				});
+
+				$('.close').click(function() {
+					$('.cart-popup').addClass('hidden');
+				});
+				
+				$('.popup-yes').click(function(){
+					setTimeout(function(){
+						var thisRedirect = $('input[name="return_to"]').val();
+						window.location.href = thisRedirect;
+					}, 500);
+				});
+				
+				$(document).on('click', 'pop-up-image .add_to_cart', function(event) {
+					event.preventDefault();
+					$(this).parents('form').submit();
+					setTimeout(function(){
+						$(this).parents('form').hide();
+					}, 1000);
+				});
+
+
+				$('.popup-no').click(function(){
+					window.location.href = 'https://get-set-pet-store.myshopify.com/checkout';
+				});
+
+				$('#checkout-btn').click(function(e) {
+					if(!$('body').hasClass('hide-popup')) {
+						e.preventDefault();
+						$('html').toggleClass('popup');
+					}
+					$('.cart-popup').toggleClass('hidden');
+				});
+				
+				$( ".cart-popup span.close" ).click(function() {
+					if(!$('body').hasClass('show-popup')) {
+						$('html').toggleClass('popup');
+						$('.cart-popup').toggleClass('hidden');
+						window.location.replace('/checkout');
+					}
+				});
+			});
+
+			$(document).on('click', '.recurring_radio_btn', function() {
+				$('.cart-popup').addClass('hidden-over');
+			});
+
+			$(document).on('click', '.one_time_radio_btn', function() {
+				$('.cart-popup').removeClass('hidden');
+			});
+
+		</script>
+	{% else %}
+		<script>
+			$(document).ready(function(){
+				$('.checkout-button').hide();
+				$('.checkout-btn').show();
+			});
+		</script>
+	{% endif %}
+{% endif %}
+
+{% schema %}
+	{
+		"name": "Cart Popup",
+		"settings": [
+			{ 
+				"type": "checkbox",  
+				"id": "enable-popup", 
+				"label": "Enable popup.", 
+				"default": true 
+			}
+		],
+		"blocks": [
+			{
+				"type": "threshold",
+				"name": "Threshold",
+				"settings": [
+					{
+						"type": "text",
+						"id": "price_threshold",
+						"label": "Price Threshold"
+					},
+					{
+						"type": "product",
+						"id": "offer_product",
+						"label": "Product on Offer"
+					}
+				]
+			}
+		]
+	}
+{% endschema %}

@@ -1,0 +1,383 @@
+{%- capture section_id -%}slider-{{section.id}}{%- endcapture -%}
+<section class="{{section_id}} container page-width">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="slider-flexible-1">
+				{% for block in section.blocks %}
+					{% if block.type == 'Slide' %}
+						<div {% unless forloop.first %}class="slide-secondary"{% endunless %}>
+							<div class="align-self-center">
+								{% if block.settings.button_url != '' %}<a href="{{ block.settings.button_url }}">{% endif %}
+									<img loading="lazy" class="desktop slider-1-flexible-img" data-lazy="{{ block.settings.image | img_url: '1000x' }}" alt="{{ block.settings.image.alt }}">
+										<img loading="lazy" class="mobile" data-lazy="{{ block.settings.image_mobile | img_url: '700x' }}" alt="{{ block.settings.image.alt }}">
+								{% if block.settings.button_url != '' %}</a>{% endif %}
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="slider-flexible__right-col slider-flexible__desktop-slider">
+				<div class="slider-flexible-2">
+					{% for block in section.blocks %}
+						{% if block.type == 'Slide-2' %}
+							<div {% unless forloop.first %}class="slide-secondary"{% endunless %} >
+								<div class="align-self-center">
+									{% if block.settings.button_url != '' %}<a href="{{ block.settings.button_url }}">{% endif %}
+										<img loading="lazy" class="desktop slider-2-flexible-img" data-lazy="{{ block.settings.image | img_url: '550x250' }}" alt="{{ block.settings.image.alt }}">
+											<img class="mobile" data-lazy="{{ block.settings.image_mobile | img_url: '700x' }}" alt="{{ block.settings.image.alt }}">
+									{% if block.settings.button_url != '' %}</a>{% endif %}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="slider-flexible-3">
+					{% for block in section.blocks %}
+						{% if block.type == 'Slide-3' %}
+							<div {% unless forloop.first %}class="slide-secondary"{% endunless %}>
+								<div class="align-self-center">
+									{% if block.settings.button_url != '' %}<a href="{{ block.settings.button_url }}">{% endif %}
+										<img loading="lazy" class="desktop slider-3-flexible-img" data-lazy="{{ block.settings.image | img_url: '550x250' }}" alt="{{ block.settings.image.alt }}">
+											<img class="mobile" data-lazy="{{ block.settings.image_mobile | img_url: '700x' }}" alt="{{ block.settings.image.alt }}">
+									{% if block.settings.button_url != '' %}</a>{% endif %}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			
+			<div class="slider-flexible__right-col slider-flexible__mobile-slider">
+				<div class="slider-flexible-4-mobile">
+					<div class="slider-flexible-2-mobile">
+						{% for block in section.blocks %}
+							{% if block.type == 'Slide-2' %}
+								<div {% unless forloop.first %}class="slide-secondary"{% endunless %} style="background-image:url({{ block.settings.image_background | img_url }});">
+									<div class="align-self-center">
+										{% if block.settings.button_url != '' %}<a href="{{ block.settings.button_url }}">{% endif %}
+											<img class="desktop slider-2-flexible-img" data-lazy="{{ block.settings.image | img_url: '550x250' }}" alt="{{ block.settings.image.alt }}">
+												<img class="mobile" data-lazy="{{ block.settings.image_mobile | img_url: '700x' }}" alt="{{ block.settings.image.alt }}">
+										{% if block.settings.button_url != '' %}</a>{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class="slider-flexible-3-mobile">
+						{% for block in section.blocks %}
+							{% if block.type == 'Slide-3' %}
+								<div {% unless forloop.first %}class="slide-secondary"{% endunless %} style="background-image:url({{ block.settings.image_background | img_url }});">
+									<div class="align-self-center">
+										{% if block.settings.button_url != '' %}<a href="{{ block.settings.button_url }}">{% endif %}
+											<img class="desktop slider-3-flexible-img" data-lazy="{{ block.settings.image | img_url: '550x250' }}" alt="{{ block.settings.image.alt }}">
+												<img class="mobile" data-lazy="{{ block.settings.image_mobile | img_url: '700x' }}" alt="{{ block.settings.image.alt }}">
+										{% if block.settings.button_url != '' %}</a>{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+{% schema %}
+{
+	"name": "Slider Flexible",
+	"max_blocks": 10,
+	"blocks" : [
+		{
+			"type": "Slide",
+			"name": "Slide",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Desktop Image (1000 x 664)"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_mobile",
+					"label": "Mobile Image"
+				},
+				{
+					"type": "url",
+					"id": "button_url",
+					"label": "Button URL"
+				}
+			]
+		},
+		{
+			"type": "Slide-2",
+			"name": "Slide-2",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Desktop Image (1000 x 332)"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_mobile",
+					"label": "Mobile Image"
+				},
+				{
+					"type": "url",
+					"id": "button_url",
+					"label": "Button URL"
+				}
+			]
+		},
+		{
+			"type": "Slide-3",
+			"name": "Slide-3",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Desktop Image (1000 x 332)"
+				},
+				{
+					"type": "image_picker",
+					"id": "image_mobile",
+					"label": "Mobile Image"
+				},
+				{
+					"type": "url",
+					"id": "button_url",
+					"label": "Button URL"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Slider Flexible",
+			"category": "Modules"
+		}
+	]
+}
+{% endschema %}
+<script>
+
+$(function() {
+	$('.slider-flexible-1').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: false,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+	});
+
+	$('.slider-flexible-2').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: false,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+	});
+
+	$('.slider-flexible-3').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: false,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+	});
+
+	$('.slider-flexible-2-mobile').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: false,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+		swipe: false
+	});
+
+	$('.slider-flexible-3-mobile').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: true,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+		swipe: false
+	});
+
+	$('.slider-flexible-4-mobile').slick({
+		lazyLoad: 'ondemand',
+		infinite: true,
+		centerMode: false,
+		arrows: false,
+		dots: false,
+		fade: false,
+		autoplay: true,
+		autoplaySpeed: 4000,
+		slidesToScroll: 1,
+	});
+});
+
+</script>
+
+<style>
+
+.slider-flexible-1 {
+    width: 50%x;
+}
+
+.slider-flexible-2, .slider-flexible-3 {
+	width: 50%;
+}
+
+
+.slider-flexible-2.slick-initialized.slick-slider.slick-dotted {max-width: 100%;}
+
+.slider-flexible__mobile-slider {display: none;}
+
+.slider-flexible-1 ul.slick-dots {
+    bottom: 40px !important;
+}
+
+
+@media screen and (max-width: 769px) {
+
+	.slider-flexible__mobile-slider {
+		display: block;
+	}
+
+	.slider-flexible__desktop-slider {display: none;}
+}
+
+.slick-list-draggable {
+	max-height: 100%;
+}
+
+.slider-flexible__right-col {
+	overflow: hidden;
+}
+
+  .{{section_id}} .mobile{
+    max-width: 700px;
+    margin:0 auto;
+   }
+  .{{section_id}} img{
+    width:100%;
+	object-fit: cover;
+  }
+  .{{section_id}} img.desktop {
+  	display: none;
+  }
+  .{{section_id}} .slick-slide{
+      background-size: contain;
+      background-position: left;
+      background-repeat: repeat-x;
+  }
+
+  @media(min-width:920px){
+    .{{section_id}} img.desktop {
+      display: block;
+      max-width: 1750px;
+      margin:0 auto;
+    }
+    .{{section_id}} .mobile{
+      display: none;
+    }
+  }
+
+
+
+  .{{section_id}} .slick-prev:before, .{{section_id}} .slick-next:before{
+  	width: 30px;
+  	height: 30px;
+  }
+
+  .{{ section_id }} {
+  	margin-bottom: 0px!important;
+  }
+
+  .{{ section_id }} .slick-prev {
+  	left: 15%;
+  	top: calc(100% - 60px);
+  }
+
+  .{{ section_id }} .slick-next {
+  	right: 15%;
+  	top: calc(100% - 60px);
+  }
+
+  .slider__text {
+  	padding-left: 50px;
+  }
+
+  @media(max-width: 1500px) {
+  	.{{ section_id }} .slick-prev {
+  		left: 5%;
+  	}
+
+  	.{{ section_id }} .slick-next {
+  		right: 5%;
+  	}
+  }
+
+  @media(max-width: 920px) {
+
+  	.{{ section_id }} .slick-prev {
+  		left: 10px;
+      top: calc(100% - 40px);
+  	}
+
+  	.{{ section_id }} .slick-next {
+  		right: 20px;
+      top: calc(100% - 40px);
+  	}
+
+
+  }
+
+  .slick-dots {
+  	bottom: 20px!important;
+  }
+
+  .slick-dots li {
+  	background: white!important;
+      border: 2px solid #26536D!important;
+  	border-radius: 100%!important;
+  	height: 15px!important;
+  	width: 15px!important;
+  }
+
+  .slick-dots li.slick-active {
+  	background: #26536D!important;
+      border: 2px solid #26536D!important;
+      border-radius: 100%!important;
+  }
+
+  .slick-dots li button {
+  	opacity: 0;
+  }
+</style>

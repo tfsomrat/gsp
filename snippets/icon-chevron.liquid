@@ -1,0 +1,30 @@
+{% if direction == 'up' %}
+    {% capture svg_direction %}
+        transform:rotate(90deg)
+    {% endcapture %}
+{% endif %}
+{% if direction == 'down' %}
+    {% capture svg_direction %}
+        transform:rotate(-90deg)
+    {% endcapture %}
+{% endif %}
+{% if direction == 'left' %}
+    {% capture svg_direction %}
+        transform:rotate(180deg)
+    {% endcapture %}
+{% endif %}
+{% if direction == 'right' %}
+    {% capture svg_direction %}
+    {% endcapture %}
+{% endif %}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="57px" style="{{ svg_direction }}" viewBox="0 0 32 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Layouts" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-(Desktop)" transform="translate(-276.000000, -418.000000)" fill="{{ fill_color }}">
+            <g id="Banner" transform="translate(0.000000, 222.000000)">
+                <path d="M277.024,221.889554 L301.941333,197.021956 C303.392,195.659348 305.610667,195.659348 306.976,197.021956 C308.341333,198.384564 308.341333,200.598802 306.976,202.046574 L284.533333,224.444444 L306.976,246.842315 C308.341333,248.204923 308.341333,250.504325 306.976,251.866933 C305.610667,253.229541 303.392,253.229541 301.941333,251.866933 L277.024,226.914172 C275.658667,225.551564 275.658667,223.337325 277.024,221.889554 Z" id="Icon---Arrow"></path>
+            </g>
+        </g>
+    </g>
+</svg>

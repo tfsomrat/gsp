@@ -1,0 +1,21 @@
+<div class="collection-header{% if collection.image %} collection-header--with-image{% endif %}"
+    {%- if collection.image -%}
+        style="background-image: linear-gradient(rgba(21, 46, 61, 0.3),rgba(21, 46, 61, 0.3)) , url({{ collection.image | img_url: '2048x600', crop: 'center'}})"
+    {%- endif -%}
+>
+    <div class="collection-header__container">
+        <h1>
+            {% if template.name == "collection" %}
+                {{collection.title }}
+            {% elsif template.name == "search" %}
+               {{ 'general.search.search_term' | t }}{{ search.terms | append: '"' | prepend: '"'}}
+            {% endif %}
+        </h1>
+        {% if template.name == "collection" %}
+            <div class="collection-header__description">
+                {{ collection.description }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{{ 'snippet-collection-header.aio.min.css' | asset_url | stylesheet_tag }}

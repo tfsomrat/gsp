@@ -1,0 +1,48 @@
+<div class="container">
+    {% capture image %}
+        {%- if block.settings.image != blank -%}
+            <img loading="lazy" class="br-5 my-4 my-md-0 w-100" src="{{ block.settings.image | img_url: 'master' }}" alt="">
+        {%- endif -%}
+    {% endcapture %}
+    {% capture text %}
+        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+            {% if block.settings.text_alignment %}
+                {% assign text_alignment = block.settings.text_alignment %}
+            {% else %}
+                {% assign text_alignment = 'center' %}
+            {% endif %}
+            <div class="text-{{ text_alignment }}">
+                {%- if block.settings.title != blank -%}
+                    <h2 class="title mb-4">{{ block.settings.title }}</h2>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                    <p>{{ block.settings.text }}</p>
+                {%- endif -%}
+                {%- if block.settings.button_text != blank -%}
+                    {% if block.settings.enable_text_link %}
+                        <a class="call-to-action mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }} {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
+                    {% else %}
+                        <a class="button slim tertiary mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }}</a>
+                    {% endif %}
+                {%- endif -%}
+            </div>
+        </div>
+    {% endcapture %}
+    <div class="row py-5">
+        {%- if block.settings.alignment == 'left' -%}
+            <div class="col-12 col-sm-12 col-md-6">
+                {{ text }}
+            </div>
+            <div class="col-12 col-sm-12 col-md-6">
+                {{ image }}
+            </div>
+        {%- else -%}
+            <div class="col-12 col-sm-12 col-md-6">
+                {{ image }}
+            </div>
+            <div class="col-12 col-sm-12 col-md-6">
+                {{ text }}
+            </div>
+        {%- endif -%}
+    </div>
+</div>

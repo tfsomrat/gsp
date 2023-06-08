@@ -1,0 +1,43 @@
+{% form 'contact' %}
+  {% if form.posted_successfully? %}
+    <p class="form-success">
+      {{ 'contact.form.post_success' | t }}
+    </p>
+  {% endif %}
+  {{ form.errors | default_errors }}
+  <!-- Name -->
+  <div class="form__element-container">
+    <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+    <input type="text" name="contact[name]" id="ContactFormName" placeholder="{{ 'contact.form.name' | t }}" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+  </div>
+  <!-- Email -->
+  <div class="form__element-container">
+    <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+    <input type="email" name="contact[email]" id="ContactFormEmail" placeholder="{{ 'contact.form.email' | t }}" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" spellcheck="false" autocomplete="off" autocapitalize="off">
+  </div>
+  <!-- Phone -->
+  <div class="form__element-container">
+    <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+    <input type="tel" name="contact[phone]" id="ContactFormPhone" placeholder="{{ 'contact.form.phone' | t }}" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}" pattern="[0-9\-]*">
+  </div>
+  <!-- Business Name -->
+  <div class="form__element-container">
+    <label for="ContactFormBusiness">Business Name</label>
+    <input type="text" name="contact[businessName]" id="ContactFormPhone" placeholder="Business Name" value="">
+  </div>
+  <!-- Business Address -->
+  <div class="form__element-container">
+    <label for="ContactFormBusinessAddress">Business Address</label>
+    <textarea rows="3" name="contact[address]" id="ContactFormAddress" placeholder="Business Address"></textarea>
+  </div>
+  <!-- Business Address -->
+  <div class="form__element-container">
+    <label for="ContactFormMessage">Message</label>
+    <textarea rows="3" name="contact[message]" id="ContactFormMessage" placeholder="Additional Info"></textarea>
+  </div>
+  <div style="display:none;">
+    <label for="ContactFormBusinessAddress">Order Details</label>
+    <textarea readonly rows="6" name="contact[orderDetails]" id="ContactFormOrderDetails" placeholder="Order Details" >-------------------------&#013;&#010;{%- for item in cart.items -%}Product: {{ item.title  }}&#013;&#010;SKU:{{ item.sku }}&nbsp;&nbsp;|&nbsp;&nbsp;QTY:{{ item.quantity }}&nbsp;&nbsp;{% unless first %}&#013;&#010;-------------------------&#013;&#010;{% endunless %}{%- endfor -%}</textarea>
+  </div>
+  <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}">
+{% endform %}

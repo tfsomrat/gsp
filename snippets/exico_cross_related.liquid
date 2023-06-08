@@ -1,0 +1,301 @@
+<script type="text/javascript">
+    //<![CDATA[
+    {% if template contains 'product' %}
+    {% assign exico_rc_cur_page = 'product' %}
+    var cartPage = false;
+    var prodPage = true;
+    {% endif %}
+    {% if template contains 'cart' %}
+    {% assign exico_rc_cur_page = 'cart' %}
+    var cartPage = true;
+    var prodPage = false;
+    {% endif %}
+  //]]>
+</script>
+{% assign dItems = shop.metafields.Exico.Exico_DRelatedItemsKey %}
+
+{% if exico_rc_cur_page == "product" %}
+{% assign items = product.metafields.Exico.Exico_PRelatedItemsKey %}
+{% endif %}
+
+{% if exico_rc_cur_page == "cart" %}
+{% assign items = shop.metafields.Exico.Exico_CItemsKey %}
+{% endif %}
+
+
+{% if items or dItems %}
+
+{% assign settings = shop.metafields.Exico.Exico_Settings %}
+
+<!--STYLE/CSS BEGINS-->
+<style type="text/css">
+    .exico_rc-row {
+        /*PARENT DIV THAT CONTAINS ALL PRODUCT DIVS*/
+        clear: both;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .exico_rc-item {
+        /*DIV THAT CONTAINS SINGLE PRODUCT INFO, IMAGE AND PRICE*/
+        margin: 10px;
+        float: left;
+        text-align: center;
+        width: 174px;
+        min-height: 280px;
+    }
+
+    .exico_rc-price {
+        /*PRODUCT PRICE*/
+        font-weight: bold;
+    }
+
+    .exico_rc-title {
+        /*PRODUCT TITLE (FOR EACH CLICKABLE LINK)*/
+    }
+
+    .exico_rc-header {
+        /*SECTION TITLE*/
+    }
+
+    .exico_rc-image {
+        /*PRODUCT IMAGE*/
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important; /*DO NOT CHANGE ANYTHING HERE*/
+    }
+</style>
+<!--STYLE/CSS ENDS-->
+<!--HTML AREA FOR DISPLAYING RELATED/CROSS SELL PRODUCTS-->
+<div ng-app="angModule" ng-cloak ng-controller="relatedProducts" class='exico_rc-row'>
+    <h2 class='exico_rc-header' ng-if="RelatedItemsDetails.length>0">{[{GetTitle()}]}</h2>
+
+    <div class='exico_rc-item' ng-repeat="item in RelatedItemsDetails track by $index" ng-if="item.Title">
+        <a href="{[{item.Url}]}"> <img loading="lazy" class="exico_rc-image" src="{[{item.Image}]}"></a><br />
+        <a class='exico_rc-title' href="{[{item.Url}]}">{[{item.Title}]}</a><br />
+        <span class='exico_rc-price'>{[{item.Price}]}</span>
+    </div>
+
+</div>
+<!--HTML AREA ENDS-->
+<!--CAUTION : SCRIPT AREA BEGINS - DO NOT MODIFY ANYTHING UNLESS YOU KNOW WHAT YOU ARE DOING :-)-->
+<script type="text/javascript">
+    //<![CDATA[
+    var jQuery3 = null;
+    var tmp;
+    (function () {
+
+        var loadScript = function (url, callback) {
+
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            if (script.readyState) {
+                script.onreadystatechange = function () {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                };
+            } else {
+                script.onload = function () {
+                    callback();
+                };
+            }
+
+            script.src = url;
+            document.getElementsByTagName("head")[0].appendChild(script);
+
+        };
+
+        if ((typeof jQuery === 'undefined') || (parseInt(jQuery.fn.jquery) === 1 && parseFloat(jQuery.fn.jquery.replace(/^1\./, "")) < 9.1)) {
+            loadScript('//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', function () {
+                jQuery3 = jQuery.noConflict(true);
+            });
+        } else {
+            jQuery3 = jQuery;
+        }
+
+        if ((typeof angular) == 'undefined') {
+            document.write('<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"><\/script>');
+        }
+
+        if ((typeof Shopify.formatMoney) === 'undefined') {
+            document.write('<script src="{{'api.jquery.js'|shopify_asset_url }}"><\/script>');
+        }
+    })();
+      //]]>
+</script>
+
+<script>
+    //Shopify.money_format = "{{ shop.money_format }}";
+    var exico_remove_protocol = function (t) {
+        return t.replace(/http(s)?:/, "");
+    }
+    var exico_get_compact_image = function (t, e) {
+        if (null == e) return t;
+        if ("master" == e) return exico_remove_protocol(t);
+        var o = t.match(/\.(jpg|jpeg|gif|png|bmp|bitmap|tiff|tif)(\?v=\d+)?$/i);
+        if (null != o) {
+            var i = t.split(o[0]),
+                r = o[0];
+            return exico_remove_protocol(i[0] + "_" + e + r);
+        }
+        return null;
+    }
+
+    var exico_validate_money_format = function () {
+        var s = "{{ shop.money_format }}";
+        if (s.indexOf("span") > 0) {
+            var _s = s.substring(s.indexOf(">") + 1);
+            _s = _s.substring(0, _s.indexOf("<"));
+            return _s;
+        } else {
+            return s;
+        }
+    }
+
+   
+
+</script>
+
+<script type="text/javascript">
+        //<![CDATA[
+        (function () {
+            var theAngularApp = angular.module("angModule", [])
+                .config(function ($interpolateProvider) {
+                    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+                });
+
+            var Controller = function ($scope, $log, $http, $q) {
+
+                //get data
+                $scope.Settings = eval({{settings }});
+    $scope.DefaultRelatedItems = eval({{dItems }});
+    $scope.RelatedItems = eval({{items }});
+    /*
+      ONLY_ASSIGNED_ITEMS, --display if there are handpicked item other nothing
+      COMBINE, -- combine default and handpicked
+      DEFAULT_IF_NO_ASSIGNED, --show assigned only, but if there are no assigned then show defaults
+      AND_DEFAULTS --show handpicked , limit or randomize tham, but show all defaults all the time
+    */
+    $scope.Rule = $scope.Settings.DisplayRule;
+
+    //clean or init data
+    if (typeof $scope.DefaultRelatedItems == 'undefined') {
+        $scope.DefaultRelatedItems = [];
+    }
+    if (typeof $scope.RelatedItems == 'undefined') {
+        $scope.RelatedItems = [];
+    }
+    //main array that we will loop over for displaying
+    $scope.RelatedItemsDetails = [];
+
+    //FUNCTINO: random index generator , this checks the setting for randomness
+    var RandomIndex = function (num) {
+        var arr = [];
+        for (i = 0; i < num; i++) {
+            arr.push(i);
+        }
+        if ($scope.Settings.ShowRandomItems) {
+            var currentIndex = arr.length, temporaryValue, randomIndex;
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = arr[currentIndex];
+                arr[currentIndex] = arr[randomIndex];
+                arr[randomIndex] = temporaryValue;
+            }
+        }
+
+        return arr;
+    }
+
+    //FUNCTION : determines the title
+    $scope.GetTitle = function () {
+        var title = prodPage == true ? $scope.Settings.ProductPageTitle : $scope.Settings.CartPageTitle;
+        return title;
+    }
+
+    //FUNCTION : load details for each eligable related items
+    var LoadDetails = function () {
+
+        var RelatedItemsDetailsTmp = [];
+        var reqs = [];
+
+        //apply combine or default_if_none rule
+        if ($scope.Rule == "1")/*COMBINE*/ {
+            $scope.RelatedItems = $scope.RelatedItems.concat($scope.DefaultRelatedItems);
+        }
+        else if ($scope.Rule == "2")/*DEFAULT_IF_NO_ASSIGNED*/ {
+            if ($scope.RelatedItems.length <= 0) {
+                $scope.RelatedItems = $scope.DefaultRelatedItems;
+            }
+        } else {
+            //by default it is following the ONLY_ASSIGNED_ITEMS=0 rule
+        }
+        var ri = RandomIndex($scope.RelatedItems.length);
+        var limit = $scope.Settings.ItemDisplayLimit;
+
+        if (limit == 0) {
+            limit = $scope.RelatedItems.length;
+        } else {
+            limit = limit > $scope.RelatedItems.length ? $scope.RelatedItems.length : limit;
+        }
+
+        //queue details reqs
+        for (i = 0; i < limit; i++) {
+            var item = $scope.RelatedItems[ri[i]];
+            var url = '/products/' + item.Handle + '.js';
+            reqs.push($http.get(url).catch(angular.identity));
+        }
+
+        //apply all_defaults rule and append requests to the queue
+        //we are adding defaults after the handpicked are done
+        if ($scope.Rule == "3")/*AND_DEFAULTS*/ {
+
+            for (i = 0; i < $scope.DefaultRelatedItems.length; i++) {
+                var item = $scope.DefaultRelatedItems[i];
+                var url = '/products/' + item.Handle + '.js';
+                reqs.push($http.get(url).catch(angular.identity));
+            }
+        }
+
+        $q.all(reqs).then(
+            function (response) {
+                for (i = 0; i < response.length; i++) {
+                    if (response[i].status == 200) {
+                        var product = response[i].data;
+                        var index = i;
+                        if (product.available) {
+                            Shopify.money_format = exico_validate_money_format();//in someshop it becomes dollar no matter what
+                            RelatedItemsDetailsTmp[index] = {
+                                Title: product.title,
+                                Price: Shopify.formatMoney(product.price),
+                                Image: exico_get_compact_image(product.featured_image, "compact"),
+                                Handle: product.handle,
+                                Url: "/products/" + product.handle
+                            };
+                        } else {
+                            RelatedItemsDetailsTmp[index] = { Title: '' };
+                            $log.info("skipping product " + item.Handle + " (reason unavailable)");
+                        }
+                    } else {
+                        RelatedItemsDetailsTmp[index] = { Title: '' };
+                        $log.info("could not retrive product " + item.Handle);
+                    }
+                }
+                $scope.RelatedItemsDetails = RelatedItemsDetailsTmp;
+            });
+
+    }
+    LoadDetails();
+
+
+    };
+    theAngularApp.controller("relatedProducts", Controller);
+  })();
+  //]]>
+</script>
+<!--SCRIPT AREA ENDS-->
+{% endif %}

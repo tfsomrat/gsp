@@ -1,0 +1,12 @@
+{% section 'product' %}
+<div class="container">
+  <div class="nosto_element" id="productpage-nosto-2" />
+  <div class="nosto_element" id="productpage-nosto-3" />
+</div>
+
+<!-- DRIP_PRODUCT_TRACKING_V1 -->
+<script text="text/javascript">
+  var _dcq = _dcq || [];
+  _dcq.push(['recordProductView', {{ product|json }}, {{ product.collections|map:'id'|json }}, '{{shop.currency}}', '{{ product.url }}']);
+</script>
+<!-- END_DRIP_PRODUCT_TRACKING_V1 -->

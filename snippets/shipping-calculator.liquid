@@ -1,0 +1,70 @@
+{% unless settings.shipping_calculator == 'Disabled' %}
+<div id="shipping-calculator">
+  <h3 class="subheading mb-3">{{ settings.shipping_calculator_heading | default: 'Get shipping estimates' }}</h3>
+  <div>
+    <div class="form-element mb-3">
+      <label class="el-label select" for="address_country">Country</label>
+      <select id="address_country" name="address[country]" data-default="{% if shop.customer_accounts_enabled and customer %}{{ customer.default_address.country }}{% elsif settings.shipping_calculator_default_country != '' %}{{ settings.shipping_calculator_default_country }}{% endif %}">{{ country_option_tags }}</select>
+    </div>
+    <p class="field" id="address_province_container" style="display:none;">
+      <label for="address_province" id="address_province_label">Province</label>
+      <select id="address_province" name="address[province]" data-default="{% if shop.customer_accounts_enabled and customer and customer.default_address.province != '' %}{{ customer.default_address.province }}{% endif %}"></select>
+    </p>
+    <div class="form-element">
+        <label class="el-label" for="address_zip">Postcode</label>
+        <input class="el-input" placeholder="Postcode" type="text" id="address_zip" name="address[zip]"{% if shop.customer_accounts_enabled and customer %} value="{{ customer.default_address.zip }}"{% endif %} />
+    </div>
+    <div class="form-element">
+        <input type="button" class="get-rates btn button secondary extra-slim full-width" value="{{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' }}" />
+    </div>
+  </div>
+  <div id="wrapper-response"></div>
+</div>
+{% endunless %}
+
+<script>
+  $(document).ready(function() {
+    if($(".el-input").val() == ""){
+        $('.get-rates').attr( "disabled", "disabled" );
+    }
+
+    $('.el-input').on('input', function() {
+      $('.get-rates').removeAttr("disabled")
+  });
+
+  });
+
+</script>
+
+<script id="shipping-calculator-response-template" type="text/template">
+
+
+
+
+  {% raw %}
+
+  <p id="shipping-rates-feedback" <% if (success) { %> class="success" <% } else { %> class="error" <% } %>>
+    <% if (success) { %>
+      <% if (rates.length > 1) { %>
+        Your shipping rate's (based on the items in your basket) are:
+      <% } else if (rates.length == 1) { %>
+        Your shipping rate (based on the items in your basket) is:
+      <% } else { %>
+      We do not ship to this destination.
+      <% } %>
+    <% } else { %>
+      <%= errorFeedback %>
+    <% } %>
+    </p>
+    <ul id="shipping-rates">
+      <% for (var i=0; i<rates.length; i++) { %>
+      <li><%= rates[i].name %> at <%= rates[i].price %></li>
+      <% } %>
+    </ul>
+
+  {% endraw %}
+</script>
+
+<!--[if lte IE 8]>
+<style> #shipping-calculator { display: none; } </style>
+<![endif]-->

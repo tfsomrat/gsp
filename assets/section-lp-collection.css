@@ -1,0 +1,51 @@
+.c-header {
+    background-color: white;
+}
+h2 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+} 
+.c-collection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 1%;
+}
+
+.c-media {
+    max-width: 300px;
+}
+.c-h1 {
+    color: black;
+    font-size: 20px !important;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#c-i-h1 {
+    font-weight: 600 !important;
+}
+#c-p {
+    color: black;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.c-g {
+    display: flex;
+    place-items: center;
+}
+
+@media only screen and (max-width: 1500px) {
+    .c-collection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media only screen and (max-width: 500px) {
+    .c-collection {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

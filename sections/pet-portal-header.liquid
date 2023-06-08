@@ -1,0 +1,88 @@
+{%- assign blog_title = blog.title -%}
+{%- if current_tags -%}
+    {% capture blog_title %}{{ current_tags.first  | capitalize | replace: '-', ' ' }}{% endcapture %}
+{%- endif -%}
+{% assign no_matches = true %}
+{% for block in section.blocks %}
+    {% if blog_title == block.settings.blog_tag %}
+    {% assign no_matches = false %}
+    <header class="mb-5 py-5" style="background-color: {{ block.settings.backgroundcolor }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-3 offset-md-1">
+                    <img loading="lazy" src="{{ block.settings.image | img_url: 'x300' }} " alt="">
+                </div>
+                <div class="col-12 col-sm-12 col-md-7">
+                    <h1 class="hero white mt-3 mt-md-5 mb-5">{{ blog_title }}</h1>
+                    {% capture blog_tag %}{{ block.settings.blog_tag | downcase }}{% endcapture %}
+                    <ul class="blog-tags">
+                    {% for article in blogs.pet-portal.articles %}
+                        {% if article.tags contains blog_tag and article.tags contains 'featured' %}
+                        <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+{% endfor %}
+{% if no_matches %}
+<header class="page-header blue mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 text-center my-3 my-md-4">
+                <header class="page-header">
+                    <h1 class="title text-center white mt-3 mt-md-4 mb-4">{{ blog_title }}</h1>
+                    <p class="pet-portal-introduction mb-3 mb-md-4">{{ section.settings.introduction }}</p>
+                </header>
+            </div>
+        </div>
+    </div>
+</header>
+{% endif %}
+{% schema %}
+    {
+        "name": "Pet Portal Types",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "introduction",
+                "label": "Introduction Text",
+                "default": "Everybody wants the best for their pets. Their health and happiness is important, but with so much information available, it can be difficult to know where to turn. We're here to help! From personal pieces to top expert hints and tips, Pet Portal has all your pet care needs sorted."
+            }
+        ],
+        "blocks" : [
+            {
+                "type": "PetType",
+                "name": "Pet Type",
+                "settings": [
+
+                    {
+                        "type": "text",
+                        "id": "blog_tag",
+                        "label": "Please enter the primary tag i.e. Dog or Cat",
+                        "default": "Dog"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "color",
+                        "id": "backgroundcolor",
+                        "label": "Background Colour"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Pet Portal Types",
+                "category": "text"
+            }
+        ]
+    }
+{% endschema %}

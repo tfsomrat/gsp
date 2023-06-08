@@ -1,0 +1,13 @@
+    <img loading="lazy" style="width:100%;" src="{{ section.settings.image | img_url: '1400x600', crop: 'center' }}" alt="{{ page.title }}">
+{% schema %}
+{
+    "name": "Contact Page",
+    "settings": [
+        { 
+            "type": "image_picker",
+            "id": "image", 
+            "label": "Featured Image" 
+        }
+    ]
+}
+{% endschema %}

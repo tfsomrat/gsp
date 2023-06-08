@@ -1,0 +1,60 @@
+{% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+
+{% capture blog_tags %}
+    {%- for tag in article.tags -%}
+		
+        {%- unless tag contains '[' or tag contains ' ' -%}
+            {{- tag | capitalize -}},
+        {%- endunless %}
+    {%- endfor -%}
+{%- endcapture -%}
+
+{% assign blog_tag = blog_tags | split: ',' %}
+{% capture author %}
+    {% for tag in article.tags %}
+        {% if tag contains "[author]" %}
+           {{ tag | remove: "[author]" | replace: '-', ' ' }}
+        {% endif %}
+    {% endfor %}
+{% endcapture %}
+
+{% assign articleAuthor = '' %}
+{% if author != blank %}
+    {% assign articleAuthor =  author %}
+{% else %}
+    {% assign articleAuthor =  article.author %}
+{% endif %}
+
+{% if width == '12 col-12 col-sm-12 col-md-6' %}
+<div class="{{ width }}">
+    <div class="related-post">
+        {% if article.image %}
+        <a href="{{ article.url }}"><img loading="lazy" class="related-post-image" src="{{ article.image.src | img_url: '600x400', crop: 'center' }}" alt=""></a>
+        {% else %}
+        <a href="{{ article.url }}"><img loading="lazy" class="related-post-image" src="{{ 'missing-image.jpg' | asset_img_url: '600x400', crop: 'center' }}" alt=""></a>
+        {% endif %}
+        <div class="related-post-content">
+            <div>
+                <h2 class="related-post-heading heading"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+                <p class="blog__date">{{ date }} | <span>{{ articleAuthor }}</span></p>
+                <p class="related-post-excerpt">{{ article.excerpt }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="{{ width }}">
+    <div class="related-post">
+        {% if article.image %}
+        <a href="{{ article.url }}"><img loading="lazy" class="related-post-image" src="{{ article.image.src | img_url: '300x200', crop: 'center' }}" alt=""></a>
+        {% else %}
+        <a href="{{ article.url }}"><img loading="lazy" class="related-post-image" src="{{ 'missing-image.jpg' | asset_img_url: '300x200', crop: 'center' }}" alt=""></a>
+        {% endif %}
+        <div class="related-post-content">
+            <h2 class="related-post-heading heading {% if template.suffix != blank %} mt-3 {% endif %}"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            <p class="blog__date">{{ date }} | <span>{{ articleAuthor }}</span></p>
+            <p class="related-post-excerpt">{{ article.excerpt }}</p>
+        </div>
+    </div>
+</div>
+{% endif%}

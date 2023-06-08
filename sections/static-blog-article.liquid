@@ -1,0 +1,66 @@
+   {% for block in section.blocks %}
+      {% if article.tags contains block.settings.author_tag %}
+      {% unless block.settings.author_tag contains 'get-set-pet' %}
+      <div class="blog-author-meta">
+        <div class="article__author">
+            <img loading="lazy" class="article__author--image" src="{{ block.settings.author_image | img_url: '300x300', crop: 'center' }}" alt="">
+            <div class="article__author--info">
+              <h2 class="author">{{ section.settings.title }} {{ block.settings.author_name }}</h2>
+              <div class="bio">{{ block.settings.author_bio }}</div>
+            </div>
+        </div>
+      </div>
+      {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+{% schema %}
+    {
+        "name": "Blog Authors",
+        "settings": [
+          {
+              "id": "title",
+              "type": "text",
+              "label": "Title",
+              "default": "Post By:"
+          }
+        ],
+        "blocks" : [
+          {
+            "type": "Author",
+            "name": "Author",
+            "settings": [
+              {
+                  "id": "author_name",
+                  "type": "text",
+                  "label": "Author Name",
+                  "default": "Luke Skybarker"
+              },
+              {
+                  "id": "author_tag",
+                  "type": "text",
+                  "label": "Author Tag - no symbols or spaces - added to blog to show author bio",
+                  "default": "[author]luke-skybarker"
+              },
+              {
+                  "id": "author_bio",
+                  "type": "richtext",
+                  "label": "Author Bio",
+                  "default": "<p>In a galaxy far, far away...</p>"
+              },
+              {
+                "type": "image_picker",
+                "id": "author_image",
+                "label": "Author Pic"
+              }
+            ]
+          }
+        ],
+        "presets": [
+            {
+                "name": "Authors",
+                "category": "text"
+            }
+        ]
+    }
+{% endschema %}

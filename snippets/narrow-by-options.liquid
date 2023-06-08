@@ -1,0 +1,284 @@
+{% capture 'collectionTags' %}
+{% for tag in collection.all_tags %}
+  {{ tag | handle }} |
+{% endfor %}
+{% endcapture %}
+
+{% comment %}<!-- set the default type dropdowns once rather than replicating -->{% endcomment %}
+{% capture 'narrow-by-type' %}
+  <optgroup label="Type">
+    <option value="/">--</option>
+    {% if collectionTags contains 'coasters' %}<option value="coasters">Coasters</option>{% endif %}
+    {% if collectionTags contains 'clocks' %}<option value="clocks">Clocks</option>{% endif %}
+    {% if collectionTags contains 'fridge-magnets' %}<option value="fridge-magnets">Fridge Magnets</option>{% endif %}
+    {% if collectionTags contains 'marble-tiles' %}<option value="marble-tiles">Marble Tiles</option>{% endif %}
+    {% if collectionTags contains 'memo-pads' %}<option value="memo-pads">Memo Pads</option>{% endif %}
+    {% if collectionTags contains 'metal-signs' %}<option value="metal-signs">Metal Signs</option>{% endif %}
+    {% if collectionTags contains 'mugs' %}<option value="mugs">Mugs</option>{% endif %}
+    {% if collectionTags contains 'wooden-signs' %}<option value="wooden-signs">Wooden Signs</option>{% endif %}
+  </optgroup>
+{% endcapture %}
+
+{% comment %}<!-- capture the collection handle so we can use it as a reference -->{% endcomment %}
+{% assign this-collection = collection.handle %}
+
+{% if this-collection == 'vintage-art' %}
+
+
+  <!-- Range / Vintage Art -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains '50s-diner' %}<option value="50s-diner">50s Diner</option>{% endif %}
+        {% if collectionTags contains 'pepsi-vintage' %}<option value="pepsi-vintage">Pepsi Vintage</option>{% endif %}
+        {% if collectionTags contains 'vintage-posters' %}<option value="vintage-posters">Vintage Posters</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'humour' %}
+
+  <!-- Range / Humour -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'female-humour' %}<option value="female-humour">Female Humour</option>{% endif %}
+        {% if collectionTags contains 'kitchen-humour' %}<option value="kitchen-humour">Kitchen Humour</option>{% endif %}
+        {% if collectionTags contains 'male-humour' %}<option value="male-humour">Male Humour</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'places-of-interest' %}
+
+  <!-- Range Places of Interest -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'places' %}<option value="places">Places</option>{% endif %}
+        {% if collectionTags contains 'seaside' %}<option value="seaside">Seaside</option>{% endif %}
+        {% if collectionTags contains 'street-signs' %}<option value="street-signs">Street Signs</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'designer-collection' %}
+
+  <!-- Range Designer Collection -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'martin-wiscombe' %}<option value="martin-wiscombe">Martin Wiscombe</option>{% endif %}
+        {% if collectionTags contains 'nikky-corker' %}<option value="nikky-corker">Nikky Corker</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'sport' %}
+
+  <!-- Range sport -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'cycling' %}<option value="cycling">Cycling</option>{% endif %}
+        {% if collectionTags contains 'fishing' %}<option value="fishing">Fishing</option>{% endif %}
+        {% if collectionTags contains 'golf' %}<option value="golf">Golf</option>{% endif %}
+        {% if collectionTags contains 'racing' %}<option value="racing">Racing</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'special-interest' %}
+
+  <!-- Range Special Interest  -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'aeroplanes' %}<option value="aeroplanes">Aeroplanes</option>{% endif %}
+        {% if collectionTags contains 'alchemy' %}<option value="alchemy">Alchemy</option>{% endif %}
+        {% if collectionTags contains 'baking' %}<option value="baking">Baking</option>{% endif %}
+        {% if collectionTags contains 'buses' %}<option value="buses">Buses</option>{% endif %}
+        {% if collectionTags contains 'cars' %}<option value="cars">Cars</option>{% endif %}
+        {% if collectionTags contains 'craft' %}<option value="craft">Craft</option>{% endif %}
+        {% if collectionTags contains 'farming' %}<option value="farming">Farming</option>{% endif %}
+        {% if collectionTags contains 'gardening' %}<option value="gardening">Gardening</option>{% endif %}
+        {% if collectionTags contains 'icons-and-idols' %}<option value="icons-and-idols">Icons and Idols</option>{% endif %}
+        {% if collectionTags contains 'jcb' %}<option value="jcb">JCB</option>{% endif %}
+        {% if collectionTags contains 'motorbikes' %}<option value="motorbikes">Motorbikes</option>{% endif %}
+        {% if collectionTags contains 'music' %}<option value="music">Music</option>{% endif %}
+        {% if collectionTags contains 'ships' %}<option value="ships">Ships</option>{% endif %}
+        {% if collectionTags contains 'tractors' %}<option value="tractors">Tractors</option>{% endif %}
+        {% if collectionTags contains 'trains' %}<option value="trains">Trains</option>{% endif %}
+        {% if collectionTags contains 'travel-posters' %}<option value="travel-posters">Travel Posters</option>{% endif %}
+        {% if collectionTags contains 'war-posters' %}<option value="war-posters">War Posters</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'animals' %}
+
+  <!-- Range Animals  -->
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'cats' %}<option value="cats">Cats</option>{% endif %}
+        {% if collectionTags contains 'mans-best-friend' %}<option value="mans-best-friend">Dogs</option>{% endif %}
+        {% if collectionTags contains 'wildlife' %}<option value="wildlife">Wildlife</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'cocktails-and-tipples' %}
+
+    <!-- Cocktails and Tipples -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'beer' %}<option value="beer">Beer</option>{% endif %}
+        {% if collectionTags contains 'good-health' %}<option value="good-health">Good Health</option>{% endif %}
+        {% if collectionTags contains 'pub-signs' %}<option value="pub-signs">Pub Signs</option>{% endif %}
+        {% if collectionTags contains 'spirits' %}<option value="spirits">Spirits</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'for-the-home' %}
+
+  <!-- For the Home -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'kitchen-and-bathroom' %}<option value="kitchen-and-bathroom">Kitchen and Bathroom</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'gifts-for-her' %}
+
+  <!-- Gifts For Her -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'cocktails-and-tipples' %}<option value="cocktails-and-tipples">Cocktails and Tipples</option>{% endif %}
+        {% if collectionTags contains 'female-humour' %}<option value="female-humour">Female Humour</option>{% endif %}
+        {% if collectionTags contains 'icons-and-idols' %}<option value="icons-and-idols">Icons and Idols</option>{% endif %}
+        {% if collectionTags contains 'sentiments' %}<option value="sentiments">Sentiments</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'gifts-for-him' %}
+
+  <!-- Gifts For Him -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'cocktails-and-tipples' %}<option value="cocktails-and-tipples">Cocktails and Tipples</option>{% endif %}
+        {% if collectionTags contains 'male-humour' %}<option value="male-humour">Male Humour</option>{% endif %}
+        {% if collectionTags contains 'sentiments' %}<option value="sentiments">Sentiments</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'gifts-by-interest' %}
+
+  <!-- Gifts By Interest -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'aeroplanes' %}<option value="aeroplanes">Aeroplanes</option>{% endif %}
+        {% if collectionTags contains 'alchemy' %}<option value="alchemy">Alchemy</option>{% endif %}
+        {% if collectionTags contains 'baking' %}<option value="baking">Baking</option>{% endif %}
+        {% if collectionTags contains 'cars' %}<option value="cars">Cars</option>{% endif %}
+        {% if collectionTags contains 'craft' %}<option value="craft">Craft</option>{% endif %}
+        {% if collectionTags contains 'buses' %}<option value="buses">Buses</option>{% endif %}
+        {% if collectionTags contains 'farming' %}<option value="farming">Farming</option>{% endif %}
+        {% if collectionTags contains 'gardening' %}<option value="gardening">Gardening</option>{% endif %}
+        {% if collectionTags contains 'icons-and-idols' %}<option value="icons-and-idols">Icons and Idols</option>{% endif %}
+        {% if collectionTags contains 'jcb' %}<option value="jcb">JCB</option>{% endif %}
+        {% if collectionTags contains 'motorbikes' %}<option value="motorbikes">Motorbikes</option>{% endif %}
+        {% if collectionTags contains 'music' %}<option value="music">Music</option>{% endif %}
+        {% if collectionTags contains 'ships' %}<option value="ships">Ships</option>{% endif %}
+        {% if collectionTags contains 'trains' %}<option value="trains">Trains</option>{% endif %}
+        {% if collectionTags contains 'tractors' %}<option value="tractors">Tractors</option>{% endif %}
+        {% if collectionTags contains 'travel-posters' %}<option value="travel-posters">Travel Posters</option>{% endif %}
+        {% if collectionTags contains 'war-posters' %}<option value="war-posters">War Posters</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'gifts-for-birthdays' %}
+
+  <!-- Gifts Birthdays -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'for-her' %}<option value="for-her">For Her</option>{% endif %}
+        {% if collectionTags contains 'for-him' %}<option value="for-him">For Him</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'gifts-for-the-home' %}
+
+  <!-- Gifts Gifts for the Home -->
+
+    <select id="" class=" narrowBy coll-filter">
+      {{ narrow-by-type }}
+      <optgroup label="Theme">
+        {% if collectionTags contains 'bathroom' %}<option value="bathroom">Bathroom</option>{% endif %}
+        {% if collectionTags contains 'kitchen' %}<option value="kitchen">Kitchen</option>{% endif %}
+      </optgroup>
+    </select>
+
+{% elsif this-collection == 'coasters' or this-collection == 'clocks' or this-collection == 'fridge-magnets' or this-collection == 'metal-signs' or this-collection == 'mugs' or this-collection == 'products-a-to-z' or this-collection == 'slate-boards' or this-collection == 'tile-art' or this-collection == 'wooden-signs' %}
+
+  <!-- Shop By Product -->
+
+  <select id="" class=" narrowBy coll-filter">
+    <optgroup label="Theme">
+      <option value="">All</option>
+      {% for tag in collection.all_tags %}
+      {% unless tag == 'Clocks' or tag == 'Coasters' or tag == 'Memo Pads' or tag == 'Marble Tiles' or tag == 'Fridge Magnets' or tag == 'Metal Signs' or tag == 'Mugs' or tag == 'Wooden Signs' or tag contains 'sku:' %}
+      {% if current_tags contains tag %}
+        <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+      {% else %}
+        <option value="{{ tag | handle }}">{{ tag }}</option>
+      {% endif %}
+      {% endunless %}
+      {% endfor %}
+
+    </optgroup>
+
+
+  </select>
+
+
+  {% elsif this-collection == 'all'  %}
+
+  <!-- Default Shop by Type -->
+
+  <select id="" class=" narrowBy coll-filter">
+    {{ narrow-by-type }}
+      <optgroup label="Theme">
+        <option value="">All</option>
+        {% for tag in collection.all_tags %}
+        {% unless tag == 'Clocks' or tag == 'Coasters' or tag == 'Memo Pads' or tag == 'Marble Tiles' or tag == 'Fridge Magnets' or tag == 'Metal Signs' or tag == 'Mugs' or tag == 'Wooden Signs' or tag contains 'sku:' %}
+        {% if current_tags contains tag %}
+          <option value="{{ tag | handle }}" selected>{{ tag }}</option>
+        {% else %}
+          <option value="{{ tag | handle }}">{{ tag }}</option>
+        {% endif %}
+        {% endunless %}
+        {% endfor %}
+      </optgroup>
+  </select>
+
+{% else %}
+
+<select id="" class=" narrowBy coll-filter">
+  {{ narrow-by-type }}
+</select>
+
+
+
+{% endif %}

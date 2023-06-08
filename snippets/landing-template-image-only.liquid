@@ -1,0 +1,6 @@
+{% if block.settings.desk_image != blank %}
+    <img loading="lazy" class="{% if block.settings.no_padding_top %}pb-5{% else %}py-5{% endif %}{% if block.settings.mob_image %} d-none d-md-block{% else %} d-block{% endif %}{% if block.settings.full_image %} w-100{% else %} mr-auto ml-auto{% endif %}" src="{{ block.settings.desk_image | img_url: 'master' }}" alt="{{ block.settings.desk_image_alt }}">
+    {% if block.settings.mob_image %}
+        <img loading="lazy" class="d-block d-none{% if block.settings.full_image %} w-100{% else %} mr-auto ml-auto{% endif %}" src="{{ block.settings.mob_image | img_url: 'master' }}" alt="{{ block.settings.mob_image_alt }}">
+    {% endif %}
+{% endif %}

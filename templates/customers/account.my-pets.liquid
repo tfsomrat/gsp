@@ -1,0 +1,469 @@
+{% include 'account-links' %}
+
+{% assign currentPets = 0 | plus: 0 %}
+{% if customer.metafields.customr.pet_name_1 != blank %}
+	{% assign currentPets = 0 | plus: 1 %}
+{% endif %}
+{% if customer.metafields.customr.pet_name_2 != blank %}
+	{% assign currentPets = currentPets | plus: 1 %}
+{% endif %}
+{% if customer.metafields.customr.pet_name_3 != blank %}
+	{% assign currentPets = currentPets | plus: 1 %}
+{% endif %}
+{% if customer.metafields.customr.pet_name_4 != blank %}
+	{% assign currentPets = currentPets | plus: 1 %}
+{% endif %}
+{% if customer.metafields.customr.pet_name_5 != blank %}
+	{% assign currentPets = currentPets | plus: 1 %}
+{% endif %}
+{% if customer.metafields.customr.pet_name_6 != blank %}
+	{% assign currentPets = currentPets | plus: 1 %}
+{% endif %}
+
+<div class="container">
+	<div id="customer-fields">
+        {% form 'create_customer' %}
+		    <input type="hidden" name="shop" value="{{ shop.permanent_domain }}">
+            <div class="row">
+			    <div class="col-12 col-sm-12 col-md-12 mt-5">
+				    <div class="row justify-content-center">
+                        {% for i in (1..6) %}
+                            {% assign pet_name_name = 'pet_name_' | append: i %}
+                            {% assign pet_image_name = 'pet_image_' | append: i %}
+                            {% assign pet_name = customer.metafields.customr[pet_name_name] %}
+                            {% assign pet_image = customer.metafields.customr[pet_image_name] %}
+                            {% if pet_name != blank %}
+                                <div class="pet-profle pet_{{ i }} col-12 col-sm-12 col-md-6 col-lg-4 mb-5">
+                                    <div class="pet_{{ i }}_card">
+                                        {% if pet_image != blank %}
+                                            <div class="pet__image" style="background-image:url('{{ pet_image }}')">
+                                                {{ 'missing-image.jpg' | asset_url | img_tag:'Your pet','hidden'}}
+                                            </div>
+                                        {% else %}
+                                            <div class="pet__image" style="background-image:url('{{ 'missing-image.jpg' | asset_url }}')">
+                                                {{ 'missing-image.jpg' | asset_url | img_tag:'Your pet','hidden'}}
+                                            </div>
+                                        {% endif %}
+                                        <div class="pet__content">
+                                            <h2 class="title">{{ pet_name }}</h2>
+                                            <hr>
+                                            <!-- <div class="button outline extra-slim">Delete</div> -->
+                                            <a href="#pet_{{ i }}_form" class="button add-to-subscription edit-pet-profile extra-slim float-left" id="pet_{{ i }}_edit">Edit</a>
+                                            <div class="button delete-pet-profile extra-slim float-right" data-toggle="modal" data-target="#deletePetModal" data-attr="6" id="pet_{{ i }}_delete">Delete</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+					    
+                        <div class="col-12 col-sm-12 col-md-12 text-center customr-field-text">
+                            <div class="button primary extra-slim add-a-pet">Add A Pet</div>
+                        </div>
+                    </div>
+                </div>
+                {% include 'pet-profile-form' %}
+                {% include 'pet-profile-form-2' %}
+                {% include 'pet-profile-form-3' %}
+                {% include 'pet-profile-form-4' %}
+                {% include 'pet-profile-form-5' %}
+                {% include 'pet-profile-form-6' %}
+                {% include 'pet-profile-form-6-dummy' %}
+                <div class="col-12 col-sm-12 col-md-10 offset-md-1 mt-5">
+                    <div class="form-footer"></div>
+                </div>
+            </div>
+        {% endform %}
+    </div>
+</div>
+
+<script>
+    $('.edit-pet-profile').click(function() {
+        $('.add-a-pet').hide();
+        $('.main-pet-form').hide();
+        var thisID = $(this).attr('id');
+        $('body').find('.' + thisID).slideToggle(500);
+    });
+</script>
+
+<style>
+
+.form-footer {
+	text-align: center;
+}
+.pet_1_card, .pet_2_card, .pet_3_card, .pet_4_card, .pet_5_card, .pet_6_card {
+	background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 0 #E6E5E5;
+    border-radius: 10px;
+}
+
+.pet__image {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	height: 250px;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.pet__image img {
+	width: 100%;
+}
+
+.pet__content {
+	padding: 10px 20px 30px 20px;
+	text-align: center;
+	overflow: auto;
+}
+
+.cancel-form {
+    display: inline-block!important;
+    background: #fdfdfd;
+    border: 2px solid #26536d;
+  	color: #26536d;
+  	font-size: 14px;
+  	line-height: 24px;
+  	padding: 10px 40px;
+}
+
+.cancel-form:hover {
+    background: #fdfdfd!important;
+    border: 2px solid #26536d!important;
+	color: #26536d!important;
+	text-decoration: none;
+}
+
+.cancel-form {
+	font-size: 16px;
+	line-height: 24px;
+	padding: 10px 40px;
+	display: inline-block;
+    width: auto!important;
+
+}
+.action-button {
+	display: inline-block!important;
+	font-size: 16px;
+	line-height: 16px;
+	padding: 10px 40px;
+	border: 2px solid #f2772a;
+	margin-left: 20px;
+}
+
+.action-button:hover {
+	border: 2px solid #f2772a;
+}
+
+.customr-field {
+	position: relative;
+}
+
+.add-photo:after {
+	display:none!important;
+}
+
+.upload {
+	display: none;
+}
+
+label.customr-control-label {
+	opacity: 1 !important;
+    top: -12px !important;
+    left: 29px !important;
+    pointer-events: none !important;
+    width: calc(100% - 55px) !important;
+    z-index: 999 !important;
+    background: #fff !important;
+    display: inline-block !important;
+    width: auto !important;
+    padding: 0px 5px !important;
+    line-height: 12px !important;
+}
+
+label.add-photo {
+	pointer-events: all!important;
+	color: white!important;
+    background: #26536d!important;
+    text-align: center!important;
+    display: inline-block!important;
+    width: auto!important;
+    /* padding-left: 25px;
+    padding-bottom: 7px; */
+	padding: 10px 25px!important;
+	border-radius: 30px!important;
+	top: 0px !important;
+    left: 0px !important;
+}
+
+.customr-field-select .customr-control-label {
+	left: 29px!important;
+}
+
+.customr-field-select:after {
+	right: 35px;
+    bottom: 35px;
+}
+</style>
+
+<script>
+	$(document).ready(function(){
+		let petType = '';
+		let petBreedSelect = '';
+		let petBreedOption = '';
+		let selectNameSplit = '';
+		// Forms
+		let petFormOne = $('.pet_1_edit');
+		let petFormTwo = $('.pet_2_edit');
+		let petFormThree = $('.pet_3_edit');
+		let petFormFour = $('.pet_4_edit');
+		let petFormFive = $('.pet_5_edit');
+		let petFormSix = $('.pet_6_edit');
+
+		function getVariables() {
+			petType = $('select[name="customer[pet_type_' + selectNameSplit + ']"] option:selected').text().toLowerCase().replace(' ', '');
+			petBreedSelect = $('select[name="customer[pet_breed_' + selectNameSplit + ']"]');
+			petTypetBreedOption = $('select[name="customer[pet_breed_' + selectNameSplit + ']"] option');
+		}
+
+		function getOptions(select) {
+			getVariables(selectNameSplit);
+			var optionCounter = 0;
+			select.each(function(){
+				let thisValue = $(this).val();
+				if(thisValue.includes(petType)) {
+					optionCounter = optionCounter + 1;
+					$(this).show();
+					$(this).removeAttr('disabled');
+				} else {
+					$(this).hide();
+					$(this).attr('disabled', 'disabled');
+				}
+
+				if(optionCounter == 1) {
+					$(this).attr('selected', 'selected');
+				}
+			});
+		}
+		$('body').on('change', 'input[type="checkbox"]', function() {
+			var checkboxName = $(this).attr('name');
+			if ($(this).is(':checked')) {
+				if((checkboxName.includes('no_breed'))) {
+					checkboxNameSplit = checkboxName.split('_').pop().replace(']', '');
+					var typeName = $('select[name="customer[pet_type_' + checkboxNameSplit +']"] option:selected').val();
+					$('select[name="customer[pet_breed_' + checkboxNameSplit +']"]').val(typeName + '_unknown');
+				};
+			}
+		});
+
+
+		$('body').on('change', 'input[type="checkbox"]', function() {
+			var checkboxName = $(this).attr('name');
+			if ($(this).is(':checked')) {
+				if((checkboxName.includes('no_conditions'))) {
+					checkboxNameSplit = checkboxName.split('_').pop().replace(']', '');
+					$('select[name="customer[pet_conditions_' + checkboxNameSplit +']"]').val('Pre-Existing Conditions');
+				};
+			}
+		});
+
+		$('body').on('change', 'select', function() {
+			var select = '';
+			var selectName = '';
+			var select = $(this).attr('id');
+			var selectName = $(this).attr('name');
+			if((selectName.includes('type'))) {
+				selectNameSplit = selectName.split('_').pop().replace(']', '');
+				var selectedOption = $( "#" + select + " option:selected" ).text();
+				if(selectedOption == 'Dog' || selectedOption == 'Cat') {
+					$('select[name="customer[pet_breed_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[pet_no_breed_' + select + ']"]').parents('.customr-field').show();
+					$('select[name="customer[pet_conditions_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[pet_no_conditions_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[pet_weight_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[birthday_day_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[birthday_month_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[birthday_year_' + select + ']"]').parents('.customr-field').show();
+					$('.birthday__title-' + select + '').show();
+					$('input[name="customer[pet_adoption_' + select + ']"]').parents('.customr-field').show();
+				} else if(selectedOption == 'Small Pet') {
+					$('select[name="customer[pet_breed_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[pet_no_breed_' + select + ']"]').parents('.customr-field').show();
+					$('select[name="customer[pet_conditions_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[pet_no_conditions_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[pet_weight_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[birthday_day_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[birthday_month_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[birthday_year_' + select + ']"]').parents('.customr-field').show();
+					$('.birthday__title-' + select + '').show();
+					$('input[name="customer[pet_adoption_' + select + ']"]').parents('.customr-field').show();
+				} else {
+					$('select[name="customer[pet_breed_' + select + ']"]').parents('.customr-field').show();
+					$('input[name="customer[pet_no_breed_' + select + ']"]').parents('.no-breed-checkbox').show();
+					$('select[name="customer[pet_conditions_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[pet_no_conditions_' + select + ']"]').parents('.no-conditions-checkbox').hide();
+					$('input[name="customer[pet_weight_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[birthday_day_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[birthday_month_' + select + ']"]').parents('.customr-field').hide();
+					$('input[name="customer[birthday_year_' + select + ']"]').parents('.customr-field').hide();
+					$('.birthday__title-' + select + '').hide();
+					$('input[name="customer[pet_adoption_' + select + ']"]').parents('.customr-field').hide();
+				}
+
+				$('select[name="customer[pet_breed_' + selectNameSplit + ']"]').find('option:selected').removeAttr("selected");
+				var select = $('select[name="customer[pet_breed_' + selectNameSplit + ']"] option');
+				getOptions(select);
+			}
+		});
+
+		var currentPets = parseFloat({{ currentPets }});
+
+		function addNewPet() {
+			if(currentPets == 0) {
+				petFormOne.slideToggle(500);
+			} else if(currentPets == 1) {
+				petFormTwo.slideToggle(500);
+			} else if(currentPets == 2) {
+				petFormThree.slideToggle(500);
+			} else if(currentPets == 3) {
+				petFormFour.slideToggle(500);
+			} else if(currentPets == 4) {
+				petFormFive.slideToggle(500);
+			} else if(currentPets == 5) {
+				petFormSix.slideToggle(500);
+			}
+		}
+
+		$('.add-a-pet').click(addNewPet);
+
+        $('.add-a-pet').click(function(){
+            $('select').trigger("change");
+        });
+
+		$('.update-details').click(function(){
+			$(this).text('Updating...');
+			$('#create_customer').submit();
+			setTimeout(function(){
+				$('.update-details').text('Done');
+			}, 2750);
+			setTimeout(function(){
+				location.reload(true);
+			}, 4000);
+		});
+
+
+		// Delete a Pet
+		let thisDataAttr = '';
+		let thisDataAttrInt = 0;
+
+
+		function deleteFields() {
+			$('input[name="customer[pet_name_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_type_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_type_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[birthday_day_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[birthday_month_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[birthday_year_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_adoption_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_gender_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_breed_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_unknown_breed_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_weight_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_conditions_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_no_conditions_' + thisDataAttr + ']"').val('');
+			$('input[name="customer[pet_image_' + thisDataAttr + ']"').val('');
+		}
+
+		function deleteLastPet() {
+			$('input[name="customer[pet_name_6]"]').val('');
+			$('input[name="customer[pet_type_6]"]').val('');
+			$('input[name="customer[pet_type_6]"]').val('');
+			$('input[name="customer[birthday_day_6]"]').val('');
+			$('input[name="customer[birthday_month_6]"]').val('');
+			$('input[name="customer[birthday_year_6]"]').val('');
+			$('input[name="customer[pet_adoption_6]"]').val('');
+			$('input[name="customer[pet_gender_6]"]').val('');
+			$('input[name="customer[pet_breed_6]"]').val('');
+			$('input[name="customer[pet_unknown_breed_6]"]').val('');
+			$('input[name="customer[pet_weight_6]"]').val('');
+			$('input[name="customer[pet_conditions_6]"]').val('');
+			$('input[name="customer[pet_no_conditions_6]"]').val('');
+			$('input[name="customer[pet_image_6]"]').val('');
+		}
+
+		function replaceFields() {
+			$('.customr-field').each(function(){
+				var tempAttr = parseFloat($(this).attr('data-attr'));
+				if(tempAttr >= thisDataAttrInt) {
+					if($(this).hasClass('customr-field-select')) {
+						let selectName = $(this).children('select').attr('name').split('_');
+						let selectLast = selectName[selectName.length-1];
+						let selectNew = $(this).children('select').attr('name').slice(0,-2);
+						let number = parseFloat(selectLast.replace(']',''));
+						let newNumber = number - 1;
+						if(number == thisDataAttrInt) {
+							$(this).children('select').attr('name', selectNew + '0]');
+						} else {
+							$(this).children('select').attr('name', selectNew + newNumber + ']');
+						}
+					} else if($(this).hasClass('customr-field-text')) {
+						let inputName = $(this).children('input[type="text"]').attr('name').split('_');
+						let inputLast = inputName[inputName.length-1];
+						let inputNew = $(this).children('input[type="text"]').attr('name').slice(0,-2);
+						let textnumber = parseFloat(inputLast.replace(']',''));
+						let textnewNumber = textnumber - 1;
+						if(textnumber == thisDataAttrInt) {
+							$(this).children('input').attr('name', inputNew + '0]');
+						} else {
+							$(this).children('input').attr('name', inputNew + textnewNumber + ']');
+						}
+					}
+				}
+
+			})
+		}
+
+		function deletePet() {
+			thisDataAttr = $(this).attr('data-attr');
+			thisDataAttrInt = parseFloat($(this).attr('data-attr'));
+
+			deleteFields();
+			replaceFields();
+
+			if(currentPets == 6) {
+				deleteLastPet();
+			}
+			setTimeout(function(){
+				$('#create_customer').submit();
+			}, 500);
+			setTimeout(function(){
+				location.reload(true);
+			}, 4000);
+		}
+		$('.delete-account').click(deletePet);
+
+		$('.delete-pet-profile').click(function(){
+			var thisData = $(this).attr('data-attr');
+			$('.delete-account').attr('data-attr', thisData);
+		})
+	});
+</script>
+
+<div class="modal fade" id="deletePetModal" tabindex="-1" role="dialog" aria-labelledby="deletePetModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePetModalLabel">Are you sure</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    Please confirm you wish to delete this pet
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="button extra-slim secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="delete-account button extra-slim primary ml-4">Confirm</button>
+            </div>
+        </div>
+	</div>
+</div>

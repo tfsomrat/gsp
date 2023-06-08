@@ -1,0 +1,56 @@
+{{ 'section-lp-collection.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div class=c-header>
+  <h1 id="c-i-h1" class="c-h1">Our Collection</h1>
+  <p id="c-p">{{ section.settings.lp-collection }}
+  </p>
+  <div class="c-collection">
+    <div class="c-g">
+      <a href="/products/oscar-milo-grain-free-puppy-food-chicken-turkey-salmon-sweet-potato-carrot" target="_blank">
+        <img loading="lazy" class="c-media" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/Chicken_Puppy_Front.png?v=1664534374">
+        <h1 class="c-h1">Puppy</h1>
+      </a>
+    </div>
+    <div class="c-g">
+      <a href="/products/oscar-milo-grain-free-adult-dog-food-chicken-sweet-potato-herbs" target="_blank">
+        <img loading="lazy" class="c-media" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/Adult_Chicken_Front.png?v=1664534374">
+        <h1 class="c-h1">Adult</h1>
+      </a>
+    </div>
+    <div class="c-g">
+      <a href="/products/oscar-milo-grain-free-light-adult-dog-food-turkey-sweet-potato-cranberry" target="_blank">
+        <img loading="lazy" class="c-media" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/Turkey_Light_Front.png?v=1664534374">
+        <h1 class="c-h1">Light</h1>
+      </a>
+    </div>
+    <div class="c-g">
+      <a href="/products/oscar-milo-grain-free-large-breed-adult-dog-food-salmon-trout-sweet-potato-asparagus" target="_blank">
+        <img loading="lazy" class="c-media" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/Salmon_LB_Front.png?v=1664534374">
+        <h1 class="c-h1">Large Breed Adult</h1>
+      </a>
+    </div>
+    <div class="c-g">
+      <a href="/products/oscar-milo-grain-free-large-breed-puppy-food-salmon-sweet-potato-veg" target="_blank">
+        <img loading="lazy" class="c-media" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/Salmon_LB_Puppy_Front.png?v=1664534374">
+        <h1 class="c-h1">Large Breed Puppy</h1>
+      </a>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "LP Collection",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Collection Descriptor",
+        "id": "lp-collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Collection"
+      }
+    ]
+  }
+{% endschema %}

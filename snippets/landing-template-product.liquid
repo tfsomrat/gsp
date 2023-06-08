@@ -1,0 +1,32 @@
+<div class="container">
+    {%- assign product = all_products[block.settings.product] -%}
+    {% capture image %}
+        <img loading="lazy" src="{{ product.featured_image | img_url: 'master' }}" alt="">
+    {% endcapture %}
+    {% capture text %}
+        <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+            <div class="text-center">
+                <h2 class="title">{{ product.title }}</h2>
+                <p>{{ product.description | truncatewords: 30, '...' }}</p>
+                <a class="button tertiary mb-0" href="{{ product.url }}">Read More</a>
+            </div>
+        </div>
+    {% endcapture %}
+    <div class="row py-5">
+        {%- if block.settings.alignment == 'left' -%}
+            <div class="12 col-md-6">
+                {{ text }}
+            </div>
+            <div class="col-md-6">
+                {{ image }}
+            </div>
+        {%- else -%}
+            <div class="col-md-6">
+                {{ image }}
+            </div>
+            <div class="col-md-6">
+                {{ text }}
+            </div>
+        {%- endif -%}
+    </div>
+</div>

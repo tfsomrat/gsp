@@ -1,0 +1,50 @@
+{{ 'section-lp-header.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div id="header">
+  <div id="h-container">
+    <div class="logo">
+      <a href="/collections/oscar-milo">
+        <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/oandm-2.png?v=1664530429" alt="Oscar Milo Logo" id="logoimg">
+      </a>
+    </div>
+  </div>
+  <div id="nav-container">
+    <nav class="main-nav">
+      <ul id="menu-main-menu">
+        <li id="menu-item-1" class="menu-item">
+          <a href="/pages/oscar-milo" aria-current="page">Home</a>
+        </li>
+        <li id="menu-item-1" class="menu-item">
+          <a href="/pages/oscar-milo-about">About Us</a>
+        </li>
+        <li id="menu-item-1" class="menu-item">
+          <a href="/collections/oscar-milo?lifestage=lifestage%3APuppy&pf_t_lifestage_and_condition=true">Puppy</a>
+        </li>
+        <li id="menu-item-1" class="menu-item">
+          <a href="/collections/oscar-milo?lifestage=lifestage%3AAdult&pf_t_lifestage_and_condition=true">Adult</a>
+        </li>
+        <li id="menu-item-1" class="menu-item">
+          <a href="/collections/oscar-milo?lifestage=lifestage%3ASenior&pf_t_lifestage_and_condition=true">Senior/Light</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "LP Header",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Header Image",
+        "id": "h-image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Header"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,54 @@
+<div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 offset-md-3 mt-5 text-center">
+                <h1 class="title text-uppercase mt-5 mb-4">{{ 'general.404.title' | t }}</h1>
+                <p class="large grey mb-4 pb-3">{{ 'general.404.subtext_html' | t }}</p>
+                <div class="nosto_element" id="notfound-nosto-1" />
+                <figure class="mb-5">
+                    <img loading="lazy" src="{{ 'four-oh-four.jpg' | asset_img_url: '700x' }}" alt="404">
+                </figure>
+                <p class="large grey mb-4">{{ 'general.404.subsubtext_html' | t }}</p>
+                <div class="nosto_element" id="notfound-nosto-2" />
+                <div class="nosto_element" id="notfound-nosto-3" />
+            </div>
+            <div class="col-12 col-sm-12 text-center mb-4 pb-0">
+                <div class="row justify-content-center">
+                {% for block in section.blocks %}
+                    <div class="col-6 col-lg-3 mb-1">
+                        <a style="width:100%" href="{{ block.settings.button_url }}" class="button add-to-subscription slim">{{ block.settings.button_text }}</a>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% schema %}
+    {
+        "name": "404 Links",
+        "blocks": [
+            {
+                "type": "404Links",
+                "name": "404 Link",
+                "settings": [
+                    {
+                        "type": "url",
+                        "id": "button_url",
+                        "label": "Button URL"
+                    },
+                    {
+                        "type":      "text",
+                        "id":        "button_text",
+                        "label": "Button Text",
+                        "placeholder": "i.e. Collections"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "404 Link",
+                "category": "404 Links"
+            }
+        ]
+    }
+    {% endschema %}

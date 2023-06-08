@@ -1,0 +1,902 @@
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+
+    {% if block.type == "full_image" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="full_image " style="padding:{{ block.settings.padding }}; {% if block.settings.full_width_image_parallax == 'parallax' %}background-image:url({{ block.settings.full_width_image | img_url:'1600x' }});{% endif %}">
+        {%- if block.settings.full_width_image_link != blank -%}<a href="{{ block.settings.full_width_image_link.url }}">{%- endif -%}
+        <img loading="lazy" src="{{ block.settings.full_width_image | img_url:'1600x' }}" {% if block.settings.full_width_image_parallax == 'normal' %}style="opacity:1;"{% else %}style="opacity:0;"{% endif %}>
+        {%- if block.settings.full_width_image_link != blank -%}</a>{% endif %}
+      </section>
+    {% elsif block.type == "html_embed" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="{% if block.settings.full_width == true %}{% else %}container {% endif %} full_image builder-section" style="padding:{{ block.settings.padding }};">
+        <div class="">{{ block.settings.html_area }}</div>
+      </section>
+    {% elsif block.type == "text_block" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="d-table {% if block.settings.full_width == true %}container-fluid {% else %} container {% endif %} text_block builder-section text-center" style=" {% if block.settings.text_block_richtext_image %}background-image:url({{ block.settings.text_block_richtext_image | img_url:'1600x' }});{% endif %}{% if block.settings.full_height == true %} min-height: 100vh;{% endif %}">
+          <div class="overlay" style="{% if block.settings.overlay_colour != '' %}background:{{ block.settings.overlay_colour }};{% endif %} {% if block.settings.opacity != '' %}opacity:{{ block.settings.opacity }};{% endif %}"></div>
+          <div class="text_block_inner align-middle d-table-cell" style="padding:{{ block.settings.padding }}; {% if block.settings.full_height == true %} min-height: 100vh;{% endif %}">
+            <div class="container">
+              {%- if block.settings.text_block_title != '' -%}<{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %} class="" {%- if block.settings.text_colour != '' -%}style="color:{{ block.settings.text_colour}}"{%- endif -%}>{{ block.settings.text_block_title }}</{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %}>{%- endif -%}
+              {%- if block.settings.text_block_richtext != '' -%}<div class="text-colour-{{ block.id }} " {%- if block.settings.text_colour != '' -%}style="color:{{ block.settings.text_colour}}"{%- endif -%}>{{ block.settings.text_block_richtext }}</div>{%- endif -%}
+              {%- if block.settings.text_colour != '' -%}
+              <style>
+                .text-colour-{{ block.id }} p, .text-colour-{{ block.id }} a, .text-colour-{{ block.id }} strong, .text-colour-{{ block.id }} li{color:{{ block.settings.text_colour }}}
+              </style>
+              {%- endif -%}
+            </div>
+          </div>
+      </section>
+    {% elsif block.type == "contact_form" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="container contact_form builder-section text-center" style="padding-bottom:50px;" >
+          <div class="text_block_inner">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-md-9">
+                  <{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %} class="">Find Out More</{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %}>
+
+                  <div class=" contact-form form-vertical">
+                    {%- assign formId = 'ContactForm' -%}
+                    {% form 'contact', id: formId %}
+                      {% include 'form-status', form_id: formId %}
+
+                      <div class="grid grid--half-gutters">
+                        <div class="grid__item medium-up--one-half">
+                          <label class="text-left" for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+                          <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                        </div>
+                        <div class="grid__item medium-up--one-half">
+                          <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+                          <input
+                            type="email"
+                            id="{{ formId }}-email"
+                            name="contact[email]"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                            aria-required="true"
+                            {%- if form.errors contains 'email' -%}
+                              class="input--error"
+                              aria-invalid="true"
+                              aria-describedby="{{ formId }}-email-error"
+                            {%- endif -%}
+                            >
+                          {%- if form.errors contains 'email' -%}
+                            <span id="{{ formId}}-email-error" class="input-error-message">{% include 'icon-error' %} {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                          {%- endif -%}
+                        </div>
+                      </div>
+
+                      <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+                      <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+
+                      <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+                      <textarea rows="10" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+                      <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+
+                    {% endform %}
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+    {% elsif block.type == "image_text_block" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="image_text_block builder-section" style="padding:{{ block.settings.padding }};">
+        <div class="container">
+        {% if block.settings.image_text_block_title != '' %}<{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %} class="">{{ block.settings.image_text_block_title }}</{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %}>{% endif %}
+        <div class="row no-gutter">
+          <div class="col-12 col-md-6 {% if block.settings.image_on == 'right' %}order-md-1{% else %}order-md-2{% endif %} " style="margin-bottom:30px;">
+            <div class="left-right-text-bg">
+            {% if block.settings.image_text_block_richtxt != '' %}{{ block.settings.image_text_block_richtext }}{% endif %}
+            </div>
+          </div>
+          <div class="col-12 col-md-6 {% if block.settings.image_on == 'left' %}order-md-1{% else %}order-md-2{% endif %}">
+            {% if block.settings.image_text_block_image %}
+            <img loading="lazy" src="{{ block.settings.image_text_block_image | img_url:'100x' }}" data-src="{{ block.settings.image_text_block_image | img_url:'900x' }}" alt="{{ block.settings.image_text_block_title }}" class="lazyload " />
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      </section>
+    {% elsif block.type == "video_block" %}
+      <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="video_block builder-section {% if block.settings.full_width == true %}container-fluid {% else %} container {% endif %}" style="padding:{{ block.settings.padding }};">
+        {% if block.settings.video_url == blank %}
+          <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+          {% if block.settings.video_url.type == "youtube" %}
+            <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+          {% endif %}
+          {% if block.settings.video_url.type == "vimeo" %}
+            <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+          {% endif %}
+        {% endif %}
+      </section>
+    {% elsif block.type == "multi_column" %}
+     <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="multi_column builder-section {% if block.settings.full_width == true %}container-fluid {% else %} container {% endif %}" style="padding:{{ block.settings.padding }};">
+
+      <div class="row">
+
+        {% if block.settings.show_column_1 == true %}
+          <div class="col-12 col-md">
+            {% if block.settings.column_1_text_block_richtext_image != "" %}
+              <div class="multi_col_image" style="background:url({{ block.settings.column_1_text_block_richtext_image | img_url:'800x500', crop: 'center' }});">
+                <a href="{{ block.settings.column_1_link.url }}">
+                  <img loading="lazy" src="{{ block.settings.column_1_text_block_richtext_image | img_url:'800x500', crop: 'center' }}">
+                  {% if block.settings.column_1_title_on_image == true %}
+                    <div class="title">{{ block.settings.column_1_title }}</div>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+            {% if block.settings.column_1_title_on_image == false %}
+              <p class="orphaned-title">{{ block.settings.column_1_title }}</p>
+            {% endif %}
+            {% if block.settings.column_1_text_block_richtext != "" %}
+              <div class="multi_col_content">
+                {{ block.settings.column_1_text_block_richtext }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_column_2 == true %}
+          <div class="col-12 col-md">
+            {% if block.settings.column_2_text_block_richtext_image != "" %}
+              <div class="multi_col_image" style="background:url({{ block.settings.column_2_text_block_richtext_image | img_url:'800x500', crop: 'center' }});">
+                <a href="{{ block.settings.column_2_link.url }}">
+                  <img loading="lazy" src="{{ block.settings.column_2_text_block_richtext_image | img_url:'800x500', crop: 'center' }}">
+                  {% if block.settings.column_2_title_on_image == true %}
+                    <p class="title">{{ block.settings.column_2_title }}</p>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+            {% if block.settings.column_2_title_on_image == false %}
+            <p class="orphaned-title">{{ block.settings.column_2_title }}</p>
+            {% endif %}
+            {% if block.settings.column_2_text_block_richtext != "" %}
+              <div class="multi_col_content">
+                {{ block.settings.column_2_text_block_richtext }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_column_3 == true %}
+          <div class="col-12 col-md">
+            {% if block.settings.column_3_text_block_richtext_image != "" %}
+              <div class="multi_col_image" style="background:url({{ block.settings.column_3_text_block_richtext_image | img_url:'800x500', crop: 'center' }});">
+                <a href="{{ block.settings.column_3_link.url }}">
+                  <img loading="lazy" src="{{ block.settings.column_3_text_block_richtext_image | img_url:'800x500', crop: 'center' }}">
+                  {% if block.settings.column_3_title_on_image == true %}
+                    <p class="title">{{ block.settings.column_3_title }}</p>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+            {% if block.settings.column_3_title_on_image == false %}
+              <p class="orphaned-title">{{ block.settings.column_3_title }}</p>
+            {% endif %}
+            {% if block.settings.column_3_text_block_richtext != "" %}
+              <div class="multi_col_content">
+                {{ block.settings.column_3_text_block_richtext }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.show_column_4 == true %}
+          <div class="col-12 col-md">
+            {% if block.settings.column_4_text_block_richtext_image != "" %}
+              <div class="multi_col_image" style="background:url({{ block.settings.column_4_text_block_richtext_image | img_url:'800x500', crop: 'center' }});">
+                <a href="{{ block.settings.column_4_link.url }}">
+                  <img loading="lazy" src="{{ block.settings.column_4_text_block_richtext_image | img_url:'800x500', crop: 'center' }}">
+                  {% if block.settings.column_4_title_on_image == true %}
+                    <p class="title">{{ block.settings.column_4_title }}</p>
+                  {% endif %}
+                </a>
+              </div>
+            {% endif %}
+            {% if block.settings.column_4_title_on_image == false %}
+              <p class="orphaned-title">{{ block.settings.column_4_title }}</p>
+            {% endif %}
+            {% if block.settings.column_4_text_block_richtext != "" %}
+              <div class="multi_col_content">
+                {{ block.settings.column_4_text_block_richtext }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      </div>
+
+     </section>
+
+     {% elsif block.type == "image_text_under" %}
+       <section {% if block.settings.link_id != '' %}id="{{ block.settings.link_id }}"{% endif %} class="image_text_under builder-section" style="padding:{{ block.settings.padding }};">
+         <div class="container">
+
+         <div class="row no-gutter">
+
+           <div class="col-12">
+             {% if block.settings.image_text_under_image %}
+             <img loading="lazy" src="{{ block.settings.image_text_under_image | img_url:'100x' }}" data-src="{{ block.settings.image_text_under_image | img_url:'1600x' }}" alt="{{ block.settings.image_text_under_title }}" class="lazyload " />
+             {% endif %}
+           </div>
+
+           <div class="col-12 col-md-8 offset-md-2 story-header-text">
+             {% if block.settings.image_text_under_title != '' %}<{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %} class="">{{ block.settings.image_text_under_title }}</{% if block.settings.is_h1 == true %}h1{% else %}h2{% endif %}>{% endif %}
+             {% if block.settings.image_text_under_richtxt != '' %}{{ block.settings.image_text_under_richtext }}{% endif %}
+           </div>
+
+         </div>
+       </div>
+       </section>
+
+    {% endif %}
+
+
+
+
+  {% endfor %}
+{% endif %}
+
+<style>
+  .builder-section{
+  }
+  .container-fluid.builder{
+    padding-left:0;
+    padding-right:0;
+  }
+  .text_block{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position:relative;
+  }
+  .overlay{
+    width: 100%;
+     height: 100%;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: 0;
+  }
+  .text_block_inner{
+    width:100%;
+    height: 100%;
+    position: relative;
+    z-index: 999;
+  }
+  .contact-form label{
+    text-align:left;
+    width:100%;
+  }
+
+  .full_image img{
+    width:100%;
+   }
+   .full_image{
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+   }
+
+   .multi_column{
+
+   }
+   .multi_col_image{
+     background-size: cover;
+     margin-bottom: 15px;
+     display: table;
+   }
+   .multi_col_image a{
+     position: relative;
+     text-align: center;
+     width:100%;
+     height:100%;
+   }
+   .multi_col_image a:hover{
+     opacity: 0.7;
+   }
+   .multi_col_image img{
+     opacity: 0;
+     position: relative;
+     z-index: 0;
+   }
+   .multi_col_image .title{
+     color:#fff;
+     font-weight: bold;
+     display:block;
+     position:absolute;
+     top:0;
+     left: 0;
+     width:100%;
+     height: 100%;
+     vertical-align: middle;
+   }
+
+   .multi_col_content{
+
+   }
+
+   p.orphaned-title{
+     font-weight:bold;
+     border-bottom: 1px solid;
+     padding-bottom: 10px;
+   }
+
+
+  .image_text_under{
+
+  }
+
+  .story-header-text{
+    background: #58B0E3;
+    border-radius: 6px;
+    margin-top: -150px;
+    padding: 30px 30px!important;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.2);
+  }
+  @media(max-width: 768px) {
+    .story-header-text{
+      margin-top: -30px;
+      border-radius: 0px;
+      box-shadow: none!important;
+    }
+  }
+  .story-header-text h1,
+  .story-header-text h2{
+    color:#fff;
+    text-align: center;
+  }
+  .story-header-text p{
+    color:#fff;
+  }
+  .left-right-text-bg{
+    background: #fff;
+    border-radius: 4px;
+    padding: 30px 40px!important;
+    /* color:#fff; */
+    box-shadow: 5px 10px 30px rgba(0,0,0,0.2);
+    margin-top:30px;
+    position:relative;
+    z-index: 333;
+  }
+
+  .order-md-1 .left-right-text-bg{
+    margin-right:-50px;
+  }
+  .order-md-2 .left-right-text-bg{
+    margin-left:-50px;
+  }
+  .order-md-1 img{
+    margin-right:-50px;
+  }
+  .order-md-2 img{
+    margin-left:-50px;
+  }
+  @media(max-width: 768px) {
+    .image_text_under{
+      padding-top:0!important;
+      padding-bottom:0!important;
+     }
+    .image_text_block{
+      padding-top:0!important;
+      padding-bottom:0!important;
+     }
+    .left-right-text-bg{
+      border-radius: 0px;
+      box-shadow: none;
+      margin-top:0px;
+      padding-bottom: 0px!important;
+    }
+    .order-md-1, .order-md-2{
+      max-width:100%;
+      overflow: hidden;
+     }
+    .order-md-1 .left-right-text-bg{
+      margin-right:0px;
+    }
+    .order-md-2 .left-right-text-bg{
+      margin-left:0px;
+    }
+    .order-md-1 img{
+      right:-30px;
+      position: relative;
+    }
+    .order-md-2 img{
+      left:-30px;
+      position: relative;
+    }
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Page Builder",
+  "class": "sp-custom-template",
+  "blocks": [
+  {
+    "type": "full_image",
+    "name": "Full Width Image",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Full Width Image"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+        "type": "image_picker",
+        "id": "full_width_image",
+        "label": "Should be at least 1600px Wide"
+      },
+      {
+        "type": "url",
+        "id": "full_width_image_link",
+        "label": "Link"
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px ",
+         "default": "50px"
+      },
+      {
+       "type": "select",
+       "id": "full_width_image_parallax",
+       "options": [
+          { "value": "parallax", "label": "Parallax"},
+          { "value": "normal", "label": "Normal"}
+       ],
+       "label": "Image Effect"
+      }
+    ]
+  },
+  {
+    "type": "html_embed",
+    "name": "HTML Embed",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Html Embed"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+         "type": "html",
+         "id": "html_area",
+         "label": "Custom HTML",
+         "default": "<div><p>Some HTML content</p></div>"
+      },
+      {
+         "type": "checkbox",
+         "id": "full_width",
+         "label": "Tick to make full screen width",
+         "default": false
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "50px"
+      }
+    ]
+  },
+  {
+    "type": "text_block",
+    "name": "Text + Image Background",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block with image background"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+         "type": "text",
+         "id": "text_block_title",
+         "label": "Title",
+         "default": "Title Goes Here"
+      },
+      {
+            "type": "checkbox",
+            "id": "is_h1",
+            "label": "Tick for H1"
+        },
+      {
+         "type": "richtext",
+         "id": "text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "text_block_richtext_image",
+        "label": "Should be at least 1600px Wide"
+      },
+      {
+         "type": "checkbox",
+         "id": "full_width",
+         "label": "Tick to make full screen width",
+         "default": false
+      },
+      {
+         "type": "checkbox",
+         "id": "full_height",
+         "label": "Tick to make full screen height",
+         "default": false
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "50px"
+      },
+      {
+         "type": "color",
+         "id": "overlay_colour",
+         "label": "Background Color",
+         "default": "#ffffff"
+      },
+      {
+         "type": "color",
+         "id": "text_colour",
+         "label": "Text Color",
+         "default": "#4B4B4B"
+      },
+      {
+         "type": "text",
+         "id": "opacity",
+         "label": "Overlay opacity (between 0-1)",
+         "default": "0.6"
+      }
+    ]
+  },
+  {
+    "type": "contact_form",
+    "name": "Contact Form",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Contact Form"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      }
+    ]
+  },
+  {
+    "type": "image_text_block",
+    "name": "left/Right Image + Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block with image To side"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+         "type": "text",
+         "id": "image_text_block_title",
+         "label": "Title",
+         "default": "Title Goes Here"
+      },
+      {
+            "type": "checkbox",
+            "id": "is_h1",
+            "label": "Tick for H1"
+        },
+      {
+         "type": "richtext",
+         "id": "image_text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_text_block_image",
+        "label": "Should be at least 900px Wide"
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "50px"
+      },
+      {
+       "type": "select",
+       "id": "image_on",
+       "options": [
+          { "value": "right", "label": "Image on Right"},
+          { "value": "left", "label": "Image on Left"}
+       ],
+       "label": "Image Effect"
+      }
+    ]
+  },
+  {
+    "type": "video_block",
+    "name": "Video Block",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block with image To side"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+       "id": "video_url",
+       "type": "video_url",
+       "label": "Video URL",
+       "accept": ["youtube", "vimeo"],
+       "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+       "info": "Text",
+       "placeholder": "Text"
+      },
+      {
+         "type": "checkbox",
+         "id": "full_width",
+         "label": "Tick to make full screen width",
+         "default": false
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "0"
+      }
+    ]
+  },
+  {
+    "type": "multi_column",
+    "name": "Multi Column",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block with image background"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+         "type": "checkbox",
+         "id": "full_width",
+         "label": "Tick to make full screen width",
+         "default": false
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "50px"
+      },
+      {
+        "type": "header",
+        "content": "Column 1"
+      },
+      {
+         "type": "checkbox",
+         "id": "show_column_1",
+         "label": "Tick to turn on column 1",
+         "default": true
+      },
+      {
+         "type": "text",
+         "id": "column_1_title",
+         "label": "Column 1 Title",
+         "default": "Title Goes Here"
+      },
+      {
+         "type": "checkbox",
+         "id": "column_1_title_on_image",
+         "label": "Show Title on Image?",
+         "default": false
+      },
+      {
+         "type": "richtext",
+         "id": "column_1_text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "column_1_text_block_richtext_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "column_1_link",
+        "label": "Column Links To:"
+      },
+      {
+        "type": "header",
+        "content": "Column 2"
+      },
+      {
+         "type": "checkbox",
+         "id": "show_column_2",
+         "label": "Tick to turn on column 2",
+         "default": true
+      },
+      {
+         "type": "text",
+         "id": "column_2_title",
+         "label": "Column 2 Title",
+         "default": "Title Goes Here"
+      },
+      {
+         "type": "checkbox",
+         "id": "column_2_title_on_image",
+         "label": "Show Title on Image?",
+         "default": false
+      },
+      {
+         "type": "richtext",
+         "id": "column_2_text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "column_2_text_block_richtext_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "column_2_link",
+        "label": "Column Links To:"
+      },
+      {
+        "type": "header",
+        "content": "Column 3"
+      },
+      {
+         "type": "checkbox",
+         "id": "show_column_3",
+         "label": "Tick to turn on column 3",
+         "default": true
+      },
+      {
+         "type": "text",
+         "id": "column_3_title",
+         "label": "Column 3 Title",
+         "default": "Title Goes Here"
+      },
+      {
+         "type": "checkbox",
+         "id": "column_3_title_on_image",
+         "label": "Show Title on Image?",
+         "default": false
+      },
+      {
+         "type": "richtext",
+         "id": "column_3_text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "column_3_text_block_richtext_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "column_3_link",
+        "label": "Column Links To:"
+      },
+      {
+        "type": "header",
+        "content": "Column 4"
+      },
+      {
+         "type": "checkbox",
+         "id": "show_column_4",
+         "label": "Tick to turn on column 4",
+         "default": true
+      },
+      {
+         "type": "text",
+         "id": "column_4_title",
+         "label": "Column 4 Title",
+         "default": "Title Goes Here"
+      },
+      {
+         "type": "checkbox",
+         "id": "column_4_title_on_image",
+         "label": "Show Title on Image?",
+         "default": false
+      },
+      {
+         "type": "richtext",
+         "id": "column_4_text_block_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "column_4_text_block_richtext_image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "column_4_link",
+        "label": "Column Links To:"
+      }
+    ]
+  },
+  {
+    "type": "image_text_under",
+    "name": "Image With Text Under",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text block with image underneath"
+      },
+      {
+         "type": "text",
+         "id": "link_id",
+         "label": "ID - no spaces - can be used in links to jump straight to this section"
+      },
+      {
+         "type": "text",
+         "id": "image_text_under_title",
+         "label": "Title",
+         "default": "Title Goes Here"
+      },
+      {
+            "type": "checkbox",
+            "id": "is_h1",
+            "label": "Tick for H1"
+        },
+      {
+         "type": "richtext",
+         "id": "image_text_under_richtext",
+         "label": "Text Content",
+         "default": "<p>Default <em>richtext</em> <a href=\"https://example.com/\">content</a></p>"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_text_under_image",
+        "label": "Should be at least 900px Wide"
+      },
+      {
+         "type": "text",
+         "id": "padding",
+         "label": "Padding in px",
+         "default": "50px"
+      }
+    ]
+  }
+
+
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,68 @@
+{% capture thisListItem %}
+{% comment %}capture the product listing to show in the relvat places below{% endcomment %}
+<div class="{{ width }} collection__list-item">
+	<div class="collection__list-item-image">
+	{% for tag in product.tags %}
+		{% if tag contains 'free-delivery' %}
+			<div class="free-delivery-badge">
+				<img loading="lazy" src="{{ 'free-delivery.png' | asset_url }}" alt="Free Delivery">
+			</div>
+		{% endif %}
+	{% endfor %}
+		<a href="{{ product.url }}">
+			<figure>
+                {%- if product != blank -%}
+                    <img loading="lazy" 
+                        src="{{ product | img_url: '300x300' }}"
+                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-sizes="auto"
+                        alt="{{ product.image.alt | escape }}">
+                {%- else -%}
+                    <img loading="lazy" 
+                        src="{{ 'placeholder.png' | asset_url }}"
+                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                        data-sizes="auto"
+                        alt="{{ child_link.title }}">
+                {%- endif -%}
+            </figure>
+		</a>
+	</div>
+	{% if product.title != blank %}
+	<h3 class="detail">{{ product.title }}</h3>
+	{% endif %}
+	{% include 'product-price' %}
+	<form action="/cart/add" data-productid="{{ product.id }}" method="post" enctype="multipart/form-data" class="add-to-cart" data-cart-submit>
+<!-- Begin ReCharge code -->
+{% if product.available %}{% include 'subscription-product' %}{% endif %}
+<!-- End ReCharge code -->
+
+		{% assign current_variant = product.selected_or_first_available_variant %}
+		<select style="display:none" name="id[]" class="no-js" data-product-select>
+		{% for variant in product.variants %}
+			<option
+			{% if variant == current_variant %}selected="selected"{% endif %}
+			{% unless variant.available %}disabled="disabled"{% endunless %}
+			value="{{ variant.id }}">
+				{{ variant.title }}
+			</option>
+		{% endfor %}
+		</select>
+		<button
+			type="submit"
+			name="add"
+			class="button primary add_to_cart {% unless current_variant.available %}disabled{% endunless %}"
+			data-add-to-cart
+			{% unless current_variant.available %}disabled="disabled"{% endunless %}>
+			<span data-add-to-cart-text>
+				{% if current_variant.available %}
+				{{ 'products.product.add_to_cart' | t }}
+				{% else %}
+				{{ 'products.product.sold_out' | t }}
+				{% endif %}
+			</span>
+		</button>
+	</form>
+</div>
+{% endcapture %}
+
+{{ thisListItem }}

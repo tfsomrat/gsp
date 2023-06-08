@@ -1,0 +1,12 @@
+{% include 'structured-customer-data' %}
+{% if petTypeOne == 'dog' and petTypeTwo == blank %}
+    {% include 'icon-cart-dog'%}
+{% elsif petTypeOne == 'cat'  and petTypeTwo == blank   %}
+    {% include 'icon-cart-cat' %}
+{% elsif petTypeOne == 'dog' and petTypeOne contains petTypeTwo %}
+    {% include 'icon-cart-dog' %}
+{% elsif petTypeOne == 'cat' and petTypeOne contains petTypeTwo %}
+    {% include 'icon-cart-cat' %}
+{% else %}
+    {% include 'icon-cart' %}
+{% endif %}

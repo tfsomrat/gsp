@@ -1,0 +1,146 @@
+<div class="page-width column-block shopify-section-home multicol">
+  {% if section.settings.title != blank %}<h2 class="text-center title hp title-generic"><span>{{ section.settings.title }} {% if section.settings.viewall_link != blank %}<a href="{{ section.settings.viewall_link }}"><small>View All</small></a></span>{% endif %}</h2>{% endif %}
+  <div class="row">
+    {% for block in section.blocks %} 
+
+      <div class="col-{{block.settings.column_width_mob}} col-md-{{block.settings.column_width_desk}}">
+        <div class="column-item {% if block.settings.text_alignment == 'right' %}text-right{% elsif block.settings.text_alignment == 'center' %}text-center{% else %}text-left{% endif %}">
+          {% if block.settings.image %}
+            {% if block.settings.button_link != blank %}<a href="{{ block.settings.button_link }}">{% endif %}
+              {% if block.settings.button_link != blank %}<a href="{{ block.settings.button_link }}">{% endif %}<img loading="lazy" src="{{ block.settings.image | img_url: '1900x' }}" alt="{{ block.settings.image.alt }}" />{% if block.settings.button_link != blank %}</a>{% endif %}
+            {% if block.settings.button_link != blank %}</a>{% endif %}
+          {% endif %}
+          {% if block.settings.col_title != blank %}<h3>{{ block.settings.col_title }}</h3>{% endif %}
+          {% if block.settings.text_block != blank %}
+            <div class="column-block-text">
+              <p>{{ block.settings.text_block }}</p>
+            </div>
+          {% endif %}
+          <!-- block-content -->
+          {% if block.settings.offset_link %}
+            {% if block.settings.button_link != blank %}<a class="btn btn--full" href="{{ block.settings.button_link }}">{{ block.settings.link_text }}</a>{% endif %}
+          {% endif %}
+        </div>
+        <!-- column-item -->
+      </div>
+      <!-- grid__item -->
+    {% endfor %}
+  </div>
+  <!-- grid -->
+</div>
+<!-- page-width -->
+{% schema %}
+    {
+        "name": "Multi Column",
+        "max_blocks": 6,
+        "settings": [
+          {
+              "id": "title",
+              "type": "text",
+              "label": "Title",
+              "default": "This is a title"
+          },
+          {
+            "type": "url",
+            "id": "viewall_link",
+            "label": "View All link"
+          }
+        ],
+        "blocks" : [
+          {
+                    "type": "Column",
+                    "name": "Column",
+                    "settings": [
+                    {
+                      "type": "select",
+                      "id": "column_width_desk",
+                      "options": [
+                      { "value": "1", "label": "1"},
+                      { "value": "2", "label": "2"},
+                      { "value": "3", "label": "3"},
+                      { "value": "4", "label": "4"},
+                      { "value": "5", "label": "5"},
+                      { "value": "6", "label": "6"},
+                      { "value": "7", "label": "7"},
+                      { "value": "8", "label": "8"},
+                      { "value": "9", "label": "9"},
+                      { "value": "10", "label": "10"},
+                      { "value": "11", "label": "11"},
+                      { "value": "12", "label": "12"} 
+                      ],
+                      "label": "Column Width Desktop"
+                      },
+                      {
+                        "type": "select",
+                        "id": "column_width_mob",
+                        "options": [
+                        { "value": "1", "label": "1"},
+                        { "value": "2", "label": "2"},
+                        { "value": "3", "label": "3"},
+                        { "value": "4", "label": "4"},
+                        { "value": "5", "label": "5"},
+                        { "value": "6", "label": "6"},
+                        { "value": "7", "label": "7"},
+                        { "value": "8", "label": "8"},
+                        { "value": "9", "label": "9"},
+                        { "value": "10", "label": "10"},
+                        { "value": "11", "label": "11"},
+                        { "value": "12", "label": "12"}
+                        ],
+                        "label": "Column Width mob"
+                        },
+                    {
+                    "type": "select",
+                    "id": "text_alignment",
+                    "options": [
+                    { "value": "left", "label": "Left"},
+                    { "value": "center", "label": "Center"},
+                    { "value": "right", "label": "Right"}
+                    ],
+                    "label": "Text Alignment"
+                    },
+                            {
+                            "type": "image_picker",
+                            "id": "image",
+                            "label": "Image"
+                            },
+                            {
+                                "id": "col_title",
+                                "type": "text",
+                                "label": "Title",
+                                "default": "This is a title"
+                            },
+                            {
+                                "id": "text_block",
+                                "type": "textarea",
+                                "label": "Content",
+                                "default": "This is some text"
+                            },
+                            {
+                              "type": "url",
+                              "id": "button_link",
+                              "label": "Button link"
+                            },
+                            {
+                                "id": "link_text",
+                                "type": "text",
+                                "label": "Button Text",
+                                "default": "Read more"
+                            },
+                            {
+                                "type": "checkbox",
+                                "id": "offset_link",
+                                "label": "Show Button",
+                                "default": false
+                            }
+                        ]
+              }
+            ],
+        "presets": [
+            {
+                "name": "Multi Column",
+                "category": "text"
+            }
+        ]
+    }
+{% endschema %}

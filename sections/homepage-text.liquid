@@ -1,0 +1,100 @@
+
+<section class="container no-gutter">
+	<div class="row">
+		<div class="full-collection-description">
+      {% if section.settings.title_image != blank %}
+      <img loading="lazy" alt="{{ section.settings.title }}" class="full-collection-image" src="{{ section.settings.title_image | img_url: 'large' }}" />
+      {% endif %}
+			<h3>{{ section.settings.title }}</h3>
+      <p class="first-set-text">{{ section.settings.subtitle }}</p>
+      {% if section.settings.second_para != blank %}
+        <div class="row column-text-description">
+          <div class="col-md-6">
+            <p class="second-set-text">{{ section.settings.first_para }}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="second-set-text">{{ section.settings.second_para }}</p>
+          </div>
+        </div>
+      {% else %}
+        <p>{{ section.settings.first_para }}</p>
+      {% endif %}
+		</div>
+	</div>
+</section>
+<style>
+.full-collection-description {
+	text-align: center;
+	padding: 50px 100px;
+	background: #F9F9F9;
+	margin-top: 40px;
+}
+
+.full-collection-description h3 {
+	margin-bottom: 15px;
+}
+
+.full-collection-description p {
+	margin-bottom: 10px;
+}
+
+.full-collection-description .column-text-description {
+	text-align: left;
+}
+
+.full-collection-description .first-set-text {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	margin-bottom: 34px;
+}
+
+.full-collection-description .second-set-text {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 18px;
+}
+
+.full-collection-image {
+  margin-bottom: 34px;
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Homepage content",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "title_image",
+        "label": "Image"
+	    },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+	    },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub heading"
+	    },
+      {
+        "type": "text",
+        "id": "first_para",
+        "label": "First paragraph"
+	    },
+      {
+        "type": "text",
+        "id": "second_para",
+        "label": "Second paragraph"
+	    }
+    ],
+    "presets": [
+      {
+          "name": "Homepage content",
+          "category": "text"
+      }
+    ]
+  }
+{% endschema %}

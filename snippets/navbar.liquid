@@ -1,0 +1,95 @@
+{% assign requiresmega = false %}
+
+{% for link in linklists[menulist].links %}
+	{% if link.links.size > 1 %}
+		{% assign requiresmega = true %}
+	{% endif %}
+{% endfor %}
+
+{% if requiresmega == true %}
+	<div class="dropdown__sidebar">
+		<ul>
+			{% for link in linklists[menulist].links %}
+			<li onclick="ga('send', 'event', 'Mega Nav', 'Pet Click', '{{ link.title }}');" id="{{ link.handle }}" {% if forloop.index == 1 %}class="active"{% endif %}>{{ link.title }} {% include 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	{% for link in linklists[menulist].links %}
+		<div class="dropdown__main {% if forloop.index == 1 %}active{% endif %}" data-attr="{{ link.handle }}">
+
+      {% if link.handle == 'fish' or link.handle == 'reptile' %}
+        <div class="menu-coming-soon">
+          <div class="menu-coming-soon-inner">
+            {{ 'coming-soon-logo.png' | asset_url | img_tag:'coming soon' }}
+            <h2>{{ link.title }} Products Arriving Soon!</h2>
+            <p>New products are being added all the time, check back soon to see our new range of {{ link.title }} products.</p>
+          </div>
+        </div>
+      {% else %}
+			<ul class="dropdown__main_ul">
+				{% for child_link in link.links %}
+				<li class="dropdown__main_ul_li">
+					<a href="{{ child_link.url }}" class="subheading mega-menu-subheading dropdown__main_ul_li_a">{{ child_link.title | escape }}</a>
+					<ul class="dropdown__main_ul_li_ul">
+						{% for sub_child_link in child_link.links %}
+							{% if  forloop.index < 9 %}
+								<li class="dropdown__main_ul_li_ul_li"><a href="{{ sub_child_link.url }}">{{ sub_child_link.title }}</a></li>
+							{% endif %}
+						{% endfor %}
+						{% if child_link.links.size > 8 %}
+							<li class="dropdown__main_ul_li_ul_li"><a id="call-to-action" href="{{ child_link.url }}">Shop All</a></li>
+						{% endif %}
+						</li>
+					</ul>
+
+
+				{% endfor %}
+			</ul>
+      {% endif %}
+
+      {% unless link.handle == 'fish' or link.handle == 'reptile' %}
+  			{% for block in section.blocks %}
+				{%- if block.settings.page contains link.handle -%}
+					{%- if block.settings.image_two != blank -%}
+  						<div class="mega-menu-background lazyload">
+							<img loading="lazy" src="{{ block.settings.image | img_url: '500x' }}" alt="">
+						</div>				
+						<div class="mega-menu-background two lazyload">
+							<img loading="lazy" src="{{ block.settings.image_two | img_url: '500x' }}" alt="">
+						</div>
+					{%- else -%}
+						<div data-bg="{{ block.settings.image | img_url: '500x' }}" class="mega-menu-background lazyload" {% if block.settings.image_two != blank %}style="height: 50%;"{% endif %}></div>
+					{% endif %}
+  				{%- endif -%}
+  			{% endfor %}
+      {% endunless %}
+		</div>
+	{% endfor %}
+
+{% else %}
+
+<ul class="dropdown">
+	{% for link in linklists[menulist].links %}
+	<li id="{{ link.handle }}">{{ link.title }}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+	<script>
+	$(document).ready(function(){
+		var barBaseHeight = $('body').find('.dropdown__main').first().height();
+		$('.dropdown__sidebar').css('height', barBaseHeight);
+
+		$('.dropdown__sidebar ul li').click(function(){
+			$('.dropdown__sidebar ul li').not($(this)).removeClass('active');
+			$(this).addClass('active');
+			
+			let thisID = $(this).attr('id');
+			$('.dropdown__main').removeClass('active');
+			$('body').find('.dropdown__main[data-attr="' + thisID + '"]').addClass('active');
+			var barHeight = $('body').find('.dropdown__main[data-attr="' + thisID + '"]').height();
+			$('.dropdown__sidebar').css('height', barHeight);
+		});
+
+	})
+	</script>

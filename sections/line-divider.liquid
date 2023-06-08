@@ -1,0 +1,44 @@
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-sm-12 line-divider--{{ section.id }} {% if section.settings.show_image %}fill{% endif %}" >
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+	"name": "Divider",
+    "settings": [
+        {
+            "type": "range",
+            "id": "divider_padding",
+            "min": 5,
+            "max": 50,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding",
+            "default": 25
+        },
+        {
+            "type": "checkbox",
+            "id": "show_image",
+            "label": "Show Divider Line"
+        }
+    ],
+	"presets": [
+        {
+            "name": "Divider",
+            "category": "Modules"
+        }
+    ]
+}
+{% endschema %}
+<style>
+.line-divider--{{ section.id }} {
+    margin: {{ section.settings.divider_padding }}px 0px;
+}
+
+.line-divider--{{ section.id }}.fill {
+    background: #DDDDDD;
+    height: 1px;
+}
+</style>

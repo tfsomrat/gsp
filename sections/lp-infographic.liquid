@@ -1,0 +1,84 @@
+{{ 'section-lp-infographic.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div class="lp-infographic-c">
+  <div id="ig-header">
+    <h1 class="ig-h">{{ section.settings.lp-i-h-text }}
+    </h1>
+  </div>
+  <div class="ig-grid">
+    <div class="ig-item">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/1_807209af-720f-42c9-b46f-ebba1da80bb4.png?v=1664535013" class="ig-img">
+      <h1 class="ig-h">{{ section.settings.lp-i-h1-text }}
+      </h1>
+      <p class="ig-g-p">{{ section.settings.lp-i-p1-text }}
+      </p>
+    </div>
+    <div class="ig-item">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/2_d534dc8a-1266-48ed-986b-6b2c20b77659.png?v=1664535013" class="ig-img">
+      <h1 class="ig-h">{{ section.settings.lp-i-h2-text }}
+      </h1>
+      <p class="ig-g-p">{{ section.settings.lp-i-p2-text }}
+      </p>
+    </div>
+    <div class="ig-item">
+      <img loading="lazy" src="https://cdn.shopify.com/s/files/1/0147/4478/0886/files/3_00d47664-9b95-44aa-89f6-53b7e1f9b3ab.png?v=1664535013" class="ig-img">
+      <h1 class="ig-h">{{ section.settings.lp-i-h3-text }}
+      </h1>
+      <p class="ig-g-p">{{ section.settings.lp-i-p3-text }}
+      </p>
+    </div>
+  </div>
+  <div id="ig-footer">
+    <button id="b3" onclick="document.location='/collections/oscar-milo'">{{ section.settings.lp-i-b-text }}
+    </button>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "LP Infographic",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Main Header",
+        "id": "lp-i-h-text"
+      },
+      {
+        "type": "text",
+        "label": "Image 1 Header",
+        "id": "lp-i-h1-text"
+      },
+      {
+        "type": "text",
+        "label": "Image 2 Header",
+        "id": "lp-i-h2-text"
+      },
+      {
+        "type": "text",
+        "label": "Image 3 Header",
+        "id": "lp-i-h3-text"
+      }, {
+        "type": "text",
+        "label": "Image 1 Description",
+        "id": "lp-i-p1-text"
+      }, {
+        "type": "text",
+        "label": "Image 2 Description",
+        "id": "lp-i-p2-text"
+      }, {
+        "type": "text",
+        "label": "Image 3 Description",
+        "id": "lp-i-p3-text"
+      }, {
+        "type": "text",
+        "label": "Button Text",
+        "id": "lp-i-b-text"
+      }
+    ],
+    "presets": [
+      {
+        "name": "LP Infographic"
+      }
+    ]
+  }
+{% endschema %}

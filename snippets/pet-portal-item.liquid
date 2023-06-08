@@ -1,0 +1,73 @@
+{% capture date %}{{ item.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+{% capture blog_tags %}
+    {%- for tag in item.tags -%}
+		
+        {%- unless tag contains '[' or tag contains ' ' -%}
+            {{- tag | capitalize -}},
+        {%- endunless %}
+    {%- endfor -%}
+{%- endcapture -%}
+
+{% assign blog_tag = blog_tags | split: ',' %}
+{% capture author %}
+    {% for tag in item.tags %}
+        {% if tag contains "[author]" %}
+           {{ tag | remove: "[author]" | replace: '-', ' ' }}
+        {% endif %}
+    {% endfor %}
+{% endcapture %}
+
+{% assign itemAuthor = '' %}
+{% if author != blank %}
+    {% assign itemAuthor =  author %}
+{% else %}
+    {% assign itemAuthor =  item.author %}
+{% endif %}
+
+{% if width == '12 col-12 col-sm-12 col-md-6' %}
+<div class="{{ width }}">
+    <div class="related-post">
+        {% if item.image %}
+        <a href="{{ item.url }}"><img loading="lazy" class="related-post-image" src="{{ item.image.src | img_url: '600x400', crop: 'center' }}" alt=""></a>
+        {% else %}
+        <a href="{{ item.url }}"><img loading="lazy" class="related-post-image" src="{{ 'missing-image.jpg' | asset_img_url: '600x400', crop: 'center' }}" alt=""></a>
+        {% endif %}
+        <div class="related-post-content">
+            <div>
+                <p class="blog__tags">
+                        {% for tag in blog_tag %}
+                        {% unless tag == blank %}
+                            <!-- |-->{% unless forloop.first  %} | {% endunless %}{{ tag }}<!-- |-->
+                        {% endunless %}
+                        {% endfor%}
+                    </p>
+                <h2 class="related-post-heading heading"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+                <p class="blog__date">{{ date }} | <span>{{ itemAuthor }}</span></p>
+                <p class="related-post-excerpt">{{ item.excerpt }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="{{ width }}">
+    <div class="related-post">
+        {% if item.image %}
+        <a href="{{ item.url }}"><img loading="lazy" class="related-post-image" src="{{ item.image.src | img_url: '300x200', crop: 'center' }}" alt=""></a>
+        {% else %}
+        <a href="{{ item.url }}"><img loading="lazy" class="related-post-image" src="{{ 'missing-image.jpg' | asset_img_url: '300x200', crop: 'center' }}" alt=""></a>
+        {% endif %}
+        <div class="related-post-content">
+                {% unless template.suffix != blank %}
+                <p class="blog__tags">
+                {% for tag in blog_tag %}
+                    {% if forloop.first == false and forloop.last == false  %}|{% endif %}{{ tag | replace: '-', ' ' }}
+                {% endfor%}
+                </p>
+                {% endunless%}
+            <h2 class="related-post-heading heading {% if template.suffix != blank %} mt-3 {% endif %}"><a href="{{ item.url }}">{{ item.title }}</a></h2>
+            <p class="blog__date">{{ date }} | <span>{{ itemAuthor }}</span></p>
+            <p class="related-post-excerpt">{{ item.excerpt }}</p>
+        </div>
+    </div>
+</div>
+{% endif%}

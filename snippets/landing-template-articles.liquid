@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row py-5">
+        {% if block.settings.title != blank %}
+            <div class="col-12 col-sm-12 text-center">
+                <h2 class="title text-center mb-3 mb-sm-4{{ block.settings.title_icon }}">{{ block.settings.title }}</h2>
+            </div>
+        {% endif %}
+        {% for article in blogs[block.settings.blog].articles limit:4 %}
+            {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+            {% capture blog_tag %}
+                {% for tag in article.tags %}
+                    {% unless tag contains "[author]" %}
+                        {{ tag | capitalize }}
+                    {% endunless %}
+                {% endfor %}
+            {% endcapture %}
+            {% render 'blog-item', article: article, width: "col-12 col-sm-12 col-md-3 mb-4 mb-md-0" %}
+        {% endfor %}
+    </div>
+</div>

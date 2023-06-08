@@ -1,0 +1,33 @@
+<h2 id="letter-{{ ShowAlphaLetter }}">{{ ShowAlphaLetter }}</h2>
+<ul>
+{% for product_vendor in shop.vendors %}
+  {% assign alphaLetter = product_vendor | truncate: 1, ""  %}
+  {% if alphaLetter == ShowAlphaLetter  %}
+    {% assign its_a_match = false %}
+    {% capture my_collection_handle %} {{ product_vendor | handleize | strip | escape  }} {% endcapture %}
+    {% assign my_collection_handle_stripped = my_collection_handle | strip | escape %}
+
+    {% for collection in collections %}
+      {% if my_collection_handle_stripped == collection.handle %}
+        {% assign its_a_match = true %}
+      {% endif %}
+    {% endfor %}
+    {% if its_a_match %}
+      {% assign collection-handle = product_vendor | handleize %}
+      {% if collections[collection-handle].products.size > 0 %}
+        <li class="vendor-list-item"><a class="col__prodtitle_list" href="/collections/{{ product_vendor | handleize }}">{{ product_vendor }}</a></li>
+      {% endif %}
+    {% else %}
+      {% unless product_vendor == "GET SET PET" %}
+        <li class="vendor-list-item product__name col__prodtitle_list">
+          <a href='/collections/vendors?q={{ product_vendor | replace: ' ', '+' }}'>
+            {{product_vendor}}
+          </a>
+        </li>
+      {% endunless %}
+    {% endif %}
+    {% else %}
+    {% continue %}
+  {% endif %}
+{% endfor %}
+</ul>

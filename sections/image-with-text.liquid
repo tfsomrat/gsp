@@ -1,0 +1,72 @@
+{{ 'section-image-with-text.aio.min.css' | asset_url | stylesheet_tag }}
+
+<div class="iwt-m-cont">
+  <div id="{% if section.settings.iwt-c-s == true %}iwt-container-inv{% else %}iwt-container{% endif %}">
+    <div id="iwt-img">
+      <a href="{{ section.settings.iwt-iu-s }}">
+        <img loading="lazy" id="iwt-img-d" src="{{ section.settings.iwt-img-s | img_url: 'master' }}" alt="">
+      </a>
+    </div>
+    <div id="iwt-desc">
+      <p class="custom-p">{{ section.settings.iwt-p-s }}</p>
+      <a href="{{ section.settings.iwt-bu-s }}" id="iwt-button">{{ section.settings.iwt-bt-s }}</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  #iwt-container {
+    margin-bottom: {{ section.settings.iwt-m-s }};
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Image With Text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "label": "Image",
+        "id": "iwt-img-s"
+      },
+      {
+        "type": "url",
+        "label": "Image URL",
+        "id": "iwt-iu-s"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "iwt-p-s"
+      },
+      {
+        "type": "text",
+        "label": "Button Text",
+        "id": "iwt-bt-s"
+      }, {
+        "type": "url",
+        "label": "Button URL",
+        "id": "iwt-bu-s"
+      }, {
+        "type": "checkbox",
+        "label": "Invert Content",
+        "id": "iwt-c-s",
+        "default": false
+      }, {
+        "type": "range",
+        "label": "Section Margin",
+        "id": "iwt-m-s",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "default": 16
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image With Text"
+      }
+    ]
+  }
+{% endschema %}

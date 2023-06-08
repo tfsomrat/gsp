@@ -1,0 +1,18 @@
+
+{% assign free_delivery = settings.free_delivery_threshold | plus: 0 %} 
+{% assign cart_total_price = cart.items_subtotal_price | money_without_currency | plus: 0 %}
+{% assign free_delivery_left = free_delivery | minus: cart_total_price  %}
+{% assign free_delivery_left_label = free_delivery_left | times: 100 | money_with_currency  %}
+{% if free_delivery_left < 0 %}
+    <p class="text-center mb-3"><strong>You Qualify for Free Delivery</strong></p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="{{ cart_total_price }}" aria-valuemin="0" aria-valuemax="{{ free_delivery }}"></div>
+    </div>
+{% else %}
+    <p class="text-center mb-3"><strong>{{ free_delivery_left_label }}</strong> until Free Delivery</p>
+    <div class="progress">
+        {% assign percentage = free_delivery | remove: '.' | divide: 1 %}
+        {% assign percentage = percentage | times: cart_total_price | money_without_currency %}
+        <div class="progress-bar" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ cart_total_price }}" aria-valuemin="0" aria-valuemax="{{ free_delivery }}"></div>
+    </div>
+{% endif %}

@@ -1,0 +1,38 @@
+<section class="container" class="page__container">
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-9 offset-md-1 mt-5">
+			<h1 class="title">{{ page.title }}</h1>
+			<article class="rte">
+				{% for link in linklists %}
+			{% unless link.title contains 'child' %}
+				<div class="sitemap--list">
+					<h3>{{link.title}}</h3>
+					<ul>
+					{% for sub_link in link.links %}
+						<li><a href="{{ sub_link.url }}">{{ sub_link.title }}</a></li>
+					{% endfor %}
+					</ul>
+				</div>
+			{% endunless %}
+			<hr />
+			{% endfor %}
+			</article>
+		</div>
+	</div>
+</section>
+
+
+<script>
+// This is for deleting duplicate lists if its needed
+$(function() {
+	var liText = '', liList = $('.sitemap--list h3'), listForRemove = [];
+	$(liList).each(function () {
+		var text = $(this).text();
+		if (liText.indexOf('|'+ text + '|') == -1)
+			liText += '|'+ text + '|';
+		else
+			listForRemove.push($(this));
+	});
+	$(listForRemove).each(function () { $(this).parent().next("hr").remove(); $(this).parent().remove(); });
+});
+</script>

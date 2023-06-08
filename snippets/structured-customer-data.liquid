@@ -1,0 +1,26 @@
+{% for field in customer.metafields.customr %}
+    {% assign key = field[0] %}
+    {% assign value = field[1] %}
+    {% case key %}
+        {% when 'pet_name_1' %}
+            {%- assign petNameOne = value -%}
+        {% when 'pet_type_1' %}
+            {%- assign petTypeOne = value -%}
+        {% when 'birthday_day_1' %}
+            {%- assign petDayOne = value -%}
+        {% when 'birthday_month_1' %}
+            {%- assign petMonthOne = value -%}
+        {% when 'birthday_year_1' %}
+            {%- assign petYearOne = value -%}
+        {% when 'pet_gender_1' %}
+            {%- assign petGenderOne = value -%}
+        {% when 'pet_breed_1' %}
+            {%- assign petBreedOne = value -%}
+        {% when 'pet_weight_1' %}
+            {%- assign petWeightOne = value -%}
+        {% when 'pet_conditions_1' %}
+            {%- assign petConditionsOne = value -%}
+        {% when 'pet_image_1' %}
+            {%- assign petImageOne = value -%}
+    {% endcase %}
+{% endfor %}

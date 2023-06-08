@@ -1,0 +1,20 @@
+<div class="grid__item {{ grid_item_width }}">
+  <div class="product-item collection-item matchHeight">
+{% comment %}
+    <!-- 
+          {% if link.object.products.first != blank %}
+            <div class="product-image-holder">
+              <a href="{{ link.url }}" class="image product-bg-image" style="background-image:url({{ link.object.products.first | img_url: 'large' }});"><img loading="lazy" src="{{ link.object.products.first | img_url: 'large' }}" alt="{{ link.object.title | escape }}" /></a>
+            </div>
+          {% else %}
+            <a href="{{ link.url }}" class="image"><img loading="lazy" src="{{ 'missing-product-image.jpg' | asset_url }}" alt="{{ product.title }}" /></a>
+          {% endif %}
+	-->
+{% endcomment %}
+    
+      <p class="product-title"><a href="{{ link.url }}">{{ link.title }}</a></p>
+      {% comment %}<!-- <p class="product-sku">{{ link.object.all_products.size }}{% if link.object.all_products.size >= 50 %}+{% endif %} products</p> -->{% endcomment %}
+  </div>
+  <!-- productItem -->
+</div>
+<!-- //productItem -->

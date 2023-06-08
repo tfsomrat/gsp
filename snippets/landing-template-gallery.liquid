@@ -1,0 +1,166 @@
+{%- capture section_id -%}slider-{{block.id}}{%- endcapture -%}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-12">
+            {%- if block.settings.title != blank -%}
+            <h2 class="title text-center mb-3 mb-sm-5">{{ block.settings.title }}</h2>
+            {%- endif -%}
+        </div>
+    </div>
+    <div class="row pb-4 {{ section_id }}">
+        <div class="col-md-3 text-center">
+            {% if block.settings.link1 != blank %}
+            <a class="landing-link" href="{{ block.settings.link1 }}">
+            {% endif %}
+                <img loading="lazy" class="br-5 {% if block.settings.text1 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image1 | img_url: 'master' }}" alt="">
+            {% if block.settings.text1 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text1 }}</p>
+            {% endif %}
+            {% if block.settings.link1 != blank %}
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-md-3 text-center">
+            {% if block.settings.link2 != blank %}
+            <a class="landing-link" href="{{ block.settings.link2 }}">
+            {% endif %}
+                <img loading="lazy" class="br-5 {% if block.settings.text2 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image2 | img_url: 'master' }}" alt="">
+            {% if block.settings.text2 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text2 }}</p>
+            {% endif %}
+            {% if block.settings.link2 != blank %}
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-md-3 text-center">
+            {% if block.settings.link3 != blank %}
+            <a class="landing-link" href="{{ block.settings.link3 }}">
+            {% endif %}
+                <img loading="lazy" class="br-5 {% if block.settings.text3 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image3 | img_url: 'master' }}" alt="">
+            
+            {% if block.settings.text3 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text3 }}</p>
+            {% endif %}
+            {% if block.settings.link3 != blank %}
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-md-3 text-center">
+            {% if block.settings.link4 != blank %}
+            <a class="landing-link" href="{{ block.settings.link4 }}">
+            {% endif %}
+                <img loading="lazy" class="br-5 {% if block.settings.text4 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image4 | img_url: 'master' }}" alt="">
+            
+            {% if block.settings.text4 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text4 }}</p>
+            {% endif %}
+            {% if block.settings.link4 != blank %}
+            </a>
+            {% endif %}
+        </div>
+        {%- if block.settings.second-row -%}
+            <div class="col-md-3 text-center">
+                {% if block.settings.link5 != blank %}
+                <a class="landing-link" href="{{ block.settings.link5 }}">
+                {% endif %}
+                    <img loading="lazy" class="br-5 {% if block.settings.text5 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image5 | img_url: 'master' }}" alt="">
+                
+                {% if block.settings.text5 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text5 }}</p>
+                {% endif %}
+                {% if block.settings.link5 != blank %}
+                </a>
+                {% endif %}
+            </div>
+            <div class="col-md-3 text-center">
+                {% if block.settings.link6 != blank %}
+                <a class="landing-link" href="{{ block.settings.link6 }}">
+                {% endif %}
+                    <img loading="lazy" class="br-5 {% if block.settings.text6 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image6 | img_url: 'master' }}" alt="">
+                
+                {% if block.settings.text6 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text6 }}</p>
+                {% endif %}
+                {% if block.settings.link6 != blank %}
+                </a>
+                {% endif %}
+            </div>
+            <div class="col-md-3 text-center">
+                {% if block.settings.link7 != blank %}
+                <a class="landing-link" href="{{ block.settings.link7 }}">
+                {% endif %}
+                    <img loading="lazy" class="br-5 {% if block.settings.text7 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image7 | img_url: 'master' }}" alt="">
+                
+                {% if block.settings.text7 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text7 }}</p>
+                {% endif %}
+                {% if block.settings.link7 != blank %}
+                </a>
+                {% endif %}
+            </div>
+            <div class="col-md-3 text-center">
+                {% if block.settings.link8 != blank %}
+                <a class="landing-link" href="{{ block.settings.link8 }}">
+                {% endif %}
+                    <img loading="lazy" class="br-5 {% if block.settings.text8 == blank %}mb-4 pb-1{% endif %}" src="{{ block.settings.image8 | img_url: 'master' }}" alt="">
+                
+                {% if block.settings.text8 != blank%}
+                <p class="mt-3 mb-4 mt-md-3 mb-md-0">{{ block.settings.text8 }}</p>
+                {% endif %}
+                {% if block.settings.link8 != blank %}
+                </a>
+                {% endif %}
+            </div>
+        {%- endif -%}
+    </div>
+    {%- if block.settings.button_text != blank -%}
+        <div class="col-12 text-center">
+            {% if block.settings.enable_text_link %}
+                <a class="call-to-action mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }} {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
+            {% else %}
+                <a class="button tertiary mb-0" href="{{ block.settings.link }}">{{ block.settings.button_text }}</a>
+            {% endif %}
+        </div>
+    {%- endif -%}
+
+    <style>
+        .landing-link:hover {
+            opacity: .7;
+            text-decoration: none;
+        }
+
+        .landing-link p,
+        .landing-link:hover p,
+        .landing-link p:hover {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function sliderMobile() {
+            if($(window).width() <= 768) {
+                $('.{{ section_id }}').slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: false,
+                    infinite: true,
+                    arrows: false,
+                    responsive: [
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            } else {
+                $('.test-slider').slick('unslick');
+            }
+        }
+
+        sliderMobile();
+        $(window).resize(sliderMobile);
+    </script>
+</div>
