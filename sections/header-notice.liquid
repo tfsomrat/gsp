@@ -1,0 +1,30 @@
+{% if section.settings.enable %}
+  <section class="header-notice bg-primary">
+    <div class="container">
+      <p class="mb-0">{{ section.settings.content }}</p>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Header Notice",
+  "limit": 1,
+  "tag": "section",
+  "class": "header-notice",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "content",
+      "label": "Header Notice",
+      "default": "Free shipping on all orders over $100"
+    }
+  ]
+}
+{% endschema %}

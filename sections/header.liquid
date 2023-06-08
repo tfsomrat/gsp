@@ -1,7 +1,4 @@
 <section data-section-id="{{ section.id }}" data-section-type="header-section">
-	<div class="notice p-4 bg-primary text-white">
-		hello world
-	</div>
 	<header id="page-header" class="site-header">
 		<div class="container">
 			<div class="row header-top">
@@ -82,17 +79,17 @@
 												{% if link.links != blank %}
 													<ul class="test">
 														{% for link in link.links limit: 11 %}
-                                                          {% capture firstChar %}{{ link.title | slice: 0 }}{% endcapture %}
-                                                          {% if firstChar == '|' %}
-                                                            </ul>
-                                                            <a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a>
-                                                            <ul class="test">
-                                                          {% else %}
-                                                              <li id="{{ link.handle }}"><a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a></li>
-            													{%- if forloop.index == 11 -%}
-    																<li id="seemore"><a href="{{ toplevelink }}">See More</a></li>
-                                                                {%- endif -%}                                                            
-                                                          {% endif %}
+															{% capture firstChar %}{{ link.title | slice: 0 }}{% endcapture %}
+															{% if firstChar == '|' %}
+																</ul>
+																<a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a>
+																<ul class="test">
+															{% else %}
+																	<li id="{{ link.handle }}"><a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a></li>
+																		{%- if forloop.index == 11 -%}
+																	<li id="seemore"><a href="{{ toplevelink }}">See More</a></li>
+																		{%- endif -%}                                                            
+															{% endif %}
 														{% endfor %}
 													</ul>
 												{% endif %}
