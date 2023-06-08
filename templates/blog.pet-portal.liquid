@@ -1,29 +1,31 @@
 {% paginate blog.articles by 20 %}
-{%- assign blog_title = blog.title -%}
-{%- if current_tags -%}
+  {%- assign blog_title = blog.title -%}
+  {%- if current_tags -%}
     {% capture blog_title %}{{ current_tags.first  | capitalize | replace: '-', ' ' }}{% endcapture %}
-{%- endif -%}
+  {%- endif -%}
 
-<div class="container">
+  <div class="container">
     {% include 'breadcrumbs' %}
-</div>
+  </div>
 
-{% section 'pet-portal-header' %}
-<section class="container">
+  {% section 'pet-portal-header' %}
+  <section class="container">
     <div class="row">
-        <div class="col-12 col-sm-12 col-md-3">
-            {% include 'pet-portal-filter' %}
+      <div class="col-12 col-sm-12 col-md-3">
+        {% include 'pet-portal-filter' %}
+      </div>
+      <div class="col-12 col-sm-12 col-md-9">
+        <div class="row">
+          {% for article in blog.articles %}
+            {% include 'blog-item',
+              width: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4'
+            %}
+          {% endfor %}
+          {% if paginate.pages > 1 %}
+            {% include 'pagination' %}
+          {% endif %}
         </div>
-        <div class="col-12 col-sm-12 col-md-9">
-            <div class="row">
-            {% for article in blog.articles %}
-                {% include 'blog-item', width: 'col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-4' %}
-            {% endfor %}
-            {% if paginate.pages > 1 %}
-			{% include 'pagination' %}
-		{% endif %}
-            </div>
-        </div>
+      </div>
     </div>
-</section>
+  </section>
 {% endpaginate %}

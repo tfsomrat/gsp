@@ -1,1 +1,18 @@
-{"sections":{"main":{"type":"lp-header","settings":{}},"b01fc256-94a9-4a69-822a-f47fe37b727b":{"type":"text-image","settings":{"image":"shopify:\/\/shop_images\/1_807209af-720f-42c9-b46f-ebba1da80bb4.png","video_url":"","title":"About Us","text":"Hello and welcome to Oscar & Milo – a range of high-quality, high protein, super-premium cat and dog food inspired by the memory of two much-missed pets.\n<br><br>\nOscar, a boisterous boxer, and Milo, the most mischievous of cats, lived life to the full and would have loved Oscar & Milo's nutritionally balanced and grain-free pet food.<br><br>\n\nOscar & Milo cat and dog food recipes are all expertly formulated to provide a complete diet for dogs and cats at every stage of life. We strongly believe that the quality of nourishment we provide for our pets is a key factor in helping to maximise your pet's wellbeing, boost positive health outcomes and ensure mealtimes are always fun for our furry friends! <br><br>\n\nOscar & Milo's philosophy is that prevention is better than cure when it comes to choosing a food to feed your pet. A diet of superior ingredients is always a worthwhile investment to help offset the risk of a sick four-legged family member and unwelcome vet bills down the road. And it doesn’t cost much more than a daily coffee.\n<br><br>\nWhen all is said and done our pets are our family. We think they deserve something pretty special. And we think yours do too.","link":"shopify:\/\/collections\/oscar-milo","button_text":"Shop Now","alignment":"left"}}},"order":["main","b01fc256-94a9-4a69-822a-f47fe37b727b"]}
+{
+  "sections": {
+    "main": { "type": "lp-header", "settings": {} },
+    "b01fc256-94a9-4a69-822a-f47fe37b727b": {
+      "type": "text-image",
+      "settings": {
+        "image": "shopify://shop_images/1_807209af-720f-42c9-b46f-ebba1da80bb4.png",
+        "video_url": "",
+        "title": "About Us",
+        "text": "Hello and welcome to Oscar & Milo – a range of high-quality, high protein, super-premium cat and dog food inspired by the memory of two much-missed pets.\n<br><br>\nOscar, a boisterous boxer, and Milo, the most mischievous of cats, lived life to the full and would have loved Oscar & Milo's nutritionally balanced and grain-free pet food.<br><br>\n\nOscar & Milo cat and dog food recipes are all expertly formulated to provide a complete diet for dogs and cats at every stage of life. We strongly believe that the quality of nourishment we provide for our pets is a key factor in helping to maximise your pet's wellbeing, boost positive health outcomes and ensure mealtimes are always fun for our furry friends! <br><br>\n\nOscar & Milo's philosophy is that prevention is better than cure when it comes to choosing a food to feed your pet. A diet of superior ingredients is always a worthwhile investment to help offset the risk of a sick four-legged family member and unwelcome vet bills down the road. And it doesn’t cost much more than a daily coffee.\n<br><br>\nWhen all is said and done our pets are our family. We think they deserve something pretty special. And we think yours do too.",
+        "link": "shopify://collections/oscar-milo",
+        "button_text": "Shop Now",
+        "alignment": "left"
+      }
+    }
+  },
+  "order": ["main", "b01fc256-94a9-4a69-822a-f47fe37b727b"]
+}

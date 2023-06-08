@@ -1,76 +1,94 @@
 {% paginate search.results by 12 %}
-<section class="container" class="page__container">
-	<!-- START Search Title -->
-	<div class="row">
-		<div class="col-12 col-sm-12 text-center py-4 mt-5">
-			<h1 class="title">
-				{% if search.performed %}
-					{% if search.results_count == 0 %}
-						{{ 'general.search.no_results_html' | t: terms: search.terms }}
-					{% else %}
-						{{ 'general.search.results_for_html' | t: terms: search.terms }}
-					{% endif %}
-				{% else %}
-					{{ 'general.search.title' | t }}
-				{% endif %}
-				<br /><span class="search-showing">Showing <strong>{{ search.results_count }}</strong> Search Results.</span><br>
-			</h1>
-		</div>
-	</div>
-	<!-- END Search Title -->
-	{% if search.performed %}
-	<div class="row">
-	{%- for item in search.results -%}
-		<!-- START Product Search -->
-		<div class="col-12 col-sm-12 col-md-6 col-lg-3 pb-4">
-			<div class="collection__listing-item product-item">
-              {% if item.selected_or_first_available_variant.compare_at_price > item.selected_or_first_available_variant.price %}
-						<div class="sale-tag" style="left: 17px; top: 0px;">
-							{% if item.tags contains "rrp" %}
-								RRP
-							{% else %}
-								Sale
-							{% endif %}
-						</div>
+  <section class="container" class="page__container">
+    <!-- START Search Title -->
+    <div class="row">
+      <div class="col-12 col-sm-12 text-center py-4 mt-5">
+        <h1 class="title">
+          {% if search.performed %}
+            {% if search.results_count == 0 %}
+              {{ 'general.search.no_results_html' | t: terms: search.terms }}
+            {% else %}
+              {{ 'general.search.results_for_html' | t: terms: search.terms }}
+            {% endif %}
+          {% else %}
+            {{ 'general.search.title' | t }}
+          {% endif %}
+          <br>
+          <span class="search-showing"
+            >Showing <strong>{{ search.results_count }}</strong> Search Results.</span
+          ><br>
+        </h1>
+      </div>
+    </div>
+    <!-- END Search Title -->
+    {% if search.performed %}
+      <div class="row">
+        {%- for item in search.results -%}
+          <!-- START Product Search -->
+          <div class="col-12 col-sm-12 col-md-6 col-lg-3 pb-4">
+            <div class="collection__listing-item product-item">
+              {% if item.selected_or_first_available_variant.compare_at_price
+                  > item.selected_or_first_available_variant.price
+              %}
+                <div class="sale-tag" style="left: 17px; top: 0px;">
+                  {% if item.tags contains 'rrp' %}
+                    RRP
+                  {% else %}
+                    Sale
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="collection__listing-image">
+                <a href="{{ item.url }}"
+                  ><img
+                    loading="lazy"
+                    src="{{ item.featured_image | img_url: '300x200' }}"
+                    alt="{{ item.title }}"
+                ></a>
+              </div>
+              <h3 class="collection__listing-item-title">
+                <a href="{{ item.url }}">{{ item.title }}</a>
+              </h3>
+              {% if item.selected_or_first_available_variant.compare_at_price
+                  > item.selected_or_first_available_variant.price
+              %}
+                <div class="product__was-price">
+                  <span class="save" data-compare-price>
+                    {% if item.tags contains 'rrp' %}
+                      {{
+                        item.selected_or_first_available_variant.compare_at_price
+                        | money
+                      }}
+                      (RRP)
+                    {% else %}
+                      {{
+                        item.selected_or_first_available_variant.compare_at_price
+                        | money
+                      }}
+                    {% endif %}
+                  </span>
+                </div>
+              {% endif %}
+              <p class="collection__listing-item-price">
+                {% if item.price_varies %}
+                  From <span class="money">{{ item.price_min | money }}</span>
+                {% else %}
+                  <span class="money">{{ item.price | money }}</span>
+                {% endif %}
+              </p>
+            </div>
+          </div>
+          <!-- END Product Search -->
+        {%- endfor -%}
+      </div>
 
-				{% endif %}
-				<div class="collection__listing-image">
-					<a href="{{ item.url }}"><img loading="lazy" src="{{ item.featured_image | img_url: '300x200' }}" alt="{{ item.title }}"></a>
-				</div>
-				<h3 class="collection__listing-item-title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
-              {% if item.selected_or_first_available_variant.compare_at_price > item.selected_or_first_available_variant.price %}
-								<div class="product__was-price" >
-									<span class="save" data-compare-price>
-										{% if item.tags contains "rrp" %}
-											{{ item.selected_or_first_available_variant.compare_at_price | money }} (RRP)
-										{% else %}
-											{{ item.selected_or_first_available_variant.compare_at_price | money }}
-										{% endif %}
-									</span>
-								</div>
-							{% endif %}
-				<p class="collection__listing-item-price">
-				{% if item.price_varies %}
-					From <span class="money">{{ item.price_min | money }}</span>
-				{% else %}
-					<span class="money">{{ item.price | money }}</span>
-				{% endif %}
-				</p>
-			</div>
-		</div>
-		<!-- END Product Search -->
-		
-	{%- endfor -%}
-	</div>
-
-		{% include 'pagination' %}
-	
-	{% endif %}
-</section>
+      {% include 'pagination' %}
+    {% endif %}
+  </section>
 {% endpaginate %}
 <style>
-.search-showing {
-	margin-top: 20px;
-	font-size: 16px;
-}
+  .search-showing {
+    margin-top: 20px;
+    font-size: 16px;
+  }
 </style>

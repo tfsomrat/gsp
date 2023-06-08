@@ -1,24 +1,25 @@
 <section class="container" class="page__container">
-	<div class="row">
-		<div class="col-12 col-sm-12 col-md-9 offset-md-1 mt-5">
-			<h1 class="title">{{ page.title }}</h1>
-			<article class="rte">
-				{{ page.content }}
-			</article>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-9 offset-md-1 mt-5">
+      <h1 class="title">{{ page.title }}</h1>
+      <article class="rte">
+        {{ page.content }}
+      </article>
 
-            <script src="https://widget.reviews.co.uk/rich-snippet-reviews-widgets/dist.js"></script>
-            <div id="full-page-widget" style="width:100%;"></div>
-            <script>
-                richSnippetReviewsWidgets('full-page-widget', {
-                    store: 'get-set-pet',
-                    widgetName: 'vertical',
-                    primaryClr: '#f47e27',
-                    layout:'fullWidth',
-                    height: 1000,
-                    numReviews: 21
-                });
-            </script>
-
-		</div>
-	</div>
+      <script
+        src="https://widget.reviews.co.uk/rich-snippet-reviews-widgets/dist.js"
+      ></script>
+      <div id="full-page-widget" style="width:100%;"></div>
+      <script>
+        richSnippetReviewsWidgets('full-page-widget', {
+          store: 'get-set-pet',
+          widgetName: 'vertical',
+          primaryClr: '#f47e27',
+          layout: 'fullWidth',
+          height: 1000,
+          numReviews: 21,
+        });
+      </script>
+    </div>
+  </div>
 </section>

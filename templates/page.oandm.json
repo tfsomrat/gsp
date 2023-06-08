@@ -1,1 +1,64 @@
-{"sections":{"main":{"type":"lp-header","settings":{}},"1664540332e675f956":{"type":"lp-banner-alt","settings":{"lp-banner-alt-i":"shopify:\/\/shop_images\/oam-banner-final.png","lp-banner-alt-h":"The Ideal Dog Food Created In Memory Of Two Best Friends","lp-banner-alt-p":"In commemoration of two best friends, Oscar & Milo's high quality, high protein and grain-free dog food recipes provide an ideal diet for your best friend, no matter the breed.","lp-b1-alt-t":"Shop Now","lp-b2-alt-t":"Read More"}},"1664540349eb9c267c":{"type":"text-image","settings":{"image":"shopify:\/\/shop_images\/oam-iwt-2.png","video_url":"","title":"More than just your average dog food.","text":"Every Oscar & Milo dog food recipe has been tailored to deliver high quality nutrition for your dog's requirements. No matter the breed, age or dietary requirements, there's an Oscar & Milo recipe that's right for your dog.","link":"\/collections\/oscar-milo","button_text":"View all products","alignment":"left"}},"16645406068da8e9e5":{"type":"lp-collection","settings":{"lp-collection":"All Oscar & Milo dog food recipes are expertly formulated to provide a complete high-protein, grain-free, delicious diet which your dog will keep coming back for."}},"d6093785-9ef8-403b-a630-842e43927b0a":{"type":"lp-infographic","settings":{"lp-i-h-text":"Why Choose Oscar & Milo?","lp-i-h1-text":"Over 50% Meat Content","lp-i-h2-text":"100% Grain-Free","lp-i-h3-text":"Created With Values","lp-i-p1-text":"A complete meal in every recipe, with high meat content to help provide your dog with a naturally nutritious diet.","lp-i-p2-text":"All Oscar & Milo dog food recipes are completely grain-free, meaning no wheat, gluten, rice or grains across our range.","lp-i-p3-text":"Oscar & Milo believe in superior nutrition. If we wouldn't feed it to our furry friends, we won't feed it to yours.","lp-i-b-text":"Shop Now"}},"1664540698ea6f884d":{"type":"lp-banner","settings":{"lp-banner-i":"shopify:\/\/shop_images\/image_1_84c9f14f-f913-43b7-b22a-915112573b81.png","lp-banner-h":"High Quality Super Premium Dog Food","lp-banner-p":"Quality, natural nutrition is at the heart of Oscar & Milo dog food, helping your dog live their life to the full.","lp-b1-t":"Shop Now","lp-b2-t":"Read More"}}},"order":["main","1664540332e675f956","1664540349eb9c267c","16645406068da8e9e5","d6093785-9ef8-403b-a630-842e43927b0a","1664540698ea6f884d"]}
+{
+  "sections": {
+    "main": { "type": "lp-header", "settings": {} },
+    "1664540332e675f956": {
+      "type": "lp-banner-alt",
+      "settings": {
+        "lp-banner-alt-i": "shopify://shop_images/oam-banner-final.png",
+        "lp-banner-alt-h": "The Ideal Dog Food Created In Memory Of Two Best Friends",
+        "lp-banner-alt-p": "In commemoration of two best friends, Oscar & Milo's high quality, high protein and grain-free dog food recipes provide an ideal diet for your best friend, no matter the breed.",
+        "lp-b1-alt-t": "Shop Now",
+        "lp-b2-alt-t": "Read More"
+      }
+    },
+    "1664540349eb9c267c": {
+      "type": "text-image",
+      "settings": {
+        "image": "shopify://shop_images/oam-iwt-2.png",
+        "video_url": "",
+        "title": "More than just your average dog food.",
+        "text": "Every Oscar & Milo dog food recipe has been tailored to deliver high quality nutrition for your dog's requirements. No matter the breed, age or dietary requirements, there's an Oscar & Milo recipe that's right for your dog.",
+        "link": "/collections/oscar-milo",
+        "button_text": "View all products",
+        "alignment": "left"
+      }
+    },
+    "16645406068da8e9e5": {
+      "type": "lp-collection",
+      "settings": {
+        "lp-collection": "All Oscar & Milo dog food recipes are expertly formulated to provide a complete high-protein, grain-free, delicious diet which your dog will keep coming back for."
+      }
+    },
+    "d6093785-9ef8-403b-a630-842e43927b0a": {
+      "type": "lp-infographic",
+      "settings": {
+        "lp-i-h-text": "Why Choose Oscar & Milo?",
+        "lp-i-h1-text": "Over 50% Meat Content",
+        "lp-i-h2-text": "100% Grain-Free",
+        "lp-i-h3-text": "Created With Values",
+        "lp-i-p1-text": "A complete meal in every recipe, with high meat content to help provide your dog with a naturally nutritious diet.",
+        "lp-i-p2-text": "All Oscar & Milo dog food recipes are completely grain-free, meaning no wheat, gluten, rice or grains across our range.",
+        "lp-i-p3-text": "Oscar & Milo believe in superior nutrition. If we wouldn't feed it to our furry friends, we won't feed it to yours.",
+        "lp-i-b-text": "Shop Now"
+      }
+    },
+    "1664540698ea6f884d": {
+      "type": "lp-banner",
+      "settings": {
+        "lp-banner-i": "shopify://shop_images/image_1_84c9f14f-f913-43b7-b22a-915112573b81.png",
+        "lp-banner-h": "High Quality Super Premium Dog Food",
+        "lp-banner-p": "Quality, natural nutrition is at the heart of Oscar & Milo dog food, helping your dog live their life to the full.",
+        "lp-b1-t": "Shop Now",
+        "lp-b2-t": "Read More"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1664540332e675f956",
+    "1664540349eb9c267c",
+    "16645406068da8e9e5",
+    "d6093785-9ef8-403b-a630-842e43927b0a",
+    "1664540698ea6f884d"
+  ]
+}

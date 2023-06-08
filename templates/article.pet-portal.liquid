@@ -8,79 +8,88 @@
 {% endcapture %}
 
 <section class="container">
-	<!-- START Breadcrumb -->
-	<div class="row">
-		{% include 'breadcrumbs' %}
-	</div>
-	<!-- END Breadcrumb -->
-	<div class="row">
-		<!-- START Article Image -->
-		{% if article.image %}
-		<div class="col-12 col-sm-12 mb-5" class="text-center">
-			<figure class="article-image">
-					<img loading="lazy" src="{{ article.image.src | img_url: '1360x600', crop: 'center' }}" alt="">
-			</figure>
-		</div>
-		{% endif %}
-		<!-- END Article Image -->
-		<!-- START Article -->
-		<div class="col-12 col-sm-12 col-md-6  offset-md-3">
-			<header class="page-header">
-				<h1 class="blog-single__title title center mb-4">{{ article.title }}</h1>
-				<div class="center mb-4 pb-1">
-					<p class="blog__date">{{ date }}</p>
-				</div>
-			</header>
-			{%- assign number_of_comments = article.comments_count -%}
-			{% if comment and comment.status != 'published' %}
-				{% assign number_of_comments = article.comments_count | plus: 1 %}
-			{% endif %}
-			<article role="article" itemscope itemtype="http://schema.org/Article">
-				<div class="rte articleBody" itemprop="articleBody">
-					{{ article.content }}
-				</div>
-
+  <!-- START Breadcrumb -->
+  <div class="row">
+    {% include 'breadcrumbs' %}
+  </div>
+  <!-- END Breadcrumb -->
+  <div class="row">
+    <!-- START Article Image -->
+    {% if article.image %}
+      <div class="col-12 col-sm-12 mb-5" class="text-center">
+        <figure class="article-image">
+          <img
+            loading="lazy"
+            src="{{ article.image.src | img_url: '1360x600', crop: 'center' }}"
+            alt=""
+          >
+        </figure>
+      </div>
+    {% endif %}
+    <!-- END Article Image -->
+    <!-- START Article -->
+    <div class="col-12 col-sm-12 col-md-6  offset-md-3">
+      <header class="page-header">
+        <h1 class="blog-single__title title center mb-4">
+          {{ article.title }}
+        </h1>
+        <div class="center mb-4 pb-1">
+          <p class="blog__date">{{ date }}</p>
+        </div>
+      </header>
+      {%- assign number_of_comments = article.comments_count -%}
+      {% if comment and comment.status != 'published' %}
+        {% assign number_of_comments = article.comments_count | plus: 1 %}
+      {% endif %}
+      <article role="article" itemscope itemtype="http://schema.org/Article">
+        <div class="rte articleBody" itemprop="articleBody">
+          {{ article.content }}
+        </div>
 
         {% section 'static-blog-article' %}
 
-				<div class="article__sharing">
-					<h2 class="subheading">Share This Post:</h2>
-					{% if settings.social_sharing_blog %}
-						{% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
-					{% endif %}
-				</div>
-			</article>
-		</div>
-		<!-- END Article -->
-		<!-- START Article Related Posts -->
-	</div>
-	<div class="row">
-		{% assign counter = 0 %}
-		{% assign related_tag = blog_tag | downcase | strip  %}
-		{% for article in blogs.news.articles %}
-			{% for tag in article.tags %}
-				{% if tag contains related_tag %}
-					{% assign counter = counter | plus: 1 %}
-				{% endif %}
-			{% endfor %}
-		{% endfor %}
+        <div class="article__sharing">
+          <h2 class="subheading">Share This Post:</h2>
+          {% if settings.social_sharing_blog %}
+            {% include 'social-sharing',
+              share_title: article.title,
+              share_permalink: article.url,
+              share_image: article.image
+            %}
+          {% endif %}
+        </div>
+      </article>
+    </div>
+    <!-- END Article -->
+    <!-- START Article Related Posts -->
+  </div>
+  <div class="row">
+    {% assign counter = 0 %}
+    {% assign related_tag = blog_tag | downcase | strip %}
+    {% for article in blogs.news.articles %}
+      {% for tag in article.tags %}
+        {% if tag contains related_tag %}
+          {% assign counter = counter | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
 
-		{% if counter > 0 %}
-		<div class="col-12 col-sm-12">
-			<h2 class="title center section-title">Related Posts</h2>
-		</div>
-		{% endif %}
-		
-		{% assign counter = 0 %}
-		{% for article in blogs.news.articles %}
-			{% for tag in article.tags %}
-				{% if tag contains related_tag %}
-					{% assign counter = counter | plus: 1 %}
-					{% if counter < 5 %}
-						{% include 'blog-item', width: "col-12 col-sm-12 col-md-3" %}
-					{% endif %}
-				{% endif %}
-			{% endfor %}
-		{% endfor %}
-	</div>
+    {% if counter > 0 %}
+      <div class="col-12 col-sm-12">
+        <h2 class="title center section-title">Related Posts</h2>
+      </div>
+    {% endif %}
+
+    {% assign counter = 0 %}
+    {% for article in blogs.news.articles %}
+      {% for tag in article.tags %}
+        {% if tag contains related_tag %}
+          {% assign counter = counter | plus: 1 %}
+          {% if counter < 5 %}
+            {% include 'blog-item', width: 'col-12 col-sm-12 col-md-3' %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </div>
 </section>

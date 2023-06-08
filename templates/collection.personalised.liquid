@@ -1,32 +1,34 @@
-<section class="container collection" >
-	<!-- START Breadcrumbs -->
-	<div class="row">
-		{% include 'breadcrumbs' %}
-	</div>
-	<!-- END Breadcrumbs -->
+<section class="container collection">
+  <!-- START Breadcrumbs -->
+  <div class="row">
+    {% include 'breadcrumbs' %}
+  </div>
+  <!-- END Breadcrumbs -->
 
+  {%- comment -%} COLLECTION HEADER {%- endcomment -%}
+  <div
+    class="boost-pfs-filter-collection-header-wrapper boost-pfs-filter-collection-image {% if collection.image %}boost-pfs-filter-collection-has-image{% endif %}"
+    {% if collection.image %}
+      style="background-image:linear-gradient(rgba(21, 46, 61, 0.3),rgba(21, 46, 61, 0.3)) ,  url({{ collection.image | img_url: '2048x600', crop: 'top' }});"
+    {% endif %}
+  >
+    <div class="boost-pfs-container-default-box">
+      <div class="boost-pfs-section-header">
+        <h1 class="boost-pfs-filter-collection-header">
+          <span>
+            {{ collection.title }}
+          </span>
+        </h1>
+        {%- if collection.description -%}
+          <div class="boost-pfs-filter-collection-description rte">
+            {{ collection.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  {%- comment -%} END COLLECTION HEADER {%- endcomment -%}
 
-
-	{%- comment -%} COLLECTION HEADER {%- endcomment -%}
-<div class="boost-pfs-filter-collection-header-wrapper boost-pfs-filter-collection-image {% if collection.image %}boost-pfs-filter-collection-has-image{% endif %}" {% if collection.image %} style="background-image:linear-gradient(rgba(21, 46, 61, 0.3),rgba(21, 46, 61, 0.3)) ,  url({{ collection.image | img_url: '2048x600', crop: 'top' }});" {% endif %}>
-	<div class="boost-pfs-container-default-box">
-		<div class="boost-pfs-section-header">
-			<h1 class="boost-pfs-filter-collection-header">
-				<span>
-					{{ collection.title }}
-				</span>
-			</h1>
-			{%- if collection.description -%}
-			<div class="boost-pfs-filter-collection-description rte">
-				{{ collection.description }}
-			</div>
-			{%- endif -%}
-		</div>
-	</div>
-</div>
-{%- comment -%} END COLLECTION HEADER {%- endcomment -%}
-
-  
 
 	{% paginate collection.products by 24 %}
 	<div class="row collection__listing-container">
@@ -39,10 +41,9 @@
 					{% include 'sort-collections' %}
 				</div>
 			</div>
-          {% if settings.show_sub_collections == 'yes' %}
+      {% if settings.show_sub_collections == 'yes' %}
 			<div class="row">
-              
-              	<div class="subcollection-row row justify-content-center">
+				<div class="subcollection-row row justify-content-center">
 					{%- for link in linklists.shop-by-pet.links -%}
 						{% if link.active %}
 							{% for child_link in link.links %}
@@ -85,139 +86,133 @@
 						{% endif %}
 					{%- endfor -%}
 				</div>
-            </div>
-          {% endif %}
+			</div>
+		{% endif %}
           
-			<div class="row">  
-              
-				{% if collection.products.size > 0 %}
-				{% for product in collection.products %}
-				{%- assign current_variant = product.selected_or_first_available_variant -%}
-				<div class="product-item col-6 col-sm-6 col-md-6 col-lg-3">
-					<a class="text-decoration-none" href="{{ product.url | within: collection }}">
-						{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-						<div class="sale-tag" >
-							{% if product.tags contains "rrp" %}
-								RRP
-							{% else %}
-								Sale
-							{% endif %}
-						</div>
-						{% endif %}
-						<div class="collection__listing-item">
-							{% if product.featured_image != blank %}
-								<div class="collection__listing-image">
-									<img loading="lazy" src="{{ product.featured_image | img_url: '250x250' }}" alt="">
-								</div>
-							{% else %}
-								<div class="collection__listing-image">
-									<img loading="lazy" style="background: #58b0e3;" src="{{ 'missing-image.svg' | asset_url }}" alt="">
-								</div>
-							{% endif %}
-								<h3 class="collection__listing-item-title">
-									{{ product.title }}
-								</h3>
-							{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
-								<div class="product__was-price" >
-									<span class="save" data-compare-price>
-										{% if product.tags contains "rrp" %}
-											{{ product.selected_or_first_available_variant.compare_at_price | money }} (RRP)
-										{% else %}
-											{{ product.selected_or_first_available_variant.compare_at_price | money }}
-										{% endif %}
-									</span>
-								</div>
-							{% endif %}
-								<p class="collection__listing-item-price">
-								{% if product.price_varies %}
-									From <span class="money">{{ product.price_min | money }}</span>
-								{% else %}
-									<span class="money">{{ current_variant.price | money }}</span>
-								{% endif %}
-								</p>
-						</div>
-					</a>
+		<div class="row">
+		{% if collection.products.size > 0 %}
+		{% for product in collection.products %}
+		{%- assign current_variant = product.selected_or_first_available_variant -%}
+		<div class="product-item col-6 col-sm-6 col-md-6 col-lg-3">
+			<a class="text-decoration-none" href="{{ product.url | within: collection }}">
+				{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+				<div class="sale-tag" >
+					{% if product.tags contains "rrp" %}
+						RRP
+					{% else %}
+						Sale
+					{% endif %}
 				</div>
-				{% endfor %}
-				{% else %}
-					<div class="col-12 col-sm-12">
-						<p>Sorry, there are either no products in this collection or none that match your criteria.</p>
-					</div>
 				{% endif %}
+				<div class="collection__listing-item">
+					{% if product.featured_image != blank %}
+						<div class="collection__listing-image">
+							<img loading="lazy" src="{{ product.featured_image | img_url: '250x250' }}" alt="">
+						</div>
+					{% else %}
+						<div class="collection__listing-image">
+							<img loading="lazy" style="background: #58b0e3;" src="{{ 'missing-image.svg' | asset_url }}" alt="">
+						</div>
+					{% endif %}
+						<h3 class="collection__listing-item-title">
+							{{ product.title }}
+						</h3>
+					{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+						<div class="product__was-price" >
+							<span class="save" data-compare-price>
+								{% if product.tags contains "rrp" %}
+									{{ product.selected_or_first_available_variant.compare_at_price | money }} (RRP)
+								{% else %}
+									{{ product.selected_or_first_available_variant.compare_at_price | money }}
+								{% endif %}
+							</span>
+						</div>
+					{% endif %}
+						<p class="collection__listing-item-price">
+						{% if product.price_varies %}
+							From <span class="money">{{ product.price_min | money }}</span>
+						{% else %}
+							<span class="money">{{ current_variant.price | money }}</span>
+						{% endif %}
+						</p>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+		{% else %}
+			<div class="col-12 col-sm-12">
+				<p>Sorry, there are either no products in this collection or none that match your criteria.</p>
+			</div>
+		{% endif %}
 	</div>
-
-    {% if paginate.pages > 1 %}
-  	{% include 'pagination' %}
-  	{% endif %}
-
-	
-
-
+	{% if paginate.pages > 1 %}
+	{% include 'pagination' %}
+	{% endif %}
 {% endpaginate %}
 </section>
 
 <script>
-	$(document).ready(function(){
-		$('h3.heading').click(function(){
-			if($(window).width() < 768) {
-				var thisID = $(this).attr('id');
-				$('.' + thisID).slideToggle(750);
-				$(this).find('.sidebar__chevron').toggleClass('active');
-			}
-		});
+  $(document).ready(function () {
+    $('h3.heading').click(function () {
+      if ($(window).width() < 768) {
+        var thisID = $(this).attr('id');
+        $('.' + thisID).slideToggle(750);
+        $(this).find('.sidebar__chevron').toggleClass('active');
+      }
+    });
 
-		var subSize = $('.subcollection-row').children().size();
-		if(subSize <= 0) {
-			$('.subcollection-row').remove();
-        }
-        
-        
-        // Login Check Code - https://www.sitepoint.com/get-url-parameters-with-javascript/
-        function getAllUrlParams(url) {
+    var subSize = $('.subcollection-row').children().size();
+    if (subSize <= 0) {
+      $('.subcollection-row').remove();
+    }
+    // Login Check Code - https://www.sitepoint.com/get-url-parameters-with-javascript/
+    function getAllUrlParams(url) {
+      var queryString = url
+        ? url.split('?')[1]
+        : window.location.search.slice(1);
+      var obj = {};
 
-        var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-        var obj = {};
-
-        if (queryString) {
+      if (queryString) {
         queryString = queryString.split('#')[0];
         var arr = queryString.split('&');
         for (var i = 0; i < arr.length; i++) {
-            var a = arr[i].split('=');
-            var paramName = a[0];
-            var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
-            paramName = paramName.toLowerCase();
-            if (typeof paramValue === 'string') 
-            // paramValue = paramValue.toLowerCase();
+          var a = arr[i].split('=');
+          var paramName = a[0];
+          var paramValue = typeof a[1] === 'undefined' ? true : a[1];
+          paramName = paramName.toLowerCase();
+          if (typeof paramValue === 'string')
             if (paramName.match(/\[(\d+)?\]$/)) {
-                var key = paramName.replace(/\[(\d+)?\]/, '');
-                if (!obj[key]) obj[key] = [];
-                if (paramName.match(/\[\d+\]$/)) {
-                    var index = /\[(\d+)\]/.exec(paramName)[1];
-                    obj[key][index] = paramValue;
-                } else {
-                    obj[key].push(paramValue);
-                }
-                } else {
-                if (!obj[paramName]) {
-                    obj[paramName] = paramValue;
-                } else if (obj[paramName] && typeof obj[paramName] === 'string'){
-                    obj[paramName] = [obj[paramName]];
-                    obj[paramName].push(paramValue);
-                } else {
-                    obj[paramName].push(paramValue);
-                }
-                }
+              // paramValue = paramValue.toLowerCase();
+              var key = paramName.replace(/\[(\d+)?\]/, '');
+              if (!obj[key]) obj[key] = [];
+              if (paramName.match(/\[\d+\]$/)) {
+                var index = /\[(\d+)\]/.exec(paramName)[1];
+                obj[key][index] = paramValue;
+              } else {
+                obj[key].push(paramValue);
+              }
+            } else {
+              if (!obj[paramName]) {
+                obj[paramName] = paramValue;
+              } else if (obj[paramName] && typeof obj[paramName] === 'string') {
+                obj[paramName] = [obj[paramName]];
+                obj[paramName].push(paramValue);
+              } else {
+                obj[paramName].push(paramValue);
+              }
             }
-            }
-        return obj;
         }
+      }
+      return obj;
+    }
 
+    var firstName = getAllUrlParams().firstname;
+    var firstNameLength = firstName.length;
 
-        var firstName = getAllUrlParams().firstname;
-        var firstNameLength = firstName.length;
-
-        if(firstNameLength > 1) {
-          $('.collection__title--text').append(": " + firstName + ", your exclusive access to our Summer Sale ");
-        }
-	})
+    if (firstNameLength > 1) {
+      $('.collection__title--text').append(
+        ': ' + firstName + ', your exclusive access to our Summer Sale '
+      );
+    }
+  });
 </script>

@@ -1,46 +1,59 @@
 {% paginate search.results by 24 %}
-<div class="container">
+  <div class="container">
     {% include 'breadcrumbs' %}
-</div>
-<header class="page-header blue mb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-12 text-center my-3 my-md-5">
-                    <header class="page-header">
-                        <h1 class="title text-center white mt-3 mt-md-4 mb-4">
-                            {% if search.performed %}
-                            {% if search.results_count == 0 %}
-                                {{ 'general.search.no_results_html' | t: terms: search.terms }}
-                            {% else %}
-                                {{ 'general.search.results_for_html' | t: terms: search.terms }}
-                            {% endif %}
-                            {% else %}
-                            {{ 'general.search.title' | t }}
-                            {% endif %}
-                        </h1>
-                        <p class="pet-portal-introduction mb-3 mb-md-4"><span>Showing <strong>{{ search.results_count }}</strong> Search Results.</span></p>
-                    </header>
-                </div>
-            </div>
+  </div>
+  <header class="page-header blue mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 text-center my-3 my-md-5">
+          <header class="page-header">
+            <h1 class="title text-center white mt-3 mt-md-4 mb-4">
+              {% if search.performed %}
+                {% if search.results_count == 0 %}
+                  {{
+                    'general.search.no_results_html'
+                    | t: terms: search.terms
+                  }}
+                {% else %}
+                  {{
+                    'general.search.results_for_html'
+                    | t: terms: search.terms
+                  }}
+                {% endif %}
+              {% else %}
+                {{ 'general.search.title' | t }}
+              {% endif %}
+            </h1>
+            <p class="pet-portal-introduction mb-3 mb-md-4">
+              <span
+                >Showing <strong>{{ search.results_count }}</strong> Search
+                Results.</span
+              >
+            </p>
+          </header>
         </div>
-    </header>
-<section class="container">
-	{% if search.performed %}
-	<div class="row">
+      </div>
+    </div>
+  </header>
+  <section class="container">
+    {% if search.performed %}
+      <div class="row">
         <div class="col-12 col-sm-12 col-md-3">
-            {% include 'blog-filter' %}
+          {% include 'blog-filter' %}
         </div>
         {%- for item in search.results -%}
-        <div class="col-12 col-sm-12 col-md-9">
+          <div class="col-12 col-sm-12 col-md-9">
             <div class="row">
-                {% include 'pet-portal-item', width: 'col-12 col-sm-12 col-md-4 mb-4' %}
+              {% include 'pet-portal-item',
+                width: 'col-12 col-sm-12 col-md-4 mb-4'
+              %}
             </div>
-        </div>
+          </div>
         {%- endfor -%}
         {% if paginate.pages > 1 %}
-            {% include 'pagination' %}
+          {% include 'pagination' %}
         {% endif %}
-    </div>
-	{% endif %}
-</section>
+      </div>
+    {% endif %}
+  </section>
 {% endpaginate %}

@@ -1,1 +1,17 @@
-{"sections":{"b01fc256-94a9-4a69-822a-f47fe37b727b":{"type":"text-image","settings":{"image":"shopify:\/\/shop_images\/Tell_Us_Your_Pet_Name_1.png","video_url":"","title":"Tell us about your pets!","text":"<div class=\"klaviyo-form-UUBZ9T\"><\/div>","link":"https:\/\/www.getsetpet.com\/","button_text":"To Our Home Page","alignment":"right"}}},"order":["b01fc256-94a9-4a69-822a-f47fe37b727b"]}
+{
+  "sections": {
+    "b01fc256-94a9-4a69-822a-f47fe37b727b": {
+      "type": "text-image",
+      "settings": {
+        "image": "shopify://shop_images/Tell_Us_Your_Pet_Name_1.png",
+        "video_url": "",
+        "title": "Tell us about your pets!",
+        "text": "<div class=\"klaviyo-form-UUBZ9T\"></div>",
+        "link": "https://www.getsetpet.com/",
+        "button_text": "To Our Home Page",
+        "alignment": "right"
+      }
+    }
+  },
+  "order": ["b01fc256-94a9-4a69-822a-f47fe37b727b"]
+}
