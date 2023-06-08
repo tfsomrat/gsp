@@ -1,1 +1,1607 @@
-{"current":{"show_sub_collections":"yes","shop_logo":"shopify:\/\/shop_images\/get-set-pet-logo-large.png","social_share_image":"shopify:\/\/shop_images\/GSP-1080.jpg","shop_opening_times":"","shop_contact_number":"","shop_contact_email":"","shop_contact_address":"","brands_excluded":"Q,U,V,X","social_sharing_blog":true,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"https:\/\/twitter.com\/Getsetpet","social_facebook_link":"https:\/\/www.facebook.com\/GetSetPet\/","social_pinterest_link":"https:\/\/www.pinterest.co.uk\/getsetpet\/","social_instagram_link":"https:\/\/www.instagram.com\/getsetpetuk\/","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","social_google_link":"","sidebar_cta_1_text":"Shop Online","sidebar_cta_1_url":"","sidebar_cta_2_text":"Help & Advice","sidebar_cta_2_url":"","sidebar_cta_3_text":"Latest Tweets","sidebar_cta_3_url":"","sidebar_featured_products":"","cart_notes_enable":false,"free_delivery_threshold":"39.00","favicon":"shopify:\/\/shop_images\/favicon.jpg","shipping_calculator":"Disabled","shipping_calculator_heading":"Get shipping estimates","shipping_calculator_default_country":"United Kingdom","shipping_calculator_submit_button_label":"Calculate shipping","shipping_calculator_submit_button_label_disabled":"Calculating...","checkout_header_image":"","checkout_logo_image":"shopify:\/\/shop_images\/logo_28de04ff-3833-4684-a148-1b84527ed04f.png","checkout_logo_position":"center","checkout_logo_size":"large","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#58b0e3","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#58b0e3","checkout_button_color":"#f16812","checkout_error_color":"#ffcc17","trade_intro":"","wholesale_popup":false,"pop_up_title":"","pop_up_paragraph":"","sections":{"404":{"type":"404","blocks":{"1569337290402":{"type":"404Links","settings":{"button_url":"\/","button_text":"Home"}},"1569337309561":{"type":"404Links","settings":{"button_url":"shopify:\/\/collections","button_text":"Shop All Products"}},"1569337322419":{"type":"404Links","settings":{"button_url":"shopify:\/\/pages\/brands","button_text":"Shop by Brand"}},"1569337333056":{"type":"404Links","settings":{"button_url":"shopify:\/\/blogs\/pet-portal","button_text":"Ask The Expert"}}},"block_order":["1569337290402","1569337309561","1569337322419","1569337333056"],"settings":{}},"header":{"type":"header","blocks":{"1560175589871":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/Plain_3.png","page":"https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=dog"}},"1560176190613":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/Plain_4.png","page":"https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=cat"}},"1560176204424":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/cbe14cad934963e7ccc8d5ca2efc9e4b.jpg","page":"shopify:\/\/collections\/fish-food-treats"}},"1568623262370":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/Just_select_Subscribe_Save_when_you_add_to_basket_210_x_210_px_210_x_350_px.png","page":"shopify:\/\/collections\/small-pets"}},"1601900234854":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/2_e31391eb-8aaa-4582-a963-2f640f3d8436.png","page":"shopify:\/\/collections\/birds-wildlife"}},"1568623276550":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/Reptiles_HD_Wallpapers_1.jpg","page":"shopify:\/\/collections\/reptile"}},"1601901846504":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/Collection_Image_20201005_1.png","page":"shopify:\/\/collections\/bird-wildlife"}},"acd5f580-914e-4ed3-ab82-2ae820b9471c":{"type":"CTA","settings":{"image":"shopify:\/\/shop_images\/biscuit_210_x_544_px.png","page":"shopify:\/\/collections\/biscuit"}}},"block_order":["1560175589871","1560176190613","1560176204424","1568623262370","1601900234854","1568623276550","1601901846504","acd5f580-914e-4ed3-ab82-2ae820b9471c"],"settings":{"main_linklist":"shop-by-pet","topbar_linklist":"main-menu-test","notification_image_one":"shopify:\/\/shop_images\/Icon_-_Delivery.png","notification_text_one":"Free Next Day Delivery £39+","notification_link_one":"https:\/\/getsetpet.com\/pages\/faqs#shipping","notification_image_two":"shopify:\/\/shop_images\/iconfinder_star_216411.png","notification_text_two":"Rated Excellent","notification_link_two":"https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet","notification_text_three":"Save 20% with","popup_image":"shopify:\/\/shop_images\/Get_Set_Save_Banner_List.png","notification_text_four":"","notification_link_four":"","modal_title":"","modal_content":"","modal_accordian_one":"","modal_accordian_desc_one":"","modal_accordian_two":"","modal_accordian_desc_two":"","modal_accordian_three":"","modal_accordian_desc_three":"","modal_accordian_four":"","modal_accordian_desc_four":""}},"footer":{"type":"footer","settings":{"footer_linklist_1_title":"Pet Care Advice","footer_linklist_1_links":"","footer_linklist_2_title":"More Info","footer_linklist_2_links":"new-more-info","show_payment_icons":false}},"1559570621332":{"type":"collection-list","disabled":true,"blocks":{"1559570621332-0":{"type":"collection","settings":{"collection":"royal-canin"}},"1572281090722":{"type":"collection","settings":{"collection":"natures-variety"}},"1572282455667":{"type":"collection","settings":{"collection":"julius-k9"}},"c314ce84-283c-4d14-831b-5a499fb940b5":{"type":"collection","settings":{"collection":"dog-birthday-cards-by-scoff-paper"}},"1587049265547":{"type":"collection","settings":{"collection":"eden"}},"a31685c7-95bd-4198-8cb5-f9c61ab08e93":{"type":"collection","settings":{"collection":"tribal"}},"8a6b8f37-07fd-4008-8302-e14466720df7":{"type":"collection","settings":{"collection":"kurgo"}},"1587048997983":{"type":"collection","settings":{"collection":"burns"}},"39ffe583-cbe2-461b-acfc-502e028b280b":{"type":"collection","settings":{"collection":"catit"}},"3284017d-8f77-44c2-ba2a-e4ce00f289f7":{"type":"collection","settings":{"collection":"simpsons"}},"1559571593625":{"type":"collection","settings":{"collection":"james-wellbeloved"}},"1559570621332-1":{"type":"collection","settings":{"collection":"aatu"}}},"block_order":["1559570621332-0","1572281090722","1572282455667","c314ce84-283c-4d14-831b-5a499fb940b5","1587049265547","a31685c7-95bd-4198-8cb5-f9c61ab08e93","8a6b8f37-07fd-4008-8302-e14466720df7","1587048997983","39ffe583-cbe2-461b-acfc-502e028b280b","3284017d-8f77-44c2-ba2a-e4ce00f289f7","1559571593625","1559570621332-1"],"settings":{"title":"Top Brands","is_h1":false,"title_icon":"title-generic","viewall_link":""}},"static-blog-article":{"type":"static-blog-article","blocks":{"1565089257538":{"type":"Author","settings":{"author_name":"Luke Skybarker","author_tag":"[author]luke-skybarker","author_bio":"<p>In a galaxy far, far away...<\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>","author_image":"shopify:\/\/shop_images\/tom.png"}},"1565089362794":{"type":"Author","settings":{"author_name":"Jason Phillips","author_tag":"[author]jason-phillips","author_bio":"<p>Jason is Co-Founder &amp; COO at Get Set Pet.<\/p>","author_image":"shopify:\/\/shop_images\/0.jpeg"}},"1568034833026":{"type":"Author","settings":{"author_name":"Martin Ruddy","author_tag":"[author]martin-ruddy","author_bio":"<p>Martin is Co-Founder &amp; CEO of Get Set Pet. <\/p>","author_image":"shopify:\/\/shop_images\/Martin_WeddingJPG.jpg"}},"1568034851086":{"type":"Author","settings":{"author_name":"Carly Corderoy","author_tag":"[author]carly-corderoy","author_bio":"<p>Carly is Customer Services &amp; Content Manager at Get Set Pet.  She is the proud owner of over one hundred pets!<\/p>","author_image":"shopify:\/\/shop_images\/CarlyPhoto.jpeg"}},"1568034870434":{"type":"Author","settings":{"author_name":"Max","author_tag":"[author]max","author_bio":"<p>My name is Max and I&#x27;m a terrier cross. I was rescued by Martin from a local dog sanctuary eight years ago. Life was tough when I was a pup but I&#x27;m a very happy doggy now!<\/p>","author_image":"shopify:\/\/shop_images\/fullsizeoutput_d9f9.jpeg"}},"1568368348302":{"type":"Author","settings":{"author_name":"Get Set Pet","author_tag":"[author]get-set-pet","author_bio":""}},"1573558652667":{"type":"Author","settings":{"author_name":"David Jackson","author_tag":"[author]david-jackson","author_bio":"<p>David is the creator, designer, developer and researcher of AllAboutDogFood.co.uk, not to mention the proud owner of Ned, his gorgeous border terrier.<\/p>","author_image":"shopify:\/\/shop_images\/fullsizeoutput_4c.jpeg"}},"1594379334973":{"type":"Author","settings":{"author_name":"Emily Tutty","author_tag":"[author]emily-tutty","author_bio":"<p>Emily is a Digital Marketing Intern at Get Set Pet and the proud owner of a cat called Kit.<\/p>","author_image":"shopify:\/\/shop_images\/Emily_Photo.jpg"}},"da968423-5d72-427c-b5c5-5b5e7649e7af":{"type":"Author","settings":{"author_name":"Holly Balchin","author_tag":"[author]holly-balchin","author_bio":"<p>Holly is a Customer Services and Content Executive at Get Set Pet and the proud owner of a dog called Lolly.<\/p>","author_image":"shopify:\/\/shop_images\/F4FE85FF-5576-4695-BE84-E32138CC484B.jpg"}},"417e245b-8fff-4580-9935-d655db5c0dca":{"type":"Author","settings":{"author_name":"Dylan and Edward","author_tag":"[author]Dylan-and-Edward","author_bio":"<p>Get Set Pet roving reporters Dylan McDaniel and Edward Ruddy love sharing stories about their pets. <\/p>","author_image":"shopify:\/\/shop_images\/IMG_9012_901be99c-743f-415e-9a07-2cef88b51af4.jpg"}},"cb6a4615-c6d5-44e6-8214-24900123bd29":{"type":"Author","settings":{"author_name":"Karen Cornish","author_tag":"[author]karen-cornish","author_bio":"<p>Our expert Get Set Pet writer on all things pet!  <\/p>","author_image":"shopify:\/\/shop_images\/business-dog-paws-on-keyboard.jpg"}}},"block_order":["1565089257538","1565089362794","1568034833026","1568034851086","1568034870434","1568368348302","1573558652667","1594379334973","da968423-5d72-427c-b5c5-5b5e7649e7af","417e245b-8fff-4580-9935-d655db5c0dca","cb6a4615-c6d5-44e6-8214-24900123bd29"],"settings":{"title":"Post By:"}},"landing-page":{"type":"landing-page","blocks":{"fb40074a-1ade-4a8d-9d51-d290e76ee379":{"type":"image-only","settings":{"no_padding_top":true,"full_image":false,"desk_image":"shopify:\/\/shop_images\/Landing_Page_Banner_Christmas_Turkeys_635_x_353px.png","desk_image_alt":"Find the Turkeys","mob_image_alt":""}},"21be8bd8-92ca-40fe-8aed-d462bcab3e82":{"type":"text-only","settings":{"title":"FIND THE TURKEYS","text":"Five troublesome Turkeys have escaped and hidden themselves amongst the products on our website! Each Turkey has a letter on their body which, when combined, will spell a Christmas-themed word. Simply identify that word for your chance to win one of three £75 Get Set Pet gift cards!","link":"https:\/\/www.getsetpet.com","button_text":"Find The Turkeys","enable_text_link":false}},"26ec3269-91ba-4d8b-a69c-c805a5d30139":{"type":"text-image","settings":{"alignment":"right","image":"shopify:\/\/shop_images\/INDIVIDUAL_ROBINS_TRANSPARENT_PNG_720_x_720px.png","title":"How It Works","text":"To be in with a chance of winning just email your answer and your name to hello@getsetpet.com and we'll enter you into our prize draw which will take place on Thursday 15th December. The Turkeys need to be back on the farm Monday 12th at midnight, so start searching soon!","link":"mailto:hello@getsetpet.com","button_text":"Email Answer","enable_text_link":false,"text_alignment":"left"}},"879d8fb4-353c-4ff6-98a6-5ef21787cc98":{"type":"text-only","settings":{"title":"Terms and Conditions","text":"One entry per household, competition closes at midnight 12th December, the draw to select the winners will take place on Thursday 15th December, the winner will be notified via email.","link":"","button_text":"","enable_text_link":false}}},"block_order":["fb40074a-1ade-4a8d-9d51-d290e76ee379","21be8bd8-92ca-40fe-8aed-d462bcab3e82","26ec3269-91ba-4d8b-a69c-c805a5d30139","879d8fb4-353c-4ff6-98a6-5ef21787cc98"],"settings":{"disable_title":true}},"cart-popup":{"type":"cart-popup","blocks":{"1569250356737":{"type":"threshold","settings":{"price_threshold":"5000","offer_product":"aatu-artisan-adult-bakes-salmon-and-sardine"}}},"block_order":["1569250356737"],"settings":{"enable-popup":false}},"pet-portal-header":{"type":"pet-portal-header","settings":{"introduction":"Everybody wants the best for their pets. Their health and happiness is of critical importance to us but with so much information available it can be difficult to know where to turn. That's why we've created Ask The Expert, where we aim to answer your questions. Simply email hello@getsetpet.com with any questions you have!"}},"contact-page":{"type":"contact-page","settings":{"image":"shopify:\/\/shop_images\/shutterstock_367928978.jpg"}},"about-us":{"type":"about-us","blocks":{"1568819201528":{"type":"image_text_under","settings":{"link_id":"","image_text_under_title":"Our Story","is_h1":true,"image_text_under_richtext":"<p>Hi there!<\/p>\n<p>We&rsquo;re Martin and Jason, the founders of Get Set Pet, and we&rsquo;re on a journey to change the way you buy pet supplies.<\/p>\n<p>Although one of us is a dedicated dog lover and the other is still searching for the cat of his dreams, we discovered we had similar concerns when it came to finding reliable information about pet care &ndash; especially in relation to food. Do big-name brands contain all the nutrients Max the dog needs? Is raw food suitable for a house cat? Where can I go to get honest advice?<\/p>","image_text_under_image":"shopify:\/\/shop_images\/IMG_0992.jpg","padding":"30px 0 30px 0"}},"1568820417126":{"type":"image_text_block","settings":{"link_id":"","image_text_block_title":"","is_h1":false,"image_text_block_richtext":"<p>With no unbiased answers immediately at our fingertips, our pet project (so to speak) was born.&nbsp;<\/p>\n<p><\/p>\n<p>We&rsquo;re focused on creating a world where pet health and happiness comes first. Our vision is for Get Set Pet to be more than just a pet shop. We believe it should be simple to get everything your pet needs in one place &ndash; so you spend more time enjoying their company and less time worrying about their wellbeing.&nbsp;<\/p>","image_text_block_image":"shopify:\/\/shop_images\/shutterstock_708732331__1.jpg","padding":"20px 0","image_on":"left"}},"1568820459504":{"type":"image_text_block","settings":{"link_id":"","image_text_block_title":"","is_h1":false,"image_text_block_richtext":"<p>As an independent company, we source the highest-quality products available, while providing the essential details you need to make informed decisions, whether you have a cat, dog, small mammal, bird or reptile.&nbsp;<\/p>\n<p><\/p>\n<p>Working with a panel of experts in a range of fields, we aim to make your life easier. From nutritional values to pricing, we provide the most relevant product details in a clear, easy-to-digest format, so you don&rsquo;t have to hunt for answers online. Plus, our blog is filled with additional advice and tips, so you can help your pet live its best life.<\/p>","image_text_block_image":"shopify:\/\/shop_images\/Larry.jpg","padding":"20px 0","image_on":"right"}},"1568820477267":{"type":"image_text_block","settings":{"link_id":"","image_text_block_title":"","is_h1":false,"image_text_block_richtext":"<p>Of course, we know there will be times when you&rsquo;re unsure what to do; whether you&rsquo;ve just got your first pet or you&rsquo;re an old hand, you might need a little reassurance. That&rsquo;s why we&rsquo;ve set up live chat, so you can ask our team questions, just like you would at your local store.&nbsp;<\/p>","image_text_block_image":"shopify:\/\/shop_images\/Dgoul_ZbTZG3Q6GBMlpC7w_thumb_ed7a_b38d0ec9-e59d-497f-b6b1-503dd92a4b71.jpg","padding":"20px 0","image_on":"left"}},"1568820495797":{"type":"image_text_block","settings":{"link_id":"","image_text_block_title":"","is_h1":false,"image_text_block_richtext":"<p>Come to think of it, exceptional customer service comes as standard at Get Set Pet. As a pair of technology lovers, we use the latest digital tools to create a first-class shopping experience. From providing expert information, to delivering the top-notch products and keeping you in the loop with the latest in pet care, your best friend is at the heart of everything we do.<\/p>","image_text_block_image":"shopify:\/\/shop_images\/164357350-hamster-wallpapers.jpg","padding":"20px 0","image_on":"right"}},"1568820518993":{"type":"image_text_block","settings":{"link_id":"","image_text_block_title":"","is_h1":false,"image_text_block_richtext":"<p>And for those pets yet to find their forever home, we&rsquo;re giving back. We&rsquo;re supporting sanctuaries up and down the UK, helping them care for animals in need. These small charities do sterling work, so it&rsquo;s the least we can do.&nbsp;<\/p>\n<p><\/p>\n<p>Join us on our journey to a world of pet wellbeing.<\/p>","image_text_block_image":"shopify:\/\/shop_images\/Reptiles_HD_Wallpapers_1.jpg","padding":"20px 0","image_on":"left"}}},"block_order":["1568819201528","1568820417126","1568820459504","1568820477267","1568820495797","1568820518993"],"settings":{}},"brand-logos":{"type":"brand-logos","blocks":{"17b66fee-aa0c-47ad-8a1e-77d30b33e377":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/6027f0b9ed4efb0004199837.png","brand_link":"shopify:\/\/collections\/orijen"}},"1587051831938":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/logo_7888a58e-03ba-448a-99d5-387845539e11.png","brand_link":"shopify:\/\/collections\/burns"}},"001335d7-aabe-40d9-8563-5d00eb91e873":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Royal_Canin_325a5aa6-df5b-4bc0-861f-ba1a7b50a16a.png","brand_link":"shopify:\/\/collections\/royal-canin"}},"1568841372219":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/JamesWellbeloved_e6e98cf9-2ff8-4404-a37d-f5a2ad76085b.png","brand_link":"shopify:\/\/collections\/james-wellbeloved"}},"d7cf8239-a538-43af-8d05-53c58c770152":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/6027f8aded4efb0004199865.png","brand_link":"shopify:\/\/collections\/acana"}},"3592b45a-9b7b-4471-8010-d8cf72ded1eb":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/nv-logo.png","brand_link":"shopify:\/\/collections\/natures-variety"}},"1568841382974":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/danish-design_f3bdab60-312b-4bba-bfa4-1271f71c2c20.jpg","brand_link":"shopify:\/\/collections\/danish-design"}},"90638ab3-0f32-471e-b566-3029b54b32a2":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/37438-logo-1566903325_1.jpg","brand_link":"shopify:\/\/collections\/naturo"}},"6b013548-d324-46da-8322-9067b1c7cf8c":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Screenshot_2021-11-25_at_16.55.17.png","brand_link":"shopify:\/\/collections\/ruffwear"}},"1568841391558":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/aatu_70f404a4-0a3e-4dec-8078-5bfe562c6c3b.jpg","brand_link":"shopify:\/\/collections\/aatu"}},"1571322639132":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Natures_Menu_65d212ca-758f-44e5-b1cc-213ab7d95819.png","brand_link":"shopify:\/\/collections\/natures-menu"}},"1571323071505":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Julius_973015d9-a48c-4fb8-8f8d-5a809a3f09a0.png","brand_link":"shopify:\/\/collections\/julius-k9"}},"1571324097272":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Petsafe_logo.jpg","brand_link":""}}},"block_order":["17b66fee-aa0c-47ad-8a1e-77d30b33e377","1587051831938","001335d7-aabe-40d9-8563-5d00eb91e873","1568841372219","d7cf8239-a538-43af-8d05-53c58c770152","3592b45a-9b7b-4471-8010-d8cf72ded1eb","1568841382974","90638ab3-0f32-471e-b566-3029b54b32a2","6b013548-d324-46da-8322-9067b1c7cf8c","1568841391558","1571322639132","1571323071505","1571324097272"],"settings":{"title":"","is_h1":true}},"1568974331625":{"type":"dynamic-slider","settings":{}},"product":{"type":"product","settings":{}},"cart-related-products":{"type":"cart-related-products","settings":{"collection":"frontpage"}},"1578923528467":{"type":"reviews","settings":{}},"1634204617937c0928":{"type":"brand-logos","blocks":{"83b1be72-9ad5-4540-b659-9fe30b5e67b6":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Royal_Canin_2574f774-082a-4127-a3cd-784f851ed3c0.png","brand_link":"https:\/\/getsetpet.com\/collections\/royal-canin"}},"3698b28d-7488-4196-83f8-f2d631f14b90":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Burns.png","brand_link":"https:\/\/getsetpet.com\/collections\/burns"}},"26416d56-65d9-47d1-ab9a-bf7311550794":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/6027f0b9ed4efb0004199837.png","brand_link":"https:\/\/getsetpet.com\/collections\/vendors?q=Orijen"}},"a4c688be-0b67-474f-80a5-4ec79a66398a":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/37438-logo-1566903325_1.jpg","brand_link":"https:\/\/getsetpet.com\/collections\/vendors?q=Naturo"}},"69817a86-d55c-451d-8de1-6ecc08179f7e":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/6027f8aded4efb0004199865.png","brand_link":"https:\/\/getsetpet.com\/collections\/vendors?q=Acana"}},"4b429235-2267-49a3-843e-c592386e4408":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/applaws-logo_e9c9ae37-08a4-418c-af66-0e806a89ffaa.png","brand_link":"https:\/\/getsetpet.com\/collections\/applaws"}},"58124bd1-3e58-4d79-b884-acf4367cc7f4":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/5125771.png","brand_link":"https:\/\/getsetpet.com\/collections\/james-wellbeloved"}},"ed8aa8e3-01b0-4585-aff4-325766d9d212":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Natures_Menu_74203bff-3854-46c7-8d70-4b1b8be0a66f.png","brand_link":"https:\/\/getsetpet.com\/collections\/natures-menu"}},"603ee48a-a9f5-4773-acbe-8d7f9c92176f":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Chuckit_1.png","brand_link":"https:\/\/getsetpet.com\/collections\/vendors?q=Chuckit"}},"41901e86-2b66-4141-98f1-00566f36bdb8":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Royal_Canin_325a5aa6-df5b-4bc0-861f-ba1a7b50a16a.png","brand_link":"shopify:\/\/collections\/royal-canin"}},"a1505a49-3ca4-4a08-8fc0-ea2294729039":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Julius_ce998186-ce77-43c0-b569-2a32962784aa.png","brand_link":"https:\/\/getsetpet.com\/collections\/julius-k9"}},"07b7ae19-bc26-43b9-bfa0-42b226254179":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Eden-Logo-Gold_1.png","brand_link":"https:\/\/getsetpet.com\/collections\/eden"}},"9fba7458-f3db-478e-ba93-ea23d91e590e":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Danish_Design_Logo_5cae7d3c-dd08-4466-9706-6fca2df69c51.jpg","brand_link":"https:\/\/getsetpet.com\/collections\/danish-design"}},"22d1eb3e-2227-491c-8ff9-cbcf4820f3cb":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/Screenshot_2021-11-25_at_16.55.17.png","brand_link":"https:\/\/getsetpet.com\/collections\/ruffwear"}},"e7bd3fdb-d920-4493-970b-4e2cc9940602":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/download.png","brand_link":"shopify:\/\/collections\/walker-drake"}},"9d37e392-0855-4201-897b-02a53a44edcd":{"type":"logo","settings":{"brand_logo":"shopify:\/\/shop_images\/KONG-Logo_Red.png","brand_link":"shopify:\/\/collections\/kong"}}},"block_order":["83b1be72-9ad5-4540-b659-9fe30b5e67b6","3698b28d-7488-4196-83f8-f2d631f14b90","26416d56-65d9-47d1-ab9a-bf7311550794","a4c688be-0b67-474f-80a5-4ec79a66398a","69817a86-d55c-451d-8de1-6ecc08179f7e","4b429235-2267-49a3-843e-c592386e4408","58124bd1-3e58-4d79-b884-acf4367cc7f4","ed8aa8e3-01b0-4585-aff4-325766d9d212","603ee48a-a9f5-4773-acbe-8d7f9c92176f","41901e86-2b66-4141-98f1-00566f36bdb8","a1505a49-3ca4-4a08-8fc0-ea2294729039","07b7ae19-bc26-43b9-bfa0-42b226254179","9fba7458-f3db-478e-ba93-ea23d91e590e","22d1eb3e-2227-491c-8ff9-cbcf4820f3cb","e7bd3fdb-d920-4493-970b-4e2cc9940602","9d37e392-0855-4201-897b-02a53a44edcd"],"settings":{"title":"Top Brands","is_h1":false}},"16342072178765c54b":{"type":"newsletter","disabled":true,"settings":{"footer_linklist_1_title":"Site Info"}},"16342979420a063995":{"type":"multi-column","blocks":{"ef154c2e-e1b8-4aa8-8104-2e98c8c88080":{"type":"Column","settings":{"column_width_desk":"8","column_width_mob":"12","text_alignment":"left","image":"shopify:\/\/shop_images\/Brand_1_-_Desktop.jpg","col_title":"","text_block":"","button_link":"shopify:\/\/pages\/burns","link_text":"Read more","offset_link":false}},"bbe50c75-f3ec-46cd-b3fd-60da38582381":{"type":"Column","disabled":true,"settings":{"column_width_desk":"8","column_width_mob":"12","text_alignment":"left","image":"shopify:\/\/shop_images\/Danish_Designs_Banner_843_x_488px.png","col_title":"","text_block":"","button_link":"shopify:\/\/collections\/danish-design","link_text":"SHOP NOW","offset_link":false}},"9da01710-a949-467a-97c7-dc0ee6d9e42a":{"type":"Column","disabled":true,"settings":{"column_width_desk":"4","column_width_mob":"12","text_alignment":"left","image":"shopify:\/\/shop_images\/Mini_Web_Banners_NEW_Desktop_724x323_724_x_323px_700_x_269px_403_x_497px.png","col_title":"","text_block":"","button_link":"https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet","link_text":"Read more","offset_link":false}},"7ea199d0-3ba2-48f5-96e7-3abd19293636":{"type":"Column","settings":{"column_width_desk":"4","column_width_mob":"12","text_alignment":"left","image":"shopify:\/\/shop_images\/Mini_Web_Banners_Desktop_403_x_497px_1.png","col_title":"","text_block":"","button_link":"https:\/\/www.getsetpet.com\/collections\/danish-design","link_text":"Read more","offset_link":false}}},"block_order":["ef154c2e-e1b8-4aa8-8104-2e98c8c88080","bbe50c75-f3ec-46cd-b3fd-60da38582381","9da01710-a949-467a-97c7-dc0ee6d9e42a","7ea199d0-3ba2-48f5-96e7-3abd19293636"],"settings":{"title":"","viewall_link":""}},"163576138205b7a0a5":{"type":"multi-column","blocks":{"5b40a091-baba-4f57-b13e-4644edce7cae":{"type":"Column","settings":{"column_width_desk":"4","column_width_mob":"12","text_alignment":"center","image":"shopify:\/\/shop_images\/Dog_food.png","col_title":"Can Dogs Eat Cat Food?","text_block":"Dogs will hoover up any food they find, but what about cat food?","button_link":"shopify:\/\/blogs\/pet-portal\/can-dogs-eat-cat-food","link_text":"Read more","offset_link":true}},"3eefb7d9-5866-414a-af2f-3daab4a88a43":{"type":"Column","settings":{"column_width_desk":"4","column_width_mob":"12","text_alignment":"center","image":"shopify:\/\/shop_images\/cat_name.png","col_title":"Top Tips For Naming A Cat","text_block":"Naming your pet can feel like a big responsibility, what will you decide on?","button_link":"shopify:\/\/blogs\/pet-portal\/choosing-a-name-for-your-cat","link_text":"Read more","offset_link":false}},"05a0c917-8099-454f-92a4-1ac2e22584c7":{"type":"Column","settings":{"column_width_desk":"4","column_width_mob":"12","text_alignment":"center","image":"shopify:\/\/shop_images\/dog_itch_74b088d8-77e8-4798-ba73-b6ce7556f544.png","col_title":"Flea & Tick Prevention For Your Dog","text_block":"It’s time to make sure your dog is adequately protected, are you up to date with their treatments?","button_link":"shopify:\/\/blogs\/pet-portal\/flea-tick-prevention-for-your-dog","link_text":"Read more","offset_link":false}}},"block_order":["5b40a091-baba-4f57-b13e-4644edce7cae","3eefb7d9-5866-414a-af2f-3daab4a88a43","05a0c917-8099-454f-92a4-1ac2e22584c7"],"settings":{"title":"Trending Topics","viewall_link":""}},"search-template-boost-pfs-filter":{"type":"search-template-boost-pfs-filter","settings":{}},"landing-page-2":{"type":"landing-page-2","blocks":{"489b00ae-e7f9-4d33-ba4e-4c66a9784e82":{"type":"text-image-bg","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Portal_Top_Banner.png","image_mobile":"shopify:\/\/shop_images\/Portal_Top_Banner.png","text":""}},"2f676318-7ac0-4563-a789-cc00f6a2fb84":{"type":"image-only","settings":{"no_padding_top":true,"full_image":true,"desk_image":"shopify:\/\/shop_images\/1_0f9135a9-eab2-454a-ae1b-67bea0d78d16.png","desk_image_alt":"","mob_image_alt":""}},"8de469b1-ebe1-468b-9101-94ea5584a75b":{"type":"text-only","settings":{"title":"We're excited to partner with Biscuit, the pet wellbeing rewards app","text":"We've partnered with Biscuit and created an exclusive collection of pet care products just for Biscuit members.\n\nYou can use your Get Set Pet discount code against any product in this collection. ","link":"shopify:\/\/collections\/biscuit","button_text":"Redeem My Vouchers","enable_text_link":false}},"cba5f01b-92e3-4822-85c8-3d14d80aa8ad":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/New_to_Biscuit.png","title":"New to Biscuit?","text":"Want to find out more about Biscuit or get the rewards app on your iPhone or Android device? Click the link to find out more and start earning Biscuits with your pet today!","link":"https:\/\/biscuitpetcare.com\/","button_text":"FIND OUT MORE","enable_text_link":false,"text_alignment":"left"}},"7367ba73-e804-4013-95bf-55d183a26470":{"type":"gallery","settings":{"title":"How to Redeem","second-row":false,"link1":"","image1":"shopify:\/\/shop_images\/sale_1_7c9ff51a-a764-4a74-adf3-90a2710300a2.png","text1":"Shop the exclusive Biscuit pet care collection.","link2":"","image2":"shopify:\/\/shop_images\/sale_2_5d1ecb42-1533-49c5-a2fb-e79691124970.png","text2":"Add your chosen products to your basket and checkout.","link3":"","image3":"shopify:\/\/shop_images\/sale_3.png","text3":"Redeem your Get Set Pet discount voucher. The code can be found in the Biscuit app.","link4":"","image4":"shopify:\/\/shop_images\/sale.png","text4":"Earn more vouchers by walking your dog every day using the Biscuit app.","link5":"","text5":"","link6":"","text6":"","link7":"","text7":"","link8":"","text8":"","link":"shopify:\/\/collections\/biscuit","button_text":"Look at the collection","enable_text_link":false}},"1157d462-06db-4b0a-8dd7-2a098b48e355":{"type":"text-image","disabled":true,"settings":{"alignment":"left","image":"shopify:\/\/shop_images\/New_to_Biscuit.png","title":"New to Biscuit?","text":"Want to find out more about Biscuit or get the rewards app on your iPhone or Android device?  Click the link to find out more and start earning Biscuits with your pet today!","link":"https:\/\/biscuitpetcare.com\/","button_text":"Find out more","enable_text_link":false,"text_alignment":"left"}},"2753f1b5-d65c-4f3a-ac5a-a3271c389641":{"type":"image-only","settings":{"no_padding_top":false,"full_image":true,"desk_image":"shopify:\/\/shop_images\/2_32de48e0-a786-4e04-8a53-f142c893a320.png","desk_image_alt":"","mob_image_alt":""}},"ac1bf480-bcec-4622-b2b1-2e6355bcfed2":{"type":"gallery","settings":{"title":"Recommended Products","second-row":true,"link1":"","image1":"shopify:\/\/shop_images\/rewards_cheese_carrot_sunflower_1.jpg","text1":"Tribal Rewards Cheese Treats","link2":"","image2":"shopify:\/\/shop_images\/original_puppy_treats_1.jpg","text2":"Natures Menu Original Dog Treats - Chicken","link3":"","image3":"shopify:\/\/shop_images\/earth-animal-no-hide-wholesome-salmon-dog-chew-2-pack-dog-treats-earth-animal-362921.jpg","text3":"Earth Animal No Hide Salmon Dog Chew","link4":"","image4":"shopify:\/\/shop_images\/natures_variety_freeze_dried_meat_bites_beef_1.jpg","text4":"Natures Variety Freeze Dried Beef Treats","link5":"","image5":"shopify:\/\/shop_images\/Untitled_design_9.png","text5":"Hurtta Weekend Warrior Harness","link6":"","image6":"shopify:\/\/shop_images\/Untitled_design_10.png","text6":"Orbiloc Dog Safety Light","link7":"","image7":"shopify:\/\/shop_images\/Untitled_design_8.png","text7":"Danish Design Hi Viz 2 in 1 Dog Coat","link8":"","image8":"shopify:\/\/shop_images\/FatFace_Fleece_Check_Deluxe_Slumber_Bed2.jpg","text8":"Danish Design Dog Bed","link":"https:\/\/getsetpet.com\/collections\/best-of-british","button_text":"See the Full Biscuit Collection","enable_text_link":false}},"d51a043c-7568-40ab-8a91-f6c55c184f2d":{"type":"image-only","settings":{"no_padding_top":false,"full_image":true,"desk_image":"shopify:\/\/shop_images\/Bottom_Banner.png","desk_image_alt":"","mob_image_alt":""}}},"block_order":["489b00ae-e7f9-4d33-ba4e-4c66a9784e82","2f676318-7ac0-4563-a789-cc00f6a2fb84","8de469b1-ebe1-468b-9101-94ea5584a75b","cba5f01b-92e3-4822-85c8-3d14d80aa8ad","7367ba73-e804-4013-95bf-55d183a26470","1157d462-06db-4b0a-8dd7-2a098b48e355","2753f1b5-d65c-4f3a-ac5a-a3271c389641","ac1bf480-bcec-4622-b2b1-2e6355bcfed2","d51a043c-7568-40ab-8a91-f6c55c184f2d"],"settings":{"disable_title":true}},"163836417663c921e8":{"type":"homepage-nosto-block","settings":{"recommendation_block":"postion_1"}},"landing-page-3":{"type":"landing-page-3","blocks":{"461c6301-eae7-40b9-bdea-898eaeb32385":{"type":"image-only","settings":{"no_padding_top":false,"full_image":true,"desk_image":"shopify:\/\/shop_images\/Get_Set_Pet_-_Burns_brand_page_-_Banner_fc094915-2c29-4475-98a6-ac744a7b9155.png","desk_image_alt":"","mob_image_alt":""}},"0d6ed403-5b70-4238-86a2-d9f46b8c6df0":{"type":"gallery","settings":{"title":"","second-row":false,"link1":"shopify:\/\/collections\/burns","image1":"shopify:\/\/shop_images\/Add_a_subheading.jpg","text1":"","link2":"shopify:\/\/collections\/burns","image2":"shopify:\/\/shop_images\/Add_a_subheading_1.jpg","text2":"","link3":"shopify:\/\/collections\/burns","image3":"shopify:\/\/shop_images\/4.jpg","text3":"","link4":"shopify:\/\/collections\/burns","image4":"shopify:\/\/shop_images\/3.jpg","text4":"","link5":"","text5":"","link6":"","text6":"","link7":"","text7":"","link8":"","text8":"","link":"","button_text":"","enable_text_link":false}},"ff16e6f8-25a2-4f10-a851-d4289c08c77b":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/Brand_1_-_Desktop.jpg","title":"The Pet Food Pioneers","text":"A pioneering pet food brand, we've been at the forefront of the healthy pet food market since the company was founded by veterinary surgeon John Burns in 1993. We specialise in using simple, healthy and wholesome ingredients to create award-winning recipes almost 30 years ago, we've released a variety of healthy and hypoallergenic pet food ranges, all using a single protein source and ingredients that are as healthy, wholesome and sustainable as possible","link":"shopify:\/\/collections\/burns","button_text":"Shop now","enable_text_link":false,"text_alignment":"left"}},"7c182bcb-57a1-4ca7-ad52-7d7b0da2f231":{"type":"text-image","settings":{"alignment":"right","image":"shopify:\/\/shop_images\/image_15.png","title":"Britain's Favourite Dog Food AGAIN!","text":"Which? surveyed 3,122 of their members to discover the most delicious dog foods you can buy in 2022. \"Burns was the most-loved brand for the second year in a row, and is also a good-value option!\" You could potentially save around £80 a year if you switched to Burns.","link":"shopify:\/\/collections\/burns","button_text":"Shop Now","enable_text_link":false,"text_alignment":"left"}},"e0f6cd01-02c7-40ee-8059-3cf5c20266d9":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/Get_Set_Pet_-_Burns_brand_page_-_Section_2_-_581x410_78e43c44-7f04-42ce-85a8-40bfc824521c.png","title":"Benefits","text":"Burns will never compromise on our belief that high-quality ingredients and good nutrition can really make a difference to the overall happiness and wellbeing of each pet. That's why we continue to make the same nutritious recipes that pets love, using simple, wholesome and healthy ingredients","link":"shopify:\/\/collections\/burns","button_text":"Shop now","enable_text_link":false,"text_alignment":"left"}},"b983149c-f558-419b-92c4-b1f837bd28bc":{"type":"video","settings":{"title":"","video":"https:\/\/youtu.be\/cedyXs4R1uE"}},"89fba207-ebba-421c-b0c4-41eef004bcc5":{"type":"gallery","settings":{"title":"","second-row":false,"link1":"shopify:\/\/collections\/burns","image1":"shopify:\/\/shop_images\/ORG_CB_a384fc64-eef7-4ac5-a950-2a0dba05e5a7.png","text1":"Dry Food","link2":"shopify:\/\/collections\/burns","image2":"shopify:\/\/shop_images\/Untitled_2_dde5da32-dcd4-4a98-9023-0eb91c00b5c5.jpg","text2":"Wet Food","link3":"shopify:\/\/collections\/burns","image3":"shopify:\/\/shop_images\/Untitled_03fe43f5-4068-4531-ba51-0ed493ed11be.jpg","text3":"Treats","link4":"shopify:\/\/collections\/burns","image4":"shopify:\/\/shop_images\/SENS_FM.png","text4":"Sensitive Range","link5":"shopify:\/\/collections\/burns","text5":"","link6":"","text6":"","link7":"","text7":"","link8":"","text8":"","link":"shopify:\/\/collections\/burns","button_text":"Shop Now","enable_text_link":false}},"309a74fe-bab3-4d79-b80b-f36f24ee1434":{"type":"text-only","settings":{"title":"","text":"Which? Magazine, voice of the Consumers Association, brand dog food survey 2020\n\nBased on figures from 2020","link":"","button_text":"","enable_text_link":false}}},"block_order":["461c6301-eae7-40b9-bdea-898eaeb32385","0d6ed403-5b70-4238-86a2-d9f46b8c6df0","ff16e6f8-25a2-4f10-a851-d4289c08c77b","7c182bcb-57a1-4ca7-ad52-7d7b0da2f231","e0f6cd01-02c7-40ee-8059-3cf5c20266d9","b983149c-f558-419b-92c4-b1f837bd28bc","89fba207-ebba-421c-b0c4-41eef004bcc5","309a74fe-bab3-4d79-b80b-f36f24ee1434"],"settings":{"disable_title":true}},"landing-page-4":{"type":"landing-page-4","blocks":{"d8a9737b-5eea-489c-8786-5581b45bd831":{"type":"text-only","settings":{"title":"Welcome Big Dog World Customers","text":"We are very excited to welcome all Big Dog World customers to the Get Set Pet family.  We promise to deliver you the same great range of products and brilliant customer service you deserve. As a welcome offer, we would like to provide you with 10% off your first order with discount code BDW10.","link":"shopify:\/\/collections\/big-dog","button_text":"Shop Big Dog Range","enable_text_link":false}},"9484ed12-3cc6-47c9-9174-2a099946efa9":{"type":"text-image","disabled":true,"settings":{"alignment":"left","image":"shopify:\/\/shop_images\/dogs.jpg","title":"Passing The Big Dog Baton","text":"\"After 12 years of running Big Dog World, I felt it was time for a change. Having taken the decision to move on to a new project, I knew I wouldn’t sell the company to just anyone. I wanted to ensure our loyal and valued customers would be well looked after and Get Set Pet fit the bill. I feel completely confident that Martin, Jason and their team will offer you the same level of exceptional service that I have strived to provide for the last 12 years.\" - Neil Stanton, Founder of Big Dog World","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"14721ee3-75ea-411b-9c25-5c6fb4aab259":{"type":"video","disabled":true,"settings":{"title":"A Message From Martin (Co-Founder)","video":"https:\/\/youtu.be\/5Mb0FrLmt0o"}},"1367622a-cf0d-477f-b797-3ea1bd6674a0":{"type":"text-image","settings":{"alignment":"right","image":"shopify:\/\/shop_images\/Martin_and_Jason.png","title":"A Warm Welcome from Jason and Martin (Founders of Get Set Pet)","text":"On behalf of the entire team, we are thrilled to welcome you to Get Set Pet and look forward to providing you with a great customer experience and a smooth transition from Big Dog World. We're eager to hear from you all as we commence this exciting journey together. As a welcome offer, we would like to provide you with 10% off your first order with discount code BDW10. Thank you in advance for your ongoing support and custom. - Jason Phillips (pictured left), and Martin Ruddy (pictured right)","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"9a239ed7-3a5b-43a0-9d50-8ef4a95292b2":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/Untitled_1080_x_650px.png","title":"Joining the Get Set Pet Family","text":"The only UK specialist for everything large and giant breed dogs has joined Get Set Pet! We’ll be continuing to provide you with your favourite premium large breed dog foods including: Royal Canin, James Wellbeloved, Arden Grange, Orijen, Acana, Barking Heads, Dog's Dinner, Burns, and Taste of the Wild. You can now also get all of these on a regular basis, using our Get Set Save subscription service. Plus, you can still get super tough dog toys and chews, large dog beds, bigger dog coats, health products, and grooming supplies – now with Get Set Pet’s top-rated customer experience! Please don't hesitate to get in touch if you have any questions. You can chat to us via the chat function on our website or email us at hello@getsetpet.com.","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"03679671-e108-4d8f-821d-27523586beb2":{"type":"text-image","disabled":true,"settings":{"alignment":"left","image":"shopify:\/\/shop_images\/dogs.jpg","title":"Making Big Dogs Happy","text":"“Excellent service, great advice on the product I purchased. Ordered Friday and it arrived the next morning. I’m 100% happy with the service and the product. I thoroughly recommend this company. Thank you from a very happy customer”. Rated 4.8 on Trust Pilot, Big Dog World's customers are very happy! With reviews like these, why wouldn’t you want to shop Big Dog at Get Set Pet?","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"414a3037-e015-4130-bd29-f0c6669a9807":{"type":"gallery","settings":{"title":"The Big Dog Collection","second-row":true,"link1":"","image1":"shopify:\/\/shop_images\/taste_of_the_wild_pacific_stream2.jpg","text1":"","link2":"","image2":"shopify:\/\/shop_images\/acana_adult_large_breed_1.jpg","text2":"","link3":"","image3":"shopify:\/\/shop_images\/orijen_puppy_large_breed_1.jpg","text3":"","link4":"","image4":"shopify:\/\/shop_images\/adult_carp_trout_12kg_1.jpg","text4":"","link5":"","image5":"shopify:\/\/shop_images\/pet_loader_xl_4step_1.jpg","text5":"","link6":"","image6":"shopify:\/\/shop_images\/fluff_tuff_big_daddy_gator_toy.png","text6":"","link7":"","image7":"shopify:\/\/shop_images\/ezydog_Convert_harness_Burgundy.jpg","text7":"","link8":"","image8":"shopify:\/\/shop_images\/jive_1.jpg","text8":"","link":"https:\/\/getsetpet.com\/collections\/big-dog-world","button_text":"Shop NOW","enable_text_link":false}},"bc7f817e-caa8-4853-b4e3-09794a313a1d":{"type":"gallery","disabled":true,"settings":{"title":"Big Dog Accessory Collection","second-row":false,"link1":"","image1":"shopify:\/\/shop_images\/jumball_multi_1.jpg","text1":"","link2":"","image2":"shopify:\/\/shop_images\/22177.jpg","text2":"","link3":"","image3":"shopify:\/\/shop_images\/Untitled_bf6d483c-3005-4836-a105-179799e2d63f.jpg","text3":"","link4":"","image4":"shopify:\/\/shop_images\/Untitled_design_10.png","text4":"","link5":"","text5":"","link6":"","text6":"","link7":"","text7":"","link8":"","text8":"","link":"","button_text":"SHOP NOW","enable_text_link":false}}},"block_order":["d8a9737b-5eea-489c-8786-5581b45bd831","9484ed12-3cc6-47c9-9174-2a099946efa9","14721ee3-75ea-411b-9c25-5c6fb4aab259","1367622a-cf0d-477f-b797-3ea1bd6674a0","9a239ed7-3a5b-43a0-9d50-8ef4a95292b2","03679671-e108-4d8f-821d-27523586beb2","414a3037-e015-4130-bd29-f0c6669a9807","bc7f817e-caa8-4853-b4e3-09794a313a1d"],"settings":{"disable_title":true}},"landing-page-5":{"type":"landing-page-5","blocks":{"7438c942-f573-490e-ba7e-360eec836e5a":{"type":"image-only","settings":{"no_padding_top":false,"full_image":true,"desk_image":"shopify:\/\/shop_images\/Seedrs_-_Twitter_Cover_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_517_x_201px_Facebook_Cover_Twitter_Header.png","desk_image_alt":"","mob_image_alt":""}},"4d9ea953-9980-4499-995f-0a50f239dfd1":{"type":"text-only","settings":{"title":"","text":"We hope that you are enjoying the Get Set Pet experience and thank you for using us as your trusted pet supplies store. Our aim is to provide a customer experience that is second to none and whilst we know that there will always be room for improvement, we hope you can see that we truly value all our customers.\n\nWe would like to make you aware that we are fundraising again and to offer you the opportunity to become an investor in Get Set Pet.","link":"https:\/\/www.seedrs.com\/get-set-pet1","button_text":"Seedrs Investment Page","enable_text_link":false}},"075fd863-af44-42f8-a61a-3882f5190562":{"type":"video","settings":{"title":"Why Get Set Pet?","video":"https:\/\/www.youtube.com\/watch?v=adb1lnTVe4s"}},"ff4438df-53e9-4319-803f-756581482beb":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/Seedrs_634x380_190321_450_x_120px_698_x_308px_1.png","title":"Why invest in us?","text":"Since our last Seedrs raise in early 2021, our business has grown rapidly. We now have over 1,200 subscription customers, our annual turnover has more than doubled and we have seen an increase in subscription revenue of 173% YOY. Our goal is to accelerate our strong growth whilst raising the customer experience bar even further.","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"1d320ee8-fa3a-418f-85ba-065f61b0bedd":{"type":"text-image","settings":{"alignment":"right","image":"shopify:\/\/shop_images\/Seedrs_-_April_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_5.png","title":"Customers at the heart","text":"At Get Set Pet we’re on a mission to help your pets live their best lives. We bring together expert knowledge, nutritious food and high-quality products and combine it with an exceptional customer experience. Whilst others talk about it, we deliver and our results speak for themselves.  Get Set Pet is the UK’s #1 rated pet supplies business on Reviews.io, where we have received over 2,200 5-star customer reviews with an overall rating of 5\/5.","link":"","button_text":"","enable_text_link":false,"text_alignment":"left"}},"41335478-1b54-4d87-a431-7a97e7379b16":{"type":"text-image","settings":{"alignment":"left","image":"shopify:\/\/shop_images\/Seedrs_-_April_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_4.png","title":"Making a difference","text":"We’re really excited about what the future holds for Get Set Pet and we hope that you might consider joining us on our journey. You can invest as little as £50.74. All you need to do is login\/create an account on Seedrs and follow the steps to make your investment. We’d love to have you onboard!","link":"https:\/\/www.seedrs.com\/get-set-pet1","button_text":"Seedrs Investment Page","enable_text_link":false,"text_alignment":"left"}},"c759e893-9078-4b02-8b37-355a7f96b746":{"type":"image-only","settings":{"no_padding_top":false,"full_image":true,"desk_image":"shopify:\/\/shop_images\/Seedrs_-_TwitterPost_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_517_x_201px_Facebook_Cover_Twitter_Header_Twitter_Post_Twitter_Header_1.png","desk_image_alt":"Seedrs Fund Raise","mob_image_alt":""}}},"block_order":["7438c942-f573-490e-ba7e-360eec836e5a","4d9ea953-9980-4499-995f-0a50f239dfd1","075fd863-af44-42f8-a61a-3882f5190562","ff4438df-53e9-4319-803f-756581482beb","1d320ee8-fa3a-418f-85ba-065f61b0bedd","41335478-1b54-4d87-a431-7a97e7379b16","c759e893-9078-4b02-8b37-355a7f96b746"],"settings":{"disable_title":true}},"1634032429fd11bfeb":{"type":"slider-flexible","blocks":{"ff77add5-6d85-4f4c-9cd1-18bc338efbf9":{"type":"Slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Max_banner_desktop_1000X664px_1.png","image_mobile":"shopify:\/\/shop_images\/Sustainable_Pet_Foods_Mobile_057dea6f-0045-4c17-b783-82a33d64bde6.png","button_url":"shopify:\/\/collections\/green-monday"}},"2b723a7b-ba72-48ff-ba4b-88559e326b86":{"type":"Slide","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/Max_banner_desktop_1000X664px_f9ac4a32-6707-4bf0-94b0-a09fcd381869.png","image_mobile":"shopify:\/\/shop_images\/Oscar_and_Milo_Max_Banner_Mobile_517x201_px_618d50c3-04eb-48a0-b3c9-22b9976c2169.png","button_url":"https:\/\/www.getsetpet.com\/pages\/oscar-milo"}},"6b50f756-f1f0-4bc9-975b-88963ac7b652":{"type":"Slide","settings":{"image":"shopify:\/\/shop_images\/get_set_pet_sale_banner_1080_x_1080_px_1000_x_664_px_2.png","image_mobile":"shopify:\/\/shop_images\/get_set_pet_sale_banner_1080_x_1080_px_1000_x_664_px_1.png","button_url":"https:\/\/www.getsetpet.com\/collections\/todays-deals"}},"bb207825-34ca-4fcd-a44e-1d035b6fa2d2":{"type":"Slide-3","settings":{"image":"shopify:\/\/shop_images\/Puppy_and_Kitten_Bundles1_1.png","image_mobile":"shopify:\/\/shop_images\/Puppy_and_Kitten_Bundles1.png","button_url":"shopify:\/\/collections\/the-ultimate-kitten-collection"}},"bd870719-42b0-4544-951a-8359f816b31a":{"type":"Slide-3","settings":{"image":"shopify:\/\/shop_images\/Puppy_and_Kitten_Bundles3_1.png","image_mobile":"shopify:\/\/shop_images\/Puppy_and_Kitten_Bundles3.png","button_url":"shopify:\/\/collections\/the-ultimate-kitten-collection"}},"14a1535a-25dd-49d9-85bb-c38d5d3b087e":{"type":"Slide-2","settings":{"image":"shopify:\/\/shop_images\/Homepages_M.jpg","image_mobile":"shopify:\/\/shop_images\/Newsletter.jpg","button_url":"shopify:\/\/collections\/burns"}},"6ccf4271-4508-4e22-84de-761d820c1b2d":{"type":"Slide-2","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/TWIGGY_BANNER_DESK_365126e0-2c9b-4b2a-84d0-6ad80ce45839.png","image_mobile":"shopify:\/\/shop_images\/twiggy_max_mob.png","button_url":"shopify:\/\/collections\/twiggy-tags"}}},"block_order":["ff77add5-6d85-4f4c-9cd1-18bc338efbf9","2b723a7b-ba72-48ff-ba4b-88559e326b86","6b50f756-f1f0-4bc9-975b-88963ac7b652","bb207825-34ca-4fcd-a44e-1d035b6fa2d2","bd870719-42b0-4544-951a-8359f816b31a","14a1535a-25dd-49d9-85bb-c38d5d3b087e","6ccf4271-4508-4e22-84de-761d820c1b2d"],"settings":{}}},"content_for_index":["1634032429fd11bfeb","1559570621332","163836417663c921e8","163576138205b7a0a5","16342979420a063995","1578923528467","1634204617937c0928","1568974331625","16342072178765c54b"],"blocks":{"855628211100114053":{"type":"shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507","disabled":false,"settings":{}},"16357850931cba53ee":{"type":"shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-rating-snippet\/92a082e5-b297-4e88-b428-ac96cbc505f9","disabled":true,"settings":{"star":"#000000","text_color":"#333","snippet_mode":"default","text":"Reviews","line_break":false,"listen_for_changes":false,"rating_without_brackets":false,"format_review_count":false,"show_popup":true,"anchor_to_reviews_widget":false,"show_empty_stars":false}},"1635785093ffa73b83":{"type":"shopify:\/\/apps\/reviews-io\/blocks\/reviewsio-core\/92a082e5-b297-4e88-b428-ac96cbc505f9","disabled":true,"settings":{"url_key":"REVIEWS.io","lang":"auto"}},"17151115064775110295":{"type":"shopify:\/\/apps\/recharge-subscriptions\/blocks\/recharge-theme\/371eed76-0b44-4869-9813-730372ea378e","disabled":false,"settings":{"color_brand":"#58b0e3","contrast_color":"#FFFFFF","color_brand_secondary":"#437593","corners":"16px","app_background":"#f9f8f4","app_container":1200,"app_vertical_padding":32,"images_aspect_ratio":"1","cards_background":"#FFFFFF","cards_border_color":"rgba(0,0,0,0)"}},"9776720720251544092":{"type":"shopify:\/\/apps\/helium-customer-fields\/blocks\/app-embed\/bab58598-3e6a-4377-aaaa-97189b15f131","disabled":false,"settings":{"registration_form_id":"Rxtyd1","edit_account_form_id":"","edit_account_link_text":"Edit account","edit_account_heading":"Edit account","edit_account_back_link_text":"Back to account","enable_js_api":false,"js_api_version":""}}}}}
+{
+  "current": {
+    "show_sub_collections": "yes",
+    "shop_logo": "shopify:\/\/shop_images\/get-set-pet-logo-large.png",
+    "social_share_image": "shopify:\/\/shop_images\/GSP-1080.jpg",
+    "shop_opening_times": "",
+    "shop_contact_number": "",
+    "shop_contact_email": "",
+    "shop_contact_address": "",
+    "brands_excluded": "Q,U,V,X",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "https:\/\/twitter.com\/Getsetpet",
+    "social_facebook_link": "https:\/\/www.facebook.com\/GetSetPet\/",
+    "social_pinterest_link": "https:\/\/www.pinterest.co.uk\/getsetpet\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/getsetpetuk\/",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_google_link": "",
+    "sidebar_cta_1_text": "Shop Online",
+    "sidebar_cta_1_url": "",
+    "sidebar_cta_2_text": "Help & Advice",
+    "sidebar_cta_2_url": "",
+    "sidebar_cta_3_text": "Latest Tweets",
+    "sidebar_cta_3_url": "",
+    "sidebar_featured_products": "",
+    "cart_notes_enable": false,
+    "free_delivery_threshold": "39.00",
+    "favicon": "shopify:\/\/shop_images\/favicon.jpg",
+    "shipping_calculator": "Disabled",
+    "shipping_calculator_heading": "Get shipping estimates",
+    "shipping_calculator_default_country": "United Kingdom",
+    "shipping_calculator_submit_button_label": "Calculate shipping",
+    "shipping_calculator_submit_button_label_disabled": "Calculating...",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_28de04ff-3833-4684-a148-1b84527ed04f.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#58b0e3",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#58b0e3",
+    "checkout_button_color": "#f16812",
+    "checkout_error_color": "#ffcc17",
+    "trade_intro": "",
+    "wholesale_popup": false,
+    "pop_up_title": "",
+    "pop_up_paragraph": "",
+    "sections": {
+      "404": {
+        "type": "404",
+        "blocks": {
+          "1569337290402": {
+            "type": "404Links",
+            "settings": {
+              "button_url": "\/",
+              "button_text": "Home"
+            }
+          },
+          "1569337309561": {
+            "type": "404Links",
+            "settings": {
+              "button_url": "shopify:\/\/collections",
+              "button_text": "Shop All Products"
+            }
+          },
+          "1569337322419": {
+            "type": "404Links",
+            "settings": {
+              "button_url": "shopify:\/\/pages\/brands",
+              "button_text": "Shop by Brand"
+            }
+          },
+          "1569337333056": {
+            "type": "404Links",
+            "settings": {
+              "button_url": "shopify:\/\/blogs\/pet-portal",
+              "button_text": "Ask The Expert"
+            }
+          }
+        },
+        "block_order": [
+          "1569337290402",
+          "1569337309561",
+          "1569337322419",
+          "1569337333056"
+        ],
+        "settings": {
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1560175589871": {
+            "type": "CTA",
+            "settings": {
+              "page": "https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=dog"
+            }
+          },
+          "1560176190613": {
+            "type": "CTA",
+            "settings": {
+              "page": "https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=cat"
+            }
+          },
+          "1560176204424": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/fish-food-treats"
+            }
+          },
+          "1568623262370": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/small-pets"
+            }
+          },
+          "1601900234854": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/birds-wildlife"
+            }
+          },
+          "1568623276550": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/reptile"
+            }
+          },
+          "1601901846504": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/bird-wildlife"
+            }
+          },
+          "acd5f580-914e-4ed3-ab82-2ae820b9471c": {
+            "type": "CTA",
+            "settings": {
+              "page": "shopify:\/\/collections\/biscuit"
+            }
+          }
+        },
+        "block_order": [
+          "1560175589871",
+          "1560176190613",
+          "1560176204424",
+          "1568623262370",
+          "1601900234854",
+          "1568623276550",
+          "1601901846504",
+          "acd5f580-914e-4ed3-ab82-2ae820b9471c"
+        ],
+        "settings": {
+          "main_linklist": "",
+          "topbar_linklist": "",
+          "notification_text_one": "Free Next Day Delivery £39+",
+          "notification_link_one": "https:\/\/getsetpet.com\/pages\/faqs#shipping",
+          "notification_text_two": "Rated Excellent",
+          "notification_link_two": "https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet",
+          "notification_text_three": "Save 20% with",
+          "notification_text_four": "",
+          "notification_link_four": "",
+          "modal_title": "",
+          "modal_content": "",
+          "modal_accordian_one": "",
+          "modal_accordian_desc_one": "",
+          "modal_accordian_two": "",
+          "modal_accordian_desc_two": "",
+          "modal_accordian_three": "",
+          "modal_accordian_desc_three": "",
+          "modal_accordian_four": "",
+          "modal_accordian_desc_four": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_linklist_1_title": "Pet Care Advice",
+          "footer_linklist_1_links": "",
+          "footer_linklist_2_title": "More Info",
+          "footer_linklist_2_links": "",
+          "show_payment_icons": false
+        }
+      },
+      "1559570621332": {
+        "type": "collection-list",
+        "disabled": true,
+        "blocks": {
+          "1559570621332-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "royal-canin"
+            }
+          },
+          "1572281090722": {
+            "type": "collection",
+            "settings": {
+              "collection": "natures-variety"
+            }
+          },
+          "1572282455667": {
+            "type": "collection",
+            "settings": {
+              "collection": "julius-k9"
+            }
+          },
+          "c314ce84-283c-4d14-831b-5a499fb940b5": {
+            "type": "collection",
+            "settings": {
+              "collection": "dog-birthday-cards-by-scoff-paper"
+            }
+          },
+          "1587049265547": {
+            "type": "collection",
+            "settings": {
+              "collection": "eden"
+            }
+          },
+          "a31685c7-95bd-4198-8cb5-f9c61ab08e93": {
+            "type": "collection",
+            "settings": {
+              "collection": "tribal"
+            }
+          },
+          "8a6b8f37-07fd-4008-8302-e14466720df7": {
+            "type": "collection",
+            "settings": {
+              "collection": "kurgo"
+            }
+          },
+          "1587048997983": {
+            "type": "collection",
+            "settings": {
+              "collection": "burns"
+            }
+          },
+          "39ffe583-cbe2-461b-acfc-502e028b280b": {
+            "type": "collection",
+            "settings": {
+              "collection": "catit"
+            }
+          },
+          "3284017d-8f77-44c2-ba2a-e4ce00f289f7": {
+            "type": "collection",
+            "settings": {
+              "collection": "simpsons"
+            }
+          },
+          "1559571593625": {
+            "type": "collection",
+            "settings": {
+              "collection": "james-wellbeloved"
+            }
+          },
+          "1559570621332-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "aatu"
+            }
+          }
+        },
+        "block_order": [
+          "1559570621332-0",
+          "1572281090722",
+          "1572282455667",
+          "c314ce84-283c-4d14-831b-5a499fb940b5",
+          "1587049265547",
+          "a31685c7-95bd-4198-8cb5-f9c61ab08e93",
+          "8a6b8f37-07fd-4008-8302-e14466720df7",
+          "1587048997983",
+          "39ffe583-cbe2-461b-acfc-502e028b280b",
+          "3284017d-8f77-44c2-ba2a-e4ce00f289f7",
+          "1559571593625",
+          "1559570621332-1"
+        ],
+        "settings": {
+          "title": "Top Brands",
+          "is_h1": false,
+          "title_icon": "title-generic",
+          "viewall_link": ""
+        }
+      },
+      "static-blog-article": {
+        "type": "static-blog-article",
+        "blocks": {
+          "1565089257538": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Luke Skybarker",
+              "author_tag": "[author]luke-skybarker",
+              "author_bio": "<p>In a galaxy far, far away...<\/p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<\/p><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+              "author_image": "shopify:\/\/shop_images\/tom.png"
+            }
+          },
+          "1565089362794": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Jason Phillips",
+              "author_tag": "[author]jason-phillips",
+              "author_bio": "<p>Jason is Co-Founder &amp; COO at Get Set Pet.<\/p>",
+              "author_image": "shopify:\/\/shop_images\/0.jpeg"
+            }
+          },
+          "1568034833026": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Martin Ruddy",
+              "author_tag": "[author]martin-ruddy",
+              "author_bio": "<p>Martin is Co-Founder &amp; CEO of Get Set Pet. <\/p>",
+              "author_image": "shopify:\/\/shop_images\/Martin_WeddingJPG.jpg"
+            }
+          },
+          "1568034851086": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Carly Corderoy",
+              "author_tag": "[author]carly-corderoy",
+              "author_bio": "<p>Carly is Customer Services &amp; Content Manager at Get Set Pet.  She is the proud owner of over one hundred pets!<\/p>",
+              "author_image": "shopify:\/\/shop_images\/CarlyPhoto.jpeg"
+            }
+          },
+          "1568034870434": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Max",
+              "author_tag": "[author]max",
+              "author_bio": "<p>My name is Max and I&#x27;m a terrier cross. I was rescued by Martin from a local dog sanctuary eight years ago. Life was tough when I was a pup but I&#x27;m a very happy doggy now!<\/p>",
+              "author_image": "shopify:\/\/shop_images\/fullsizeoutput_d9f9.jpeg"
+            }
+          },
+          "1568368348302": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Get Set Pet",
+              "author_tag": "[author]get-set-pet",
+              "author_bio": ""
+            }
+          },
+          "1573558652667": {
+            "type": "Author",
+            "settings": {
+              "author_name": "David Jackson",
+              "author_tag": "[author]david-jackson",
+              "author_bio": "<p>David is the creator, designer, developer and researcher of AllAboutDogFood.co.uk, not to mention the proud owner of Ned, his gorgeous border terrier.<\/p>",
+              "author_image": "shopify:\/\/shop_images\/fullsizeoutput_4c.jpeg"
+            }
+          },
+          "1594379334973": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Emily Tutty",
+              "author_tag": "[author]emily-tutty",
+              "author_bio": "<p>Emily is a Digital Marketing Intern at Get Set Pet and the proud owner of a cat called Kit.<\/p>",
+              "author_image": "shopify:\/\/shop_images\/Emily_Photo.jpg"
+            }
+          },
+          "da968423-5d72-427c-b5c5-5b5e7649e7af": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Holly Balchin",
+              "author_tag": "[author]holly-balchin",
+              "author_bio": "<p>Holly is a Customer Services and Content Executive at Get Set Pet and the proud owner of a dog called Lolly.<\/p>",
+              "author_image": "shopify:\/\/shop_images\/F4FE85FF-5576-4695-BE84-E32138CC484B.jpg"
+            }
+          },
+          "417e245b-8fff-4580-9935-d655db5c0dca": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Dylan and Edward",
+              "author_tag": "[author]Dylan-and-Edward",
+              "author_bio": "<p>Get Set Pet roving reporters Dylan McDaniel and Edward Ruddy love sharing stories about their pets. <\/p>",
+              "author_image": "shopify:\/\/shop_images\/IMG_9012_901be99c-743f-415e-9a07-2cef88b51af4.jpg"
+            }
+          },
+          "cb6a4615-c6d5-44e6-8214-24900123bd29": {
+            "type": "Author",
+            "settings": {
+              "author_name": "Karen Cornish",
+              "author_tag": "[author]karen-cornish",
+              "author_bio": "<p>Our expert Get Set Pet writer on all things pet!  <\/p>",
+              "author_image": "shopify:\/\/shop_images\/business-dog-paws-on-keyboard.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "1565089257538",
+          "1565089362794",
+          "1568034833026",
+          "1568034851086",
+          "1568034870434",
+          "1568368348302",
+          "1573558652667",
+          "1594379334973",
+          "da968423-5d72-427c-b5c5-5b5e7649e7af",
+          "417e245b-8fff-4580-9935-d655db5c0dca",
+          "cb6a4615-c6d5-44e6-8214-24900123bd29"
+        ],
+        "settings": {
+          "title": "Post By:"
+        }
+      },
+      "landing-page": {
+        "type": "landing-page",
+        "blocks": {
+          "fb40074a-1ade-4a8d-9d51-d290e76ee379": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": true,
+              "full_image": false,
+              "desk_image": "shopify:\/\/shop_images\/Landing_Page_Banner_Christmas_Turkeys_635_x_353px.png",
+              "desk_image_alt": "Find the Turkeys",
+              "mob_image_alt": ""
+            }
+          },
+          "21be8bd8-92ca-40fe-8aed-d462bcab3e82": {
+            "type": "text-only",
+            "settings": {
+              "title": "FIND THE TURKEYS",
+              "text": "Five troublesome Turkeys have escaped and hidden themselves amongst the products on our website! Each Turkey has a letter on their body which, when combined, will spell a Christmas-themed word. Simply identify that word for your chance to win one of three £75 Get Set Pet gift cards!",
+              "link": "https:\/\/www.getsetpet.com",
+              "button_text": "Find The Turkeys",
+              "enable_text_link": false
+            }
+          },
+          "26ec3269-91ba-4d8b-a69c-c805a5d30139": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "right",
+              "image": "shopify:\/\/shop_images\/INDIVIDUAL_ROBINS_TRANSPARENT_PNG_720_x_720px.png",
+              "title": "How It Works",
+              "text": "To be in with a chance of winning just email your answer and your name to hello@getsetpet.com and we'll enter you into our prize draw which will take place on Thursday 15th December. The Turkeys need to be back on the farm Monday 12th at midnight, so start searching soon!",
+              "link": "mailto:hello@getsetpet.com",
+              "button_text": "Email Answer",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "879d8fb4-353c-4ff6-98a6-5ef21787cc98": {
+            "type": "text-only",
+            "settings": {
+              "title": "Terms and Conditions",
+              "text": "One entry per household, competition closes at midnight 12th December, the draw to select the winners will take place on Thursday 15th December, the winner will be notified via email.",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false
+            }
+          }
+        },
+        "block_order": [
+          "fb40074a-1ade-4a8d-9d51-d290e76ee379",
+          "21be8bd8-92ca-40fe-8aed-d462bcab3e82",
+          "26ec3269-91ba-4d8b-a69c-c805a5d30139",
+          "879d8fb4-353c-4ff6-98a6-5ef21787cc98"
+        ],
+        "settings": {
+          "disable_title": true
+        }
+      },
+      "cart-popup": {
+        "type": "cart-popup",
+        "blocks": {
+          "1569250356737": {
+            "type": "threshold",
+            "settings": {
+              "price_threshold": "5000",
+              "offer_product": "aatu-artisan-adult-bakes-salmon-and-sardine"
+            }
+          }
+        },
+        "block_order": [
+          "1569250356737"
+        ],
+        "settings": {
+          "enable-popup": false
+        }
+      },
+      "pet-portal-header": {
+        "type": "pet-portal-header",
+        "settings": {
+          "introduction": "Everybody wants the best for their pets. Their health and happiness is of critical importance to us but with so much information available it can be difficult to know where to turn. That's why we've created Ask The Expert, where we aim to answer your questions. Simply email hello@getsetpet.com with any questions you have!"
+        }
+      },
+      "contact-page": {
+        "type": "contact-page",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/shutterstock_367928978.jpg"
+        }
+      },
+      "about-us": {
+        "type": "about-us",
+        "blocks": {
+          "1568819201528": {
+            "type": "image_text_under",
+            "settings": {
+              "link_id": "",
+              "image_text_under_title": "Our Story",
+              "is_h1": true,
+              "image_text_under_richtext": "<p>Hi there!<\/p>\n<p>We&rsquo;re Martin and Jason, the founders of Get Set Pet, and we&rsquo;re on a journey to change the way you buy pet supplies.<\/p>\n<p>Although one of us is a dedicated dog lover and the other is still searching for the cat of his dreams, we discovered we had similar concerns when it came to finding reliable information about pet care &ndash; especially in relation to food. Do big-name brands contain all the nutrients Max the dog needs? Is raw food suitable for a house cat? Where can I go to get honest advice?<\/p>",
+              "image_text_under_image": "shopify:\/\/shop_images\/IMG_0992.jpg",
+              "padding": "30px 0 30px 0"
+            }
+          },
+          "1568820417126": {
+            "type": "image_text_block",
+            "settings": {
+              "link_id": "",
+              "image_text_block_title": "",
+              "is_h1": false,
+              "image_text_block_richtext": "<p>With no unbiased answers immediately at our fingertips, our pet project (so to speak) was born.&nbsp;<\/p>\n<p><\/p>\n<p>We&rsquo;re focused on creating a world where pet health and happiness comes first. Our vision is for Get Set Pet to be more than just a pet shop. We believe it should be simple to get everything your pet needs in one place &ndash; so you spend more time enjoying their company and less time worrying about their wellbeing.&nbsp;<\/p>",
+              "image_text_block_image": "shopify:\/\/shop_images\/shutterstock_708732331__1.jpg",
+              "padding": "20px 0",
+              "image_on": "left"
+            }
+          },
+          "1568820459504": {
+            "type": "image_text_block",
+            "settings": {
+              "link_id": "",
+              "image_text_block_title": "",
+              "is_h1": false,
+              "image_text_block_richtext": "<p>As an independent company, we source the highest-quality products available, while providing the essential details you need to make informed decisions, whether you have a cat, dog, small mammal, bird or reptile.&nbsp;<\/p>\n<p><\/p>\n<p>Working with a panel of experts in a range of fields, we aim to make your life easier. From nutritional values to pricing, we provide the most relevant product details in a clear, easy-to-digest format, so you don&rsquo;t have to hunt for answers online. Plus, our blog is filled with additional advice and tips, so you can help your pet live its best life.<\/p>",
+              "image_text_block_image": "shopify:\/\/shop_images\/Larry.jpg",
+              "padding": "20px 0",
+              "image_on": "right"
+            }
+          },
+          "1568820477267": {
+            "type": "image_text_block",
+            "settings": {
+              "link_id": "",
+              "image_text_block_title": "",
+              "is_h1": false,
+              "image_text_block_richtext": "<p>Of course, we know there will be times when you&rsquo;re unsure what to do; whether you&rsquo;ve just got your first pet or you&rsquo;re an old hand, you might need a little reassurance. That&rsquo;s why we&rsquo;ve set up live chat, so you can ask our team questions, just like you would at your local store.&nbsp;<\/p>",
+              "image_text_block_image": "shopify:\/\/shop_images\/Dgoul_ZbTZG3Q6GBMlpC7w_thumb_ed7a_b38d0ec9-e59d-497f-b6b1-503dd92a4b71.jpg",
+              "padding": "20px 0",
+              "image_on": "left"
+            }
+          },
+          "1568820495797": {
+            "type": "image_text_block",
+            "settings": {
+              "link_id": "",
+              "image_text_block_title": "",
+              "is_h1": false,
+              "image_text_block_richtext": "<p>Come to think of it, exceptional customer service comes as standard at Get Set Pet. As a pair of technology lovers, we use the latest digital tools to create a first-class shopping experience. From providing expert information, to delivering the top-notch products and keeping you in the loop with the latest in pet care, your best friend is at the heart of everything we do.<\/p>",
+              "image_text_block_image": "shopify:\/\/shop_images\/164357350-hamster-wallpapers.jpg",
+              "padding": "20px 0",
+              "image_on": "right"
+            }
+          },
+          "1568820518993": {
+            "type": "image_text_block",
+            "settings": {
+              "link_id": "",
+              "image_text_block_title": "",
+              "is_h1": false,
+              "image_text_block_richtext": "<p>And for those pets yet to find their forever home, we&rsquo;re giving back. We&rsquo;re supporting sanctuaries up and down the UK, helping them care for animals in need. These small charities do sterling work, so it&rsquo;s the least we can do.&nbsp;<\/p>\n<p><\/p>\n<p>Join us on our journey to a world of pet wellbeing.<\/p>",
+              "image_text_block_image": "shopify:\/\/shop_images\/Reptiles_HD_Wallpapers_1.jpg",
+              "padding": "20px 0",
+              "image_on": "left"
+            }
+          }
+        },
+        "block_order": [
+          "1568819201528",
+          "1568820417126",
+          "1568820459504",
+          "1568820477267",
+          "1568820495797",
+          "1568820518993"
+        ],
+        "settings": {
+        }
+      },
+      "brand-logos": {
+        "type": "brand-logos",
+        "blocks": {
+          "17b66fee-aa0c-47ad-8a1e-77d30b33e377": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/6027f0b9ed4efb0004199837.png",
+              "brand_link": "shopify:\/\/collections\/orijen"
+            }
+          },
+          "1587051831938": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/logo_7888a58e-03ba-448a-99d5-387845539e11.png",
+              "brand_link": "shopify:\/\/collections\/burns"
+            }
+          },
+          "001335d7-aabe-40d9-8563-5d00eb91e873": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Royal_Canin_325a5aa6-df5b-4bc0-861f-ba1a7b50a16a.png",
+              "brand_link": "shopify:\/\/collections\/royal-canin"
+            }
+          },
+          "1568841372219": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/JamesWellbeloved_e6e98cf9-2ff8-4404-a37d-f5a2ad76085b.png",
+              "brand_link": "shopify:\/\/collections\/james-wellbeloved"
+            }
+          },
+          "d7cf8239-a538-43af-8d05-53c58c770152": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/6027f8aded4efb0004199865.png",
+              "brand_link": "shopify:\/\/collections\/acana"
+            }
+          },
+          "3592b45a-9b7b-4471-8010-d8cf72ded1eb": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/nv-logo.png",
+              "brand_link": "shopify:\/\/collections\/natures-variety"
+            }
+          },
+          "1568841382974": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/danish-design_f3bdab60-312b-4bba-bfa4-1271f71c2c20.jpg",
+              "brand_link": "shopify:\/\/collections\/danish-design"
+            }
+          },
+          "90638ab3-0f32-471e-b566-3029b54b32a2": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/37438-logo-1566903325_1.jpg",
+              "brand_link": "shopify:\/\/collections\/naturo"
+            }
+          },
+          "6b013548-d324-46da-8322-9067b1c7cf8c": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Screenshot_2021-11-25_at_16.55.17.png",
+              "brand_link": "shopify:\/\/collections\/ruffwear"
+            }
+          },
+          "1568841391558": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/aatu_70f404a4-0a3e-4dec-8078-5bfe562c6c3b.jpg",
+              "brand_link": "shopify:\/\/collections\/aatu"
+            }
+          },
+          "1571322639132": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Natures_Menu_65d212ca-758f-44e5-b1cc-213ab7d95819.png",
+              "brand_link": "shopify:\/\/collections\/natures-menu"
+            }
+          },
+          "1571323071505": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Julius_973015d9-a48c-4fb8-8f8d-5a809a3f09a0.png",
+              "brand_link": "shopify:\/\/collections\/julius-k9"
+            }
+          },
+          "1571324097272": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Petsafe_logo.jpg",
+              "brand_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "17b66fee-aa0c-47ad-8a1e-77d30b33e377",
+          "1587051831938",
+          "001335d7-aabe-40d9-8563-5d00eb91e873",
+          "1568841372219",
+          "d7cf8239-a538-43af-8d05-53c58c770152",
+          "3592b45a-9b7b-4471-8010-d8cf72ded1eb",
+          "1568841382974",
+          "90638ab3-0f32-471e-b566-3029b54b32a2",
+          "6b013548-d324-46da-8322-9067b1c7cf8c",
+          "1568841391558",
+          "1571322639132",
+          "1571323071505",
+          "1571324097272"
+        ],
+        "settings": {
+          "title": "",
+          "is_h1": true
+        }
+      },
+      "1568974331625": {
+        "type": "dynamic-slider",
+        "settings": {
+        }
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+        }
+      },
+      "cart-related-products": {
+        "type": "cart-related-products",
+        "settings": {
+          "collection": "frontpage"
+        }
+      },
+      "1578923528467": {
+        "type": "reviews",
+        "settings": {
+        }
+      },
+      "1634204617937c0928": {
+        "type": "brand-logos",
+        "blocks": {
+          "83b1be72-9ad5-4540-b659-9fe30b5e67b6": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/royal-canin"
+            }
+          },
+          "3698b28d-7488-4196-83f8-f2d631f14b90": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/burns"
+            }
+          },
+          "26416d56-65d9-47d1-ab9a-bf7311550794": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/vendors?q=Orijen"
+            }
+          },
+          "a4c688be-0b67-474f-80a5-4ec79a66398a": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/vendors?q=Naturo"
+            }
+          },
+          "69817a86-d55c-451d-8de1-6ecc08179f7e": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/vendors?q=Acana"
+            }
+          },
+          "4b429235-2267-49a3-843e-c592386e4408": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/applaws"
+            }
+          },
+          "58124bd1-3e58-4d79-b884-acf4367cc7f4": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/james-wellbeloved"
+            }
+          },
+          "ed8aa8e3-01b0-4585-aff4-325766d9d212": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/natures-menu"
+            }
+          },
+          "603ee48a-a9f5-4773-acbe-8d7f9c92176f": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/vendors?q=Chuckit"
+            }
+          },
+          "41901e86-2b66-4141-98f1-00566f36bdb8": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "shopify:\/\/collections\/royal-canin"
+            }
+          },
+          "a1505a49-3ca4-4a08-8fc0-ea2294729039": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/julius-k9"
+            }
+          },
+          "07b7ae19-bc26-43b9-bfa0-42b226254179": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/eden"
+            }
+          },
+          "9fba7458-f3db-478e-ba93-ea23d91e590e": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/danish-design"
+            }
+          },
+          "22d1eb3e-2227-491c-8ff9-cbcf4820f3cb": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "https:\/\/getsetpet.com\/collections\/ruffwear"
+            }
+          },
+          "e7bd3fdb-d920-4493-970b-4e2cc9940602": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "shopify:\/\/collections\/walker-drake"
+            }
+          },
+          "9d37e392-0855-4201-897b-02a53a44edcd": {
+            "type": "logo",
+            "settings": {
+              "brand_link": "shopify:\/\/collections\/kong"
+            }
+          }
+        },
+        "block_order": [
+          "83b1be72-9ad5-4540-b659-9fe30b5e67b6",
+          "3698b28d-7488-4196-83f8-f2d631f14b90",
+          "26416d56-65d9-47d1-ab9a-bf7311550794",
+          "a4c688be-0b67-474f-80a5-4ec79a66398a",
+          "69817a86-d55c-451d-8de1-6ecc08179f7e",
+          "4b429235-2267-49a3-843e-c592386e4408",
+          "58124bd1-3e58-4d79-b884-acf4367cc7f4",
+          "ed8aa8e3-01b0-4585-aff4-325766d9d212",
+          "603ee48a-a9f5-4773-acbe-8d7f9c92176f",
+          "41901e86-2b66-4141-98f1-00566f36bdb8",
+          "a1505a49-3ca4-4a08-8fc0-ea2294729039",
+          "07b7ae19-bc26-43b9-bfa0-42b226254179",
+          "9fba7458-f3db-478e-ba93-ea23d91e590e",
+          "22d1eb3e-2227-491c-8ff9-cbcf4820f3cb",
+          "e7bd3fdb-d920-4493-970b-4e2cc9940602",
+          "9d37e392-0855-4201-897b-02a53a44edcd"
+        ],
+        "settings": {
+          "title": "Top Brands",
+          "is_h1": false
+        }
+      },
+      "16342072178765c54b": {
+        "type": "newsletter",
+        "disabled": true,
+        "settings": {
+          "footer_linklist_1_title": "Site Info"
+        }
+      },
+      "16342979420a063995": {
+        "type": "multi-column",
+        "blocks": {
+          "ef154c2e-e1b8-4aa8-8104-2e98c8c88080": {
+            "type": "Column",
+            "settings": {
+              "column_width_desk": "8",
+              "column_width_mob": "12",
+              "text_alignment": "left",
+              "col_title": "",
+              "text_block": "",
+              "button_link": "shopify:\/\/pages\/burns",
+              "link_text": "Read more",
+              "offset_link": false
+            }
+          },
+          "bbe50c75-f3ec-46cd-b3fd-60da38582381": {
+            "type": "Column",
+            "disabled": true,
+            "settings": {
+              "column_width_desk": "8",
+              "column_width_mob": "12",
+              "text_alignment": "left",
+              "col_title": "",
+              "text_block": "",
+              "button_link": "shopify:\/\/collections\/danish-design",
+              "link_text": "SHOP NOW",
+              "offset_link": false
+            }
+          },
+          "9da01710-a949-467a-97c7-dc0ee6d9e42a": {
+            "type": "Column",
+            "disabled": true,
+            "settings": {
+              "column_width_desk": "4",
+              "column_width_mob": "12",
+              "text_alignment": "left",
+              "col_title": "",
+              "text_block": "",
+              "button_link": "https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet",
+              "link_text": "Read more",
+              "offset_link": false
+            }
+          },
+          "7ea199d0-3ba2-48f5-96e7-3abd19293636": {
+            "type": "Column",
+            "settings": {
+              "column_width_desk": "4",
+              "column_width_mob": "12",
+              "text_alignment": "left",
+              "col_title": "",
+              "text_block": "",
+              "button_link": "https:\/\/www.getsetpet.com\/collections\/danish-design",
+              "link_text": "Read more",
+              "offset_link": false
+            }
+          }
+        },
+        "block_order": [
+          "ef154c2e-e1b8-4aa8-8104-2e98c8c88080",
+          "bbe50c75-f3ec-46cd-b3fd-60da38582381",
+          "9da01710-a949-467a-97c7-dc0ee6d9e42a",
+          "7ea199d0-3ba2-48f5-96e7-3abd19293636"
+        ],
+        "settings": {
+          "title": "",
+          "viewall_link": ""
+        }
+      },
+      "163576138205b7a0a5": {
+        "type": "multi-column",
+        "blocks": {
+          "5b40a091-baba-4f57-b13e-4644edce7cae": {
+            "type": "Column",
+            "settings": {
+              "column_width_desk": "4",
+              "column_width_mob": "12",
+              "text_alignment": "center",
+              "col_title": "Can Dogs Eat Cat Food?",
+              "text_block": "Dogs will hoover up any food they find, but what about cat food?",
+              "button_link": "shopify:\/\/blogs\/pet-portal\/can-dogs-eat-cat-food",
+              "link_text": "Read more",
+              "offset_link": true
+            }
+          },
+          "3eefb7d9-5866-414a-af2f-3daab4a88a43": {
+            "type": "Column",
+            "settings": {
+              "column_width_desk": "4",
+              "column_width_mob": "12",
+              "text_alignment": "center",
+              "col_title": "Top Tips For Naming A Cat",
+              "text_block": "Naming your pet can feel like a big responsibility, what will you decide on?",
+              "button_link": "shopify:\/\/blogs\/pet-portal\/choosing-a-name-for-your-cat",
+              "link_text": "Read more",
+              "offset_link": false
+            }
+          },
+          "05a0c917-8099-454f-92a4-1ac2e22584c7": {
+            "type": "Column",
+            "settings": {
+              "column_width_desk": "4",
+              "column_width_mob": "12",
+              "text_alignment": "center",
+              "col_title": "Flea & Tick Prevention For Your Dog",
+              "text_block": "It’s time to make sure your dog is adequately protected, are you up to date with their treatments?",
+              "button_link": "shopify:\/\/blogs\/pet-portal\/flea-tick-prevention-for-your-dog",
+              "link_text": "Read more",
+              "offset_link": false
+            }
+          }
+        },
+        "block_order": [
+          "5b40a091-baba-4f57-b13e-4644edce7cae",
+          "3eefb7d9-5866-414a-af2f-3daab4a88a43",
+          "05a0c917-8099-454f-92a4-1ac2e22584c7"
+        ],
+        "settings": {
+          "title": "Trending Topics",
+          "viewall_link": ""
+        }
+      },
+      "search-template-boost-pfs-filter": {
+        "type": "search-template-boost-pfs-filter",
+        "settings": {
+        }
+      },
+      "landing-page-2": {
+        "type": "landing-page-2",
+        "blocks": {
+          "489b00ae-e7f9-4d33-ba4e-4c66a9784e82": {
+            "type": "text-image-bg",
+            "disabled": true,
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Portal_Top_Banner.png",
+              "image_mobile": "shopify:\/\/shop_images\/Portal_Top_Banner.png",
+              "text": ""
+            }
+          },
+          "2f676318-7ac0-4563-a789-cc00f6a2fb84": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": true,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/1_0f9135a9-eab2-454a-ae1b-67bea0d78d16.png",
+              "desk_image_alt": "",
+              "mob_image_alt": ""
+            }
+          },
+          "8de469b1-ebe1-468b-9101-94ea5584a75b": {
+            "type": "text-only",
+            "settings": {
+              "title": "We're excited to partner with Biscuit, the pet wellbeing rewards app",
+              "text": "We've partnered with Biscuit and created an exclusive collection of pet care products just for Biscuit members.\n\nYou can use your Get Set Pet discount code against any product in this collection. ",
+              "link": "shopify:\/\/collections\/biscuit",
+              "button_text": "Redeem My Vouchers",
+              "enable_text_link": false
+            }
+          },
+          "cba5f01b-92e3-4822-85c8-3d14d80aa8ad": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/New_to_Biscuit.png",
+              "title": "New to Biscuit?",
+              "text": "Want to find out more about Biscuit or get the rewards app on your iPhone or Android device? Click the link to find out more and start earning Biscuits with your pet today!",
+              "link": "https:\/\/biscuitpetcare.com\/",
+              "button_text": "FIND OUT MORE",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "7367ba73-e804-4013-95bf-55d183a26470": {
+            "type": "gallery",
+            "settings": {
+              "title": "How to Redeem",
+              "second-row": false,
+              "link1": "",
+              "image1": "shopify:\/\/shop_images\/sale_1_7c9ff51a-a764-4a74-adf3-90a2710300a2.png",
+              "text1": "Shop the exclusive Biscuit pet care collection.",
+              "link2": "",
+              "image2": "shopify:\/\/shop_images\/sale_2_5d1ecb42-1533-49c5-a2fb-e79691124970.png",
+              "text2": "Add your chosen products to your basket and checkout.",
+              "link3": "",
+              "image3": "shopify:\/\/shop_images\/sale_3.png",
+              "text3": "Redeem your Get Set Pet discount voucher. The code can be found in the Biscuit app.",
+              "link4": "",
+              "image4": "shopify:\/\/shop_images\/sale.png",
+              "text4": "Earn more vouchers by walking your dog every day using the Biscuit app.",
+              "link5": "",
+              "text5": "",
+              "link6": "",
+              "text6": "",
+              "link7": "",
+              "text7": "",
+              "link8": "",
+              "text8": "",
+              "link": "shopify:\/\/collections\/biscuit",
+              "button_text": "Look at the collection",
+              "enable_text_link": false
+            }
+          },
+          "1157d462-06db-4b0a-8dd7-2a098b48e355": {
+            "type": "text-image",
+            "disabled": true,
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/New_to_Biscuit.png",
+              "title": "New to Biscuit?",
+              "text": "Want to find out more about Biscuit or get the rewards app on your iPhone or Android device?  Click the link to find out more and start earning Biscuits with your pet today!",
+              "link": "https:\/\/biscuitpetcare.com\/",
+              "button_text": "Find out more",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "2753f1b5-d65c-4f3a-ac5a-a3271c389641": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": false,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/2_32de48e0-a786-4e04-8a53-f142c893a320.png",
+              "desk_image_alt": "",
+              "mob_image_alt": ""
+            }
+          },
+          "ac1bf480-bcec-4622-b2b1-2e6355bcfed2": {
+            "type": "gallery",
+            "settings": {
+              "title": "Recommended Products",
+              "second-row": true,
+              "link1": "",
+              "image1": "shopify:\/\/shop_images\/rewards_cheese_carrot_sunflower_1.jpg",
+              "text1": "Tribal Rewards Cheese Treats",
+              "link2": "",
+              "image2": "shopify:\/\/shop_images\/original_puppy_treats_1.jpg",
+              "text2": "Natures Menu Original Dog Treats - Chicken",
+              "link3": "",
+              "image3": "shopify:\/\/shop_images\/earth-animal-no-hide-wholesome-salmon-dog-chew-2-pack-dog-treats-earth-animal-362921.jpg",
+              "text3": "Earth Animal No Hide Salmon Dog Chew",
+              "link4": "",
+              "image4": "shopify:\/\/shop_images\/natures_variety_freeze_dried_meat_bites_beef_1.jpg",
+              "text4": "Natures Variety Freeze Dried Beef Treats",
+              "link5": "",
+              "image5": "shopify:\/\/shop_images\/Untitled_design_9.png",
+              "text5": "Hurtta Weekend Warrior Harness",
+              "link6": "",
+              "image6": "shopify:\/\/shop_images\/Untitled_design_10.png",
+              "text6": "Orbiloc Dog Safety Light",
+              "link7": "",
+              "image7": "shopify:\/\/shop_images\/Untitled_design_8.png",
+              "text7": "Danish Design Hi Viz 2 in 1 Dog Coat",
+              "link8": "",
+              "image8": "shopify:\/\/shop_images\/FatFace_Fleece_Check_Deluxe_Slumber_Bed2.jpg",
+              "text8": "Danish Design Dog Bed",
+              "link": "https:\/\/getsetpet.com\/collections\/best-of-british",
+              "button_text": "See the Full Biscuit Collection",
+              "enable_text_link": false
+            }
+          },
+          "d51a043c-7568-40ab-8a91-f6c55c184f2d": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": false,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/Bottom_Banner.png",
+              "desk_image_alt": "",
+              "mob_image_alt": ""
+            }
+          }
+        },
+        "block_order": [
+          "489b00ae-e7f9-4d33-ba4e-4c66a9784e82",
+          "2f676318-7ac0-4563-a789-cc00f6a2fb84",
+          "8de469b1-ebe1-468b-9101-94ea5584a75b",
+          "cba5f01b-92e3-4822-85c8-3d14d80aa8ad",
+          "7367ba73-e804-4013-95bf-55d183a26470",
+          "1157d462-06db-4b0a-8dd7-2a098b48e355",
+          "2753f1b5-d65c-4f3a-ac5a-a3271c389641",
+          "ac1bf480-bcec-4622-b2b1-2e6355bcfed2",
+          "d51a043c-7568-40ab-8a91-f6c55c184f2d"
+        ],
+        "settings": {
+          "disable_title": true
+        }
+      },
+      "163836417663c921e8": {
+        "type": "homepage-nosto-block",
+        "settings": {
+          "recommendation_block": "postion_1"
+        }
+      },
+      "landing-page-3": {
+        "type": "landing-page-3",
+        "blocks": {
+          "461c6301-eae7-40b9-bdea-898eaeb32385": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": false,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/Get_Set_Pet_-_Burns_brand_page_-_Banner_fc094915-2c29-4475-98a6-ac744a7b9155.png",
+              "desk_image_alt": "",
+              "mob_image_alt": ""
+            }
+          },
+          "0d6ed403-5b70-4238-86a2-d9f46b8c6df0": {
+            "type": "gallery",
+            "settings": {
+              "title": "",
+              "second-row": false,
+              "link1": "shopify:\/\/collections\/burns",
+              "image1": "shopify:\/\/shop_images\/Add_a_subheading.jpg",
+              "text1": "",
+              "link2": "shopify:\/\/collections\/burns",
+              "image2": "shopify:\/\/shop_images\/Add_a_subheading_1.jpg",
+              "text2": "",
+              "link3": "shopify:\/\/collections\/burns",
+              "image3": "shopify:\/\/shop_images\/4.jpg",
+              "text3": "",
+              "link4": "shopify:\/\/collections\/burns",
+              "image4": "shopify:\/\/shop_images\/3.jpg",
+              "text4": "",
+              "link5": "",
+              "text5": "",
+              "link6": "",
+              "text6": "",
+              "link7": "",
+              "text7": "",
+              "link8": "",
+              "text8": "",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false
+            }
+          },
+          "ff16e6f8-25a2-4f10-a851-d4289c08c77b": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/Brand_1_-_Desktop.jpg",
+              "title": "The Pet Food Pioneers",
+              "text": "A pioneering pet food brand, we've been at the forefront of the healthy pet food market since the company was founded by veterinary surgeon John Burns in 1993. We specialise in using simple, healthy and wholesome ingredients to create award-winning recipes almost 30 years ago, we've released a variety of healthy and hypoallergenic pet food ranges, all using a single protein source and ingredients that are as healthy, wholesome and sustainable as possible",
+              "link": "shopify:\/\/collections\/burns",
+              "button_text": "Shop now",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "7c182bcb-57a1-4ca7-ad52-7d7b0da2f231": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "right",
+              "image": "shopify:\/\/shop_images\/image_15.png",
+              "title": "Britain's Favourite Dog Food AGAIN!",
+              "text": "Which? surveyed 3,122 of their members to discover the most delicious dog foods you can buy in 2022. \"Burns was the most-loved brand for the second year in a row, and is also a good-value option!\" You could potentially save around £80 a year if you switched to Burns.",
+              "link": "shopify:\/\/collections\/burns",
+              "button_text": "Shop Now",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "e0f6cd01-02c7-40ee-8059-3cf5c20266d9": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/Get_Set_Pet_-_Burns_brand_page_-_Section_2_-_581x410_78e43c44-7f04-42ce-85a8-40bfc824521c.png",
+              "title": "Benefits",
+              "text": "Burns will never compromise on our belief that high-quality ingredients and good nutrition can really make a difference to the overall happiness and wellbeing of each pet. That's why we continue to make the same nutritious recipes that pets love, using simple, wholesome and healthy ingredients",
+              "link": "shopify:\/\/collections\/burns",
+              "button_text": "Shop now",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "b983149c-f558-419b-92c4-b1f837bd28bc": {
+            "type": "video",
+            "settings": {
+              "title": "",
+              "video": "https:\/\/youtu.be\/cedyXs4R1uE"
+            }
+          },
+          "89fba207-ebba-421c-b0c4-41eef004bcc5": {
+            "type": "gallery",
+            "settings": {
+              "title": "",
+              "second-row": false,
+              "link1": "shopify:\/\/collections\/burns",
+              "image1": "shopify:\/\/shop_images\/ORG_CB_a384fc64-eef7-4ac5-a950-2a0dba05e5a7.png",
+              "text1": "Dry Food",
+              "link2": "shopify:\/\/collections\/burns",
+              "image2": "shopify:\/\/shop_images\/Untitled_2_dde5da32-dcd4-4a98-9023-0eb91c00b5c5.jpg",
+              "text2": "Wet Food",
+              "link3": "shopify:\/\/collections\/burns",
+              "image3": "shopify:\/\/shop_images\/Untitled_03fe43f5-4068-4531-ba51-0ed493ed11be.jpg",
+              "text3": "Treats",
+              "link4": "shopify:\/\/collections\/burns",
+              "image4": "shopify:\/\/shop_images\/SENS_FM.png",
+              "text4": "Sensitive Range",
+              "link5": "shopify:\/\/collections\/burns",
+              "text5": "",
+              "link6": "",
+              "text6": "",
+              "link7": "",
+              "text7": "",
+              "link8": "",
+              "text8": "",
+              "link": "shopify:\/\/collections\/burns",
+              "button_text": "Shop Now",
+              "enable_text_link": false
+            }
+          },
+          "309a74fe-bab3-4d79-b80b-f36f24ee1434": {
+            "type": "text-only",
+            "settings": {
+              "title": "",
+              "text": "Which? Magazine, voice of the Consumers Association, brand dog food survey 2020\n\nBased on figures from 2020",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false
+            }
+          }
+        },
+        "block_order": [
+          "461c6301-eae7-40b9-bdea-898eaeb32385",
+          "0d6ed403-5b70-4238-86a2-d9f46b8c6df0",
+          "ff16e6f8-25a2-4f10-a851-d4289c08c77b",
+          "7c182bcb-57a1-4ca7-ad52-7d7b0da2f231",
+          "e0f6cd01-02c7-40ee-8059-3cf5c20266d9",
+          "b983149c-f558-419b-92c4-b1f837bd28bc",
+          "89fba207-ebba-421c-b0c4-41eef004bcc5",
+          "309a74fe-bab3-4d79-b80b-f36f24ee1434"
+        ],
+        "settings": {
+          "disable_title": true
+        }
+      },
+      "landing-page-4": {
+        "type": "landing-page-4",
+        "blocks": {
+          "d8a9737b-5eea-489c-8786-5581b45bd831": {
+            "type": "text-only",
+            "settings": {
+              "title": "Welcome Big Dog World Customers",
+              "text": "We are very excited to welcome all Big Dog World customers to the Get Set Pet family.  We promise to deliver you the same great range of products and brilliant customer service you deserve. As a welcome offer, we would like to provide you with 10% off your first order with discount code BDW10.",
+              "link": "shopify:\/\/collections\/big-dog",
+              "button_text": "Shop Big Dog Range",
+              "enable_text_link": false
+            }
+          },
+          "9484ed12-3cc6-47c9-9174-2a099946efa9": {
+            "type": "text-image",
+            "disabled": true,
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/dogs.jpg",
+              "title": "Passing The Big Dog Baton",
+              "text": "\"After 12 years of running Big Dog World, I felt it was time for a change. Having taken the decision to move on to a new project, I knew I wouldn’t sell the company to just anyone. I wanted to ensure our loyal and valued customers would be well looked after and Get Set Pet fit the bill. I feel completely confident that Martin, Jason and their team will offer you the same level of exceptional service that I have strived to provide for the last 12 years.\" - Neil Stanton, Founder of Big Dog World",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "14721ee3-75ea-411b-9c25-5c6fb4aab259": {
+            "type": "video",
+            "disabled": true,
+            "settings": {
+              "title": "A Message From Martin (Co-Founder)",
+              "video": "https:\/\/youtu.be\/5Mb0FrLmt0o"
+            }
+          },
+          "1367622a-cf0d-477f-b797-3ea1bd6674a0": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "right",
+              "image": "shopify:\/\/shop_images\/Martin_and_Jason.png",
+              "title": "A Warm Welcome from Jason and Martin (Founders of Get Set Pet)",
+              "text": "On behalf of the entire team, we are thrilled to welcome you to Get Set Pet and look forward to providing you with a great customer experience and a smooth transition from Big Dog World. We're eager to hear from you all as we commence this exciting journey together. As a welcome offer, we would like to provide you with 10% off your first order with discount code BDW10. Thank you in advance for your ongoing support and custom. - Jason Phillips (pictured left), and Martin Ruddy (pictured right)",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "9a239ed7-3a5b-43a0-9d50-8ef4a95292b2": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/Untitled_1080_x_650px.png",
+              "title": "Joining the Get Set Pet Family",
+              "text": "The only UK specialist for everything large and giant breed dogs has joined Get Set Pet! We’ll be continuing to provide you with your favourite premium large breed dog foods including: Royal Canin, James Wellbeloved, Arden Grange, Orijen, Acana, Barking Heads, Dog's Dinner, Burns, and Taste of the Wild. You can now also get all of these on a regular basis, using our Get Set Save subscription service. Plus, you can still get super tough dog toys and chews, large dog beds, bigger dog coats, health products, and grooming supplies – now with Get Set Pet’s top-rated customer experience! Please don't hesitate to get in touch if you have any questions. You can chat to us via the chat function on our website or email us at hello@getsetpet.com.",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "03679671-e108-4d8f-821d-27523586beb2": {
+            "type": "text-image",
+            "disabled": true,
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/dogs.jpg",
+              "title": "Making Big Dogs Happy",
+              "text": "“Excellent service, great advice on the product I purchased. Ordered Friday and it arrived the next morning. I’m 100% happy with the service and the product. I thoroughly recommend this company. Thank you from a very happy customer”. Rated 4.8 on Trust Pilot, Big Dog World's customers are very happy! With reviews like these, why wouldn’t you want to shop Big Dog at Get Set Pet?",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "414a3037-e015-4130-bd29-f0c6669a9807": {
+            "type": "gallery",
+            "settings": {
+              "title": "The Big Dog Collection",
+              "second-row": true,
+              "link1": "",
+              "image1": "shopify:\/\/shop_images\/taste_of_the_wild_pacific_stream2.jpg",
+              "text1": "",
+              "link2": "",
+              "image2": "shopify:\/\/shop_images\/acana_adult_large_breed_1.jpg",
+              "text2": "",
+              "link3": "",
+              "image3": "shopify:\/\/shop_images\/orijen_puppy_large_breed_1.jpg",
+              "text3": "",
+              "link4": "",
+              "image4": "shopify:\/\/shop_images\/adult_carp_trout_12kg_1.jpg",
+              "text4": "",
+              "link5": "",
+              "image5": "shopify:\/\/shop_images\/pet_loader_xl_4step_1.jpg",
+              "text5": "",
+              "link6": "",
+              "image6": "shopify:\/\/shop_images\/fluff_tuff_big_daddy_gator_toy.png",
+              "text6": "",
+              "link7": "",
+              "image7": "shopify:\/\/shop_images\/ezydog_Convert_harness_Burgundy.jpg",
+              "text7": "",
+              "link8": "",
+              "image8": "shopify:\/\/shop_images\/jive_1.jpg",
+              "text8": "",
+              "link": "https:\/\/getsetpet.com\/collections\/big-dog-world",
+              "button_text": "Shop NOW",
+              "enable_text_link": false
+            }
+          },
+          "bc7f817e-caa8-4853-b4e3-09794a313a1d": {
+            "type": "gallery",
+            "disabled": true,
+            "settings": {
+              "title": "Big Dog Accessory Collection",
+              "second-row": false,
+              "link1": "",
+              "image1": "shopify:\/\/shop_images\/jumball_multi_1.jpg",
+              "text1": "",
+              "link2": "",
+              "image2": "shopify:\/\/shop_images\/22177.jpg",
+              "text2": "",
+              "link3": "",
+              "image3": "shopify:\/\/shop_images\/Untitled_bf6d483c-3005-4836-a105-179799e2d63f.jpg",
+              "text3": "",
+              "link4": "",
+              "image4": "shopify:\/\/shop_images\/Untitled_design_10.png",
+              "text4": "",
+              "link5": "",
+              "text5": "",
+              "link6": "",
+              "text6": "",
+              "link7": "",
+              "text7": "",
+              "link8": "",
+              "text8": "",
+              "link": "",
+              "button_text": "SHOP NOW",
+              "enable_text_link": false
+            }
+          }
+        },
+        "block_order": [
+          "d8a9737b-5eea-489c-8786-5581b45bd831",
+          "9484ed12-3cc6-47c9-9174-2a099946efa9",
+          "14721ee3-75ea-411b-9c25-5c6fb4aab259",
+          "1367622a-cf0d-477f-b797-3ea1bd6674a0",
+          "9a239ed7-3a5b-43a0-9d50-8ef4a95292b2",
+          "03679671-e108-4d8f-821d-27523586beb2",
+          "414a3037-e015-4130-bd29-f0c6669a9807",
+          "bc7f817e-caa8-4853-b4e3-09794a313a1d"
+        ],
+        "settings": {
+          "disable_title": true
+        }
+      },
+      "landing-page-5": {
+        "type": "landing-page-5",
+        "blocks": {
+          "7438c942-f573-490e-ba7e-360eec836e5a": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": false,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/Seedrs_-_Twitter_Cover_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_517_x_201px_Facebook_Cover_Twitter_Header.png",
+              "desk_image_alt": "",
+              "mob_image_alt": ""
+            }
+          },
+          "4d9ea953-9980-4499-995f-0a50f239dfd1": {
+            "type": "text-only",
+            "settings": {
+              "title": "",
+              "text": "We hope that you are enjoying the Get Set Pet experience and thank you for using us as your trusted pet supplies store. Our aim is to provide a customer experience that is second to none and whilst we know that there will always be room for improvement, we hope you can see that we truly value all our customers.\n\nWe would like to make you aware that we are fundraising again and to offer you the opportunity to become an investor in Get Set Pet.",
+              "link": "https:\/\/www.seedrs.com\/get-set-pet1",
+              "button_text": "Seedrs Investment Page",
+              "enable_text_link": false
+            }
+          },
+          "075fd863-af44-42f8-a61a-3882f5190562": {
+            "type": "video",
+            "settings": {
+              "title": "Why Get Set Pet?",
+              "video": "https:\/\/www.youtube.com\/watch?v=adb1lnTVe4s"
+            }
+          },
+          "ff4438df-53e9-4319-803f-756581482beb": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/Seedrs_634x380_190321_450_x_120px_698_x_308px_1.png",
+              "title": "Why invest in us?",
+              "text": "Since our last Seedrs raise in early 2021, our business has grown rapidly. We now have over 1,200 subscription customers, our annual turnover has more than doubled and we have seen an increase in subscription revenue of 173% YOY. Our goal is to accelerate our strong growth whilst raising the customer experience bar even further.",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "1d320ee8-fa3a-418f-85ba-065f61b0bedd": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "right",
+              "image": "shopify:\/\/shop_images\/Seedrs_-_April_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_5.png",
+              "title": "Customers at the heart",
+              "text": "At Get Set Pet we’re on a mission to help your pets live their best lives. We bring together expert knowledge, nutritious food and high-quality products and combine it with an exceptional customer experience. Whilst others talk about it, we deliver and our results speak for themselves.  Get Set Pet is the UK’s #1 rated pet supplies business on Reviews.io, where we have received over 2,200 5-star customer reviews with an overall rating of 5\/5.",
+              "link": "",
+              "button_text": "",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "41335478-1b54-4d87-a431-7a97e7379b16": {
+            "type": "text-image",
+            "settings": {
+              "alignment": "left",
+              "image": "shopify:\/\/shop_images\/Seedrs_-_April_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_4.png",
+              "title": "Making a difference",
+              "text": "We’re really excited about what the future holds for Get Set Pet and we hope that you might consider joining us on our journey. You can invest as little as £50.74. All you need to do is login\/create an account on Seedrs and follow the steps to make your investment. We’d love to have you onboard!",
+              "link": "https:\/\/www.seedrs.com\/get-set-pet1",
+              "button_text": "Seedrs Investment Page",
+              "enable_text_link": false,
+              "text_alignment": "left"
+            }
+          },
+          "c759e893-9078-4b02-8b37-355a7f96b746": {
+            "type": "image-only",
+            "settings": {
+              "no_padding_top": false,
+              "full_image": true,
+              "desk_image": "shopify:\/\/shop_images\/Seedrs_-_TwitterPost_2022_1152_x_320px_590_x_320px_637_x_353px_698_x_308px_517_x_201px_Facebook_Cover_Twitter_Header_Twitter_Post_Twitter_Header_1.png",
+              "desk_image_alt": "Seedrs Fund Raise",
+              "mob_image_alt": ""
+            }
+          }
+        },
+        "block_order": [
+          "7438c942-f573-490e-ba7e-360eec836e5a",
+          "4d9ea953-9980-4499-995f-0a50f239dfd1",
+          "075fd863-af44-42f8-a61a-3882f5190562",
+          "ff4438df-53e9-4319-803f-756581482beb",
+          "1d320ee8-fa3a-418f-85ba-065f61b0bedd",
+          "41335478-1b54-4d87-a431-7a97e7379b16",
+          "c759e893-9078-4b02-8b37-355a7f96b746"
+        ],
+        "settings": {
+          "disable_title": true
+        }
+      },
+      "1634032429fd11bfeb": {
+        "type": "slider-flexible",
+        "blocks": {
+          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9": {
+            "type": "Slide",
+            "disabled": true,
+            "settings": {
+              "button_url": "shopify:\/\/collections\/green-monday"
+            }
+          },
+          "2b723a7b-ba72-48ff-ba4b-88559e326b86": {
+            "type": "Slide",
+            "disabled": true,
+            "settings": {
+              "button_url": "https:\/\/www.getsetpet.com\/pages\/oscar-milo"
+            }
+          },
+          "6b50f756-f1f0-4bc9-975b-88963ac7b652": {
+            "type": "Slide",
+            "settings": {
+              "button_url": "\/collections\/todays-deals"
+            }
+          },
+          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2": {
+            "type": "Slide-3",
+            "settings": {
+              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
+            }
+          },
+          "bd870719-42b0-4544-951a-8359f816b31a": {
+            "type": "Slide-3",
+            "settings": {
+              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
+            }
+          },
+          "14a1535a-25dd-49d9-85bb-c38d5d3b087e": {
+            "type": "Slide-2",
+            "settings": {
+              "button_url": "shopify:\/\/collections\/burns"
+            }
+          },
+          "6ccf4271-4508-4e22-84de-761d820c1b2d": {
+            "type": "Slide-2",
+            "disabled": true,
+            "settings": {
+              "button_url": "shopify:\/\/collections\/twiggy-tags"
+            }
+          }
+        },
+        "block_order": [
+          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9",
+          "2b723a7b-ba72-48ff-ba4b-88559e326b86",
+          "6b50f756-f1f0-4bc9-975b-88963ac7b652",
+          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2",
+          "bd870719-42b0-4544-951a-8359f816b31a",
+          "14a1535a-25dd-49d9-85bb-c38d5d3b087e",
+          "6ccf4271-4508-4e22-84de-761d820c1b2d"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+      "1634032429fd11bfeb",
+      "1559570621332",
+      "163836417663c921e8",
+      "163576138205b7a0a5",
+      "16342979420a063995",
+      "1578923528467",
+      "1634204617937c0928",
+      "1568974331625",
+      "16342072178765c54b"
+    ]
+  }
+}
