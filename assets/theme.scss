@@ -2356,7 +2356,7 @@ a:focus, button:focus, input:focus, select:focus, *:focus{
 	margin-bottom: 0px;
 }
 
-input[type="text"], input[type="number"], input[type="tel"], input[type="search"], input[type="email"], input[type="password"], textarea, {
+input[type="text"], input[type="number"], input[type="tel"], input[type="search"], input[type="email"], input[type="password"], textarea {
 	border-radius: 25px;
 	background: white;
 	color: $color-dark-grey;
