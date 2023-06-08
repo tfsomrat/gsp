@@ -1,0 +1,11 @@
+{
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "shopify theme dev --store=zs-gsp.myshopify.com",
+    "prettier": "prettier --write \"**/*.{liquid}\""
+  },
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.1.0",
+    "prettier": "^2.8.8"
+  }
+}
