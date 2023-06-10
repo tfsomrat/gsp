@@ -7,25 +7,36 @@
   {% capture shareTitle %}{{ product.title }}{% endcapture %}
 {% endif %}
 
-
 <div class="social-sharing is-clean" data-permalink="{{ permalinkURL }}">
-  <a target="_blank" href="https://www.facebook.com/sharer.php?u={{ permalinkURL }}" class="share-facebook">
-    {% include 'icon-facebook' %}
+  <a
+    target="_blank"
+    href="https://www.facebook.com/sharer.php?u={{ permalinkURL }}"
+    class="share-facebook"
+  >
+    {% render 'icon-facebook' %}
     <span class="share-title">Share</span>
     {% if settings.social_sharing_count %}
       <span class="share-count">0</span>
     {% endif %}
   </a>
-  <a target="_blank" href="https://twitter.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle }}" class="share-twitter">
-    {% include 'icon-twitter' %}
+  <a
+    target="_blank"
+    href="https://twitter.com/share?url={{ permalinkURL }}&amp;text={{ shareTitle }}"
+    class="share-twitter"
+  >
+    {% render 'icon-twitter' %}
     <span class="share-title">Tweet</span>
     {% if settings.social_sharing_count %}
       <span class="share-count">0</span>
     {% endif %}
   </a>
   {% if template contains 'product' %}
-    <a target="_blank" href="https://pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ product.featured_image | img_url: 'original' }}&amp;description={{ product.title | escape }}" class="share-pinterest">
-      {% include 'icon-pinterest' %}
+    <a
+      target="_blank"
+      href="https://pinterest.com/pin/create/button/?url={{ permalinkURL }}&amp;media={{ product.featured_image | img_url: 'original' }}&amp;description={{ product.title | escape }}"
+      class="share-pinterest"
+    >
+      {% render 'icon-pinterest' %}
       <span class="share-title">Pin it</span>
       {% if settings.social_sharing_count %}
         <span class="share-count">0</span>
@@ -33,4 +44,4 @@
     </a>
   {% endif %}
 </div>
-<!-- social-sharing  -->
+<!-- social-sharing -->

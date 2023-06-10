@@ -1,22 +1,23 @@
 <!-- /snippets/collection-sorting.liquid -->
 <div class="collection-sort-bar">
-
   <div class="form-horizontal">
-    {% include 'sort-by-options' %}
+    {% render 'sort-by-options' %}
   </div>
 
   <div class="form-horizontal pageView">
     <label>View by:</label>
-    <p><a href="?view=12" class="pageNum v12 current">12</a> <a href="?view=24" class="pageNum v24">24</a> <a href="?view=48" class="pageNum v48">48</a></p>
+    <p>
+      <a href="?view=12" class="pageNum v12 current">12</a>
+      <a href="?view=24" class="pageNum v24">24</a>
+      <a href="?view=48" class="pageNum v48">48</a>
+    </p>
   </div>
 
   <div class="clearfix"></div>
 </div>
 <!-- collection-sort-bar -->
 
-
-<script defer='defer'>
-
+<script defer="defer">
   /*============================================================================
     Inline JS because collection liquid object is only available
     on collection pages and not external JS files

@@ -1,87 +1,126 @@
 <!-- Begin ReCharge code -->
 {% comment %}
-{% if customer.metafields.subscriptions.customer_string %}
-    <p></p>
-{% endif %}
+  {% if customer.metafields.subscriptions.customer_string %}
+      <p></p>
+  {% endif %}
 {% endcomment %}
 <!-- End ReCharge code -->
 
-{% include 'account-links' %}
+{% render 'account-links' %}
 <div class="container mb-5 mt5">
-    <div class="row">
-        <div class="col text-center">
-          <p class="account-note"><strong>Looking for your <span class="getsetsave">GetSet<em>SAVE</em></span> orders?</strong><br />You can find these in the <em>'Your Subscriptions'</em> area above. </p>
-        </div>
+  <div class="row">
+    <div class="col text-center">
+      <p class="account-note">
+        <strong
+          >Looking for your
+          <span class="getsetsave">GetSet<em>SAVE</em></span> orders?</strong
+        ><br>
+        You can find these in the <em>'Your Subscriptions'</em> area above.
+      </p>
     </div>
-    <div class="row">
-        {% paginate customer.orders by 4 %}
-            {% if customer.orders.size != 0 %}
-                    {% for order in customer.orders %}
-                    {% assign reorder_url = "" %}
-                    {% for line_item in order.line_items %}
-                      {% capture reorder_url %}{{ reorder_url | append:'&id[]=' | append: line_item.variant_id  }}{% endcapture %}
-                    {% endfor %}
-                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 account__previous-order">
-                            <div class="account__order-placed">
-                                <table cellpadding="0" cellspacing="0" border="0" class="responsive-table">
-                                    <tr>
-                                        <td class="text-right text-sm-left"><p class="dark-grey"><strong>Order Placed</strong></p></td>
-                                        <td class="text-right"><p class="dark-grey">{{ order.created_at | date: format: 'month_day_year' }}</p></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="account__order-meta">
-                                <table class="responsive-table">
-                                    <tr>
-                                        <td class="text-right text-sm-left order-image">
-                                            {%- capture lineItemImages -%}
+  </div>
+  <div class="row">
+    {% paginate customer.orders by 4 %}
+      {% if customer.orders.size != 0 %}
+        {% for order in customer.orders %}
+          {% assign reorder_url = '' %}
+          {% for line_item in order.line_items %}
+            {% capture reorder_url %}{{ reorder_url | append:'&id[]=' | append: line_item.variant_id  }}{% endcapture %}
+          {% endfor %}
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 account__previous-order">
+            <div class="account__order-placed">
+              <table
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                class="responsive-table"
+              >
+                <tr>
+                  <td class="text-right text-sm-left">
+                    <p class="dark-grey"><strong>Order Placed</strong></p>
+                  </td>
+                  <td class="text-right">
+                    <p class="dark-grey">
+                      {{ order.created_at | date: format: 'month_day_year' }}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="account__order-meta">
+              <table class="responsive-table">
+                <tr>
+                  <td class="text-right text-sm-left order-image">
+                    {%- capture lineItemImages -%}
 
                                             {%- for line_item in order.line_items | limit: 1 -%}
                                                 {{ line_item.image | img_url: '100x100' }},
                                             {%- endfor -%}
                                             {%- endcapture -%}
 
-                                            {%- assign lineItemImages = lineItemImages | split: ',' | uniq -%}
+                    {%- assign lineItemImages = lineItemImages
+                      | split: ','
+                      | uniq
+                    -%}
 
-                                            {% for images in lineItemImages %}
-                                            <figure class="black-white-gradient order-placed">
-                                                <img src="{{ images }}" alt="Product Image {{ forloop.index }}">
-                                            </figure>
-                                            {%- endfor -%}
-                                        </td>
-                                        <td class="text-right text-sm-left order-title pr-3 pr-md-0 py-3">
-                                            <h4 class="subheading tertiary mb-2">{{ order.name | link_to: order.customer_url }}</h4>
-                                            <p class="mb-3">{{ order.total_price | money }}</p>
-                                            {% assign shipping_method = order.shipping_method.title | downcase %}
-                                            {% unless shipping_method contains 'collect' %}
-                                                <a href="{{ '/cart/add?' | append: reorder_url | remove_first: '&' }}" class="button primary extra-slim">Reorder &#8635;</a>
-                                            {% endunless %}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="account__order-fulfillment">
-                                <table class="responsive-table">
-                                    <tr>
-                                        <td class="text-right text-sm-left"><strong>Payment Status:</strong><br>{{ order.financial_status_label }}</td>
-                                        <td class="text-right"><strong>Fulfillment Status:</strong><br>{{ order.fulfillment_status_label }}</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    {% endfor %}
-            {% else %}
-            <div class="col-12 col-sm-12 text-center">
-                <h2 class="title small mt-5 mb-4">{{ 'customer.orders.none' | t }}</h2>
-                <a href="/collections/all" class="button add-to-subscription">View All Products</a>
+                    {% for images in lineItemImages %}
+                      <figure class="black-white-gradient order-placed">
+                        <img
+                          src="{{ images }}"
+                          alt="Product Image {{ forloop.index }}"
+                        >
+                      </figure>
+                    {%- endfor -%}
+                  </td>
+                  <td class="text-right text-sm-left order-title pr-3 pr-md-0 py-3">
+                    <h4 class="subheading tertiary mb-2">
+                      {{ order.name | link_to: order.customer_url }}
+                    </h4>
+                    <p class="mb-3">{{ order.total_price | money }}</p>
+                    {% assign shipping_method = order.shipping_method.title
+                      | downcase
+                    %}
+                    {% unless shipping_method contains 'collect' %}
+                      <a
+                        href="{{ '/cart/add?' | append: reorder_url | remove_first: '&' }}"
+                        class="button primary extra-slim"
+                        >Reorder &#8635;</a
+                      >
+                    {% endunless %}
+                  </td>
+                </tr>
+              </table>
             </div>
-            {% endif %}
+            <div class="account__order-fulfillment">
+              <table class="responsive-table">
+                <tr>
+                  <td class="text-right text-sm-left">
+                    <strong>Payment Status:</strong><br>
+                    {{ order.financial_status_label }}
+                  </td>
+                  <td class="text-right">
+                    <strong>Fulfillment Status:</strong><br>
+                    {{ order.fulfillment_status_label }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-12 col-sm-12 text-center">
+          <h2 class="title small mt-5 mb-4">
+            {{ 'customer.orders.none' | t }}
+          </h2>
+          <a href="/collections/all" class="button add-to-subscription"
+            >View All Products</a
+          >
+        </div>
+      {% endif %}
 
-            {% if paginate.pages > 1 %}
-                {% include 'pagination' %}
-            {% endif %}
-
-        {% endpaginate %}
-
-    </div>
+      {% if paginate.pages > 1 %}
+        {% render 'pagination' %}
+      {% endif %}
+    {% endpaginate %}
+  </div>
 </div>

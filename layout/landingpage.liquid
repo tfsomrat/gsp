@@ -1,18 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-{% comment %}
-<!--  {{content_for_header}}  {{content_for_layout}}   -->
-{% endcomment %}
-<title>{{ shop.name }} - Coming Soon!</title>
-{% include 'blueprint' %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap" rel="stylesheet">
-{{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-</head>
-<body>
+  <head>
+    {% comment %}
+      <!--  {{content_for_header}}  {{content_for_layout}}   -->
+    {% endcomment %}
+    <title>
+      {{ shop.name }}
+      - Coming Soon!
+    </title>
+    {% render 'blueprint' %}
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
+      rel="stylesheet"
+    >
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap"
+      rel="stylesheet"
+    >
+    {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
     {% section 'landing-header' %}
-    {{content_for_layout}}
-</body>
+    {{ content_for_layout }}
+  </body>
 </html>

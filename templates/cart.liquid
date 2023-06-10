@@ -1,6 +1,6 @@
 <script src="{{ 'storepickupcr.js' | asset_url }}"></script>
 <!-- Begin ReCharge code -->
-{% include 'subscription-cart-footer' %}
+{% render 'subscription-cart-footer' %}
 <!-- End ReCharge code -->
 <section class="container">
   <div class="row">
@@ -204,8 +204,8 @@
                     id="CartSpecialInstructions">NHS Badge: {{ customer.metafields.customr.nhs_badge }}{{ customer.metafields.customer_fields.data["nhs_badge"].url }}</textarea>
                 </div>
               {% endif %}
-              {% include 'free-delivery-bar' %}
-              {% include 'creativer-store-pickup_v1_3' %}
+              {% render 'free-delivery-bar' %}
+              {% render 'creativer-store-pickup_v1_3' %}
               <input
                 type="submit"
                 name="checkout"
@@ -234,7 +234,7 @@
             {% assign cart_val = cart.items_subtotal_price %}
             {% comment %}
               <div class="cart__form" {% if cart_val > free_delivery %}style="display:none!important;"{% endif %}>
-                {% include 'shipping-calculator' %}
+                {% render 'shipping-calculator' %}
               </div>
             {% endcomment %}
           </div>

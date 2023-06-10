@@ -1,6 +1,6 @@
 <nav id="menu" class="panel" role="navigation">
-  {% include 'search' %}
-<p class="h3">Account</p>
+  {% render 'search' %}
+  <p class="h3">Account</p>
   <ul class="mob-nav accordion">
     {% if customer %}
       <li class="cust-links">
@@ -10,44 +10,86 @@
           <a href="/account">{{ 'layout.customer.account' | t }}</a>
         {% endif %}
       </li>
-      <li class="cust-links"><a href="/account/logout">{{ 'layout.customer.log_out' | t }}</a></li>
+      <li class="cust-links">
+        <a href="/account/logout">{{ 'layout.customer.log_out' | t }}</a>
+      </li>
     {% else %}
-      <li class="tradelogin"><a href="/pages/trade-customers">{{ 'layout.customer.trade_log_in' | t }}</a></li>
-      <li class="cust-links"><a href="/account">{{ 'layout.customer.log_in' | t }}</a></li>
-      <li class="cust-links"><a href="/account/register">{{ 'layout.customer.create_account' | t }}</a></li>
+      <li class="tradelogin">
+        <a href="/pages/trade-customers">
+          {{- 'layout.customer.trade_log_in' | t -}}
+        </a>
+      </li>
+      <li class="cust-links">
+        <a href="/account">{{ 'layout.customer.log_in' | t }}</a>
+      </li>
+      <li class="cust-links">
+        <a href="/account/register">
+          {{- 'layout.customer.create_account' | t -}}
+        </a>
+      </li>
     {% endif %}
   </ul>
   <p class="h3">Browse</p>
   <ul class="mob-nav accordion">
-    {% for link in linklists.main-menu.links %}
+    {% for link in linklists['main-menu'].links %}
       {%- assign child_list_handle = link.title | handleize -%}
       {% if menus[child_list_handle].links != blank %}
         <li class="accordion-toggle{% if link.active %} site-nav--active{% endif %}">
-          <a href="javascript:void(0)" class="site-nav__link">{{ link.title }}{% include 'icon-arrow-down' %}</a>
+          <a href="javascript:void(0)" class="site-nav__link">
+            {{- link.title -}}
+            {%- render 'icon-arrow-down' -%}
+          </a>
         </li>
         <li class="accordion-content">
           <ul>
             {% for childlink in menus[child_list_handle].links %}
-              <li {% if childlink.active %}class="site-nav--active"{% endif %}><a href="{{ childlink.url }}" class="site-nav__link">{{ childlink.title | escape }}</a></li>
+              <li
+                {% if childlink.active %}
+                  class="site-nav--active"
+                {% endif %}
+              >
+                <a href="{{ childlink.url }}" class="site-nav__link">
+                  {{- childlink.title | escape -}}
+                </a>
+              </li>
             {% endfor %}
-            </ul>
+          </ul>
         </li>
       {% else %}
-        <li {% if link.active %}class="site-nav--active"{% endif %}><a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a></li>
+        <li
+          {% if link.active %}
+            class="site-nav--active"
+          {% endif %}
+        >
+          <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+        </li>
       {% endif %}
     {% endfor %}
-    {%- for link in linklists.top-menu.links -%}
-    <li><a href="{{ link.url }}" title="View our {{ link.title }} Page">{{ link.title }}</a></li>
+    {%- for link in linklists['top-menu'].links -%}
+      <li>
+        <a href="{{ link.url }}" title="View our {{ link.title }} Page">
+          {{- link.title -}}
+        </a>
+      </li>
     {%- endfor -%}
-
   </ul>
   <div class="quickcontact">
     <p class="h3">Quick Contact</p>
     <ul>
-      <li><a href="tel:{{ shop_contact_number }}">{{ settings.shop_contact_number }}</a></li>
-      <li><a href="mailto:{{ settings.shop_contact_email }}">{{ settings.shop_contact_email }}</a></li>
+      <li>
+        <a href="tel:{{ shop_contact_number }}">
+          {{- settings.shop_contact_number -}}
+        </a>
+      </li>
+      <li>
+        <a href="mailto:{{ settings.shop_contact_email }}">
+          {{- settings.shop_contact_email -}}
+        </a>
+      </li>
     </ul>
-    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+    {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,'
+      | split: ', '
+    -%}
     <ul class="social-icons">
       {% for social in social_accounts %}
         {%- assign social_handle = social | handleize -%}
@@ -55,8 +97,12 @@
         {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
         {% if settings[social_link] != blank %}
           <li>
-            <a href="{{ settings[social_link] }}" class="{{ social_icon }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-              {% include social_icon %}
+            <a
+              href="{{ settings[social_link] }}"
+              class="{{ social_icon }}"
+              title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}"
+            >
+              {% render social_icon %}
               <span class="icon-fallback-text">{{ social }}</span>
             </a>
           </li>

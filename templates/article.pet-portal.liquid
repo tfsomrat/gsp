@@ -10,7 +10,7 @@
 <section class="container">
   <!-- START Breadcrumb -->
   <div class="row">
-    {% include 'breadcrumbs' %}
+    {% render 'breadcrumbs' %}
   </div>
   <!-- END Breadcrumb -->
   <div class="row">
@@ -51,7 +51,7 @@
         <div class="article__sharing">
           <h2 class="subheading">Share This Post:</h2>
           {% if settings.social_sharing_blog %}
-            {% include 'social-sharing',
+            {% render 'social-sharing',
               share_title: article.title,
               share_permalink: article.url,
               share_image: article.image
@@ -86,7 +86,7 @@
         {% if tag contains related_tag %}
           {% assign counter = counter | plus: 1 %}
           {% if counter < 5 %}
-            {% include 'blog-item', width: 'col-12 col-sm-12 col-md-3' %}
+            {% render 'blog-item', width: 'col-12 col-sm-12 col-md-3' %}
           {% endif %}
         {% endif %}
       {% endfor %}

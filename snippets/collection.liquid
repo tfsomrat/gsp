@@ -1,11 +1,11 @@
-{% include 'check-wholesale' %}
+{% render 'check-wholesale' %}
 </div>
 <!-- page-width - breaks pagewidth from theme.liquid -->
 <header class="page-header collection">
   <div class="page-width">
     <h1>{{ collection.title }}{% if current_tags != blank %} - <small>{{current_tags}}</small>{% endif %}</h1>
     {% if collection.all_tags.size > 0 %}
-      {% include 'sort-collections' %}
+      {% render 'sort-collections' %}
     {% endif %}
   </div>
   <!-- page-wdith -->
@@ -30,7 +30,7 @@
         <!-- grid__item -->
         <!-- if this collection has sub collections available show these -->
         {% for link in linklists[thisCollection].links %}
-          {% include 'list-sub-collections', grid_item_width:'small--one-half medium--one-half large-up--one-quarter' %}
+          {% render 'list-sub-collections', grid_item_width:'small--one-half medium--one-half large-up--one-quarter' %}
         {% endfor %}
         <div class="grid__item one-whole">
           <h2>or Browse all <em>{{ collection.title }}</em></h2>
@@ -45,14 +45,14 @@
   <div class="grid">
     <!-- otherwise just show products in the collection instead -->
     {% for product in collection.products %}
-      {% include 'product-list-item', grid_item_width:'medium--one-half large-up--one-quarter' %}
+      {% render 'product-list-item', grid_item_width:'medium--one-half large-up--one-quarter' %}
     {% endfor %}
   </div>
   <!-- grid -->
   <header class="page-header collection bottom">
     <div class="page-width">
       {% if collection.all_tags.size > 0 %}
-        {% include 'sort-collections-bottom' %}
+        {% render 'sort-collections-bottom' %}
       {% endif %}
     </div>
     <!-- page-wdith -->

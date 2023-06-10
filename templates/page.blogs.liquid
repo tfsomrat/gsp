@@ -5,7 +5,7 @@
       <h1 class="title" style="margin-bottom: 0px;">Latest Posts</h1>
     </div>
     {% for article in blogs.news.articles %}
-      {% include 'blog-item', width: '12 col-12 col-sm-12 col-md-3' %}
+      {% render 'blog-item', width: '12 col-12 col-sm-12 col-md-3' %}
     {% endfor %}
   </div>
 </section>

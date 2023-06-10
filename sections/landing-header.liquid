@@ -1,244 +1,248 @@
 <section data-section-id="{{ section.id }}" data-section-type="header-section">
-	<header id="page-header" class="site-header">
-		<div class="container">
-			<div class="row align-self-center header-top" >
-				<!-- START Social Icons -->
-				<div class="col-12 col-sm-12 col-md-6 text-left">
-          {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, Google' | split: ', ' -%}
+  <header id="page-header" class="site-header">
+    <div class="container">
+      <div class="row align-self-center header-top">
+        <!-- START Social Icons -->
+        <div class="col-12 col-sm-12 col-md-6 text-left">
+          {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo, Google'
+            | split: ', '
+          -%}
           <ul class="footer__social-icons">
-              {% for social in social_accounts %}
+            {% for social in social_accounts %}
               {%- assign social_handle = social | handleize -%}
               {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
               {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
               {% if settings[social_link] != blank %}
-              <li>
-              <a href="{{ settings[social_link] }}" class="{{ social_icon }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
-                  {% include social_icon %}
-                  <span class="icon-fallback-text">{{ social }}</span>
-              </a>
-              </li>
+                <li>
+                  <a
+                    href="{{ settings[social_link] }}"
+                    class="{{ social_icon }}"
+                    title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}"
+                  >
+                    {% render social_icon %}
+                    <span class="icon-fallback-text">{{ social }}</span>
+                  </a>
+                </li>
               {% endif %}
-              {% endfor %}
+            {% endfor %}
           </ul>
-				</div>
-				<!-- END Social Icons -->
-				<!-- START Blog Link -->
-				<div class="col-12 col-sm-12 col-md-6 text-right">
-                    <a class="blog-link" href="/blogs/news">Go To Blog</a>
-				</div>
-				<!-- END Blog Link -->
-			</div>
-		</div>
-	</header>
+        </div>
+        <!-- END Social Icons -->
+        <!-- START Blog Link -->
+        <div class="col-12 col-sm-12 col-md-6 text-right">
+          <a class="blog-link" href="/blogs/news">Go To Blog</a>
+        </div>
+        <!-- END Blog Link -->
+      </div>
+    </div>
+  </header>
 </section>
 <style>
-.announcement-bar {
-	padding: 15px 0px;
-	background: white;
-	border-bottom: 1px solid #E6E6E6;
-}
+  .announcement-bar {
+    padding: 15px 0px;
+    background: white;
+    border-bottom: 1px solid #e6e6e6;
+  }
 
-.blog-link {
-	color: #ffffff;
-	font-size: 14px;
-	text-decoration: none;
-	font-weight: bold;
-}
+  .blog-link {
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-.call-to-actions-slider img {
-	width: 25px;
+  .call-to-actions-slider img {
+    width: 25px;
+  }
+  .call-to-actions-slider img,
+  .call-to-actions-slider p {
+    display: inline-block !important;
+    margin: 0px;
+  }
 
-}
-.call-to-actions-slider img, .call-to-actions-slider p {
-	display: inline-block!important;
-	margin: 0px;
-}
+  .call-to-actions-slider .slick-slide {
+    text-align: center !important;
+  }
 
-.call-to-actions-slider .slick-slide {
-	text-align: center!important;
-}
+  .call-to-actions-slider p {
+    color: #26536d;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.67px;
+    line-height: 26px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
 
-.call-to-actions-slider p {
-	color: #26536D;
-	font-size: 16px;
-	font-weight: bold;
-	letter-spacing: 0.67px;
-	line-height: 26px;
-	padding-left: 10px;
-	text-align: left;
-	vertical-align: top;
-}
+  @media (max-width: 768px) {
+    #page-header {
+      border-bottom: 1px solid #dddddd;
+    }
+  }
 
-@media(max-width: 768px) {
-	#page-header {
-		border-bottom: 1px solid #DDDDDD;
-	}
-}
+  .header__logo {
+    max-width: 100%;
+  }
 
-.header__logo {
-	max-width: 100%;
-}
+  #page-header {
+    background: #58b0e3;
+  }
 
-#page-header {
-	background: #58B0E3;
-}
-
-@media(max-width: 719px) {
-	.logo-wrapper {
-		text-align: center;
-	}
-	/* .header__logo {
+  @media (max-width: 719px) {
+    .logo-wrapper {
+      text-align: center;
+    }
+    /* .header__logo {
 		max-width: 200px;
 	} */
-}
+  }
 
-.mobile-menu {
-	height: 100%;
-	width: 85vw;
-	background: white;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	transform: translateX(-100vw);
-	transition: 0.4s ease-in-out;
-	overflow: auto;
-	padding-bottom:50px;
-}
+  .mobile-menu {
+    height: 100%;
+    width: 85vw;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateX(-100vw);
+    transition: 0.4s ease-in-out;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
 
-.mobile-menu .site-nav {
-	width: 90%;
-	margin: auto;
-}
+  .mobile-menu .site-nav {
+    width: 90%;
+    margin: auto;
+  }
 
-.mobile-menu .site-nav li {
-	width: 100%;
-	display: block;
-	background: white;
-	border-bottom: 1px solid #eeee;
-}
-.mobile-menu .site-nav li.more{
-	display: none;
-}
+  .mobile-menu .site-nav li {
+    width: 100%;
+    display: block;
+    background: white;
+    border-bottom: 1px solid #eeee;
+  }
+  .mobile-menu .site-nav li.more {
+    display: none;
+  }
 
-.mobile-menu .has-sub-menu:hover ul {
-	display: none;
-}
+  .mobile-menu .has-sub-menu:hover ul {
+    display: none;
+  }
 
-.mobile-menu .site-nav svg {
-	position: absolute;
-	top: 15px;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	background: #3eaafd;
-	padding:10px;
-	margin-top:-3px;
-}
+  .mobile-menu .site-nav svg {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #3eaafd;
+    padding: 10px;
+    margin-top: -3px;
+  }
 
-.mobile-menu .site-nav svg path {
-	color: #fff;
-}
+  .mobile-menu .site-nav svg path {
+    color: #fff;
+  }
 
-.mobile-menu .sub-menu {
-	position: relative;
-	width: 100%;
-	box-shadow: 0px 0px 0px transparent;
-	padding: 0;
-}
+  .mobile-menu .sub-menu {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 0px 0px transparent;
+    padding: 0;
+  }
 
-.mobile-menu .site-nav li a  {
-	font-size: 16px;
-	color: black;
-	text-align: left;
-	display:block;
-}
+  .mobile-menu .site-nav li a {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    display: block;
+  }
 
-.mobile-menu .sub-menu li {
-	border-bottom: 0px;
-	margin-left: 5px;
-}
-.mobile-menu .sub-menu li li{
-	border:none!important;
-	}
-.mobile-menu .sub-menu li a {
-	font-size: 16px;
-	margin-left: 0px;
-	color: #3eaafd;
-	font-weight: 500;
-	padding:15px 0 12px 7px;
-	border-top: 1px solid #eeee;
-	border-bottom:none;
-}
+  .mobile-menu .sub-menu li {
+    border-bottom: 0px;
+    margin-left: 5px;
+  }
+  .mobile-menu .sub-menu li li {
+    border: none !important;
+  }
+  .mobile-menu .sub-menu li a {
+    font-size: 16px;
+    margin-left: 0px;
+    color: #3eaafd;
+    font-weight: 500;
+    padding: 15px 0 12px 7px;
+    border-top: 1px solid #eeee;
+    border-bottom: none;
+  }
 
+  .mobile-menu.active {
+    transform: translateX(0vw);
+    transition: 0.4s ease-in-out;
+  }
 
-.mobile-menu.active {
-	transform: translateX(0vw);
-	transition: 0.4s ease-in-out;
-}
+  .mobile-menu-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
 
-.mobile-menu-close-button {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
-}
+  .mobile-menu .third {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+  }
 
-.mobile-menu .third {
-	float: left;
-	width: 33.333%;
-	text-align: center;
-	padding: 20px;
-	border-bottom: 1px solid #DDDDDD;
-	margin-bottom: 30px;
-}
-
-.mobile-menu .third a {
-	color: #3EAAFD;
-	font-family: Montserrat;
-	font-size: 16px;
-	font-weight: 500;
-	letter-spacing: 0.5px;
-	line-height: 18px;
-	text-align: left;
-}
-
+  .mobile-menu .third a {
+    color: #3eaafd;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    text-align: left;
+  }
 </style>
 {% schema %}
-	{
-		"name": "Header",
-		"settings": [
-			{
-				"type": "link_list",
-				"id": "main_linklist",
-				"label": "Menu",
-				"default": "main-menu"
-			},
-			{
-				"type": "link_list",
-				"id": "topbar_linklist",
-				"label": "Top Bar Menu",
-				"default": "main-menu"
-			}
-		],
-		"max_blocks": 10,
-		"blocks" : [
-			{
-				"type": "CTA",
-				"name": "Call To Action",
-				"settings": [
-					{
-						"type": "image_picker",
-						"id": "image",
-						"label": "Icon Image"
-					},
-					{
-						"type": "text",
-						"id": "text",
-						"label": "Icon Text"
-					}
-				]
-			}
-		]
-	}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "topbar_linklist",
+      "label": "Top Bar Menu",
+      "default": "main-menu"
+    }
+  ],
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "CTA",
+      "name": "Call To Action",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Icon Text"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

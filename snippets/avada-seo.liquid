@@ -1,15 +1,15 @@
 {%- capture avada-seo-snippets -%}
-{% include 'avada-seo-status' %}
+{% render 'avada-seo-status' %}
 {%- if avadaSeoStatus -%}
-{% include 'avada-seo-meta' %}
-{% include 'avada-seo-social' %}
-{% include 'avada-seo-site' %}
-{% include 'avada-seo-other' %}
-{% include 'avada-seo-structured' %}
-{% include 'avada-seo-redirect' %}
-{% include 'avada-seo-local-business' %}
+{% render 'avada-seo-meta' %}
+{% render 'avada-seo-social' %}
+{% render 'avada-seo-site' %}
+{% render 'avada-seo-other' %}
+{% render 'avada-seo-structured' %}
+{% render 'avada-seo-redirect' %}
+{% render 'avada-seo-local-business' %}
 {%- endif -%}
 {%- endcapture -%}
 {%- unless avada-seo-snippets contains 'Liquid error' -%}
-{{ avada-seo-snippets }}
+  {{ avada-seo-snippets }}
 {%- endunless -%}

@@ -1,6 +1,6 @@
 {% paginate search.results by 24 %}
   <div class="container">
-    {% include 'breadcrumbs' %}
+    {% render 'breadcrumbs' %}
   </div>
   <header class="page-header blue mb-5">
     <div class="container">
@@ -39,19 +39,19 @@
     {% if search.performed %}
       <div class="row">
         <div class="col-12 col-sm-12 col-md-3">
-          {% include 'blog-filter' %}
+          {% render 'blog-filter' %}
         </div>
         {%- for item in search.results -%}
           <div class="col-12 col-sm-12 col-md-9">
             <div class="row">
-              {% include 'pet-portal-item',
+              {% render 'pet-portal-item',
                 width: 'col-12 col-sm-12 col-md-4 mb-4'
               %}
             </div>
           </div>
         {%- endfor -%}
         {% if paginate.pages > 1 %}
-          {% include 'pagination' %}
+          {% render 'pagination' %}
         {% endif %}
       </div>
     {% endif %}

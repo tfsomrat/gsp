@@ -1,119 +1,175 @@
 <ul class="mobile__navigation-ul">
   {% for link in linklists['main-menu-test'].links %}
     <li class="mobile__navigation-ul-li">
-       <a class="mobile__navigation-ul-li-a" href="{{ link.url }}">{{ link.title }}</a>
-       {% if link.links.size > 0 %}
-       <div class="chevron">
-           {% include 'icon-chevron', fill_color: '#58B0E3' %}
-       </div>
-       
+      <a class="mobile__navigation-ul-li-a" href="{{ link.url }}">
+        {{- link.title -}}
+      </a>
+      {% if link.links.size > 0 %}
+        <div class="chevron">
+          {% render 'icon-chevron', fill_color: '#58B0E3' %}
+        </div>
+
         <ul class="mobile__navigation-ul-li-ul">
-    			{% for link in link.links %}
-    			<li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
-                    <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">{{ link.title }}</a>
-                    {% if link.links.size > 0 %}
-                    {% if link.links.size > 0 %}
-                    <div class="chevron">
-                        {% include 'icon-chevron', fill_color: '#58B0E3' %}
-                    </div>
-                    {% endif %}
+          {% for link in link.links %}
+            <li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
+              <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">
+                {{- link.title -}}
+              </a>
+              {% if link.links.size > 0 %}
+                {% if link.links.size > 0 %}
+                  <div class="chevron">
+                    {% render 'icon-chevron', fill_color: '#58B0E3' %}
+                  </div>
+                {% endif %}
 
-                    <ul class="mobile__navigation-ul-li-ul">
-                      {% for link in link.links %}
-                      <li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
-                                <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">{{ link.title }}</a>
-                                {% if link.links.size > 0 %}
-                                <div class="chevron">
-                                    {% include 'icon-chevron', fill_color: '#58B0E3' %}
-                                </div>
-                                {% endif %}
-                            </li>
-                      {% endfor %}
-            
-            
-                    </ul>
-                    {% endif %}
-                </li>
-    			{% endfor %}
-
-
+                <ul class="mobile__navigation-ul-li-ul">
+                  {% for link in link.links %}
+                    <li
+                      class="mobile__navigation-ul-li-ul-li"
+                      id="{{ link.handle }}"
+                    >
+                      <a
+                        class="mobile__navigation-ul-li-ul-li-a"
+                        href="{{ link.url }}"
+                      >
+                        {{- link.title -}}
+                      </a>
+                      {% if link.links.size > 0 %}
+                        <div class="chevron">
+                          {% render 'icon-chevron', fill_color: '#58B0E3' %}
+                        </div>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
         </ul>
-        {% endif %}
+      {% endif %}
     </li>
-    
-{% endfor %}
+  {% endfor %}
 
-    <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-       <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
-       <div class="chevron">
-           {% include 'icon-chevron', fill_color: '#58B0E3' %}
-       </div>
-        <ul class="mobile__navigation-ul-li-ul">
-        <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/contact-us">Contact Us</a></li>
-        <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs#shipping">Delivery Information</a></li>
-        <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs">FAQs</a></li>
-      </ul>
-    </li>
-    <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-       <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
-       <div class="chevron">
-           {% include 'icon-chevron', fill_color: '#58B0E3' %}
-       </div>
-        <ul class="mobile__navigation-ul-li-ul">
-        {% if customer %}
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Orders</a></li>
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/addresses">My Details</a></li>
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account?view=my-pets">My Pets</a></li>
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/logout">Log Out</a></li>
-        {% else %}
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Sign In</a></li>
-          <li class="dropdown__last_level"><a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/register">Register</a></li>
-        {% endif %}
-      </ul>
-    </li>
-
+  <li class="mobile__navigation-ul-li mobile-shop-by-pet">
+    <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
+    <div class="chevron">
+      {% render 'icon-chevron', fill_color: '#58B0E3' %}
+    </div>
+    <ul class="mobile__navigation-ul-li-ul">
+      <li class="dropdown__last_level">
+        <a
+          class="mobile__navigation-ul-li-ul-li-ul-li-a"
+          href="/pages/contact-us"
+          >Contact Us</a
+        >
+      </li>
+      <li class="dropdown__last_level">
+        <a
+          class="mobile__navigation-ul-li-ul-li-ul-li-a"
+          href="/pages/faqs#shipping"
+          >Delivery Information</a
+        >
+      </li>
+      <li class="dropdown__last_level">
+        <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs"
+          >FAQs</a
+        >
+      </li>
+    </ul>
+  </li>
+  <li class="mobile__navigation-ul-li mobile-shop-by-pet">
+    <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
+    <div class="chevron">
+      {% render 'icon-chevron', fill_color: '#58B0E3' %}
+    </div>
+    <ul class="mobile__navigation-ul-li-ul">
+      {% if customer %}
+        <li class="dropdown__last_level">
+          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account"
+            >Orders</a
+          >
+        </li>
+        <li class="dropdown__last_level">
+          <a
+            class="mobile__navigation-ul-li-ul-li-ul-li-a"
+            href="/account/addresses"
+            >My Details</a
+          >
+        </li>
+        <li class="dropdown__last_level">
+          <a
+            class="mobile__navigation-ul-li-ul-li-ul-li-a"
+            href="/account?view=my-pets"
+            >My Pets</a
+          >
+        </li>
+        <li class="dropdown__last_level">
+          <a
+            class="mobile__navigation-ul-li-ul-li-ul-li-a"
+            href="/account/logout"
+            >Log Out</a
+          >
+        </li>
+      {% else %}
+        <li class="dropdown__last_level">
+          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account"
+            >Sign In</a
+          >
+        </li>
+        <li class="dropdown__last_level">
+          <a
+            class="mobile__navigation-ul-li-ul-li-ul-li-a"
+            href="/account/register"
+            >Register</a
+          >
+        </li>
+      {% endif %}
+    </ul>
+  </li>
 </ul>
 <script>
-$(document).ready(function(){
+  $(document).ready(function () {
     var headerHeight = $('#page-header').height();
     var headerHeightAddPadding = $('#page-header').height();
     var needHelpHeight = $('.mobile-navigation__contact').height() + 40;
     function menuHeight() {
-        headerHeight = $('#page-header').height();
-        $('.mobile-navigation').css('top', headerHeightAddPadding);
-        $('.mobile-navigation').css({ 'height': 'calc(100% - ' + headerHeight + 'px)' });
+      headerHeight = $('#page-header').height();
+      $('.mobile-navigation').css('top', headerHeightAddPadding);
+      $('.mobile-navigation').css({
+        height: 'calc(100% - ' + headerHeight + 'px)',
+      });
     }
 
     menuHeight();
 
     function toggleMobileMenu() {
-        if ($(window).width() > 993) {
-            $('.mobile-navigation').removeClass('active');
-            $('.mobile-navigation__contact').removeClass('active');
-            $('body').removeClass('disabled-scroll');
-            $('html').removeClass('disabled-scroll');
-        }
+      if ($(window).width() > 993) {
+        $('.mobile-navigation').removeClass('active');
+        $('.mobile-navigation__contact').removeClass('active');
+        $('body').removeClass('disabled-scroll');
+        $('html').removeClass('disabled-scroll');
+      }
     }
 
     $(window).resize(menuHeight);
     $(window).resize(toggleMobileMenu);
 
-    $('.mobile-menu-button').click(function(){
-        $('.mobile-navigation').toggleClass('active');
-        $('.mobile-navigation__contact').toggleClass('active');
-        $('body').toggleClass('disabled-scroll');
-        $('html').toggleClass('disabled-scroll');
-        $('.mobile-shop-by-pet .mobile__navigation-ul-li-ul').slideToggle(500);
-        $('.mobile-shop-by-pet .chevron').addClass('active');
+    $('.mobile-menu-button').click(function () {
+      $('.mobile-navigation').toggleClass('active');
+      $('.mobile-navigation__contact').toggleClass('active');
+      $('body').toggleClass('disabled-scroll');
+      $('html').toggleClass('disabled-scroll');
+      $('.mobile-shop-by-pet .mobile__navigation-ul-li-ul').slideToggle(500);
+      $('.mobile-shop-by-pet .chevron').addClass('active');
     });
 
-    $('.chevron').click(function(){
-        if($(this).hasClass('active')) {
-            $(this).siblings('ul').find('ul').slideUp(500);
-            $(this).siblings('ul').find('.chevron').removeClass('active');
-        }
-        $(this).parent('li').children('ul').slideToggle(500);
-        $(this).toggleClass('active');
+    $('.chevron').click(function () {
+      if ($(this).hasClass('active')) {
+        $(this).siblings('ul').find('ul').slideUp(500);
+        $(this).siblings('ul').find('.chevron').removeClass('active');
+      }
+      $(this).parent('li').children('ul').slideToggle(500);
+      $(this).toggleClass('active');
     });
-});
+  });
 </script>

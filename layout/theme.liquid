@@ -8,7 +8,7 @@
   <head>
     <meta name="p:domain_verify" content="6b66eff7ee52ff844fef97e4ba415109">
     <!-- Added by AVADA SEO Suite -->
-    {% include 'avada-seo' %}
+    {% render 'avada-seo' %}
     <!-- /Added by AVADA SEO Suite -->
     <style>
       body {
@@ -20,7 +20,7 @@
         transition: none;
       }
     </style>
-    {% include 'critical-css' %}
+    {% render 'critical-css' %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -73,9 +73,9 @@
     {% else %}
       <meta name="description" content="{{ shop.description }}">
     {%- endif -%}
-    {% include 'social-meta-tags' %}
+    {% render 'social-meta-tags' %}
     <!-- Google Fonts -->
-    {% include 'above-the-fold' %}
+    {% render 'above-the-fold' %}
     <meta
       name="google-site-verification"
       content="Oo_-v1pn3a5whLgmhAH20atKqYY0XCmJtzHB_kFTXso"
@@ -96,7 +96,7 @@
       	moneyFormat: {{ shop.money_format | json }}
       };
     </script>
-    {% include 'structured-customer-data' %}
+    {% render 'structured-customer-data' %}
 
     {% if paginate.previous %}
       <link rel="prev" href="{{ shop.url }}{{ paginate.previous.url }}/">
@@ -104,7 +104,7 @@
     {% if paginate.next %}
       <link rel="next" href="{{ shop.url }}{{ paginate.next.url }}/">
     {% endif %}
-    {% include 'structured-data' %}
+    {% render 'structured-data' %}
 
     <link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
@@ -143,7 +143,7 @@
       gtag('config', 'AW-730885514');
     </script>
     <!-- CreativeR Store Pickup -->
-    {% include 'creativer-store-pickup_settings' %}
+    {% render 'creativer-store-pickup_settings' %}
     <!-- CreativeR Store Pickup -->
 
     <!-- begin-boost-pfs-filter-css -->
@@ -165,10 +165,10 @@
     </main>
     {% section 'footer' %}
     {{ content_for_header }}
-    {% include 'smile-initializer' %}
+    {% render 'smile-initializer' %}
     <script src="{{ 'ajaxify.min.js' | asset_url }}"></script>
-    {% include 'subscription-theme-footer' %}
-    {% include 'mw_PO_objects' %}
+    {% render 'subscription-theme-footer' %}
+    {% render 'mw_PO_objects' %}
     <link
       href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap"
       rel="stylesheet"
@@ -319,7 +319,7 @@
       | script_tag
     }}
     {% render 'nosto-tagging' %}
-    {% include 'klaviyo-add-to-cart' %}
+    {% render 'klaviyo-add-to-cart' %}
 
     <!-- begin-boost-pfs-js -->
     {% render 'boost-pfs' %}

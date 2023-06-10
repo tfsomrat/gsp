@@ -1,7 +1,7 @@
 {% paginate blog.articles by 14 %}
   <section class="container blog__listing">
     <div class="row">
-      {% include 'breadcrumbs' %}
+      {% render 'breadcrumbs' %}
       {%- assign blog_title = blog.title -%}
       {%- if current_tags -%}
         {% capture blog_title %}{{ current_tags.first  | capitalize | replace: '-', ' ' }}{% endcapture %}
@@ -15,24 +15,24 @@
 
     <div class="row">
       <div class="col-12 col-sm-12 col-md-3">
-        {% include 'blog-filter' %}
+        {% render 'blog-filter' %}
       </div>
       <div class="col-12 col-sm-12 col-md-9">
         <div class="row">
           {% for article in blog.articles %}
             {% if forloop.index == 1 %}
-              {% include 'blog-item', width: 'col-12 col-sm-12 col-md-6 mb-4' %}
+              {% render 'blog-item', width: 'col-12 col-sm-12 col-md-6 mb-4' %}
             {% elsif forloop.index == 2 %}
-              {% include 'blog-item', width: 'col-12 col-sm-12 col-md-6 mb-4' %}
+              {% render 'blog-item', width: 'col-12 col-sm-12 col-md-6 mb-4' %}
             {% else %}
-              {% include 'blog-item', width: 'col-12 col-sm-12 col-md-4 mb-4' %}
+              {% render 'blog-item', width: 'col-12 col-sm-12 col-md-4 mb-4' %}
             {% endif %}
           {% endfor %}
         </div>
         <!-- grid -->
         <div class="row">
           {% if paginate.pages > 1 %}
-            {% include 'pagination' %}
+            {% render 'pagination' %}
           {% endif %}
         </div>
       </div>

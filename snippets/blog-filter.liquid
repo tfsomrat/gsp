@@ -1,38 +1,53 @@
 <form action="/search" method="get" role="search">
-    <label for="Search" class="label-hidden">{{ 'general.search.placeholder' | t }}</label>
-    <input type="hidden" name="type" value="article">
-    <input type="hidden" name="view" value="news">
-    <input type="search" name="q" class="Search" value="" placeholder="{% if search.performed %}Search Again{% else %}{{ 'general.search.placeholder' | t }}{% endif %}">
-    <button class="search-button blog" type="submit">{% include 'icon-search' %}<span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span></button>
-  </form>
+  <label for="Search" class="label-hidden">
+    {{- 'general.search.placeholder' | t -}}
+  </label>
+  <input type="hidden" name="type" value="article">
+  <input type="hidden" name="view" value="news">
+  <input
+    type="search"
+    name="q"
+    class="Search"
+    value=""
+    placeholder="{% if search.performed %}Search Again{% else %}{{ 'general.search.placeholder' | t }}{% endif %}"
+  >
+  <button class="search-button blog" type="submit">
+    {% render 'icon-search' -%}
+    <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+  </button>
+</form>
 
 <hr class="mt-4 mb-4">
 
-<h3 class="subheading" id="cat"><a href="/blogs/news/tagged/cat" style="color:black">Cat</a></h3>
+<h3 class="subheading" id="cat">
+  <a href="/blogs/news/tagged/cat" style="color:black">Cat</a>
+</h3>
 <hr class="mt-4 mb-4">
-<h3 class="subheading" id="dog"><a href="/blogs/news/tagged/dog" style="color:black">Dog</a></h3>
+<h3 class="subheading" id="dog">
+  <a href="/blogs/news/tagged/dog" style="color:black">Dog</a>
+</h3>
 <hr class="mt-4 mb-4">
-<h3 class="subheading" id="furry-animal"><a href="/blogs/news/tagged/small-pet" style="color:black">Furry animal</a></h3>
+<h3 class="subheading" id="furry-animal">
+  <a href="/blogs/news/tagged/small-pet" style="color:black">Furry animal</a>
+</h3>
 <hr class="mt-4 mb-4">
-
-
 
 <style>
-.small-chevron {
+  .small-chevron {
     display: inline-block;
     transition: 0.5s ease-in-out;
-}
+  }
 
-.small-chevron svg {
+  .small-chevron svg {
     transition: 0.5s ease-in-out;
-}
+  }
 
-.small-chevron.active svg {
-    transform: rotate(90deg)!important;
+  .small-chevron.active svg {
+    transform: rotate(90deg) !important;
     transition: 0.5s ease-in-out;
-}
+  }
 
-.small-chevron svg {
+  .small-chevron svg {
     height: 10px;
-}
+  }
 </style>

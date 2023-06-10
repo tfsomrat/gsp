@@ -1,98 +1,107 @@
 <section class="container">
-    <div class="row">
-        <div class="col-12 col-sm-12 text-center">
-            <h2 class="title hp title-generic"><span>By Category</span></h2>
-        </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 text-center">
+      <h2 class="title hp title-generic"><span>By Category</span></h2>
     </div>
-    <div class="row">
+  </div>
+  <div class="row">
     {% for block in section.blocks %}
-        {%- assign collection = collections[block.settings.collection] -%}
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 3@lg text-center shop-by-block" >
-            <figure>
-                <a href="{{ collection.url }}">
-                  {% if block.settings.image_overide %}
-                    {{ block.settings.image_overide | img_url: 'large' | img_tag: collection.title }}
-                  {% else %}
-                    {{ collection.products.first | img_url: 'large' | img_tag: collection.title }}
-                  {% endif %}
-                </a>
-            </figure>
-            <h3 class="subheading text-center"><a href="{{ collection.url }}">{{ collection.title }}</a></h3>
-            <a class="button secondary" href="{{ collection.url }}">Shop  {% include 'icon-chevron' %}</a>
-        </div>
+      {%- assign collection = collections[block.settings.collection] -%}
+      <div class="col-6 col-sm-6 col-md-6 col-lg-3 3@lg text-center shop-by-block">
+        <figure>
+          <a href="{{ collection.url }}">
+            {% if block.settings.image_overide %}
+              {{
+                block.settings.image_overide
+                | img_url: 'large'
+                | img_tag: collection.title
+              }}
+            {% else %}
+              {{
+                collection.products.first
+                | img_url: 'large'
+                | img_tag: collection.title
+              }}
+            {% endif %}
+          </a>
+        </figure>
+        <h3 class="subheading text-center">
+          <a href="{{ collection.url }}">{{ collection.title }}</a>
+        </h3>
+        <a class="button secondary" href="{{ collection.url }}"
+          >Shop {% render 'icon-chevron' -%}
+        </a>
+      </div>
     {% endfor %}
-    </div>
+  </div>
 </section>
 <style>
-.shop-by-block {
+  .shop-by-block {
     background: white;
-    box-shadow: 0 1px 5px 0 #DDDDDD;
+    box-shadow: 0 1px 5px 0 #dddddd;
     padding: 15px;
     border-radius: 5px;
-}
-.shop-by-block img{
-  max-height: 160px;
-}
+  }
+  .shop-by-block img {
+    max-height: 160px;
+  }
 
-.shop-by-block figure {
+  .shop-by-block figure {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
 
-
-
-.shop-by-block h3 {
+  .shop-by-block h3 {
     margin-bottom: 10px;
-}
+  }
 
-.shop-by-block a {
+  .shop-by-block a {
     display: block;
     color: #3eaafd;
     text-decoration: none;
     font-weight: bold;
-}
-.shop-by-block h3.subheading a{
-  color:#000;
-}
-.shop-by-block h3.subheading a:hover{
-  color:#3eaafd;
-}
-.shop-by-block svg {
+  }
+  .shop-by-block h3.subheading a {
+    color: #000;
+  }
+  .shop-by-block h3.subheading a:hover {
+    color: #3eaafd;
+  }
+  .shop-by-block svg {
     height: 13px;
     float: right;
     position: relative;
     top: 3px;
-}
-
+  }
 </style>
 {% schema %}
 {
-    "name": "Shop By Section",
-    "max_blocks": 8,
-    "blocks" : [
+  "name": "Shop By Section",
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Shop By Category",
+      "settings": [
         {
-            "type": "collection",
-            "name": "Shop By Category",
-            "settings": [
-                {
-                    "type": "collection",
-                    "id": "collection",
-                    "label": "Collection"
-                },
-                {
-                    "type": "image_picker",
-                    "id": "image_overide",
-                    "label": "Image - if blank, first prod image will be used"
-                }
-            ]
-        }
-    ],
-    "presets": [
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
         {
-            "name": "Shop By Categories",
-            "category": "Components"
+          "type": "image_picker",
+          "id": "image_overide",
+          "label": "Image - if blank, first prod image will be used"
         }
-    ]
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop By Categories",
+      "category": "Components"
+    }
+  ]
 }
 {% endschema %}

@@ -1,11 +1,27 @@
 <form action="/search" method="get" role="search" class="header__search-box">
-  <label for="Search" class="label-hidden">{{ 'general.search.placeholder' | t }}</label>
-  <input type="search" name="q" class="Search header__search-box__input" value="" placeholder="{% if search.performed %}Search Again{% else %}{{ 'general.search.placeholder' | t }}{% endif %}">
-  <input type="hidden" name="type" value="product" />
-  <button class="search-button" type="submit" onclick="ga('send', 'event', 'Site Search', 'Header', 'Searched');">{% include 'icon-search' %}<span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span></button>
+  <label for="Search" class="label-hidden">
+    {{- 'general.search.placeholder' | t -}}
+  </label>
+  <input
+    type="search"
+    name="q"
+    class="Search header__search-box__input"
+    value=""
+    placeholder="{% if search.performed %}Search Again{% else %}{{ 'general.search.placeholder' | t }}{% endif %}"
+  >
+  <input type="hidden" name="type" value="product">
+  <button
+    class="search-button"
+    type="submit"
+    onclick="ga('send', 'event', 'Site Search', 'Header', 'Searched');"
+  >
+    {% render 'icon-search' -%}
+    <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+  </button>
 
-  <ul class="header__search-box__predictive predictive-search list-unstyled"
+  <ul
+    class="header__search-box__predictive predictive-search list-unstyled"
     role="listbox"
-    aria-labelledby="predictive-search-products">
-  </ul>
+    aria-labelledby="predictive-search-products"
+  ></ul>
 </form>

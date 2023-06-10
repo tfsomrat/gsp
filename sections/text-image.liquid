@@ -1,27 +1,57 @@
 <section class="container my-5">
-    <div class="row">
-        <div class="col-12 col-sm-12 col-lg-6">
-            {% if section.settings.video_url == blank %}
-                <img loading="lazy" class="br-5 mb-4 mb-lg-0 lazyload" data-src="{{ section.settings.image | img_url: '800x' }}" alt="">
-            {% else %}
-                {% if section.settings.video_url.type == "youtube" %}
-                    <div class="rte__video-wrapper welcomeVid" style=""><iframe src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe></div>
-                {% endif %}
-                {% if section.settings.video_url.type == "vimeo" %}
-                    <div class="rte__video-wrapper welcomeVid "><iframe src="//player.vimeo.com/video/{{ section.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe></div>
-                {% endif %}
-            {% endif %}
-        </div>
-        <div class="col-12 col-sm-12 col-lg-6 pl-3 pr-3 pl-lg-5 pr-lg-5">
-            <div class="d-flex justify-content-center align-items-center" style="height:100%;">
-                <div>
-                    <h2 class="title mb-4">{{ section.settings.title }}</h2>
-                    <p class="text-left">{{ section.settings.text }}</p>
-                    <a class="call-to-action mb-0" href="{{ section.settings.link }}">{{ section.settings.button_text }} {% include 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-lg-6">
+      {% if section.settings.video_url == blank %}
+        <img
+          loading="lazy"
+          class="br-5 mb-4 mb-lg-0 lazyload"
+          data-src="{{ section.settings.image | img_url: '800x' }}"
+          alt=""
+        >
+      {% else %}
+        {% if section.settings.video_url.type == 'youtube' %}
+          <div class="rte__video-wrapper welcomeVid" style="">
+            <iframe
+              src="//www.youtube.com/embed/{{ section.settings.video_url.id }}?rel=0&showinfo=0&vq=720"
+              width="850"
+              height="480"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        {% endif %}
+        {% if section.settings.video_url.type == 'vimeo' %}
+          <div class="rte__video-wrapper welcomeVid ">
+            <iframe
+              src="//player.vimeo.com/video/{{ section.settings.video_url.id }}?byline=0&portrait=0&badge=0"
+              width="850"
+              height="480"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        {% endif %}
+      {% endif %}
     </div>
+    <div class="col-12 col-sm-12 col-lg-6 pl-3 pr-3 pl-lg-5 pr-lg-5">
+      <div
+        class="d-flex justify-content-center align-items-center"
+        style="height:100%;"
+      >
+        <div>
+          <h2 class="title mb-4">{{ section.settings.title }}</h2>
+          <p class="text-left">{{ section.settings.text }}</p>
+          <a class="call-to-action mb-0" href="{{ section.settings.link }}">
+            {{- section.settings.button_text }}
+            {% render 'icon-chevron',
+              fill_color: '#3eaafd',
+              direction: 'right'
+            -%}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <style>
   .rte__video-wrapper.welcomeVid{
@@ -31,57 +61,57 @@
 </style>
 {% schema %}
 {
-	"name": "About Page Content",
-    "settings": [
-        {
-            "id": "image",
-            "type": "image_picker",
-            "label": "Image"
-        },
-        {
-            "id": "video_url",
-            "type": "video_url",
-            "label": "OR Video URL",
-            "accept": ["youtube", "vimeo"],
-            "info": "Text",
-            "placeholder": "Text"
-        },
-        {
-            "id": "title",
-            "type": "text",
-            "label": "Title"
-        },
-        {
-            "id": "text",
-            "type": "textarea",
-            "label": "Text"
-        },
-        {
-            "id": "link",
-            "type": "url",
-            "label": "Link"
-        },
-        {
-            "id": "button_text",
-            "type": "text",
-            "label": "Button Text"
-        },
-        {
-            "type": "select",
-            "id": "alignment",
-            "label": "Text Alignment",
-            "options": [
-            { "value": "left", "label": "Left"},
-            { "value": "right", "label": "Right"}
-            ]
-        }
-    ],
-    
-    "presets": [
-        {
-            "name": "Text & Image",
-            "category": "text"
-        }
-    ]
+  "name": "About Page Content",
+  "settings": [
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "Image"
+    },
+    {
+      "id": "video_url",
+      "type": "video_url",
+      "label": "OR Video URL",
+      "accept": ["youtube", "vimeo"],
+      "info": "Text",
+      "placeholder": "Text"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "text",
+      "type": "textarea",
+      "label": "Text"
+    },
+    {
+      "id": "link",
+      "type": "url",
+      "label": "Link"
+    },
+    {
+      "id": "button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Text & Image",
+      "category": "text"
+    }
+  ]
 }
 {% endschema %}

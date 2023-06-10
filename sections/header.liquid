@@ -1,262 +1,412 @@
 <section data-section-id="{{ section.id }}" data-section-type="header-section">
-	<header id="page-header" class="site-header">
-		<div class="container">
-			<div class="row header-top">
-				<!-- START Mobile Menu -->
-				<div class="col-2 col-sm-4 align-self-center align-self-sm-center mobile-menu-button d-flex justify-content-center align-items-center d-sm-block d-md-block d-lg-none text-left">
-					{% include 'icon-menu-icon' %}
-				</div>
-				<!-- END Mobile Menu -->
-				<!-- START Logo -->
-				<div class="col-8 col-sm-4 col-md-4 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center align-self-centertext-center align-middle text-lg-left logo-wrapper">
-					<a href="/">
-						<img loading="lazy" class="header__logo d-none d-sm-inline-block d-md-inline-block d-lg-inline-block lazyload" data-src="{{ 'logo_png.png' | asset_img_url: '320x' }}" alt="{{ shop.name }}">
-						<img loading="lazy" class="header__logo mobile_logo d-inline-block d-sm-none d-md-none d-lg-none lazyload" data-src="{{ 'mobile-logo_png.png' | asset_img_url: '200x' }}" alt="{{ shop.name }}">
-					</a>
-				</div>
-				<!-- END Logo -->
-				<!-- START Search -->
-				<div class="d-none d-sm-none d-md-none d-lg-block col-lg-5 col-xl-6 text-center search-h align-self-center">
-					<div class="header__search">
-						{% include 'search' %}
-					</div>
-				</div>
-				<!-- END Search -->
-				<!-- START Account and Cart -->
-				<div class="col-2 col-sm-4 col-md-4 col-lg-3 align-self-center">
-						<ul class="header__cta--list d-flex d-md-block justify-content-end align-items-center">
-							<li class="has-submenu">Help
-								<ul style="width: 175px; left: -60px; top: 45px;">
-									<div class="arrow-up"></div>
-									<li  style="padding-top:5px;" class="intercom-click" onclick="ga('send', 'event', 'Help', 'Click', 'Chat');">Instant Chat</li>
-									<li><a class="contact-us" href="/pages/contact-us" onclick="ga('send', 'event', 'Help', 'Click', 'Contact');">Contact Us</a></li>
-									<li><a href="/pages/faqs#shipping" onclick="ga('send', 'event', 'Help', 'Click', 'Delivery');">Delivery Information</a></li>
-									<li><a href="/pages/faqs" onclick="ga('send', 'event', 'Help', 'Click', 'FAQs');">FAQs</a></li>
-								</ul>
-							</li>
-							<li class="has-submenu">Your Account
-								<ul>
-									<div class="arrow-up"></div>
-									{% if customer %}
-									<li><a style="padding-top:5px;" href="/account">Orders</a></li>
-									<li><a href="/account/addresses">My Details</a></li>
-									<li><a href="/account?view=my-pets">My Pets</a></li>
-									<li><a href="/account/logout">Log Out</a></li>
-									{% else %}
-									<li><a href="/account">Sign In</a></li>
-									<li><a href="/account/register">Register</a></li>
-									{% endif %}
-								</ul>
-							</li>
-							<li class="head-icon d-xs-inline-block d-lg-none p-0 cat-icon"><a class="p-0 d-flex justify-content-center align-items-center" href="/account">{% include 'icon-account-welcome' %}</a></li>
-							{% assign has_collect = false %}
-							{% for item in cart.items %}
-								{% if item.product.title == 'Click & Collect' %}
-									{% assign has_collect = true %}
-								{% endif %}
-							{% endfor %}
-							{% if has_collect %}
-								{% assign cart_amount = cart.items.size | minus: 1 %}
-							{% else %}
-								{% assign cart_amount = cart.items.size %}
-							{% endif %}
-							<li class="head-icon p-0"><a class="header__cart-price d-flex justify-content-center align-items-center" href="/cart" title="You have {{ cart_amount }} item(s) in your basket">{% include 'dynamic-cart-icon' %}<span class="item_count cart-count{% if cart_amount <= 0 %} hidden-count{% endif %}">{{ cart_amount }}</span></a></li>
-						</ul>
-				</div>
-				<!-- END Account and Cart -->
-				<div class="col-12 col-lg-12 d-none d-sm-none d-md-none d-lg-block mt-4">
-					<div class="nav-holder">
-						<ul class="site-nav ">
-              				{% for link in linklists.main-menu-test.links %}
-								<li class="top-level">
-									<a class="top_level_a" href="{{ link.url }}">{{ link.title }}{% if link.links != blank %}{% include 'icon-chevron', fill_color: '#ffffff', direction: 'down' %}{% endif %}</a>
-									{% assign toplevelink = link.url %}
-									{% if link.links != blank %}
-										<div class="dropdown" style="visibility: hidden;">
-											<ul>
-											{% for link in link.links limit: 3 %}
-											<li id="{{ link.handle }}"><a href="{{ link.url }}">{{ link.title }}</a>
-												{% if link.links != blank %}
-													<ul class="test">
-														{% for link in link.links limit: 11 %}
-															{% capture firstChar %}{{ link.title | slice: 0 }}{% endcapture %}
-															{% if firstChar == '|' %}
-																</ul>
-																<a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a>
-																<ul class="test">
-															{% else %}
-																	<li id="{{ link.handle }}"><a href="{{ link.url }}">{{ link.title | remove_first: "|" }}</a></li>
-																		{%- if forloop.index == 11 -%}
-																	<li id="seemore"><a href="{{ toplevelink }}">See More</a></li>
-																		{%- endif -%}                                                            
-															{% endif %}
-														{% endfor %}
-													</ul>
-												{% endif %}
-											</li>
-											{% if forloop.last %}
-												{% if forloop.length == 1 %}<li></li><li></li>{% endif %}
-												{% if forloop.length == 2 %}<li></li>{% endif %}
-											{% endif %}
-											{% endfor %}
-											
-											<li style="text-align: center;">
-												{% for block in section.blocks %}
-													{%- if block.settings.page contains link.handle -%}
-														<img loading="lazy" src="{{ block.settings.image | img_url: '500x' }}" alt="">
-													{% endif %}
-												{% endfor %}
-											</li>
-										</ul>
-										</div>
-									{% endif %}
-								</li>
-             	 			{% endfor %}
-						</ul>
-					</div>
-				</div>
+  <header id="page-header" class="site-header">
+    <div class="container">
+      <div class="row header-top">
+        <!-- START Mobile Menu -->
+        <div class="col-2 col-sm-4 align-self-center align-self-sm-center mobile-menu-button d-flex justify-content-center align-items-center d-sm-block d-md-block d-lg-none text-left">
+          {% render 'icon-menu-icon' %}
+        </div>
+        <!-- END Mobile Menu -->
+        <!-- START Logo -->
+        <div class="col-8 col-sm-4 col-md-4 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center align-self-centertext-center align-middle text-lg-left logo-wrapper">
+          <a href="/">
+            <img
+              loading="eager"
+              height="auto"
+              width="auto"
+              class="header__logo d-none d-sm-inline-block d-md-inline-block d-lg-inline-block"
+              src="{{ 'logo_png.png' | asset_img_url: '320x' }}"
+              alt="{{ shop.name }}"
+            >
+            <img
+              loading="eager"
+              height="auto"
+              width="auto"
+              class="header__logo mobile_logo d-inline-block d-sm-none d-md-none d-lg-none"
+              src="{{ 'mobile-logo_png.png' | asset_img_url: '200x' }}"
+              alt="{{ shop.name }}"
+            >
+          </a>
+        </div>
+        <!-- END Logo -->
+        <!-- START Search -->
+        <div class="d-none d-sm-none d-md-none d-lg-block col-lg-5 col-xl-6 text-center search-h align-self-center">
+          <div class="header__search">
+            {% render 'search' %}
+          </div>
+        </div>
+        <!-- END Search -->
+        <!-- START Account and Cart -->
+        <div class="col-2 col-sm-4 col-md-4 col-lg-3 align-self-center">
+          <ul class="header__cta--list d-flex d-md-block justify-content-end align-items-center">
+            <li class="has-submenu">
+              Help
+              <ul style="width: 175px; left: -60px; top: 45px;">
+                <div class="arrow-up"></div>
+                <li
+                  style="padding-top:5px;"
+                  class="intercom-click"
+                  onclick="ga('send', 'event', 'Help', 'Click', 'Chat');"
+                >
+                  Instant Chat
+                </li>
+                <li>
+                  <a
+                    class="contact-us"
+                    href="/pages/contact-us"
+                    onclick="ga('send', 'event', 'Help', 'Click', 'Contact');"
+                    >Contact Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/faqs#shipping"
+                    onclick="ga('send', 'event', 'Help', 'Click', 'Delivery');"
+                    >Delivery Information</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/pages/faqs"
+                    onclick="ga('send', 'event', 'Help', 'Click', 'FAQs');"
+                    >FAQs</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              Your Account
+              <ul>
+                <div class="arrow-up"></div>
+                {% if customer %}
+                  <li>
+                    <a style="padding-top:5px;" href="/account">Orders</a>
+                  </li>
+                  <li><a href="/account/addresses">My Details</a></li>
+                  <li><a href="/account?view=my-pets">My Pets</a></li>
+                  <li><a href="/account/logout">Log Out</a></li>
+                {% else %}
+                  <li><a href="/account">Sign In</a></li>
+                  <li><a href="/account/register">Register</a></li>
+                {% endif %}
+              </ul>
+            </li>
+            <li class="head-icon d-xs-inline-block d-lg-none p-0 cat-icon">
+              <a
+                class="p-0 d-flex justify-content-center align-items-center"
+                href="/account"
+              >
+                {%- render 'icon-account-welcome' -%}
+              </a>
+            </li>
+            {% liquid
+              assign has_collect = false
+            %}
+            {% liquid
+              for item in cart.items
+                if item.product.title == 'Click & Collect'
+                  assign has_collect = true
+                endif
+              endfor
+            %}
+            {% if has_collect %}
+              {% assign cart_amount = cart.items.size | minus: 1 %}
+            {% else %}
+              {% assign cart_amount = cart.items.size %}
+            {% endif %}
+            <li class="head-icon p-0">
+              <a
+                class="header__cart-price d-flex justify-content-center align-items-center"
+                href="/cart"
+                title="You have {{ cart_amount }} item(s) in your basket"
+              >
+                {%- render 'dynamic-cart-icon' -%}
+                <span class="item_count cart-count{% if cart_amount <= 0 %} hidden-count{% endif %}">
+                  {{- cart_amount -}}
+                </span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- END Account and Cart -->
 
-				<!-- START Search -->
-				<div class="d-block d-sm-block d-md-block d-lg-none col-md-12 mt-4 text-center search-h align-self-center">
-						<div class="header__search">
-							{% include 'search' %}
-						</div>
-					</div>
-					<!-- END Search -->
-			</div>
-		</div>
-		<!-- {% form 'currency' %}
-			<select name="currency">
-				{% for currency in shop.enabled_currencies %}
-				{% if currency == cart.currency %}
-					<option selected="true">{{currency.iso_code}} {{currency.symbol}}</option>
-					{% else %}
-					<option>{{currency.iso_code}}</option>
-				{% endif %}
-				{% endfor %}
-			</select>
-		{% endform %} -->
-	</header>
+        <div class="col-12 col-lg-12 d-none d-sm-none d-md-none d-lg-block mt-4">
+          <div class="nav-holder">
+            <ul class="site-nav">
+              {% for link in linklists['main-menu-test'].links %}
+                <li class="top-level">
+                  <a class="top_level_a" href="{{ link.url }}">
+                    {{- link.title -}}
+                    {%- if link.links != blank -%}
+                      {%- render 'icon-chevron',
+                        fill_color: '#ffffff',
+                        direction: 'down'
+                      -%}
+                    {%- endif -%}
+                  </a>
+                  {% assign toplevelink = link.url %}
+                  {% if link.links != blank %}
+                    <div class="dropdown" style="visibility: hidden;">
+                      <ul>
+                        {% for link in link.links limit: 3 %}
+                          <li id="{{ link.handle }}">
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                            {% if link.links != blank %}
+                              <ul>
+                                {% for link in link.links limit: 11 %}
+                                  <li id="{{ link.handle }}">
+                                    <a href="{{ link.url }}">
+                                      {{- link.title | remove_first: '|' -}}
+                                    </a>
+                                  </li>
+                                  {%- if forloop.index == 11 -%}
+                                    <li id="seemore">
+                                      <a href="{{ toplevelink }}">See More</a>
+                                    </li>
+                                  {%- endif -%}
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
+                          </li>
+                          {% if forloop.last %}
+                            {% if forloop.length == 1 %}
+                              <li></li>
+                              <li></li>
+                            {% endif %}
+                            {% if forloop.length == 2 %}<li></li>{% endif %}
+                          {% endif %}
+                        {% endfor %}
+
+                        <li style="text-align: center;">
+                          {% for block in section.blocks %}
+                            {%- if block.settings.page contains link.handle -%}
+                              <img
+                                loading="lazy"
+                                height="auto"
+                                width="auto"
+                                src="{{ block.settings.image | image_url: width: 500 }}"
+                                alt=""
+                              >
+                            {% endif %}
+                          {% endfor %}
+                        </li>
+                      </ul>
+                    </div>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <!-- START Search -->
+        <div class="d-block d-sm-block d-md-block d-lg-none col-md-12 mt-4 text-center search-h align-self-center">
+          <div class="header__search">
+            {% render 'search' %}
+          </div>
+        </div>
+        <!-- END Search -->
+      </div>
+    </div>
+  </header>
 </section>
+
 {% unless template == 'collection' %}
-<section class="announcement-bar ">
-	<div class="container">
-		<div class="row">
-			<div class="call-to-actions-slider">
-				<div>
-					<a style="text-decoration: none;  opacity: 1;" href="{{ section.settings.notification_link_one }}" onclick="ga('send', 'event', 'Header CTA', 'Click', 'Delivery info');">
-						<img loading="lazy" style="position: relative; top: -1px;" data-lazy="{{ section.settings.notification_image_one | img_url: '30x' }}" alt="">
-						<p>{{ section.settings.notification_text_one }}</p>
-					</a>
-				</div>
-				<div>
-					<a style="text-decoration: none; opacity: 1;" target="_blank" href="{{ section.settings.notification_link_two }}" onclick="ga('send', 'event', 'Header CTA', 'Click', 'Reviews');">
-						<img loading="lazy" style="width: 100px; position: relative; top: -2px; " data-lazy="{{ section.settings.notification_image_two | img_url: 'master' }}" alt="">
-						<p>{{ section.settings.notification_text_two }}</p>
-					</a>
-				</div>
-				<div style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal" onclick="ga('send', 'event', 'Header CTA', 'Click', 'Get Set Save');">
-					<p style="line-height: 38px;">{{ section.settings.notification_text_three }}</p>
-					<img loading="lazy" class="get-set-save-logo" style="width:90px; margin:0px 10px;" data-lazy="{{ 'getsetsave_colour_png.png' | asset_img_url: '90x' }}" alt="{{ section.settings.notification_text_three }}">
-					<div class="learn-more">| Learn More</div>
-				</div>
-				{% if section.settings.notification_image_four != blank %}
-					<div  style="cursor: pointer;" data-toggle="modal" data-target="#clickCollectModal" {% unless section.settings.notification_link_four %}onclick="ga('send', 'event', 'Header CTA', 'Click', '{{ section.settings.notification_text_four }}');"{% endunless %}>
-						{% if section.settings.notification_link_four != blank %}
-							<a style="text-decoration: none; opacity: 1;" target="_blank" href="{{ section.settings.notification_link_four }}" onclick="ga('send', 'event', 'Header CTA', 'Click', '{{ section.settings.notification_text_four }}');">
-						{% endif %}
-							{% if section.settings.notification_image_four != blank %}
-								<img loading="lazy" style="width: 75px; position: relative; top: -2px; " data-lazy="{{ 'GSP_CC_png.png' | asset_img_url: '75x' }}" alt="">
-							{% endif %}
-							<div class="learn-more">| Learn More</div>
-						{% if section.settings.notification_link_four != blank %}
-							</a>
-						{% endif %}
-					</div>
-				{% endif %}
-			</div>
-		</div>
-	</div>
-</section>
+  <section class="announcement-bar ">
+    <div class="container">
+      <div class="row">
+        <div class="call-to-actions-slider">
+          <div>
+            <a
+              style="text-decoration: none;  opacity: 1;"
+              href="{{ section.settings.notification_link_one }}"
+              onclick="ga('send', 'event', 'Header CTA', 'Click', 'Delivery info');"
+            >
+              <img
+                loading="lazy"
+                style="position: relative; top: -1px;"
+                data-lazy="{{ section.settings.notification_image_one | img_url: '30x' }}"
+                alt=""
+              >
+              <p>{{ section.settings.notification_text_one }}</p>
+            </a>
+          </div>
+          <div>
+            <a
+              style="text-decoration: none; opacity: 1;"
+              target="_blank"
+              href="{{ section.settings.notification_link_two }}"
+              onclick="ga('send', 'event', 'Header CTA', 'Click', 'Reviews');"
+            >
+              <img
+                loading="lazy"
+                style="width: 100px; position: relative; top: -2px; "
+                data-lazy="{{ section.settings.notification_image_two | img_url: 'master' }}"
+                alt=""
+              >
+              <p>{{ section.settings.notification_text_two }}</p>
+            </a>
+          </div>
+          <div
+            style="cursor: pointer;"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            onclick="ga('send', 'event', 'Header CTA', 'Click', 'Get Set Save');"
+          >
+            <p style="line-height: 38px;">
+              {{ section.settings.notification_text_three }}
+            </p>
+            <img
+              loading="lazy"
+              class="get-set-save-logo"
+              style="width:90px; margin:0px 10px;"
+              data-lazy="{{ 'getsetsave_colour_png.png' | asset_img_url: '90x' }}"
+              alt="{{ section.settings.notification_text_three }}"
+            >
+            <div class="learn-more">| Learn More</div>
+          </div>
+          {% if section.settings.notification_image_four != blank %}
+            <div
+              style="cursor: pointer;"
+              data-toggle="modal"
+              data-target="#clickCollectModal"
+              {% unless section.settings.notification_link_four %}
+                onclick="ga('send', 'event', 'Header CTA', 'Click', '{{ section.settings.notification_text_four }}');"
+              {% endunless %}
+            >
+              {% if section.settings.notification_link_four != blank %}
+                <a
+                  style="text-decoration: none; opacity: 1;"
+                  target="_blank"
+                  href="{{ section.settings.notification_link_four }}"
+                  onclick="ga('send', 'event', 'Header CTA', 'Click', '{{ section.settings.notification_text_four }}');"
+                >
+              {% endif %}
+              {% if section.settings.notification_image_four != blank %}
+                <img
+                  loading="lazy"
+                  style="width: 75px; position: relative; top: -2px; "
+                  data-lazy="{{ 'GSP_CC_png.png' | asset_img_url: '75x' }}"
+                  alt=""
+                >
+              {% endif %}
+              <div class="learn-more">| Learn More</div>
+              {% if section.settings.notification_link_four != blank %}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
 {% endunless %}
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<a href="/pages/faqs#GetSetSave">
-					<img loading="lazy" style="cursor:pointer;" src="{{ section.settings.popup_image | img_url: 'master' }}" alt="Get Set Save">
-				</a>
-			</div>
-		</div>
-	</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <a href="/pages/faqs#GetSetSave">
+          <img
+            height="auto"
+            width="auto"
+            loading="lazy"
+            style="cursor:pointer;"
+            src="{{ section.settings.popup_image | img_url: 'master' }}"
+            alt="Get Set Save"
+          >
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal fade" id="clickCollectModal" tabindex="-1" role="dialog" aria-labelledby="clickCollectModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<a href="/pages/faqs#clickCollect">
-					<img loading="lazy" style="cursor:pointer;" src="{{ section.settings.click_collect_image | img_url: 'master' }}" alt="Get Set Save">
-				</a>
-			</div>
-		</div>
-	</div>
+<div
+  class="modal fade"
+  id="clickCollectModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="clickCollectModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <a href="/pages/faqs#clickCollect">
+          <img
+            height="auto"
+            width="auto"
+            loading="lazy"
+            style="cursor:pointer;"
+            src="{{ section.settings.click_collect_image | img_url: 'master' }}"
+            alt="Get Set Save"
+          >
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class="mobile-navigation">
-	{% include 'mobile-menu' %}
+  {% render 'mobile-menu' %}
 </div>
 
 <style>
-
-
-ul.site-nav li:hover .dropdown{
-	opacity: 1;
-	visibility: visible!important;
-	font-size:16px;
-	left: 0;
-	width:100%;
-	transition-delay: .3s;
-		-webkit-transition-delay: .3s;
-}
-ul.site-nav li .dropdown li img{
-	margin:0 auto;
-}
-ul.site-nav li:hover .dropdown ul{
-	position: unset;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-gap: 30px;
-	background:none;
-	box-shadow: none;
-	border-radius: 0;
-	padding:30px;
-	margin: 0;
-}
-ul.site-nav li:hover .dropdown ul ul{
-	width: 100%;
-	display: block;
-	padding:0 40px 0 0!important;
-}
-ul.site-nav li:hover .dropdown ul>li a{
-	border-bottom: 1px solid #e6e6e6;
-	color:#000;
-	padding-bottom: 10px;
-	font-weight: 400;
-	font-size: 18px;
-	margin-bottom: 10px;
+  ul.site-nav li:hover .dropdown {
+    opacity: 1;
+    visibility: visible !important;
+    font-size: 16px;
+    left: 0;
+    width: 100%;
+    transition-delay: 0.3s;
+    -webkit-transition-delay: 0.3s;
+  }
+  ul.site-nav li .dropdown li img {
+    margin: 0 auto;
+  }
+  ul.site-nav li:hover .dropdown ul {
+    position: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 30px;
+    margin: 0;
+  }
+  ul.site-nav li:hover .dropdown ul ul {
+    width: 100%;
+    display: block;
+    padding: 0 40px 0 0 !important;
+  }
+  ul.site-nav li:hover .dropdown ul > li a {
+    border-bottom: 1px solid #e6e6e6;
+    color: #000;
+    padding-bottom: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 10px;
     line-height: 1.5;
-	display: block;
-}
-ul.site-nav li:hover .dropdown ul ul li{
-	display: block;
-}
-ul.site-nav li:hover .dropdown ul ul li#seemore a{
-	color:#17a2b8;
-	font-weight: bold;
-}
-ul.site-nav li:hover .dropdown ul ul a{
-	font-size: 16px;
+    display: block;
+  }
+  ul.site-nav li:hover .dropdown ul ul li {
+    display: block;
+  }
+  ul.site-nav li:hover .dropdown ul ul li#seemore a {
+    color: #17a2b8;
+    font-weight: bold;
+  }
+  ul.site-nav li:hover .dropdown ul ul a {
+    font-size: 16px;
     line-height: 1.5;
     font-weight: 500;
     padding: 2px 0;
@@ -264,505 +414,501 @@ ul.site-nav li:hover .dropdown ul ul a{
     color: #7e7e7e;
     text-decoration: none;
     text-transform: none;
-	border:none!important;
-}
+    border: none !important;
+  }
 
-.mobile-navigation__contact {
-	background: #58b0e3;
+  .mobile-navigation__contact {
+    background: #58b0e3;
     text-align: center;
     padding: 10px 20px;
-	position: fixed;
-	z-index: 999999;
+    position: fixed;
+    z-index: 999999;
     bottom: 0;
     width: 100%;
-}
+  }
 
-.mobile-navigation__contact a {
-	color: white;
+  .mobile-navigation__contact a {
+    color: white;
     font-size: 16px;
     line-height: 16px;
     position: relative;
     top: -5px;
     left: 15px;
     font-weight: bold;
-}
+  }
 
-.mobile-navigation__contact .heading {
-	color: white;
-	font-size: 22px;
+  .mobile-navigation__contact .heading {
+    color: white;
+    font-size: 22px;
     color: white;
     line-height: 22px;
     margin-bottom: 10px;
-}
-@media(max-width: 998px) {
-	.intercom-launcher-frame{
-		bottom: 10px!important;
-	}
-}
-.announcement-bar {
-	padding: 15px 0px;
-	background: white;
-	border-bottom: 1px solid #E6E6E6;
-  height: 70px;
-  overflow: hidden;
-}
-
-.call-to-actions-slider img {
-	width: 25px;
-}
-
-.call-to-actions-slider a {
-	text-decoration: none;
-}
-.call-to-actions-slider img, .call-to-actions-slider p {
-	display: inline-block!important;
-	margin: 0px;
-}
-
-.call-to-actions-slider .slick-slide {
-	text-align: center!important;
-	line-height: 38px;
-}
-
-.call-to-actions-slider p {
-	color: #26536D;
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: 0.67px;
-	line-height: 38px;
-	padding-left: 10px;
-	text-align: left;
-	vertical-align: top;
-}
-
-@media(max-width: 1350px) {
-	.get-set-save-logo {
-		margin: 0!important;
-	}
-	.call-to-actions-slider p {
-		font-size: 12px;
-		letter-spacing: normal;
-	}
-
-	.learn-more {
-		font-size: 12px;
-		display: none!important;
-	}
-}
-
-
-@media(max-width: 1120px) {
-}
-
-@media(max-width: 768px) {
-	#page-header {
-		border-bottom: 1px solid #DDDDDD;
-	}
-}
-.header__logo {
-  width:120px;
-  max-width: 100%;
-}
-@media(min-width: 576px) {
-  .header__logo {
-    width:340px;
-  	max-width: 100%;
   }
-}
+  @media (max-width: 998px) {
+    .intercom-launcher-frame {
+      bottom: 10px !important;
+    }
+  }
+  .announcement-bar {
+    padding: 15px 0px;
+    background: white;
+    border-bottom: 1px solid #e6e6e6;
+    height: 70px;
+    overflow: hidden;
+  }
 
-#page-header {
-	background: #58B0E3;
-}
+  .call-to-actions-slider img {
+    width: 25px;
+  }
 
-@media(max-width: 719px) {
-	.logo-wrapper {
-		text-align: center;
-	}
-}
+  .call-to-actions-slider a {
+    text-decoration: none;
+  }
+  .call-to-actions-slider img,
+  .call-to-actions-slider p {
+    display: inline-block !important;
+    margin: 0px;
+  }
 
-.mobile-menu {
-	height: 100%;
-	width: 85vw;
-	background: white;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	transform: translateX(-100vw);
-	transition: 0.4s ease-in-out;
-	overflow: auto;
-	padding-bottom:50px;
-}
+  .call-to-actions-slider .slick-slide {
+    text-align: center !important;
+    line-height: 38px;
+  }
 
-.mobile-menu .site-nav {
-	width: 90%;
-	margin: auto;
-}
+  .call-to-actions-slider p {
+    color: #26536d;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.67px;
+    line-height: 38px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
 
-.mobile-menu .site-nav li {
-	width: 100%;
-	display: block;
-	background: white;
-	border-bottom: 1px solid #eeee;
-}
-.mobile-menu .site-nav li.more{
-	display: none;
-}
+  @media (max-width: 1350px) {
+    .get-set-save-logo {
+      margin: 0 !important;
+    }
+    .call-to-actions-slider p {
+      font-size: 12px;
+      letter-spacing: normal;
+    }
 
-.mobile-menu .has-sub-menu:hover ul {
-	display: none;
-}
+    .learn-more {
+      font-size: 12px;
+      display: none !important;
+    }
+  }
 
-.mobile-menu .site-nav svg {
-	position: absolute;
-	top: 15px;
-	right: 0;
-	width: 30px;
-	height: 30px;
-	background: #3eaafd;
-	padding:10px;
-	margin-top:-3px;
-}
+  @media (max-width: 1120px) {
+  }
 
-.mobile-menu .site-nav svg path {
-	color: #fff;
-}
+  @media (max-width: 768px) {
+    #page-header {
+      border-bottom: 1px solid #dddddd;
+    }
+  }
+  .header__logo {
+    width: 120px;
+    max-width: 100%;
+  }
+  @media (min-width: 576px) {
+    .header__logo {
+      width: 340px;
+      max-width: 100%;
+    }
+  }
 
-.mobile-menu .sub-menu {
-	position: relative;
-	width: 100%;
-	box-shadow: 0px 0px 0px transparent;
-	padding: 0;
-}
+  #page-header {
+    background: #58b0e3;
+  }
 
-.mobile-menu .site-nav li a  {
-	font-size: 16px;
-	color: black;
-	text-align: left;
-	display:block;
-}
+  @media (max-width: 719px) {
+    .logo-wrapper {
+      text-align: center;
+    }
+  }
 
-.mobile-menu .sub-menu li {
-	border-bottom: 0px;
-	margin-left: 5px;
-}
-.mobile-menu .sub-menu li li{
-	border:none!important;
-	}
-.mobile-menu .sub-menu li a {
-	font-size: 16px;
-	margin-left: 0px;
-	color: #3eaafd;
-	font-weight: 500;
-	padding:15px 0 12px 7px;
-	border-top: 1px solid #eeee;
-	border-bottom:none;
-}
+  .mobile-menu {
+    height: 100%;
+    width: 85vw;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateX(-100vw);
+    transition: 0.4s ease-in-out;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
 
+  .mobile-menu .site-nav {
+    width: 90%;
+    margin: auto;
+  }
 
-.mobile-menu.active {
-	transform: translateX(0vw);
-	transition: 0.4s ease-in-out;
-}
+  .mobile-menu .site-nav li {
+    width: 100%;
+    display: block;
+    background: white;
+    border-bottom: 1px solid #eeee;
+  }
+  .mobile-menu .site-nav li.more {
+    display: none;
+  }
 
-.mobile-menu-close-button {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	cursor: pointer;
-}
+  .mobile-menu .has-sub-menu:hover ul {
+    display: none;
+  }
 
-.mobile-menu .third {
-	float: left;
-	width: 33.333%;
-	text-align: center;
-	padding: 20px;
-	border-bottom: 1px solid #DDDDDD;
-	margin-bottom: 30px;
-}
+  .mobile-menu .site-nav svg {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #3eaafd;
+    padding: 10px;
+    margin-top: -3px;
+  }
 
-.mobile-menu .third a {
-	color: #3EAAFD;
-	font-family: Montserrat;
-	font-size: 16px;
-	font-weight: 500;
-	letter-spacing: 0.5px;
-	line-height: 18px;
-	text-align: left;
-}
+  .mobile-menu .site-nav svg path {
+    color: #fff;
+  }
 
+  .mobile-menu .sub-menu {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 0px 0px transparent;
+    padding: 0;
+  }
 
-.learn-more {
-	display: inline-block;
-	cursor: pointer;
-}
+  .mobile-menu .site-nav li a {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    display: block;
+  }
 
-.accordion-collect-toggle {
-	margin: 0px 0px 0px 0px;
-}
+  .mobile-menu .sub-menu li {
+    border-bottom: 0px;
+    margin-left: 5px;
+  }
+  .mobile-menu .sub-menu li li {
+    border: none !important;
+  }
+  .mobile-menu .sub-menu li a {
+    font-size: 16px;
+    margin-left: 0px;
+    color: #3eaafd;
+    font-weight: 500;
+    padding: 15px 0 12px 7px;
+    border-top: 1px solid #eeee;
+    border-bottom: none;
+  }
 
-.accordion-collect-tab {
-	display: block;
-	position: relative;
-	padding: 35px 60px 35px 30px;
-	margin: 0 0 15px 0;
-	background-color: #FFFFFF;
-	border-radius: 5px;
-	box-shadow: 0 0 8px 0 #E6E5E5;
-}
+  .mobile-menu.active {
+    transform: translateX(0vw);
+    transition: 0.4s ease-in-out;
+  }
 
-.toggle-text {
-	font-size: 18px;
-	color: black;
-}
-.accordion-collect-content {
-	display: none;
-	margin-top: 30px;
-	padding-top: 30px;
-	border-top: 1px solid #E6E6E6;
-	margin-right: 50px;
-}
-.accordion-collect-content p {
-	margin: 0;
-}
+  .mobile-menu-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
 
+  .mobile-menu .third {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+  }
+
+  .mobile-menu .third a {
+    color: #3eaafd;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    text-align: left;
+  }
+
+  .learn-more {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .accordion-collect-toggle {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .accordion-collect-tab {
+    display: block;
+    position: relative;
+    padding: 35px 60px 35px 30px;
+    margin: 0 0 15px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 0 #e6e5e5;
+  }
+
+  .toggle-text {
+    font-size: 18px;
+    color: black;
+  }
+  .accordion-collect-content {
+    display: none;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #e6e6e6;
+    margin-right: 50px;
+  }
+  .accordion-collect-content p {
+    margin: 0;
+  }
 </style>
 
 <script>
-	$(document).ready(function(){
-		$('.has-submenu').click(function() {
-			$(".has-submenu").not(this).removeClass('active');
-			$(this).toggleClass('active');
-		});
+  $(document).ready(function () {
+    $('.has-submenu').click(function () {
+      $('.has-submenu').not(this).removeClass('active');
+      $(this).toggleClass('active');
+    });
 
-		$('.has-submenu ul').mouseleave(function(){
-			$('.has-submenu').delay(300).removeClass('active');
-		});
+    $('.has-submenu ul').mouseleave(function () {
+      $('.has-submenu').delay(300).removeClass('active');
+    });
 
-		$('.has-submenu ul').mouseleave(function(){
-			$('.has-submenu').delay(300).removeClass('active');
-		});
+    $('.has-submenu ul').mouseleave(function () {
+      $('.has-submenu').delay(300).removeClass('active');
+    });
 
-		$('.call-to-actions-slider').slick({
-			infinite: false,
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			fade: false,
-			arrows: false,
-			autoplay: false,
-			autoplaySpeed: 3000,
-			adaptiveHeight: false,
-			lazyload: 'ondemand',
-			responsive: [
-				{
-					breakpoint: 950,
-					settings: {
-						infinite: true,
-						centerMode: false,
-						slidesToShow: 2,
-						slidesToScroll: 1,
-						fade: false,
-						arrows: false,
-						autoplay: true,
-						autoplaySpeed: 3000,
-						adaptiveHeight: false,
-					}
-				},
-				{
-					breakpoint: 768,
-					settings: {
-						infinite: true,
-						centerMode: false,
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						fade: false,
-						arrows: false,
-						autoplay: true,
-						autoplaySpeed: 3000,
-						adaptiveHeight: false,
-					}
-				}
-			]
-		});
+    $('.call-to-actions-slider').slick({
+      infinite: false,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      fade: false,
+      arrows: false,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      adaptiveHeight: false,
+      lazyload: 'ondemand',
+      responsive: [
+        {
+          breakpoint: 950,
+          settings: {
+            infinite: true,
+            centerMode: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            fade: false,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: false,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            infinite: true,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: false,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: false,
+          },
+        },
+      ],
+    });
 
+    $('.accordion-collect-tab').click(function () {
+      if ($(this).find('i').hasClass('active')) {
+        $(this).find('i').removeClass('active');
+        $(this).find('.accordion-collect-content').slideUp('fast');
+      } else {
+        $('.accordion-collect-toggle').find('i').removeClass('active');
+        $('.accordion-collect-content').slideUp();
+        $(this).find('i').toggleClass('active');
+        $(this).find('.accordion-collect-content').slideToggle('fast');
+      }
+    });
+  });
+</script>
 
-		$('.accordion-collect-tab').click(function(){
-			if($(this).find('i').hasClass('active')) {
-				$(this).find('i').removeClass('active');
-				$(this).find('.accordion-collect-content').slideUp('fast');
-			} else {
-				$('.accordion-collect-toggle').find('i').removeClass('active');
-				$('.accordion-collect-content').slideUp();
-				$(this).find('i').toggleClass('active');
-				$(this).find('.accordion-collect-content').slideToggle('fast');
-
-			}
-		});
-	});
-	</script>
 {% schema %}
-	{
-		"name": "Header",
-		"settings": [
-			{
-				"type": "link_list",
-				"id": "main_linklist",
-				"label": "Menu",
-				"default": "main-menu"
-			},
-			{
-				"type": "link_list",
-				"id": "topbar_linklist",
-				"label": "Top Bar Menu",
-				"default": "main-menu"
-			},
-			{
-				"type": "image_picker",
-				"id": "notification_image_one",
-				"label": "Notification Bar - Image One"
-			},
-			{
-				"type": "text",
-				"id": "notification_text_one",
-				"label": "Notification Bar - Text One"
-			},
-			{
-				"type": "url",
-				"id": "notification_link_one",
-				"label": "Notification Bar - Link One"
-			},
-			{
-				"type": "image_picker",
-				"id": "notification_image_two",
-				"label": "Notification Bar - Image Two"
-			},
-			{
-				"type": "text",
-				"id": "notification_text_two",
-				"label": "Notification Bar - Text Two"
-			},
-			{
-				"type": "url",
-				"id": "notification_link_two",
-				"label": "Notification Bar - Link two"
-			},
-			{
-				"type": "text",
-				"id": "notification_text_three",
-				"label": "Notification Bar - Text Three"
-			},
-			{
-				"type": "image_picker",
-				"id": "popup_image",
-				"label": "Learn More Popup Image"
-			},
-			{
-				"type": "image_picker",
-				"id": "click_collect_image",
-				"label": "Click and Collect Popup Image"
-			},
-			{
-				"type": "header",
-				"content": "Click and Collect"
-			},
-			{
-				"type": "image_picker",
-				"id": "notification_image_four",
-				"label": "Notification Bar - Image Four"
-			},
-			{
-				"type": "text",
-				"id": "notification_text_four",
-				"label": "Notification Bar - Text Four"
-			},
-			{
-				"type": "url",
-				"id": "notification_link_four",
-				"label": "Notification Bar - Link Four"
-			},
-			{
-				"type": "header",
-				"content": "Click and Collect - Modal"
-			},
-			{
-				"type": "text",
-				"id": "modal_title",
-				"label": "Title",
-				"default": "Click and Collect"
-			},
-			{
-				"type": "textarea",
-				"id": "modal_content",
-				"label": "Content",
-				"default": "Lorem ipsum dolor sit amet, epicuri mediocrem cum no. Ubique meliore laboramus mea ne, eius prodesset forensibus at quo, eripuit atomorum cum cu. Te vix quem equidem meliore, per ex duis nusquam conceptam. Labitur aliquam ut his, qui ea persius dissentias. Eum tation sadipscing id, et fugit integre vis."
-			},
-			{
-				"type": "text",
-				"id": "modal_accordian_one",
-				"label": "Accordian One",
-				"default": "Example Question"
-			},
-			{
-				"type": "textarea",
-				"id": "modal_accordian_desc_one",
-				"label": "Accordian Description One",
-				"default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
-			},
-			{
-				"type": "text",
-				"id": "modal_accordian_two",
-				"label": "Accordian Two",
-				"default": "Example Question"
-			},
-			{
-				"type": "textarea",
-				"id": "modal_accordian_desc_two",
-				"label": "Accordian Description Two",
-				"default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
-			},
-			{
-				"type": "text",
-				"id": "modal_accordian_three",
-				"label": "Accordian Three",
-				"default": "Example Question"
-			},
-			{
-				"type": "textarea",
-				"id": "modal_accordian_desc_three",
-				"label": "Accordian Description Three",
-				"default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
-			},
-			{
-				"type": "text",
-				"id": "modal_accordian_four",
-				"label": "Accordian Four",
-				"default": "Example Question"
-			},
-			{
-				"type": "textarea",
-				"id": "modal_accordian_desc_four",
-				"label": "Accordian Description Four",
-				"default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
-			}
-		],
-		"max_blocks": 10,
-		"blocks" : [
-			{
-				"type": "CTA",
-				"name": "Mega Menu Image",
-				"settings": [
-					{
-						"type": "image_picker",
-						"id": "image",
-						"label": "Background Image"
-					},
-					{
-						"type": "url",
-						"id": "page",
-						"label": "Page / Menu URL"
-					}
-				]
-			}
-		]
-	}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "topbar_linklist",
+      "label": "Top Bar Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "notification_image_one",
+      "label": "Notification Bar - Image One"
+    },
+    {
+      "type": "text",
+      "id": "notification_text_one",
+      "label": "Notification Bar - Text One"
+    },
+    {
+      "type": "url",
+      "id": "notification_link_one",
+      "label": "Notification Bar - Link One"
+    },
+    {
+      "type": "image_picker",
+      "id": "notification_image_two",
+      "label": "Notification Bar - Image Two"
+    },
+    {
+      "type": "text",
+      "id": "notification_text_two",
+      "label": "Notification Bar - Text Two"
+    },
+    {
+      "type": "url",
+      "id": "notification_link_two",
+      "label": "Notification Bar - Link two"
+    },
+    {
+      "type": "text",
+      "id": "notification_text_three",
+      "label": "Notification Bar - Text Three"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Learn More Popup Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "click_collect_image",
+      "label": "Click and Collect Popup Image"
+    },
+    {
+      "type": "header",
+      "content": "Click and Collect"
+    },
+    {
+      "type": "image_picker",
+      "id": "notification_image_four",
+      "label": "Notification Bar - Image Four"
+    },
+    {
+      "type": "text",
+      "id": "notification_text_four",
+      "label": "Notification Bar - Text Four"
+    },
+    {
+      "type": "url",
+      "id": "notification_link_four",
+      "label": "Notification Bar - Link Four"
+    },
+    {
+      "type": "header",
+      "content": "Click and Collect - Modal"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "Title",
+      "default": "Click and Collect"
+    },
+    {
+      "type": "textarea",
+      "id": "modal_content",
+      "label": "Content",
+      "default": "Lorem ipsum dolor sit amet, epicuri mediocrem cum no. Ubique meliore laboramus mea ne, eius prodesset forensibus at quo, eripuit atomorum cum cu. Te vix quem equidem meliore, per ex duis nusquam conceptam. Labitur aliquam ut his, qui ea persius dissentias. Eum tation sadipscing id, et fugit integre vis."
+    },
+    {
+      "type": "text",
+      "id": "modal_accordian_one",
+      "label": "Accordian One",
+      "default": "Example Question"
+    },
+    {
+      "type": "textarea",
+      "id": "modal_accordian_desc_one",
+      "label": "Accordian Description One",
+      "default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
+    },
+    {
+      "type": "text",
+      "id": "modal_accordian_two",
+      "label": "Accordian Two",
+      "default": "Example Question"
+    },
+    {
+      "type": "textarea",
+      "id": "modal_accordian_desc_two",
+      "label": "Accordian Description Two",
+      "default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
+    },
+    {
+      "type": "text",
+      "id": "modal_accordian_three",
+      "label": "Accordian Three",
+      "default": "Example Question"
+    },
+    {
+      "type": "textarea",
+      "id": "modal_accordian_desc_three",
+      "label": "Accordian Description Three",
+      "default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
+    },
+    {
+      "type": "text",
+      "id": "modal_accordian_four",
+      "label": "Accordian Four",
+      "default": "Example Question"
+    },
+    {
+      "type": "textarea",
+      "id": "modal_accordian_desc_four",
+      "label": "Accordian Description Four",
+      "default": "Lorem ipsum dolor sit amet, et ullum volumus qui, clita antiopam voluptatibus est et. Quidam meliore te pro, ei mel argumentum reprimique. At mel nemore legendos, zril definitiones mel an, cu meis movet vel. Cu pri percipit repudiandae, quo eu tota fuisset officiis. Ei suas assueverit scriptorem mel, dicam aeterno ocurreret id pri, ea has novum soleat."
+    }
+  ],
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "CTA",
+      "name": "Mega Menu Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "url",
+          "id": "page",
+          "label": "Page / Menu URL"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

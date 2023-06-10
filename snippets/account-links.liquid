@@ -1,69 +1,76 @@
 <div class="container">
-    <div class="row">
-        <div class="col text-left my-4">
-            <!-- Begin ReCharge code -->
-            <span id="rc_link_container">
-                <a href="/tools/recurring/login">Manage Subscriptions</a>
-            </span>
-            <!-- End ReCharge code -->
-        </div>
-        <div class="col text-right my-4">
-            <a class="bold" href="{{ site.url }}/account/logout"><strong>Not {{ customer.first_name }}? Sign Out</strong></a>
-        </div>
+  <div class="row">
+    <div class="col text-left my-4">
+      <!-- Begin ReCharge code -->
+      <span id="rc_link_container">
+        <a href="/tools/recurring/login">Manage Subscriptions</a>
+      </span>
+      <!-- End ReCharge code -->
     </div>
+    <div class="col text-right my-4">
+      <a class="bold" href="{{ site.url }}/account/logout"
+        ><strong>Not {{ customer.first_name }}? Sign Out</strong></a
+      >
+    </div>
+  </div>
 </div>
 <div class="account-links-container">
-    <div class="container">
-        <div class="row">
-            <div class="login__boxes orders">
-                <a href="/account/"></a>
-                <div class="content">
-                    {% include 'icon-account-addresses' %}
-                    <h2 class="subheading">Orders</h2>
-                    <p>Track your recent orders</p>
-                </div>
-            </div>
-            <div class="login__boxes profile">
-                <a href="/account?view=my-pets"></a>
-                <div class="content">
-                    {% include 'icon-account-welcome' %}
-                    <h2 class="subheading">My Pet(s)</h2>
-                    <p>Edit your pet(s) details</p>
-                </div>
-            </div>
-
-            <div class="login__boxes addresses">
-                <a href="/account/addresses"></a>
-                <div class="content">
-                    {% include 'icon-account-pin' %}
-                    <h2 class="subheading">My Profile</h2>
-                    <p>Manage your profile</p>
-                </div>
-            </div>
-
-            <div class="login__boxes">
-                <a href="/tools/recurring/customers/{{ customer.metafields.subscriptions.customer_string }}/subscriptions/"></a>
-                <div class="content">
-                    {% include 'icon-account-subscriptions' %}
-                    <h2 class="subheading">Your Subscriptions</h2>
-                    <p>Manage your subscriptions</p>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="login__boxes orders">
+        <a href="/account/"></a>
+        <div class="content">
+          {% render 'icon-account-addresses' %}
+          <h2 class="subheading">Orders</h2>
+          <p>Track your recent orders</p>
         </div>
+      </div>
+      <div class="login__boxes profile">
+        <a href="/account?view=my-pets"></a>
+        <div class="content">
+          {% render 'icon-account-welcome' %}
+          <h2 class="subheading">My Pet(s)</h2>
+          <p>Edit your pet(s) details</p>
+        </div>
+      </div>
+
+      <div class="login__boxes addresses">
+        <a href="/account/addresses"></a>
+        <div class="content">
+          {% render 'icon-account-pin' %}
+          <h2 class="subheading">My Profile</h2>
+          <p>Manage your profile</p>
+        </div>
+      </div>
+
+      <div class="login__boxes">
+        <a
+          href="/tools/recurring/customers/{{ customer.metafields.subscriptions.customer_string }}/subscriptions/"
+        ></a>
+        <div class="content">
+          {% render 'icon-account-subscriptions' %}
+          <h2 class="subheading">Your Subscriptions</h2>
+          <p>Manage your subscriptions</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- Button trigger modal -->
 
 <script>
-$(document).ready(function(){
+  $(document).ready(function () {
     const thisURL = window.location.href;
 
-    if(thisURL.includes('addresses')) {
-        $('.login__boxes.addresses').addClass('selected');
-    } else if(thisURL.includes('account?view=my-pets')) {
-        $('.login__boxes.profile').addClass('selected');
-    } else if(thisURL == 'https://getsetpet.com/account/' || thisURL.includes('/orders/')) {
-        $('.login__boxes.orders').addClass('selected');
+    if (thisURL.includes('addresses')) {
+      $('.login__boxes.addresses').addClass('selected');
+    } else if (thisURL.includes('account?view=my-pets')) {
+      $('.login__boxes.profile').addClass('selected');
+    } else if (
+      thisURL == 'https://getsetpet.com/account/' ||
+      thisURL.includes('/orders/')
+    ) {
+      $('.login__boxes.orders').addClass('selected');
     }
-})
+  });
 </script>

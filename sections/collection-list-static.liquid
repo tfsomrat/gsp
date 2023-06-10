@@ -39,7 +39,7 @@
 		</div>
 		{% if section.settings.viewall_link != blank %}
 		<div class="col-12 col-sm-12 text-center">
-			<a class="call-to-action hp" href="{{ section.settings.viewall_link }}">Shop All {% include 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
+			<a class="call-to-action hp" href="{{ section.settings.viewall_link }}">Shop All {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
 		</div>
 		{% endif %}
 	</div>
@@ -128,7 +128,7 @@ $(document).ready(function(){
 })
 </script>
 {% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
+  {% render 'no-blocks' %}
 {% endif %}
 
 {% schema %}

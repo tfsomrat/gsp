@@ -10,7 +10,7 @@
 	<div class="dropdown__sidebar">
 		<ul>
 			{% for link in linklists[menulist].links %}
-			<li onclick="ga('send', 'event', 'Mega Nav', 'Pet Click', '{{ link.title }}');" id="{{ link.handle }}" {% if forloop.index == 1 %}class="active"{% endif %}>{{ link.title }} {% include 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</li>
+			<li onclick="ga('send', 'event', 'Mega Nav', 'Pet Click', '{{ link.title }}');" id="{{ link.handle }}" {% if forloop.index == 1 %}class="active"{% endif %}>{{ link.title }} {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</li>
 			{% endfor %}
 		</ul>
 	</div>

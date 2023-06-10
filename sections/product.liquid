@@ -24,7 +24,7 @@
 <!-- START Breadcrumbs -->
 <section class="container">
 	<div class="row">
-		{% include 'breadcrumbs' %}
+		{% render 'breadcrumbs' %}
 	</div>
 </section>
 <!-- END Breadcrumbs -->
@@ -102,7 +102,7 @@
 								</span>
 							</div>
 
-							{% include 'saw_compute_discount' with product %}
+							{% render 'saw_compute_discount' with product %}
 							<span data-product-price class="price product__price">
 								{{ current_variant.price | money }}
 							</span>
@@ -181,7 +181,7 @@
 							{% endfor %}
 						</select>
 						<!-- Begin ReCharge code -->
-						{% if product.available %}{% include 'subscription-product' %}{% endif %}
+						{% if product.available %}{% render 'subscription-product' %}{% endif %}
 						<!-- End ReCharge code -->
 
 						<!-- START Quantity Selector -->
@@ -346,7 +346,7 @@
 							</span>
 						</div>
 
-						{% include 'saw_compute_discount' with product %}
+						{% render 'saw_compute_discount' with product %}
 						<span data-product-price class="price product__price">
 							{{ current_variant.price | money }}
 						</span>
@@ -426,7 +426,7 @@
 						{% endfor %}
 					</select>
 					<!-- Begin ReCharge code -->
-					{% if product.available %}{% include 'subscription-product' %}{% endif %}
+					{% if product.available %}{% render 'subscription-product' %}{% endif %}
 					<!-- End ReCharge code -->
 
 					<!-- START Quantity Selector -->

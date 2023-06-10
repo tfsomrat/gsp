@@ -1,7 +1,7 @@
 <section class="container collection">
   <!-- START Breadcrumbs -->
   <div class="row">
-    {% include 'breadcrumbs' %}
+    {% render 'breadcrumbs' %}
   </div>
   <!-- END Breadcrumbs -->
 
@@ -33,12 +33,12 @@
 	{% paginate collection.products by 24 %}
 	<div class="row collection__listing-container">
 		<div class="col-12 col-sm-12 col-md-3 mb-3 mb-md-0" class="collection__sidebar">
-			{% include 'collection-sidebar-filter' %}
+			{% render 'collection-sidebar-filter' %}
 		</div>
 		<div class="col-12 col-sm-12 col-md-9">
 			<div class="sort-banner">
 				<div class="row">
-					{% include 'sort-collections' %}
+					{% render 'sort-collections' %}
 				</div>
 			</div>
       {% if settings.show_sub_collections == 'yes' %}
@@ -146,7 +146,7 @@
 		{% endif %}
 	</div>
 	{% if paginate.pages > 1 %}
-	{% include 'pagination' %}
+	{% render 'pagination' %}
 	{% endif %}
 {% endpaginate %}
 </section>

@@ -1,12 +1,12 @@
-{% include 'structured-customer-data' %}
+{% render 'structured-customer-data' %}
 {% if petTypeOne == 'dog' and petTypeTwo == blank %}
-    {% include 'icon-cart-dog'%}
-{% elsif petTypeOne == 'cat'  and petTypeTwo == blank   %}
-    {% include 'icon-cart-cat' %}
+  {% render 'icon-cart-dog' %}
+{% elsif petTypeOne == 'cat' and petTypeTwo == blank %}
+  {% render 'icon-cart-cat' %}
 {% elsif petTypeOne == 'dog' and petTypeOne contains petTypeTwo %}
-    {% include 'icon-cart-dog' %}
+  {% render 'icon-cart-dog' %}
 {% elsif petTypeOne == 'cat' and petTypeOne contains petTypeTwo %}
-    {% include 'icon-cart-cat' %}
+  {% render 'icon-cart-cat' %}
 {% else %}
-    {% include 'icon-cart' %}
+  {% render 'icon-cart' %}
 {% endif %}

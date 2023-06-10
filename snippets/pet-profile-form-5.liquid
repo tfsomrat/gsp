@@ -1,130 +1,311 @@
 <!-- START Pet Profile Form -->
 <div class="col-12 col-sm-12 col-md-10 offset-md-1" id="pet_5_form">
-    <div class="main-pet-form form pet_5_edit my-5" style="display:none;">
-        <h3 class="title small d-block mb-4">Edit {% if customer.metafields.customr.pet_name_5 != blank %}{{ customer.metafields.customr.pet_name_5 }}'s{% else %}Pet{% endif %} Details</h3>
-        <div class="row">
-            <!-- START Pet Name -->
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-text">
-                <label class="customr-control-label">Pet Name</label>
-                <input type="text" name="customer[pet_name_5]" value="{{ customer.metafields.customr.pet_name_5 }}" placeholder="Pet Name">
-            </div>
-            <!-- END Pet Name -->
-            <!-- START Pet Type -->
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-select">
-                <label class=" customr-control-label">Pet Type</label>
-                <select name="customer[pet_type_5]" id="5" class="customr-control">
+  <div class="main-pet-form form pet_5_edit my-5" style="display:none;">
+    <h3 class="title small d-block mb-4">
+      Edit
+      {% if customer.metafields.customr.pet_name_5 != blank -%}
+        {{- customer.metafields.customr.pet_name_5 }}'s
+      {%- else -%}
+        Pet
+      {%- endif %}
+      Details
+    </h3>
+    <div class="row">
+      <!-- START Pet Name -->
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-text"
+      >
+        <label class="customr-control-label">Pet Name</label>
+        <input
+          type="text"
+          name="customer[pet_name_5]"
+          value="{{ customer.metafields.customr.pet_name_5 }}"
+          placeholder="Pet Name"
+        >
+      </div>
+      <!-- END Pet Name -->
+      <!-- START Pet Type -->
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-select"
+      >
+        <label class=" customr-control-label">Pet Type</label>
+        <select name="customer[pet_type_5]" id="5" class="customr-control">
+          <option
+            value="dog"
+            {% if customer.metafields.customr.pet_name_1 == 'Dog' %}
+              selected="selected"
+            {% endif %}
+          >
+            Dog
+          </option>
+          <option
+            value="cat"
+            {% if customer.metafields.customr.pet_name_1 == 'Cat' %}
+              selected="selected"
+            {% endif %}
+          >
+            Cat
+          </option>
+          <option
+            value="smallpet"
+            {% if customer.metafields.customr.pet_name_1 == 'Small Pet' %}
+              selected="selected"
+            {% endif %}
+          >
+            Small Pet
+          </option>
+          <option
+            value="fish"
+            {% if customer.metafields.customr.pet_name_1 == 'Fish' %}
+              selected="selected"
+            {% endif %}
+          >
+            Fish
+          </option>
+          <option
+            value="reptile"
+            {% if customer.metafields.customr.pet_name_1 == 'Reptile' %}
+              selected="selected"
+            {% endif %}
+          >
+            Reptile
+          </option>
+          <option
+            value="bird"
+            {% if customer.metafields.customr.pet_name_1 == 'Bird' %}
+              selected="selected"
+            {% endif %}
+          >
+            Bird
+          </option>
+        </select>
+      </div>
+      <!-- END Pet Type -->
 
-                    <option value="dog"     {% if customer.metafields.customr.pet_name_1 == 'Dog' %} selected="selected"{% endif %}>Dog</option>
-                    <option value="cat"     {% if customer.metafields.customr.pet_name_1 == 'Cat' %} selected="selected"{% endif %}>Cat</option>
-                  	<option value="smallpet" {% if customer.metafields.customr.pet_name_1 == 'Small Pet' %} selected="selected"{% endif %}>Small Pet</option>
-                  	<option value="fish" {% if customer.metafields.customr.pet_name_1 == 'Fish' %} selected="selected"{% endif %}>Fish</option>
-                    <option value="reptile" {% if customer.metafields.customr.pet_name_1 == 'Reptile' %} selected="selected"{% endif %}>Reptile</option>
-                  	<option value="bird" {% if customer.metafields.customr.pet_name_1 == 'Bird' %} selected="selected"{% endif %}>Bird</option>
-                </select>
-            </div>
-            <!-- END Pet Type -->
-
-            <div class="col-12 col-sm-12">
-                <h2 class="detail mb-3 ml-3 birthday__title-5">
-                    Birthday
-                </h2>
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-4 customr-field customr-field-text">
-                <label class="customr-control-label">Day</label>
-                <input type="text" name="customer[birthday_day_5]" value="{{ customer.metafields.customr.birthday_day_5 }}" placeholder="Day">
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-4 customr-field customr-field-text">
-                <label class="customr-control-label">Month</label>
-                <input type="text" name="customer[birthday_month_5]" value="{{ customer.metafields.customr.pet_adoption_months_5 }}" placeholder="Month">
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-4 customr-field customr-field-text">
-                <label class="customr-control-label">Year</label>
-                <input type="text" name="customer[birthday_year_5]" value="{{ customer.metafields.customr.pet_adoption_years_5 }}" placeholder="Year">
-            </div>
-            <div class="col-12 col-sm-12 customr-field customr-field-checkbox adoption-checkbox">
-                <div class="customr-control" name="customer[pet_adoption_5]">
-                    <label>
-                        <input type="checkbox" data-checkbox-index="0" data-checkbox-value="adoption_date" data-autotag="false" value="adoption_date" name="customer[pet_adoption_5]">
-                        Adoption Date<small> ( If adopted, add in estimated birthday )</small>
-                    </label>
-                </div>
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-select">
-                <label class=" customr-control-label">Gender</label>
-                <select name="customer[pet_gender_5]" class="customr-control">
-                    <option value="">Gender</option>
-                    <option value="Female"     {% if customer.metafields.customr.pet_gender_5 == 'Female' %} selected="selected"{% endif %}>Female</option>
-                    <option value="Male"     {% if customer.metafields.customr.pet_gender_5 == 'Male' %} selected="selected"{% endif %}>Male</option>
-                    <option value="N/A" {% if customer.metafields.customr.pet_gender_5 == 'N/A' %} selected="selected"{% endif %}>N/A</option>
-                </select>
-            </div>
-
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-text">
-                <label class="customr-control-label">Weight ( KG )</label>
-                <input type="text" name="customer[pet_weight_5]" value="{{ customer.metafields.customr.pet_weight_5 }}" placeholder="Weight">
-            </div>
-
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-select">
-                <label class=" customr-control-label">Breed</label>
-                <select name="customer[pet_breed_5]" class="customr-control">
-
-                    {% if customer.metafields.customr.pet_breed_5 != blank and customer.metafields.customr.pet_breed_5 != 'dog_unknown' and customer.metafields.customr.pet_breed_5 != 'dog_Unknown' %}
-                    <option value="{{ customer.metafields.customr.pet_breed_5 }}" >
-                        {{ customer.metafields.customr.pet_breed_5 | remove: 'dog_' | remove: 'cat_' | remove: 'smallpet_' | remove: 'fish_' | remove: 'reptile_' | remove: 'bird_' }}
-                    </option>
-                    {% endif %}
-                    {% include 'pet-breed-list' %}
-                </select>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 customr-field customr-field-checkbox no-breed-checkbox align-self-center">
-                <div class="customr-control" name="customer[pet_no_breed_5]">
-                    <label>
-                        <input type="checkbox" data-checkbox-index="0" data-checkbox-value="breed" data-autotag="false" value="breed" name="customer[pet_no_breed_5]">
-                        Unknown Breed / Species
-                    </label>
-                </div>
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-select">
-                <label class=" customr-control-label">Pre-Existing Conditions</label>
-                <select name="customer[pet_conditions_5]" class="customr-control">
-                <option value="none">Pre-Existing Conditions</option>
-                {% if customer.metafields.customr.pet_conditions_5 != blank %}<option value="{{ customer.metafields.customr.pet_conditions_5 }}" >{{ customer.metafields.customr.pet_conditions_5 }}</option>{% endif %}
-                <option value="Arthritis">Arthritis</option>
-                <option value="Bladder/Kidney Stnes">Bladder/Kidney Stnes</option>
-                <option value="Cushings/Addisons Disease">Cushings/Addisons Disease</option>
-                <option value="Dental Disease">Dental Disease</option>
-                <option value="Diabetes">Diabetes</option>
-                <option value="Heart Disease">Heart Disease</option>
-                <option value="HotSpots">HotSpots</option>
-                <option value="Hyperlipidemia">Hyperlipidemia</option>
-                <option value="Hyperthyroid">Hyperthyroid</option>
-                <option value="Hypothyroid">Hypothyroid</option>
-                <option value="Inflammatory Bowel Disease">Inflammatory Bowel Disease</option>
-                <option value="Kidney Disease">Kidney Disease</option>
-                <option value="Lactatin">Lactatin</option>
-                <option value="Liver Disease">Liver Disease</option>
-                <option value="Overweight">Overweight</option>
-                <option value="Pancreatitis">Pancreatitis</option>
-                <option value="Sensitive Stomach">Sensitive Stomach</option>
-                <option value="Urinary Tract Infection">Urinary Tract Infection</option>
-                <option value="Other">Other</option>
-                </select>
-            </div>
-            <div data-attr="5" class="col-12 col-sm-12 col-md-6 customr-field customr-field-checkbox no-conditions-checkbox align-self-center">
-                <div class="customr-control" name="customer[pet_no_conditions_5]">
-                    <label>
-                        <input type="checkbox" data-checkbox-index="0" data-checkbox-value="no_conditions" data-autotag="false" value="no_conditions" name="customer[pet_no_conditions_5]">
-                        No Pre-Existing Conditions
-                    </label>
-                </div>
-            </div>
-
-            <div data-attr="5" class="col-12 col-sm-12 customr-field customr-field-file" data-customr-field-name="customer[pet_image_5]">
-                <a href="{{ customer.metafields.customr.pet_image_5 }}"><i class="pet_image_5_remove remove"></i></a>
-                <input type="file" id="pet_image_5" name="customer[pet_image_5]" class=" upload customr-control" autocomplete="off" value="{{ customer.metafields.customr.pet_image_5 }}">
-                <label for="pet_image_5" class="customr-control-label add-photo">Add Photo</label>
-            </div>
+      <div class="col-12 col-sm-12">
+        <h2 class="detail mb-3 ml-3 birthday__title-5">Birthday</h2>
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-4 customr-field customr-field-text"
+      >
+        <label class="customr-control-label">Day</label>
+        <input
+          type="text"
+          name="customer[birthday_day_5]"
+          value="{{ customer.metafields.customr.birthday_day_5 }}"
+          placeholder="Day"
+        >
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-4 customr-field customr-field-text"
+      >
+        <label class="customr-control-label">Month</label>
+        <input
+          type="text"
+          name="customer[birthday_month_5]"
+          value="{{ customer.metafields.customr.pet_adoption_months_5 }}"
+          placeholder="Month"
+        >
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-4 customr-field customr-field-text"
+      >
+        <label class="customr-control-label">Year</label>
+        <input
+          type="text"
+          name="customer[birthday_year_5]"
+          value="{{ customer.metafields.customr.pet_adoption_years_5 }}"
+          placeholder="Year"
+        >
+      </div>
+      <div class="col-12 col-sm-12 customr-field customr-field-checkbox adoption-checkbox">
+        <div class="customr-control" name="customer[pet_adoption_5]">
+          <label>
+            <input
+              type="checkbox"
+              data-checkbox-index="0"
+              data-checkbox-value="adoption_date"
+              data-autotag="false"
+              value="adoption_date"
+              name="customer[pet_adoption_5]"
+            >
+            Adoption Date<small>
+              ( If adopted, add in estimated birthday )</small
+            >
+          </label>
         </div>
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-select"
+      >
+        <label class=" customr-control-label">Gender</label>
+        <select name="customer[pet_gender_5]" class="customr-control">
+          <option value="">Gender</option>
+          <option
+            value="Female"
+            {% if customer.metafields.customr.pet_gender_5 == 'Female' %}
+              selected="selected"
+            {% endif %}
+          >
+            Female
+          </option>
+          <option
+            value="Male"
+            {% if customer.metafields.customr.pet_gender_5 == 'Male' %}
+              selected="selected"
+            {% endif %}
+          >
+            Male
+          </option>
+          <option
+            value="N/A"
+            {% if customer.metafields.customr.pet_gender_5 == 'N/A' %}
+              selected="selected"
+            {% endif %}
+          >
+            N/A
+          </option>
+        </select>
+      </div>
+
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-text"
+      >
+        <label class="customr-control-label">Weight ( KG )</label>
+        <input
+          type="text"
+          name="customer[pet_weight_5]"
+          value="{{ customer.metafields.customr.pet_weight_5 }}"
+          placeholder="Weight"
+        >
+      </div>
+
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-select"
+      >
+        <label class=" customr-control-label">Breed</label>
+        <select name="customer[pet_breed_5]" class="customr-control">
+          {% if customer.metafields.customr.pet_breed_5 != blank
+            and customer.metafields.customr.pet_breed_5 != 'dog_unknown'
+            and customer.metafields.customr.pet_breed_5 != 'dog_Unknown'
+          %}
+            <option value="{{ customer.metafields.customr.pet_breed_5 }}">
+              {{
+                customer.metafields.customr.pet_breed_5
+                | remove: 'dog_'
+                | remove: 'cat_'
+                | remove: 'smallpet_'
+                | remove: 'fish_'
+                | remove: 'reptile_'
+                | remove: 'bird_'
+              }}
+            </option>
+          {% endif %}
+          {% render 'pet-breed-list' %}
+        </select>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 customr-field customr-field-checkbox no-breed-checkbox align-self-center">
+        <div class="customr-control" name="customer[pet_no_breed_5]">
+          <label>
+            <input
+              type="checkbox"
+              data-checkbox-index="0"
+              data-checkbox-value="breed"
+              data-autotag="false"
+              value="breed"
+              name="customer[pet_no_breed_5]"
+            >
+            Unknown Breed / Species
+          </label>
+        </div>
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-select"
+      >
+        <label class=" customr-control-label">Pre-Existing Conditions</label>
+        <select name="customer[pet_conditions_5]" class="customr-control">
+          <option value="none">Pre-Existing Conditions</option>
+          {% if customer.metafields.customr.pet_conditions_5 != blank %}
+            <option value="{{ customer.metafields.customr.pet_conditions_5 }}">
+              {{ customer.metafields.customr.pet_conditions_5 }}
+            </option>
+          {% endif %}
+          <option value="Arthritis">Arthritis</option>
+          <option value="Bladder/Kidney Stnes">Bladder/Kidney Stnes</option>
+          <option value="Cushings/Addisons Disease">
+            Cushings/Addisons Disease
+          </option>
+          <option value="Dental Disease">Dental Disease</option>
+          <option value="Diabetes">Diabetes</option>
+          <option value="Heart Disease">Heart Disease</option>
+          <option value="HotSpots">HotSpots</option>
+          <option value="Hyperlipidemia">Hyperlipidemia</option>
+          <option value="Hyperthyroid">Hyperthyroid</option>
+          <option value="Hypothyroid">Hypothyroid</option>
+          <option value="Inflammatory Bowel Disease">
+            Inflammatory Bowel Disease
+          </option>
+          <option value="Kidney Disease">Kidney Disease</option>
+          <option value="Lactatin">Lactatin</option>
+          <option value="Liver Disease">Liver Disease</option>
+          <option value="Overweight">Overweight</option>
+          <option value="Pancreatitis">Pancreatitis</option>
+          <option value="Sensitive Stomach">Sensitive Stomach</option>
+          <option value="Urinary Tract Infection">
+            Urinary Tract Infection
+          </option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 col-md-6 customr-field customr-field-checkbox no-conditions-checkbox align-self-center"
+      >
+        <div class="customr-control" name="customer[pet_no_conditions_5]">
+          <label>
+            <input
+              type="checkbox"
+              data-checkbox-index="0"
+              data-checkbox-value="no_conditions"
+              data-autotag="false"
+              value="no_conditions"
+              name="customer[pet_no_conditions_5]"
+            >
+            No Pre-Existing Conditions
+          </label>
+        </div>
+      </div>
+
+      <div
+        data-attr="5"
+        class="col-12 col-sm-12 customr-field customr-field-file"
+        data-customr-field-name="customer[pet_image_5]"
+      >
+        <a href="{{ customer.metafields.customr.pet_image_5 }}"
+          ><i class="pet_image_5_remove remove"></i
+        ></a>
+        <input
+          type="file"
+          id="pet_image_5"
+          name="customer[pet_image_5]"
+          class=" upload customr-control"
+          autocomplete="off"
+          value="{{ customer.metafields.customr.pet_image_5 }}"
+        >
+        <label for="pet_image_5" class="customr-control-label add-photo"
+          >Add Photo</label
+        >
+      </div>
     </div>
+  </div>
 </div>
 <!-- END Pet Profile Form -->

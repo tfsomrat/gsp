@@ -43,7 +43,7 @@
                   class="{{ social_icon }}"
                   title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}"
                 >
-                  {% include social_icon %}
+                  {% render social_icon %}
                   <span class="icon-fallback-text">{{ social }}</span>
                 </a>
               </li>
@@ -55,7 +55,7 @@
               class="{{ social_icon }}"
               title="Get Set Pet News"
             >
-              {% include 'icon-news' %}
+              {% render 'icon-news' %}
             </a>
           </li>
         </ul>
