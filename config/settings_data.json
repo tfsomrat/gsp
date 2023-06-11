@@ -159,7 +159,7 @@
           "acd5f580-914e-4ed3-ab82-2ae820b9471c"
         ],
         "settings": {
-          "main_linklist": "",
+          "main_linklist": "main-menu",
           "topbar_linklist": "",
           "notification_text_one": "Free Next Day Delivery £39+",
           "notification_link_one": "\/pages\/faqs#shipping",
