@@ -67,7 +67,8 @@
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     ></script>
-    {{ 'api.jquery.js' | asset_url | script_tag }}
+
+    {% comment %} {{ 'api.jquery.js' | asset_url | script_tag }} {% endcomment %}
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {% else %}

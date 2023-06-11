@@ -6,21 +6,23 @@
   </section>
 {% endif %}
 
-{% comment %}
-  {% stylesheet %}
-    .header-notice {
-      background-color: #58b0e3;
-      text-align: center;
-    }
-  {% endstylesheet %}
-{% endcomment %}
+{% stylesheet %}
+  .header-notice {
+    background-color: #58b0e3;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 1rem;
+  }
+  .header-notice strong {
+    color: #fff;
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
   "name": "Header Notice",
   "limit": 1,
-  "tag": "section",
-  "class": "header-notice",
   "settings": [
     {
       "type": "checkbox",
