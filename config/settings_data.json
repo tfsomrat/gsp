@@ -1522,10 +1522,26 @@
               "image": "shopify:\/\/shop_images\/DSBM-GDAN-NSM-69-1110-1.jpg",
               "button_url": ""
             }
+          },
+          "34ee9fa4-21f0-4459-b66b-880221255787": {
+            "type": "Slide-2",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/bobble_slumber_bed.jpg",
+              "button_url": ""
+            }
+          },
+          "c36b7d82-ebce-403f-81e2-c4e25e3e494d": {
+            "type": "Slide-3",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSBM-GDAN-NBM-D-1990-2_d9c52b50-22ec-40f0-aa3d-f7144d8d6cec.jpg",
+              "button_url": ""
+            }
           }
         },
         "block_order": [
-          "28240842-4790-4680-b7db-ad4f605207b4"
+          "28240842-4790-4680-b7db-ad4f605207b4",
+          "34ee9fa4-21f0-4459-b66b-880221255787",
+          "c36b7d82-ebce-403f-81e2-c4e25e3e494d"
         ],
         "settings": {
         }
