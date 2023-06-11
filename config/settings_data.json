@@ -1598,7 +1598,7 @@
         "type": "header-notice",
         "settings": {
           "enable": true,
-          "content": "Hello world! this is a nice day"
+          "content": "GET  <strong>20%OFF<\/strong>  YOUR FIRST ORDER WHEN YOU SPEND £50+"
         }
       }
     },
