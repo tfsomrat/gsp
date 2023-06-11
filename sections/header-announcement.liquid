@@ -1,0 +1,251 @@
+{% unless template == 'collection' %}
+  <section class="announcement-bar">
+    <div class="container">
+      <div class="row">
+        <div class="call-to-actions-slider">
+          <div>
+            <a
+              style="text-decoration: none;  opacity: 1;"
+              href="{{ section.settings.announcement_link_one }}"
+              onclick="ga('send', 'event', 'Header CTA', 'Click', 'Delivery info');">
+              <img
+                loading="lazy"
+                style="position: relative; top: -1px;"
+                data-lazy="{{ section.settings.announcement_image_one | image_url: width: 30 }}"
+                alt="">
+              <p>{{ section.settings.announcement_text_one }}</p>
+            </a>
+          </div>
+          <div>
+            <a
+              style="text-decoration: none; opacity: 1;"
+              target="_blank"
+              href="{{ section.settings.announcement_link_two }}"
+              onclick="ga('send', 'event', 'Header CTA', 'Click', 'Reviews');">
+              <img
+                loading="lazy"
+                style="width: 100px; position: relative; top: -2px; "
+                data-lazy="{{ section.settings.announcement_image_two | image_url }}"
+                alt="">
+              <p>{{ section.settings.announcement_text_two }}</p>
+            </a>
+          </div>
+          <div
+            style="cursor: pointer;"
+            data-toggle="modal"
+            data-target="#headerAnnouncement"
+            onclick="ga('send', 'event', 'Header CTA', 'Click', 'Get Set Save');">
+            <p style="line-height: 38px;">
+              {{ section.settings.announcement_text_three }}
+            </p>
+            <img
+              loading="lazy"
+              class="get-set-save-logo"
+              style="width:90px; margin:0px 10px;"
+              data-lazy="{{ 'getsetsave_colour_png.png' | asset_img_url: '90x' }}"
+              alt="{{ section.settings.announcement_text_three }}">
+            <div class="learn-more">| Learn More</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endunless %}
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="headerAnnouncement"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="headerAnnouncementLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <a href="/pages/faqs#GetSetSave">
+          <img
+            height="auto"
+            width="auto"
+            loading="lazy"
+            style="cursor:pointer;"
+            src="{{ section.settings.popup_image | image_url }}"
+            alt="Get Set Save">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="clickCollectModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="clickCollectModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <a href="/pages/faqs#clickCollect">
+          <img
+            height="auto"
+            width="auto"
+            loading="lazy"
+            style="cursor:pointer;"
+            src="{{ section.settings.click_collect_image | image_url }}"
+            alt="Get Set Save">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .announcement-bar {
+    padding: 15px 0;
+    background: white;
+    border-bottom: 1px solid #e6e6e6;
+    height: 70px;
+    overflow: hidden;
+  }
+
+  .call-to-actions-slider img {
+    width: 25px;
+  }
+
+  .call-to-actions-slider a {
+    text-decoration: none;
+  }
+  .call-to-actions-slider img,
+  .call-to-actions-slider p {
+    display: inline-block !important;
+    margin: 0;
+  }
+
+  .call-to-actions-slider .slick-slide {
+    text-align: center !important;
+    line-height: 38px;
+  }
+
+  .call-to-actions-slider p {
+    color: #26536d;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.67px;
+    line-height: 38px;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .learn-more {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  @media(max-width: 1350px) {
+    .call-to-actions-slider p {
+      font-size: 12px;
+      letter-spacing: normal;
+    }
+
+    .learn-more {
+      font-size: 12px;
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    $('.call-to-actions-slider').slick({
+      infinite: false,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      fade: false,
+      arrows: false,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      adaptiveHeight: false,
+      lazyload: 'ondemand',
+      responsive: [
+        {
+          breakpoint: 950,
+          settings: {
+            infinite: true,
+            centerMode: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            fade: false,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: false
+          }
+        }, {
+          breakpoint: 768,
+          settings: {
+            infinite: true,
+            centerMode: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            fade: false,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            adaptiveHeight: false
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Header Announcement",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "announcement_image_one",
+        "label": "Announcement - Image One"
+      },
+      {
+        "type": "text",
+        "id": "announcement_text_one",
+        "label": "Announcement - Text One"
+      },
+      {
+        "type": "url",
+        "id": "announcement_link_one",
+        "label": "Announcement - Link One"
+      },
+      {
+        "type": "image_picker",
+        "id": "announcement_image_two",
+        "label": "Announcement - Image Two"
+      }, {
+        "type": "text",
+        "id": "announcement_text_two",
+        "label": "Announcement - Text Two"
+      }, {
+        "type": "url",
+        "id": "announcement_link_two",
+        "label": "Announcement - Link two"
+      }, {
+        "type": "text",
+        "id": "announcement_text_three",
+        "label": "Announcement - Text Three"
+      }, {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Learn More Popup Image"
+      }, {
+        "type": "image_picker",
+        "id": "click_collect_image",
+        "label": "Click and Collect Popup Image"
+      }
+    ]
+  }
+{% endschema %}
