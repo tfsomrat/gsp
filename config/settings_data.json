@@ -102,6 +102,7 @@
           "1560175589871": {
             "type": "CTA",
             "settings": {
+              "image": "shopify:\/\/shop_images\/DSBM-GDAN-BDSP-76-2030-2.jpg",
               "page": "https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=dog"
             }
           },
@@ -159,28 +160,7 @@
           "acd5f580-914e-4ed3-ab82-2ae820b9471c"
         ],
         "settings": {
-          "main_linklist": "main-menu",
-          "topbar_linklist": "top-bar-menu",
-          "notification_image_one": "shopify:\/\/shop_images\/bobble_slumber_bed.jpg",
-          "notification_text_one": "Free Next Day Delivery £39+",
-          "notification_link_one": "\/pages\/faqs#shipping",
-          "notification_image_two": "shopify:\/\/shop_images\/DSBM-GDAN-NBM-D-1990-1_063902f7-a47d-4712-adac-ad53ffd71c1a.jpg",
-          "notification_text_two": "Rated Excellent",
-          "notification_link_two": "https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet",
-          "notification_text_three": "Save 20% with",
-          "popup_image": "shopify:\/\/shop_images\/DSCO-GDAN-H2-25-220-1_d99f5bbd-814c-4bc9-b283-2758f841c186.jpg",
-          "notification_text_four": "",
-          "notification_link_four": "",
-          "modal_title": "",
-          "modal_content": "",
-          "modal_accordian_one": "",
-          "modal_accordian_desc_one": "",
-          "modal_accordian_two": "",
-          "modal_accordian_desc_two": "",
-          "modal_accordian_three": "",
-          "modal_accordian_desc_three": "",
-          "modal_accordian_four": "",
-          "modal_accordian_desc_four": ""
+          "main_linklist": "main-menu"
         }
       },
       "footer": {
@@ -1599,6 +1579,16 @@
         "settings": {
           "enable": true,
           "content": "GET  <strong>20%OFF<\/strong>  YOUR FIRST ORDER WHEN YOU SPEND £50+"
+        }
+      },
+      "header-announcement": {
+        "type": "header-announcement",
+        "settings": {
+          "announcement_text_one": "",
+          "announcement_link_one": "",
+          "announcement_text_two": "",
+          "announcement_link_two": "",
+          "announcement_text_three": ""
         }
       }
     },
