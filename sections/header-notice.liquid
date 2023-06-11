@@ -1,10 +1,19 @@
 {% if section.settings.enable %}
-  <section class="header-notice bg-primary">
+  <section class="header-notice">
     <div class="container">
       <p class="mb-0">{{ section.settings.content }}</p>
     </div>
   </section>
 {% endif %}
+
+{% comment %}
+  {% stylesheet %}
+    .header-notice {
+      background-color: #58b0e3;
+      text-align: center;
+    }
+  {% endstylesheet %}
+{% endcomment %}
 
 {% schema %}
 {
@@ -23,7 +32,7 @@
       "type": "text",
       "id": "content",
       "label": "Header Notice",
-      "default": "Free shipping on all orders over $100"
+      "default": "GET  20%OFF  YOUR FIRST ORDER WHEN YOU SPEND £50+"
     }
   ]
 }
