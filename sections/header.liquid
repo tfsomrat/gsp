@@ -14,19 +14,27 @@
             width="auto"
             class="d-none d-md-block"
             src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
-            alt="{{ shop.name }}">
+            alt="{{ shop.name }}" />
           <img
             loading="eager"
             height="auto"
             width="auto"
             class="d-block d-md-none"
             src="{{ 'gsp-logo-mobile.png' | asset_img_url: '150x' }}"
-            alt="{{ shop.name }}">
+            alt="{{ shop.name }}" />
         </a>
       </div>
       <!-- Badge -->
       <div class="col-12 order-4">
-        <p>#1 Rated Pet Site in the UK</p>
+        <p class="header-badge">
+          <strong>#1 Rated</strong>
+          Pet Site in the UK
+          <img
+            loading="eager"
+            height="auto"
+            width="auto"
+            src="{{ 'uk-flag.png' | asset_img_url: '42x' }}" />
+        </p>
       </div>
       <!-- Search -->
       <div class="col-12 col-md-4 col-lg-5 col-xl-6 my-4 my-md-0 order-md-2 order-3">
@@ -134,12 +142,13 @@
         {% for link in linklists['main-menu'].links %}
           <li class="top-level">
             <a class="top_level_a" href="{{ link.url }}">
+              <img
+                loading="eager"
+                height="auto"
+                width="auto"
+                src="{{ link.title | downcase | replace: ' ', '-' | prepend: 'icon-' | append: '.svg' | asset_url }}"
+                alt="{{ link.title }}">
               {{- link.title -}}
-              {%- if link.links != blank -%}
-                {%- render 'icon-chevron'
-                  , fill_color: '#ffffff',
-                  direction: 'down' -%}
-              {%- endif -%}
             </a>
             {% assign toplevelink = link.url %}
             {% if link.links != blank %}

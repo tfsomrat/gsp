@@ -1851,6 +1851,18 @@ select:focus,
   text-align: center;
 }
 
+.header-badge {
+  background: #e6e7e8;
+  padding: 0 20px;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  strong {
+    color: $color-secondary;
+  }
+}
 
 .header__cta--list {
   list-style: none;
@@ -2448,10 +2460,6 @@ select {
 	}*/
 }
 
-section {
-  ;
-  // margin-bottom: 40px!important;
-}
 
 // 5. Typography
 
@@ -2667,20 +2675,6 @@ a {
   position: relative;
   display: inline-block;
   width: 100%;
-  // &:before {
-  // content: '';
-  // display: block;
-  // height: 25px;
-  // width: 25px;
-  // background-image: url('{{ "icon-generic.svg" | asset_url }}');
-  // background-size: contain;
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // position: absolute;
-  // left: 0;
-  // top: 0;
-  // transform: rotate(-20deg);
-  // }
 }
 
 .title-generic:before,
@@ -3251,31 +3245,6 @@ hr {
 
 
 }
-
-// .form__submit {
-// display: inline-block!important;
-
-// @media(max-width: 1080px) {
-// width: 100%!important;
-// padding: 10px 0 0 0 !important;
-
-// .js-cm-submit-button {
-// margin-left: 0px!important;
-// }
-// }
-// }
-
-// .form__input {
-
-// @media(max-width: 1080px) {
-// width: 100%!important;
-// padding: 20px 0 0 0 !important;
-
-// .js-cm-submit-button {
-// margin-left: 0px!important;
-// }
-// }
-// }
 
 #EMAIL,
 #FIRSTNAME {
@@ -5353,6 +5322,13 @@ ul.dropdown#overflow {
         line-height: 1.2;
         padding: 10px 15px;
         font-weight: 400;
+        text-align: center;
+        img {
+          width: auto;
+          height: 32px;
+          display: block;
+          margin: 0 auto 10px;
+        }
 
         svg {
           height: 12px;
