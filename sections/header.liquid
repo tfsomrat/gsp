@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row align-items-center py-3">
       <!-- Mobile Menu Toggle -->
-      <div class="col-2 col-sm-1 order-0 d-block d-md-none mobile-menu-button">
+      <div class="col-2 col-sm-1 order-0 d-block d-lg-none mobile-menu-button">
         {% render 'icon-menu-icon' %}
       </div>
       <!-- Logo -->
@@ -12,21 +12,21 @@
             loading="eager"
             height="auto"
             width="auto"
-            class="d-none d-md-block"
+            class="d-none d-lg-block"
             src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
             alt="{{ shop.name }}" />
           <img
             loading="eager"
             height="auto"
             width="auto"
-            class="d-block d-md-none"
+            class="d-block d-lg-none"
             src="{{ 'gsp-logo-mobile.png' | asset_img_url: '150x' }}"
             alt="{{ shop.name }}" />
         </a>
       </div>
       <!-- Badge -->
       <div class="col-12 order-4">
-        <p class="header-badge">
+        <p class="header-badge mb-0">
           <strong>#1 Rated</strong>
           Pet Site in the UK
           <img
@@ -37,14 +37,14 @@
         </p>
       </div>
       <!-- Search -->
-      <div class="col-12 col-md-4 col-lg-5 col-xl-6 my-4 my-md-0 order-md-2 order-3">
+      <div class="col-12 col-md-5 my-4 my-lg-0 order-md-2 order-3">
         <div class="header__search">
           {% render 'search' %}
         </div>
       </div>
       <!-- Account and Cart -->
-      <div class="col-4 col-lg-4 col-xl-3 order-md-3 order-2 text-right">
-        <ul class="header__cta--list d-flex d-md-block justify-content-end align-items-center">
+      <div class="col-4 col-sm-5 col-md-3 col-lg-4 order-md-3 order-2 text-right">
+        <ul class="header__cta--list d-flex d-lg-block justify-content-end align-items-center">
           {% comment %} 
           <li class="has-submenu">
           Help
@@ -71,7 +71,7 @@
           </ul>
           </li> 
           {% endcomment %}
-          <li class="has-submenu d-none d-md-inline-block">
+          <li class="has-submenu d-none d-lg-inline-block">
             <span class="d-flex align-items-center">
               {%- render 'icon-account-new' -%}
               <small class="font-weight-bold ml-2">My Account</small>
@@ -100,7 +100,7 @@
               {% endif %}
             </ul>
           </li>
-          <li class="d-xs-inline-block d-md-none">
+          <li class="d-xs-inline-block d-lg-none">
             <a class="d-flex justify-content-center align-items-center" href="/account">
               {%- render 'icon-account-new' -%}
             </a>
@@ -124,7 +124,7 @@
               href="/cart"
               title="You have {{ cart_amount }} item(s) in your basket">
               {% render 'icon-cart-new' %}
-              <small class="d-none d-md-inline-block ml-2 text-dark font-weight-bold">
+              <small class="d-none d-lg-inline-block ml-2 text-dark font-weight-bold">
                 My Cart
               </small>
               <span class="item_count cart-count{% if cart_amount <= 0 %} hidden-count{% endif %}">
@@ -137,8 +137,8 @@
     </div>
 
     <!-- main menu -->
-    <div class="nav-holder d-none d-md-block">
-      <ul class="site-nav">
+    <div class="nav-holder d-none d-lg-block">
+      <ul class="site-nav d-lg-flex justify-content-between">
         {% for link in linklists['main-menu'].links %}
           <li class="top-level">
             <a class="top_level_a" href="{{ link.url }}">
