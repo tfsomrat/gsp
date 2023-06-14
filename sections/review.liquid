@@ -1,0 +1,120 @@
+{%- capture section_id -%}
+  review-{{ section.id }}
+{%- endcapture -%}
+
+<section id="{{ section_id }}">
+  <div class="container">
+    <div class="review-block">
+      <div class="row">
+        <div class="col-lg-7">
+          <img
+            class="review-care-badge"
+            loading="lazy"
+            src="{{ 'care-badge.png' | asset_img_url: '165x' }}"
+            height="165"
+            width="165"
+            alt="care badge" />
+        </div>
+        <div class="col-lg-5">
+          <div class="bg-primary">
+            <img
+            loading="eager"
+            height="auto"
+            width="auto"
+            class="d-none d-lg-block"
+            src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
+            alt="{{ shop.name }}" />
+            <p class="header-badge mb-0">
+              <strong>#1 Rated</strong>
+              Pet Site in the UK
+              <img
+                loading="eager"
+                height="auto"
+                width="auto"
+                src="{{ 'uk-flag.png' | asset_img_url: '42x' }}" />
+            </p>
+            <div class="d-flex">
+              <div class="mr-2">
+                <img
+                class="review-care-badge"
+                loading="lazy"
+                src="{{ 'care-badge.png' | asset_img_url: '165x' }}"
+                height="165"
+                width="165"
+                alt="care badge" />
+              </div>
+              <strong>
+                99% of reviewers recommend 
+                Get Set Pet
+              </strong>
+              <img
+                class=""
+                loading="lazy"
+                src="{{ 'stars.png' | asset_img_url: '115x' }}"
+                height="165"
+                width="165"
+                alt="care badge" />
+            </div>
+            <p><strong>4.9</strong> Rating <br>
+              <strong>3,444</strong> Reviews <br>
+              on REVIEWS.io</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Style -->
+<style></style>
+
+
+<!-- Script -->
+<script></script>
+
+<!-- Schema -->
+{% schema %}
+  {
+    "name": "Review",
+    "settings": [
+      {
+        "label": "Image",
+        "type": "image_picker",
+        "id": "image"
+      },
+      {
+        "label": "Image Mobile",
+        "type": "image_picker",
+        "id": "image_mobile"
+      },
+      {
+        "label": "Heading",
+        "type": "text",
+        "id": "heading"
+      },
+      {
+        "label": "Subheading",
+        "type": "text",
+        "id": "subheading"
+      }, {
+        "label": "Content",
+        "type": "richtext",
+        "id": "text"
+      }, {
+        "label": "Button Text",
+        "type": "text",
+        "id": "button_text"
+      }, {
+        "label": "Button URL",
+        "type": "url",
+        "id": "button_url"
+      }
+    ]
+    // "presets": [
+    //   {
+    //     "name": "Hero Slider",
+    //     "category": "Modules"
+    //   }
+    // ]
+  }
+{% endschema %}

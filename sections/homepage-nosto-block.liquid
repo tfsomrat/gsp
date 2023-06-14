@@ -1,17 +1,20 @@
-
 <section class="container no-gutter">
-    {% if section.settings.recommendation_block == 'postion_1' %}       <div class="nosto_element" id="frontpage-nosto-1"></div>
-    {% elsif section.settings.recommendation_block == 'postion_2' %}    <div class="nosto_element" id="frontpage-nosto-2"></div>
-    {% elsif section.settings.recommendation_block == 'postion_3' %}    <div class="nosto_element" id="frontpage-nosto-4"></div>
-    {% elsif section.settings.recommendation_block == 'postion_4' %}    <div class="nosto_element" id="frontpage-nosto-4"></div>
-{% endif %}
+  {% if section.settings.recommendation_block == 'postion_1' %}
+    <div class="nosto_element" id="frontpage-nosto-1"></div>
+  {% elsif section.settings.recommendation_block == 'postion_2' %}
+    <div class="nosto_element" id="frontpage-nosto-2"></div>
+  {% elsif section.settings.recommendation_block == 'postion_3' %}
+    <div class="nosto_element" id="frontpage-nosto-4"></div>
+  {% elsif section.settings.recommendation_block == 'postion_4' %}
+    <div class="nosto_element" id="frontpage-nosto-4"></div>
+  {% endif %}
 </section>
 
 {% schema %}
   {
     "name": "Home Page Nosto Block",
     "settings": [
-    {
+      {
         "type": "select",
         "id": "recommendation_block",
         "label": "Nosto Block Numbers",
@@ -19,16 +22,13 @@
           {
             "value": "postion_1",
             "label": "Reccomendation Block 1"
-          },
-          {
+          }, {
             "value": "postion_2",
             "label": "Reccomendation Block 2"
-          },
-          {
+          }, {
             "value": "postion_3",
             "label": "Reccomendation Block 3"
-          },
-          {
+          }, {
             "value": "postion_4",
             "label": "Reccomendation Block 4"
           }
@@ -38,7 +38,7 @@
     ],
     "presets": [
       {
-          "name": "Home Page Nosto Block"
+        "name": "Home Page Nosto Block"
       }
     ]
   }
