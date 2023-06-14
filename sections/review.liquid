@@ -18,12 +18,12 @@
         <div class="col-lg-5">
           <div class="bg-primary">
             <img
-            loading="eager"
-            height="auto"
-            width="auto"
-            class="d-none d-lg-block"
-            src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
-            alt="{{ shop.name }}" />
+              loading="eager"
+              height="auto"
+              width="auto"
+              class="d-none d-lg-block"
+              src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
+              alt="{{ shop.name }}" />
             <p class="header-badge mb-0">
               <strong>#1 Rated</strong>
               Pet Site in the UK
@@ -36,12 +36,12 @@
             <div class="d-flex">
               <div class="mr-2">
                 <img
-                class="review-care-badge"
-                loading="lazy"
-                src="{{ 'care-badge.png' | asset_img_url: '165x' }}"
-                height="165"
-                width="165"
-                alt="care badge" />
+                  class="review-care-badge"
+                  loading="lazy"
+                  src="{{ 'care-badge.png' | asset_img_url: '165x' }}"
+                  height="165"
+                  width="165"
+                  alt="care badge" />
               </div>
               <strong>
                 99% of reviewers recommend 
@@ -55,8 +55,11 @@
                 width="165"
                 alt="care badge" />
             </div>
-            <p><strong>4.9</strong> Rating <br>
-              <strong>3,444</strong> Reviews <br>
+            <p>
+              <strong>4.9</strong>
+              Rating <br>
+              <strong>3,444</strong>
+              Reviews <br>
               on REVIEWS.io</p>
           </div>
         </div>
@@ -109,12 +112,12 @@
         "type": "url",
         "id": "button_url"
       }
+    ],
+    "presets": [
+      {
+        "name": "Review",
+        "category": "Modules"
+      }
     ]
-    // "presets": [
-    //   {
-    //     "name": "Hero Slider",
-    //     "category": "Modules"
-    //   }
-    // ]
   }
 {% endschema %}
