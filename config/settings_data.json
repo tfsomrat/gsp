@@ -102,7 +102,6 @@
           "1560175589871": {
             "type": "CTA",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DSBM-GDAN-BDSP-76-2030-2.jpg",
               "page": "https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=dog"
             }
           },
@@ -1516,32 +1515,60 @@
       "1634032429fd11bfeb": {
         "type": "slider-flexible",
         "blocks": {
-          "28240842-4790-4680-b7db-ad4f605207b4": {
+          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9": {
+            "type": "Slide",
+            "disabled": true,
+            "settings": {
+              "button_url": "shopify:\/\/collections\/green-monday"
+            }
+          },
+          "2b723a7b-ba72-48ff-ba4b-88559e326b86": {
+            "type": "Slide",
+            "disabled": true,
+            "settings": {
+              "button_url": "https:\/\/www.getsetpet.com\/pages\/oscar-milo"
+            }
+          },
+          "6b50f756-f1f0-4bc9-975b-88963ac7b652": {
             "type": "Slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DSBM-GDAN-NSM-69-1110-1.jpg",
-              "button_url": ""
+              "button_url": "\/collections\/todays-deals"
             }
           },
-          "34ee9fa4-21f0-4459-b66b-880221255787": {
-            "type": "Slide-2",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/bobble_slumber_bed.jpg",
-              "button_url": ""
-            }
-          },
-          "c36b7d82-ebce-403f-81e2-c4e25e3e494d": {
+          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2": {
             "type": "Slide-3",
             "settings": {
-              "image": "shopify:\/\/shop_images\/DSBM-GDAN-NBM-D-1990-2_d9c52b50-22ec-40f0-aa3d-f7144d8d6cec.jpg",
-              "button_url": ""
+              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
+            }
+          },
+          "bd870719-42b0-4544-951a-8359f816b31a": {
+            "type": "Slide-3",
+            "settings": {
+              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
+            }
+          },
+          "14a1535a-25dd-49d9-85bb-c38d5d3b087e": {
+            "type": "Slide-2",
+            "settings": {
+              "button_url": "shopify:\/\/collections\/burns"
+            }
+          },
+          "6ccf4271-4508-4e22-84de-761d820c1b2d": {
+            "type": "Slide-2",
+            "disabled": true,
+            "settings": {
+              "button_url": "shopify:\/\/collections\/twiggy-tags"
             }
           }
         },
         "block_order": [
-          "28240842-4790-4680-b7db-ad4f605207b4",
-          "34ee9fa4-21f0-4459-b66b-880221255787",
-          "c36b7d82-ebce-403f-81e2-c4e25e3e494d"
+          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9",
+          "2b723a7b-ba72-48ff-ba4b-88559e326b86",
+          "6b50f756-f1f0-4bc9-975b-88963ac7b652",
+          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2",
+          "bd870719-42b0-4544-951a-8359f816b31a",
+          "14a1535a-25dd-49d9-85bb-c38d5d3b087e",
+          "6ccf4271-4508-4e22-84de-761d820c1b2d"
         ],
         "settings": {
         }
@@ -1556,11 +1583,11 @@
       "header-announcement": {
         "type": "header-announcement",
         "settings": {
-          "announcement_text_one": "",
+          "announcement_text_one": "Trusted brands at reasonable prices with excellent support",
           "announcement_link_one": "",
-          "announcement_text_two": "",
+          "announcement_text_two": "4.9 Rating:3,444 Reviews on REVIEWS.io",
           "announcement_link_two": "",
-          "announcement_text_three": ""
+          "announcement_text_three": "100% Free  Delivery"
         }
       }
     },
