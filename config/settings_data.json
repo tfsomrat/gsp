@@ -1535,7 +1535,6 @@
           "f9fa8031-e394-4c16-9a36-3c59d258b4bd": {
             "type": "Slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Group_359.png",
               "heading": "Spring <span>Savings<\/span>",
               "subheading": "ON ALL SALE ITEMS",
               "text": "<p>Get three items for the price of two!<\/p>",
@@ -1546,7 +1545,6 @@
           "104f9122-d306-4e9d-9c80-2622fa33e61a": {
             "type": "Slide",
             "settings": {
-              "image": "shopify:\/\/shop_images\/Group_359.png",
               "heading": "Spring <span>Savings<\/span>",
               "subheading": "ON ALL SALE ITEMS",
               "text": "<p>Get three items for the price of two!<\/p>",
@@ -1561,10 +1559,18 @@
         ],
         "settings": {
         }
+      },
+      "2fa35687-df06-4212-8bd3-bfca11e8d61f": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Featured collection",
+          "collection": "featured"
+        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
+      "2fa35687-df06-4212-8bd3-bfca11e8d61f",
       "1559570621332",
       "163836417663c921e8",
       "163576138205b7a0a5",
