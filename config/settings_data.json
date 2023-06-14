@@ -1547,7 +1547,7 @@
             "type": "Slide",
             "settings": {
               "image": "shopify:\/\/shop_images\/Group_359.png",
-              "heading": "Spring Savings",
+              "heading": "Spring <span>Savings<\/span>",
               "subheading": "ON ALL SALE ITEMS",
               "text": "<p>Get three items for the price of two!<\/p>",
               "button_text": "Buy Now",
