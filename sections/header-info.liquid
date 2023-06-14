@@ -2,7 +2,7 @@
   <section class="announcement-bar">
     <div class="container">
       <div class="row">
-        <div class="call-to-actions-slider">
+        <div class="header-info-slider">
           <div>
             <a
               style="text-decoration: none;  opacity: 1;"
@@ -15,7 +15,7 @@
                 style="position: relative; top: -1px;"
                 src="{{ section.settings.image_one | image_url: width: 30 }}"
                 alt="text one" />
-              <p>{{ section.settings.text_one }}</p>
+              <span>{{ section.settings.text_one }}</span>
             </a>
           </div>
           <div>
@@ -113,25 +113,25 @@
     overflow: hidden;
   }
 
-  .call-to-actions-slider img {
+  .header-info-slider img {
     width: 25px;
   }
 
-  .call-to-actions-slider a {
+  .header-info-slider a {
     text-decoration: none;
   }
-  .call-to-actions-slider img,
-  .call-to-actions-slider p {
+  .header-info-slider img,
+  .header-info-slider p {
     display: inline-block !important;
     margin: 0;
   }
 
-  .call-to-actions-slider .slick-slide {
+  .header-info-slider .slick-slide {
     text-align: center !important;
     line-height: 38px;
   }
 
-  .call-to-actions-slider p {
+  .header-info-slider p {
     color: #26536d;
     font-size: 16px;
     font-weight: 400;
@@ -147,7 +147,7 @@
   }
 
   @media(max-width: 1350px) {
-    .call-to-actions-slider p {
+    .header-info-slider p {
       font-size: 12px;
       letter-spacing: normal;
     }
@@ -161,7 +161,7 @@
 
 <script>
   $(document).ready(function() {
-    $('.call-to-actions-slider').slick({
+    $('.header-info-slider').slick({
       infinite: false,
       slidesToShow: 4,
       slidesToScroll: 1,
