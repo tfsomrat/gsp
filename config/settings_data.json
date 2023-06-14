@@ -1114,12 +1114,6 @@
           "disable_title": true
         }
       },
-      "163836417663c921e8": {
-        "type": "homepage-nosto-block",
-        "settings": {
-          "recommendation_block": "postion_1"
-        }
-      },
       "landing-page-3": {
         "type": "landing-page-3",
         "blocks": {
@@ -1572,7 +1566,6 @@
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
       "2fa35687-df06-4212-8bd3-bfca11e8d61f",
       "1559570621332",
-      "163836417663c921e8",
       "163576138205b7a0a5",
       "16342979420a063995",
       "1578923528467",
