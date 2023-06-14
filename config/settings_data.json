@@ -102,6 +102,7 @@
           "1560175589871": {
             "type": "CTA",
             "settings": {
+              "image": "shopify:\/\/shop_images\/DSBM-GDAN-BDSP-76-2030-2.jpg",
               "page": "https:\/\/www.getsetpet.com\/collections\/get-set-save?pet_type=dog"
             }
           },
@@ -159,28 +160,7 @@
           "acd5f580-914e-4ed3-ab82-2ae820b9471c"
         ],
         "settings": {
-          "main_linklist": "main-menu",
-          "topbar_linklist": "top-bar-menu",
-          "notification_image_one": "shopify:\/\/shop_images\/bobble_slumber_bed.jpg",
-          "notification_text_one": "Free Next Day Delivery £39+",
-          "notification_link_one": "\/pages\/faqs#shipping",
-          "notification_image_two": "shopify:\/\/shop_images\/DSBM-GDAN-NBM-D-1990-1_063902f7-a47d-4712-adac-ad53ffd71c1a.jpg",
-          "notification_text_two": "Rated Excellent",
-          "notification_link_two": "https:\/\/www.reviews.co.uk\/company-reviews\/store\/get-set-pet",
-          "notification_text_three": "Save 20% with",
-          "popup_image": "shopify:\/\/shop_images\/DSCO-GDAN-H2-25-220-1_d99f5bbd-814c-4bc9-b283-2758f841c186.jpg",
-          "notification_text_four": "",
-          "notification_link_four": "",
-          "modal_title": "",
-          "modal_content": "",
-          "modal_accordian_one": "",
-          "modal_accordian_desc_one": "",
-          "modal_accordian_two": "",
-          "modal_accordian_desc_two": "",
-          "modal_accordian_three": "",
-          "modal_accordian_desc_three": "",
-          "modal_accordian_four": "",
-          "modal_accordian_desc_four": ""
+          "main_linklist": "main-menu"
         }
       },
       "footer": {
@@ -1536,60 +1516,32 @@
       "1634032429fd11bfeb": {
         "type": "slider-flexible",
         "blocks": {
-          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9": {
-            "type": "Slide",
-            "disabled": true,
-            "settings": {
-              "button_url": "shopify:\/\/collections\/green-monday"
-            }
-          },
-          "2b723a7b-ba72-48ff-ba4b-88559e326b86": {
-            "type": "Slide",
-            "disabled": true,
-            "settings": {
-              "button_url": "https:\/\/www.getsetpet.com\/pages\/oscar-milo"
-            }
-          },
-          "6b50f756-f1f0-4bc9-975b-88963ac7b652": {
+          "28240842-4790-4680-b7db-ad4f605207b4": {
             "type": "Slide",
             "settings": {
-              "button_url": "\/collections\/todays-deals"
+              "image": "shopify:\/\/shop_images\/DSBM-GDAN-NSM-69-1110-1.jpg",
+              "button_url": ""
             }
           },
-          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2": {
-            "type": "Slide-3",
-            "settings": {
-              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
-            }
-          },
-          "bd870719-42b0-4544-951a-8359f816b31a": {
-            "type": "Slide-3",
-            "settings": {
-              "button_url": "shopify:\/\/collections\/the-ultimate-kitten-collection"
-            }
-          },
-          "14a1535a-25dd-49d9-85bb-c38d5d3b087e": {
+          "34ee9fa4-21f0-4459-b66b-880221255787": {
             "type": "Slide-2",
             "settings": {
-              "button_url": "shopify:\/\/collections\/burns"
+              "image": "shopify:\/\/shop_images\/bobble_slumber_bed.jpg",
+              "button_url": ""
             }
           },
-          "6ccf4271-4508-4e22-84de-761d820c1b2d": {
-            "type": "Slide-2",
-            "disabled": true,
+          "c36b7d82-ebce-403f-81e2-c4e25e3e494d": {
+            "type": "Slide-3",
             "settings": {
-              "button_url": "shopify:\/\/collections\/twiggy-tags"
+              "image": "shopify:\/\/shop_images\/DSBM-GDAN-NBM-D-1990-2_d9c52b50-22ec-40f0-aa3d-f7144d8d6cec.jpg",
+              "button_url": ""
             }
           }
         },
         "block_order": [
-          "ff77add5-6d85-4f4c-9cd1-18bc338efbf9",
-          "2b723a7b-ba72-48ff-ba4b-88559e326b86",
-          "6b50f756-f1f0-4bc9-975b-88963ac7b652",
-          "bb207825-34ca-4fcd-a44e-1d035b6fa2d2",
-          "bd870719-42b0-4544-951a-8359f816b31a",
-          "14a1535a-25dd-49d9-85bb-c38d5d3b087e",
-          "6ccf4271-4508-4e22-84de-761d820c1b2d"
+          "28240842-4790-4680-b7db-ad4f605207b4",
+          "34ee9fa4-21f0-4459-b66b-880221255787",
+          "c36b7d82-ebce-403f-81e2-c4e25e3e494d"
         ],
         "settings": {
         }
@@ -1599,6 +1551,16 @@
         "settings": {
           "enable": true,
           "content": "GET  <strong>20%OFF<\/strong>  YOUR FIRST ORDER WHEN YOU SPEND £50+"
+        }
+      },
+      "header-announcement": {
+        "type": "header-announcement",
+        "settings": {
+          "announcement_text_one": "",
+          "announcement_link_one": "",
+          "announcement_text_two": "",
+          "announcement_link_two": "",
+          "announcement_text_three": ""
         }
       }
     },
