@@ -1583,11 +1583,11 @@
       "header-info": {
         "type": "header-info",
         "settings": {
-          "announcement_text_one": "Trusted brands at reasonable prices with excellent support",
-          "announcement_link_one": "",
-          "announcement_text_two": "4.9 Rating:3,444 Reviews on REVIEWS.io",
-          "announcement_link_two": "",
-          "announcement_text_three": "100% Free  Delivery"
+          "text_one": "Trusted brands at reasonable prices with excellent support",
+          "link_one": "",
+          "text_two": "",
+          "link_two": "",
+          "text_three": ""
         }
       }
     },
