@@ -6,7 +6,7 @@
   <div class="container">
     <div class="review-block">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-7" style="{{ 'review-bg.png' | asset_img_url: '520x' }}">
           <img
             class="review-care-badge"
             loading="lazy"
@@ -14,9 +14,15 @@
             height="165"
             width="165"
             alt="care badge" />
+          <h2 class="mb-4">{{ section.settings.heading }}</h2>
+          <ul>
+            {% for block in section.blocks %}
+              <li>{{ block.title }}</li>
+            {% endfor %}
+          </ul>
         </div>
         <div class="col-lg-5">
-          <div class="bg-primary">
+          <div class="bg-light">
             <img
               loading="eager"
               height="auto"
@@ -43,24 +49,26 @@
                   width="165"
                   alt="care badge" />
               </div>
-              <strong>
-                99% of reviewers recommend 
-                Get Set Pet
-              </strong>
-              <img
-                class=""
-                loading="lazy"
-                src="{{ 'stars.png' | asset_img_url: '115x' }}"
-                height="165"
-                width="165"
-                alt="care badge" />
+              <div>
+                <strong>
+                  99% of reviewers recommend 
+                  Get Set Pet
+                </strong>
+                <img
+                  class=""
+                  loading="lazy"
+                  src="{{ 'stars.png' | asset_img_url: '115x' }}"
+                  height="165"
+                  width="165"
+                  alt="care badge" /><p>
+                  <strong>4.9</strong>
+                  Rating <br>
+                  <strong>3,444</strong>
+                  Reviews <br>
+                  on REVIEWS.io</p>
+              </div>
             </div>
-            <p>
-              <strong>4.9</strong>
-              Rating <br>
-              <strong>3,444</strong>
-              Reviews <br>
-              on REVIEWS.io</p>
+
           </div>
         </div>
       </div>
@@ -69,7 +77,11 @@
 </section>
 
 <!-- Style -->
-<style></style>
+<style>
+  .review-block {
+    padding: 100px 0;
+  }
+</style>
 
 
 <!-- Script -->
@@ -81,36 +93,22 @@
     "name": "Review",
     "settings": [
       {
-        "label": "Image",
-        "type": "image_picker",
-        "id": "image"
-      },
-      {
-        "label": "Image Mobile",
-        "type": "image_picker",
-        "id": "image_mobile"
-      },
-      {
         "label": "Heading",
         "type": "text",
         "id": "heading"
-      },
+      }
+    ],
+    "blocks": [
       {
-        "label": "Subheading",
         "type": "text",
-        "id": "subheading"
-      }, {
-        "label": "Content",
-        "type": "richtext",
-        "id": "text"
-      }, {
-        "label": "Button Text",
-        "type": "text",
-        "id": "button_text"
-      }, {
-        "label": "Button URL",
-        "type": "url",
-        "id": "button_url"
+        "name": "Review",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }
+        ]
       }
     ],
     "presets": [
