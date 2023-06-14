@@ -98,7 +98,8 @@
       rel="preload"
       href="{{ 'vendor.js' | asset_url }}"
       as="script">
-    <link rel="preload"
+    <link
+    rel="preload"
       href="{{ 'theme.js' | asset_url }}"
       as="script">
 
@@ -119,8 +120,7 @@
         a.appendChild(r);
       })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
-    <meta
-    name="google-site-verification" content="HaorUPfhLC5eA7Lb-hwtHRGYOW_nYdbjtJXPZkTZFak">
+    <meta name="google-site-verification" content="HaorUPfhLC5eA7Lb-hwtHRGYOW_nYdbjtJXPZkTZFak">
     <!-- Global site tag (gtag.js) - Google Ads: 730885514 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-730885514"></script>
     <script>
@@ -145,7 +145,7 @@
     </a>
     {% section 'header-notice' %}
     {% section 'header' %}
-    {% section 'header-announcement' %}
+    {% section 'header-info' %}
     <main>
       {{ content_for_layout }}
       <div class="predictive-search__overflow"></div>
@@ -194,19 +194,19 @@
     <script defer>
       $(window).on('load', function () {
       $('.collection__listing-image').matchHeight({ byRow: true });
-              $('.collection__listing-item-title').matchHeight({ byRow: true });
-              $('.shop-by-block figure').matchHeight({ byRow: true });
-              // Blog Page
-              $('.blog__tags').matchHeight({ byRow: true });
-              $('.related-post').matchHeight({ byRow: true });
-              $('.sub-collection a').matchHeight();
-              $('.sub-collection').matchHeight({ byRow: true });
-              $('.address-card--inner').matchHeight({ byRow: true });
-              $('.rc_product-item__list .rc_product-item__inner').matchHeight({
-                byRow: true,
-              });
-              $('.boost-pfs-filter-product-item-title').matchHeight({ byRow: true });
-            });
+                    $('.collection__listing-item-title').matchHeight({ byRow: true });
+                    $('.shop-by-block figure').matchHeight({ byRow: true });
+                    // Blog Page
+                    $('.blog__tags').matchHeight({ byRow: true });
+                    $('.related-post').matchHeight({ byRow: true });
+                    $('.sub-collection a').matchHeight();
+                    $('.sub-collection').matchHeight({ byRow: true });
+                    $('.address-card--inner').matchHeight({ byRow: true });
+                    $('.rc_product-item__list .rc_product-item__inner').matchHeight({
+                      byRow: true,
+                    });
+                    $('.boost-pfs-filter-product-item-title').matchHeight({ byRow: true });
+                  });
     </script>
     <script>
       document.addEventListener('DOMContentLoaded', function(e) {
@@ -228,13 +228,12 @@
       <script>
         theme.strings = {
           shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
-          shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},{% if customer %}
-            shippingCalcCustomerIsLoggedIn : true,{% endif %}shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
+          shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},{% if customer %}shippingCalcCustomerIsLoggedIn : true,{% endif %}shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
         }
       </script>
       {{
          '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'
-         | script_tag }}
+       | script_tag }}
       <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
       <script src="/services/javascripts/countries.js"></script>
       {{ 'jquery.cart.min.js' | asset_url | script_tag }}
@@ -280,7 +279,7 @@
     </script>
     {{
        '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23'
-       | script_tag }}
+     | script_tag }}
     {% render 'nosto-tagging' %}
     {% render 'klaviyo-add-to-cart' %}
 

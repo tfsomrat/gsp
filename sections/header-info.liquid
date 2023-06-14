@@ -6,28 +6,30 @@
           <div>
             <a
               style="text-decoration: none;  opacity: 1;"
-              href="{{ section.settings.announcement_link_one }}"
+              href="{{ section.settings.link_one }}"
               onclick="ga('send', 'event', 'Header CTA', 'Click', 'Delivery info');">
               <img
-                loading="lazy"
+                loading="eager"
+                height="auto"
+                width="30"
                 style="position: relative; top: -1px;"
-                data-lazy="{{ section.settings.announcement_image_one | image_url: width: 30 }}"
-                alt="">
-              <p>{{ section.settings.announcement_text_one }}</p>
+                src="{{ section.settings.image_one | image_url: width: 30 }}"
+                alt="text one" />
+              <p>{{ section.settings.text_one }}</p>
             </a>
           </div>
           <div>
             <a
               style="text-decoration: none; opacity: 1;"
               target="_blank"
-              href="{{ section.settings.announcement_link_two }}"
+              href="{{ section.settings.link_two }}"
               onclick="ga('send', 'event', 'Header CTA', 'Click', 'Reviews');">
               <img
                 loading="lazy"
                 style="width: 100px; position: relative; top: -2px; "
-                data-lazy="{{ section.settings.announcement_image_two | image_url }}"
+                data-lazy="{{ section.settings.image_two | image_url }}"
                 alt="">
-              <p>{{ section.settings.announcement_text_two }}</p>
+              <p>{{ section.settings.text_two }}</p>
             </a>
           </div>
           <div
@@ -36,14 +38,14 @@
             data-target="#headerAnnouncement"
             onclick="ga('send', 'event', 'Header CTA', 'Click', 'Get Set Save');">
             <p style="line-height: 38px;">
-              {{ section.settings.announcement_text_three }}
+              {{ section.settings.text_three }}
             </p>
             <img
               loading="lazy"
               class="get-set-save-logo"
               style="width:90px; margin:0px 10px;"
               data-lazy="{{ 'getsetsave_colour_png.png' | asset_img_url: '90x' }}"
-              alt="{{ section.settings.announcement_text_three }}">
+              alt="{{ section.settings.text_three }}">
             <div class="learn-more">| Learn More</div>
           </div>
         </div>
@@ -204,39 +206,39 @@
 
 {% schema %}
   {
-    "name": "Header Announcement",
+    "name": "Header Info",
     "settings": [
       {
         "type": "image_picker",
-        "id": "announcement_image_one",
-        "label": "Announcement - Image One"
+        "id": "image_one",
+        "label": "Image One"
       },
       {
         "type": "text",
-        "id": "announcement_text_one",
-        "label": "Announcement - Text One"
+        "id": "text_one",
+        "label": "Text One"
       },
       {
         "type": "url",
-        "id": "announcement_link_one",
-        "label": "Announcement - Link One"
+        "id": "link_one",
+        "label": "Link One"
       },
       {
         "type": "image_picker",
-        "id": "announcement_image_two",
-        "label": "Announcement - Image Two"
+        "id": "image_two",
+        "label": "Image Two"
       }, {
         "type": "text",
-        "id": "announcement_text_two",
-        "label": "Announcement - Text Two"
+        "id": "text_two",
+        "label": "Text Two"
       }, {
         "type": "url",
-        "id": "announcement_link_two",
-        "label": "Announcement - Link two"
+        "id": "link_two",
+        "label": "Link two"
       }, {
         "type": "text",
-        "id": "announcement_text_three",
-        "label": "Announcement - Text Three"
+        "id": "text_three",
+        "label": "Text Three"
       }, {
         "type": "image_picker",
         "id": "popup_image",

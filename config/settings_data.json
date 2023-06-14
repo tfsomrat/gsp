@@ -1553,8 +1553,8 @@
           "content": "GET  <strong>20%OFF<\/strong>  YOUR FIRST ORDER WHEN YOU SPEND £50+"
         }
       },
-      "header-announcement": {
-        "type": "header-announcement",
+      "header-info": {
+        "type": "header-info",
         "settings": {
           "announcement_text_one": "",
           "announcement_link_one": "",
