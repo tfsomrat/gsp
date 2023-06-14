@@ -1,28 +1,17 @@
 {% if section.settings.enable %}
-  <section class="header-notice">
+  <section class="header-notice bg-primary">
     <div class="container">
       <p class="mb-0">{{ section.settings.content }}</p>
     </div>
   </section>
 {% endif %}
 
-{% stylesheet %}
-  .header-notice {
-    background-color: #58b0e3;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 800;
-    padding: 1rem;
-  }
-  .header-notice strong {
-    color: #fff;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
   "name": "Header Notice",
   "limit": 1,
+  "tag": "section",
+  "class": "header-notice",
   "settings": [
     {
       "type": "checkbox",
@@ -34,7 +23,7 @@
       "type": "text",
       "id": "content",
       "label": "Header Notice",
-      "default": "GET  20%OFF  YOUR FIRST ORDER WHEN YOU SPEND £50+"
+      "default": "Free shipping on all orders over $100"
     }
   ]
 }
