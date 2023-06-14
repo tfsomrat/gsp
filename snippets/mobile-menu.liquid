@@ -1,134 +1,241 @@
-<ul class="mobile__navigation-ul">
-  {% for link in linklists['main-menu-test'].links %}
-    <li class="mobile__navigation-ul-li">
-      <a class="mobile__navigation-ul-li-a" href="{{ link.url }}">
-        {{- link.title -}}
-      </a>
-      {% if link.links.size > 0 %}
-        <div class="chevron">
-          {% render 'icon-chevron', fill_color: '#58B0E3' %}
-        </div>
+<div class="mobile-navigation">
+  <ul class="mobile__navigation-ul">
+    {% for link in linklists['main-menu-test'].links %}
+      <li class="mobile__navigation-ul-li">
+        <a class="mobile__navigation-ul-li-a" href="{{ link.url }}">
+          {{- link.title -}}
+        </a>
+        {% if link.links.size > 0 %}
+          <div class="chevron">
+            {% render 'icon-chevron', fill_color: '#58B0E3' %}
+          </div>
 
-        <ul class="mobile__navigation-ul-li-ul">
-          {% for link in link.links %}
-            <li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
-              <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">
-                {{- link.title -}}
-              </a>
-              {% if link.links.size > 0 %}
+          <ul class="mobile__navigation-ul-li-ul">
+            {% for link in link.links %}
+              <li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
+                <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">
+                  {{- link.title -}}
+                </a>
                 {% if link.links.size > 0 %}
-                  <div class="chevron">
-                    {% render 'icon-chevron', fill_color: '#58B0E3' %}
-                  </div>
+                  {% if link.links.size > 0 %}
+                    <div class="chevron">
+                      {% render 'icon-chevron', fill_color: '#58B0E3' %}
+                    </div>
+                  {% endif %}
+
+                  <ul class="mobile__navigation-ul-li-ul">
+                    {% for link in link.links %}
+                      <li class="mobile__navigation-ul-li-ul-li" id="{{ link.handle }}">
+                        <a class="mobile__navigation-ul-li-ul-li-a" href="{{ link.url }}">
+                          {{- link.title -}}
+                        </a>
+                        {% if link.links.size > 0 %}
+                          <div class="chevron">
+                            {% render 'icon-chevron', fill_color: '#58B0E3' %}
+                          </div>
+                        {% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
                 {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
 
-                <ul class="mobile__navigation-ul-li-ul">
-                  {% for link in link.links %}
-                    <li
-                      class="mobile__navigation-ul-li-ul-li"
-                      id="{{ link.handle }}"
-                    >
-                      <a
-                        class="mobile__navigation-ul-li-ul-li-a"
-                        href="{{ link.url }}"
-                      >
-                        {{- link.title -}}
-                      </a>
-                      {% if link.links.size > 0 %}
-                        <div class="chevron">
-                          {% render 'icon-chevron', fill_color: '#58B0E3' %}
-                        </div>
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
+    <li class="mobile__navigation-ul-li mobile-shop-by-pet">
+      <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
+      <div class="chevron">
+        {% render 'icon-chevron', fill_color: '#58B0E3' %}
+      </div>
+      <ul class="mobile__navigation-ul-li-ul">
+        <li class="dropdown__last_level">
+          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/contact-us">Contact Us</a>
+        </li>
+        <li class="dropdown__last_level">
+          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs#shipping">Delivery Information</a>
+        </li>
+        <li class="dropdown__last_level">
+          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs">FAQs</a>
+        </li>
+      </ul>
     </li>
-  {% endfor %}
+    <li class="mobile__navigation-ul-li mobile-shop-by-pet">
+      <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
+      <div class="chevron">
+        {% render 'icon-chevron', fill_color: '#58B0E3' %}
+      </div>
+      <ul class="mobile__navigation-ul-li-ul">
+        {% if customer %}
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Orders</a>
+          </li>
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/addresses">My Details</a>
+          </li>
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account?view=my-pets">My Pets</a>
+          </li>
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/logout">Log Out</a>
+          </li>
+        {% else %}
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Sign In</a>
+          </li>
+          <li class="dropdown__last_level">
+            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/register">Register</a>
+          </li>
+        {% endif %}
+      </ul>
+    </li>
+  </ul>
+</div>
 
-  <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-    <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
-    <div class="chevron">
-      {% render 'icon-chevron', fill_color: '#58B0E3' %}
-    </div>
-    <ul class="mobile__navigation-ul-li-ul">
-      <li class="dropdown__last_level">
-        <a
-          class="mobile__navigation-ul-li-ul-li-ul-li-a"
-          href="/pages/contact-us"
-          >Contact Us</a
-        >
-      </li>
-      <li class="dropdown__last_level">
-        <a
-          class="mobile__navigation-ul-li-ul-li-ul-li-a"
-          href="/pages/faqs#shipping"
-          >Delivery Information</a
-        >
-      </li>
-      <li class="dropdown__last_level">
-        <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs"
-          >FAQs</a
-        >
-      </li>
-    </ul>
-  </li>
-  <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-    <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
-    <div class="chevron">
-      {% render 'icon-chevron', fill_color: '#58B0E3' %}
-    </div>
-    <ul class="mobile__navigation-ul-li-ul">
-      {% if customer %}
-        <li class="dropdown__last_level">
-          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account"
-            >Orders</a
-          >
-        </li>
-        <li class="dropdown__last_level">
-          <a
-            class="mobile__navigation-ul-li-ul-li-ul-li-a"
-            href="/account/addresses"
-            >My Details</a
-          >
-        </li>
-        <li class="dropdown__last_level">
-          <a
-            class="mobile__navigation-ul-li-ul-li-ul-li-a"
-            href="/account?view=my-pets"
-            >My Pets</a
-          >
-        </li>
-        <li class="dropdown__last_level">
-          <a
-            class="mobile__navigation-ul-li-ul-li-ul-li-a"
-            href="/account/logout"
-            >Log Out</a
-          >
-        </li>
-      {% else %}
-        <li class="dropdown__last_level">
-          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account"
-            >Sign In</a
-          >
-        </li>
-        <li class="dropdown__last_level">
-          <a
-            class="mobile__navigation-ul-li-ul-li-ul-li-a"
-            href="/account/register"
-            >Register</a
-          >
-        </li>
-      {% endif %}
-    </ul>
-  </li>
-</ul>
+<style>
+  .mobile-navigation__contact {
+    background: #58b0e3;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 999999;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .mobile-navigation__contact a {
+    color: white;
+    font-size: 16px;
+    line-height: 16px;
+    position: relative;
+    top: -5px;
+    left: 15px;
+    font-weight: bold;
+  }
+
+  .mobile-navigation__contact .heading {
+    color: white;
+    font-size: 22px;
+    color: white;
+    line-height: 22px;
+    margin-bottom: 10px;
+  }
+  .mobile-menu {
+    height: 100%;
+    width: 85vw;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: translateX(-100vw);
+    transition: 0.4s ease-in-out;
+    overflow: auto;
+    padding-bottom: 50px;
+  }
+
+  .mobile-menu .site-nav {
+    width: 90%;
+    margin: auto;
+  }
+
+  .mobile-menu .site-nav li {
+    width: 100%;
+    display: block;
+    background: white;
+    border-bottom: 1px solid #eeee;
+  }
+  .mobile-menu .site-nav li.more {
+    display: none;
+  }
+
+  .mobile-menu .has-sub-menu:hover ul {
+    display: none;
+  }
+
+  .mobile-menu .site-nav svg {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #3eaafd;
+    padding: 10px;
+    margin-top: -3px;
+  }
+
+  .mobile-menu .site-nav svg path {
+    color: #fff;
+  }
+
+  .mobile-menu .sub-menu {
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0 0 transparent;
+    padding: 0;
+  }
+
+  .mobile-menu .site-nav li a {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    display: block;
+  }
+
+  .mobile-menu .sub-menu li {
+    border-bottom: 0;
+    margin-left: 5px;
+  }
+  .mobile-menu .sub-menu li li {
+    border: none !important;
+  }
+  .mobile-menu .sub-menu li a {
+    font-size: 16px;
+    margin-left: 0;
+    color: #3eaafd;
+    font-weight: 500;
+    padding: 15px 0 12px 7px;
+    border-top: 1px solid #eeee;
+    border-bottom: none;
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0vw);
+    transition: 0.4s ease-in-out;
+  }
+
+  .mobile-menu-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .mobile-menu .third {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 30px;
+  }
+
+  .mobile-menu .third a {
+    color: #3eaafd;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    text-align: left;
+  }
+</style>
+
+
 <script>
-  $(document).ready(function () {
+  $(document).ready(function() {
     var headerHeight = $('#page-header').height();
     var headerHeightAddPadding = $('#page-header').height();
     var needHelpHeight = $('.mobile-navigation__contact').height() + 40;
@@ -136,7 +243,7 @@
       headerHeight = $('#page-header').height();
       $('.mobile-navigation').css('top', headerHeightAddPadding);
       $('.mobile-navigation').css({
-        height: 'calc(100% - ' + headerHeight + 'px)',
+        height: 'calc(100% - ' + headerHeight + 'px)'
       });
     }
 
@@ -154,7 +261,7 @@
     $(window).resize(menuHeight);
     $(window).resize(toggleMobileMenu);
 
-    $('.mobile-menu-button').click(function () {
+    $('.mobile-menu-button').click(function() {
       $('.mobile-navigation').toggleClass('active');
       $('.mobile-navigation__contact').toggleClass('active');
       $('body').toggleClass('disabled-scroll');
@@ -163,7 +270,7 @@
       $('.mobile-shop-by-pet .chevron').addClass('active');
     });
 
-    $('.chevron').click(function () {
+    $('.chevron').click(function() {
       if ($(this).hasClass('active')) {
         $(this).siblings('ul').find('ul').slideUp(500);
         $(this).siblings('ul').find('.chevron').removeClass('active');

@@ -1,10 +1,8 @@
 <!doctype html>
 <!--[if IE 9]>
-  <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}">
-<![endif]-->
-<!-- [if (gt IE 9)|!(IE)]><! -->
-<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
-  <!-- <![endif] -->
+<html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}">
+<![endif]--><!-- [if (gt IE 9)|!(IE)]><! -->
+  <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!-- <![endif] -->
   <head>
     <meta name="p:domain_verify" content="6b66eff7ee52ff844fef97e4ba415109">
     <!-- Added by AVADA SEO Suite -->
@@ -32,10 +30,7 @@
       {% if paginate.current_page == 1 %}
         <link rel="canonical" href="{{ shop.url }}{{ collection.url }}/">
       {% elsif paginate.current_page > 1 %}
-        <link
-          rel="canonical"
-          href="{{ shop.url }}{{ collection.url }}?page={{ paginate.current_page }}/"
-        >
+        <link rel="canonical" href="{{ shop.url }}{{ collection.url }}?page={{ paginate.current_page }}/">
       {% else %}
         <link rel="canonical" href="{{ canonical_url }}">
       {% endif %}
@@ -47,27 +42,26 @@
       <link
         rel="shortcut icon"
         href="{{ settings.favicon | img_url: '32x32' }}"
-        type="image/png"
-      >
+        type="image/png">
     {%- endif -%}
     {%- capture seo_title -%}
-		{{ page_title }}
-		{%- if current_tags -%}
-			{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-		{%- endif -%}
-		{% if current_page != 1 %}
-			&ndash; {{ 'general.meta.page' | t: page: current_page }}
-		{%- endif -%}
-	{%- endcapture -%}
-    {%- capture seo_title -%}{{ seo_title | strip }}{%- endcapture -%}
+      {{ page_title }}
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+      {% if current_page != 1 %}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {%- endif -%}
+    {%- endcapture -%}
+    {%- capture seo_title -%}
+      {{ seo_title | strip }}{%- endcapture -%}
     {%- if seo_title == blank %}
       {%- capture seo_title -%}Get Set Pet | Quality Online Pet Supplies{%- endcapture -%}
     {%- endif -%}
     <title>{{ seo_title }}</title>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-    ></script>
-    {{ 'api.jquery.js' | asset_url | script_tag }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    {% comment %} {{ 'api.jquery.js' | asset_url | script_tag }} {% endcomment %}
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
     {% else %}
@@ -76,24 +70,18 @@
     {% render 'social-meta-tags' %}
     <!-- Google Fonts -->
     {% render 'above-the-fold' %}
-    <meta
-      name="google-site-verification"
-      content="Oo_-v1pn3a5whLgmhAH20atKqYY0XCmJtzHB_kFTXso"
-    >
-    <meta
-      name="google-site-verification"
-      content="GJ8IuZ7CKXLq2uAZcrMYe-PXApS1Zv2wcmv9m3ygZOA"
-    >
+    <meta name="google-site-verification" content="Oo_-v1pn3a5whLgmhAH20atKqYY0XCmJtzHB_kFTXso">
+    <meta name="google-site-verification" content="GJ8IuZ7CKXLq2uAZcrMYe-PXApS1Zv2wcmv9m3ygZOA">
     <meta name="msvalidate.01" content="823C5C48DA44E2E012E5ABC6CE5096FB">
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       window.theme = {
-      	strings: {
-      		addToCart: {{ 'products.product.add_to_cart' | t | json }},
-      		soldOut: {{ 'products.product.sold_out' | t | json }},
-      		unavailable: {{ 'products.product.unavailable' | t | json }}
-      	},
-      	moneyFormat: {{ shop.money_format | json }}
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }}
+        },
+        moneyFormat: {{ shop.money_format | json }}
       };
     </script>
     {% render 'structured-customer-data' %}
@@ -106,18 +94,24 @@
     {% endif %}
     {% render 'structured-data' %}
 
-    <link rel="preload" href="{{ 'vendor.js' | asset_url }}" as="script">
-    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
+    <link
+      rel="preload"
+      href="{{ 'vendor.js' | asset_url }}"
+      as="script">
+    <link rel="preload"
+      href="{{ 'theme.js' | asset_url }}"
+      as="script">
 
     <!-- Hotjar Tracking Code for getsetpet.com -->
     <script>
-      (function (h, o, t, j, a, r) {
-        h.hj =
-          h.hj ||
-          function () {
-            (h.hj.q = h.hj.q || []).push(arguments);
-          };
-        h._hjSettings = { hjid: 1516987, hjsv: 6 };
+      (function(h, o, t, j, a, r) {
+        h.hj = h.hj || function() {
+          (h.hj.q = h.hj.q || []).push(arguments);
+        };
+        h._hjSettings = {
+          hjid: 1516987,
+          hjsv: 6
+        };
         a = o.getElementsByTagName('head')[0];
         r = o.createElement('script');
         r.async = 1;
@@ -126,14 +120,9 @@
       })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
     <meta
-      name="google-site-verification"
-      content="HaorUPfhLC5eA7Lb-hwtHRGYOW_nYdbjtJXPZkTZFak"
-    >
+    name="google-site-verification" content="HaorUPfhLC5eA7Lb-hwtHRGYOW_nYdbjtJXPZkTZFak">
     <!-- Global site tag (gtag.js) - Google Ads: 730885514 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-730885514"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-730885514"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -147,18 +136,16 @@
     <!-- CreativeR Store Pickup -->
 
     <!-- begin-boost-pfs-filter-css -->
-    {% render 'boost-pfs-style' %}
+  {% render 'boost-pfs-style' %}
     <!-- end-boost-pfs-filter-css -->
   </head>
-  <body
-    id="{{ page_title | handle }}"
-    class="template-{{ template.name | handle }} fade{% if collection.metafields.my_fields.collection_classes %} {{ collection.metafields.my_fields.collection_classes }}{% endif %}"
-  >
+  <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }} fade{% if collection.metafields.my_fields.collection_classes %} {{ collection.metafields.my_fields.collection_classes }}{% endif %}">
     <a class="in-page-link visually-hidden skip-link" href="#MainContent">
       {{- 'general.accessibility.skip_to_content' | t -}}
     </a>
     {% section 'header-notice' %}
     {% section 'header' %}
+    {% section 'header-announcement' %}
     <main>
       {{ content_for_layout }}
       <div class="predictive-search__overflow"></div>
@@ -169,120 +156,97 @@
     <script src="{{ 'ajaxify.min.js' | asset_url }}"></script>
     {% render 'subscription-theme-footer' %}
     {% render 'mw_PO_objects' %}
-    <link
-      href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap"
-      rel="stylesheet"
-    >
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap"
-      rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    >
+      crossorigin="anonymous">
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     {%- if template.directory == 'customers' -%}
       <!-- [if (gt IE 9)|!(IE)]><! -->
-      <script
-        src="{{ 'shopify_common.js' | asset_url }}"
-        defer="defer"
-      ></script>
+      <script src="{{ 'shopify_common.js' | asset_url }}" defer="defer"></script>
       <!-- <![endif] -->
       <!--[if lte IE 9]>
-        <script src="{{ 'shopify_common.js' | asset_url }}"></script>
+      <script src="{{ 'shopify_common.js' | asset_url }}"></script>
       <![endif]-->
     {%- endif -%}
     <!-- [if (gt IE 9)|!(IE)]><! -->
     <script src="{{ 'vendor.js' | asset_url }}"></script>
     <!-- <![endif] -->
     <!--[if lt IE 9]>
-      <script src="{{ 'vendor.js' | asset_url }}"></script>
+    <script src="{{ 'vendor.js' | asset_url }}"></script>
     <![endif]-->
-    <!-- [if (gt IE 9)|!(IE)]><! -->
-    <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+    <!-- [if (gt IE 9)|!(IE)]><! --><script src="{{ 'theme.js' | asset_url }}" defer="defer"> </script>
     <!-- <![endif] -->
     <!-- [if (gt IE 9)|!(IE)]><! -->
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
     <!-- <![endif] -->
     <script defer>
       $(window).on('load', function () {
-        $('.collection__listing-image').matchHeight({ byRow: true });
-        $('.collection__listing-item-title').matchHeight({ byRow: true });
-        $('.shop-by-block figure').matchHeight({ byRow: true });
-        // Blog Page
-        $('.blog__tags').matchHeight({ byRow: true });
-        $('.related-post').matchHeight({ byRow: true });
-        $('.sub-collection a').matchHeight();
-        $('.sub-collection').matchHeight({ byRow: true });
-        $('.address-card--inner').matchHeight({ byRow: true });
-        $('.rc_product-item__list .rc_product-item__inner').matchHeight({
-          byRow: true,
-        });
-        $('.boost-pfs-filter-product-item-title').matchHeight({ byRow: true });
-      });
+      $('.collection__listing-image').matchHeight({ byRow: true });
+              $('.collection__listing-item-title').matchHeight({ byRow: true });
+              $('.shop-by-block figure').matchHeight({ byRow: true });
+              // Blog Page
+              $('.blog__tags').matchHeight({ byRow: true });
+              $('.related-post').matchHeight({ byRow: true });
+              $('.sub-collection a').matchHeight();
+              $('.sub-collection').matchHeight({ byRow: true });
+              $('.address-card--inner').matchHeight({ byRow: true });
+              $('.rc_product-item__list .rc_product-item__inner').matchHeight({
+                byRow: true,
+              });
+              $('.boost-pfs-filter-product-item-title').matchHeight({ byRow: true });
+            });
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', function (e) {
+      document.addEventListener('DOMContentLoaded', function(e) {
         document.body.classList.remove('fade');
       });
     </script>
     <script src="https://widget.reviews.co.uk/product/dist.js"></script>
     <script src="https://widget.reviews.co.uk/rating-snippet/dist.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://widget.reviews.co.uk/rating-snippet/dist.css"
-    >
+    <link rel="stylesheet" href="https://widget.reviews.co.uk/rating-snippet/dist.css">
     <script>
       ratingSnippet('ruk_rating_snippet', {
         store: 'get-set-pet',
         color: '#10D577',
         linebreak: true,
-        text: 'Reviews',
+        text: 'Reviews'
       });
     </script>
     {% if template contains 'cart' %}
       <script>
         theme.strings = {
-        	shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
-        	shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},
-        	{% if customer %}shippingCalcCustomerIsLoggedIn: true,{% endif %}
-        	shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
+          shippingCalcSubmitButton: {{ settings.shipping_calculator_submit_button_label | default: 'Calculate shipping' | json }},
+          shippingCalcSubmitButtonDisabled: {{ settings.shipping_calculator_submit_button_label_disabled | default: 'Calculating...' | json }},{% if customer %}
+            shippingCalcCustomerIsLoggedIn : true,{% endif %}shippingCalcMoneyFormat: {{ shop.money_with_currency_format | json }}
         }
       </script>
       {{
-        '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'
-        | script_tag
-      }}
-      <script
-        src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"
-      ></script>
+         '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'
+         | script_tag }}
+      <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
       <script src="/services/javascripts/countries.js"></script>
       {{ 'jquery.cart.min.js' | asset_url | script_tag }}
-      <script
-        src="{{ 'shopify_common.js' | asset_url }}"
-        defer="defer"
-      ></script>
+      <script src="{{ 'shopify_common.js' | asset_url }}" defer="defer"></script>
     {% endif %}
     <script>
       window.intercomSettings = {
-        app_id: 'wj751tue',
+        app_id: 'wj751tue'
       };
     </script>
     <script>
-      (function () {
+      (function() {
         var w = window;
         var ic = w.Intercom;
         if (typeof ic === 'function') {
@@ -290,15 +254,15 @@
           ic('update', w.intercomSettings);
         } else {
           var d = document;
-          var i = function () {
+          var i = function() {
             i.c(arguments);
           };
           i.q = [];
-          i.c = function (args) {
+          i.c = function(args) {
             i.q.push(args);
           };
           w.Intercom = i;
-          var l = function () {
+          var l = function() {
             var s = d.createElement('script');
             s.type = 'text/javascript';
             s.async = true;
@@ -315,9 +279,8 @@
       })();
     </script>
     {{
-      '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23'
-      | script_tag
-    }}
+       '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23'
+       | script_tag }}
     {% render 'nosto-tagging' %}
     {% render 'klaviyo-add-to-cart' %}
 
