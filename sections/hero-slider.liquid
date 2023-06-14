@@ -5,12 +5,13 @@
 <section id="{{ section_id }}">
   <div class="hero-slider">
     {% for block in section.blocks %}
-      <div class="hero-slider-slide" style="background-image: url({{ block.settings.image | img_url: 'master' }});">
-        <div class="hero-slider-content container">
-          <div class="hero-slider-content-inner">
+      {% comment %} <div class="hero-slider-slide" style="background-image: url({{ block.settings.image | image_url: 'master' }});"> {% endcomment %}
+      <div class="hero-slider-slide" style="background-image: url({{ 'banner.png' | asset_img_url: '1920x' }});">
+        <div class="container">
+          <div class="hero-slider-content">
             <h1 class="hero-slider-heading">{{ block.settings.heading }}</h1>
-            <h2 class="hero-slider-subheading">{{ block.settings.subheading }}</h2>
             <div class="hero-slider-text">{{ block.settings.text }}</div>
+            <p class="hero-slider-subheading">{{ block.settings.subheading }}</p>
             <a href="{{ block.settings.button_url }}" class="hero-slider-button">{{ block.settings.button_text }}</a>
           </div>
         </div>
@@ -20,7 +21,100 @@
 </section>
 
 <!-- Style -->
-<style></style>
+<style>
+  .hero-slider {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-slider-slide {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 65px 0 100px;
+    border-bottom: 3px solid #6eafde;
+  }
+  .hero-slider-content {
+    max-width: 430px;
+    text-align: center;
+    margin-left: 80px;
+  }
+  .hero-slider-heading {
+    font-size: 80px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #E75184;
+    line-height: 1.05;
+  }
+  .hero-slider-heading span {
+    font-size: 100px;
+  }
+  .hero-slider-text * {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .hero-slider-subheading {
+    font-size: 36px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #67B77C;
+  }
+  .hero-slider-button {
+    display: inline-block;
+    padding: 15px 50px;
+    background: #1C75BA;
+    box-shadow: 6px 6px 12px #000000;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.1s ease;
+  }
+  .hero-slider-button:hover {
+    box-shadow: 6px 6px 6px #000000;
+    text-decoration: none;
+    color: #fff;
+  }
+
+
+  .slick-dotted.slick-slider {
+    margin-bottom: 0 !important;
+  }
+
+  .slick-dots {
+    background-color: #58595B;
+    border-radius: 10px 10px 0 0;
+    display: inline-block !important;
+    width: auto !important;
+    bottom: 3px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    padding: 0 10px 5px !important;
+  }
+  .hero-slider .slick-dots li {
+    border: 0 !important;
+    background: transparent !important;
+    height: unset !important;
+    width: unset !important;
+  }
+  .hero-slider .slick-dots li.slick-active {
+    background-color: transparent !important;
+    border: 0 !important;
+  }
+  .hero-slider .slick-dots li.slick-active button {
+    background-color: #fff !important;
+  }
+  .slick-dots li button {
+    background-color: #808285 !important;
+    height: 12px !important;
+    width: 12px !important;
+    border-radius: 50%;
+  }
+  .slick-dots li button:before {
+    content: none !important;
+  }
+</style>
 
 
 <!-- Script -->
@@ -31,7 +125,7 @@
       infinite: true,
       arrows: false,
       dots: true,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 4000
     });
   });
@@ -53,12 +147,12 @@
             "id": "image"
           },
           {
-            "label": "Title",
+            "label": "Heading",
             "type": "text",
             "id": "heading"
           },
           {
-            "label": "Subtitle",
+            "label": "Subheading",
             "type": "text",
             "id": "subheading"
           },
