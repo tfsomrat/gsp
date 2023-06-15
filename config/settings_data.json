@@ -1562,12 +1562,19 @@
       },
       "b054fe34-20dc-45d2-aa1f-305104c9f277": {
         "type": "review",
+        "blocks": {
+          "b8eeab75-89ba-4b4a-b084-f951d3bd6363": {
+            "type": "text",
+            "settings": {
+              "title": "Hello World"
+            }
+          }
+        },
+        "block_order": [
+          "b8eeab75-89ba-4b4a-b084-f951d3bd6363"
+        ],
         "settings": {
-          "heading": "",
-          "subheading": "",
-          "text": "",
-          "button_text": "",
-          "button_url": ""
+          "heading": ""
         }
       }
     },
