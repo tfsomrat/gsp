@@ -1239,18 +1239,18 @@
           "heading": "5 ways we give pet  owners what they want"
         }
       },
-      "f6f89396-d742-4045-a810-73317ccc2910": {
-        "type": "featured-collection",
+      "e0f68727-36e6-4d29-b36e-7a0be9a50045": {
+        "type": "test-featured-collection",
         "settings": {
-          "title": "Featured collection",
+          "title": "Test Featured collection",
           "collection": "featured"
         }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
-      "b054fe34-20dc-45d2-aa1f-305104c9f277",
-      "f6f89396-d742-4045-a810-73317ccc2910"
+      "e0f68727-36e6-4d29-b36e-7a0be9a50045",
+      "b054fe34-20dc-45d2-aa1f-305104c9f277"
     ]
   }
 }
