@@ -14,12 +14,14 @@
             height="165"
             width="165"
             alt="care badge" />
-          <h2 class="mb-4">{{ section.settings.heading }}</h2>
-          <ul>
-            {% for block in section.blocks %}
-              <li>{{ block.title }}</li>
-            {% endfor %}
-          </ul>
+          <div class="review-block-content">
+            <h2 class="mb-4">{{ section.settings.heading }}</h2>
+            <ul>
+              {% for block in section.blocks %}
+                <li>{{ block.settings.point }}</li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
         <div class="col-lg-5">
           <div class="bg-light">
@@ -68,7 +70,6 @@
                   on REVIEWS.io</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -79,7 +80,25 @@
 <!-- Style -->
 <style>
   .review-block {
-    padding: 100px 0;
+    padding: 10px;
+    border: 1px solid #9DC9E8;
+    border-radius: 30px;
+    position: relative;
+  }
+  .review-block-content {
+    margin-left: 35%;
+    padding: 20px;
+  }
+  .review-block-content h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #6EAFDE;
+    text-align: center;
+  }
+  .review-care-badge {
+    position: absolute;
+    top: -50px;
+    left: 10%;
   }
 </style>
 
@@ -101,12 +120,12 @@
     "blocks": [
       {
         "type": "text",
-        "name": "Review",
+        "name": "Bulletpoints",
         "settings": [
           {
             "type": "text",
-            "id": "title",
-            "label": "Title"
+            "id": "point",
+            "label": "Point"
           }
         ]
       }
