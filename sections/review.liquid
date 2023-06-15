@@ -5,8 +5,8 @@
 <section id="{{ section_id }}">
   <div class="container">
     <div class="review-block">
-      <div class="row">
-        <div class="col-lg-7" style="{{ 'review-bg.png' | asset_img_url: '520x' }}">
+      <div class="row m-0">
+        <div class="col-lg-7 review-block-bg" style="background-image:url({{ 'review-bg.png' | asset_img_url: '520x' }})">
           <img
             class="review-care-badge"
             loading="lazy"
@@ -16,15 +16,17 @@
             alt="care badge" />
           <div class="review-block-content">
             <h2 class="mb-4">{{ section.settings.heading }}</h2>
-            <ul>
+            <ol class="list-styled">
               {% for block in section.blocks %}
-                <li>{{ block.settings.point }}</li>
+                <li>
+                  <span>{{ forloop.index }}</span>
+                  {{ block.settings.point }}</li>
               {% endfor %}
-            </ul>
+            </ol>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div class="bg-light">
+        <div class="col-lg-5 p-2">
+          <div class="review-block-box">
             <img
               loading="eager"
               height="auto"
@@ -41,33 +43,35 @@
                 width="auto"
                 src="{{ 'uk-flag.png' | asset_img_url: '42x' }}" />
             </p>
-            <div class="d-flex">
-              <div class="mr-2">
+            <div class="d-flex mt-4 align-items-center">
+              <div class="mr-2 flex-shrink-0">
                 <img
-                  class="review-care-badge"
+                  class="review-badge"
                   loading="lazy"
-                  src="{{ 'care-badge.png' | asset_img_url: '165x' }}"
+                  src="{{ 'review-badge.png' | asset_img_url: '165x' }}"
                   height="165"
                   width="165"
                   alt="care badge" />
               </div>
-              <div>
+              <div class="text-center text-lead">
                 <strong>
                   99% of reviewers recommend 
                   Get Set Pet
                 </strong>
                 <img
-                  class=""
+                  class="d-block mx-auto my-3"
                   loading="lazy"
                   src="{{ 'stars.png' | asset_img_url: '115x' }}"
-                  height="165"
-                  width="165"
-                  alt="care badge" /><p>
+                  height="auto"
+                  width="115"
+                  alt="care badge" />
+                <p>
                   <strong>4.9</strong>
                   Rating <br>
                   <strong>3,444</strong>
                   Reviews <br>
-                  on REVIEWS.io</p>
+                  on REVIEWS.io
+                </p>
               </div>
             </div>
           </div>
@@ -79,11 +83,26 @@
 
 <!-- Style -->
 <style>
+  .text-lead,
+  .text-lead p {
+    font-size: 18px;
+  }
+  .text-lead strong {
+    font-weight: 700;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0 !important;
+  }
   .review-block {
-    padding: 10px;
     border: 1px solid #9DC9E8;
     border-radius: 30px;
     position: relative;
+  }
+  .review-block-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
   }
   .review-block-content {
     margin-left: 35%;
@@ -100,11 +119,46 @@
     top: -50px;
     left: 10%;
   }
+
+  .review-block-box {
+    border-radius: 30px;
+    padding: 20px;
+    background-color: #ebebec;
+    margin-left: auto;
+  }
+
+  .list-styled {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+  .list-styled li {
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #e6e7e8;
+    border-radius: 20px;
+    color: #1F75BA;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .list-styled li:nth-child(odd) {
+    background-color: #d1d3d4;
+  }
+  .list-styled li span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #1F75BA;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 25px;
+    margin-right: 10px;
+  }
 </style>
 
-
-<!-- Script -->
-<script></script>
 
 <!-- Schema -->
 {% schema %}
