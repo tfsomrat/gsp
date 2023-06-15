@@ -1,7 +1,9 @@
 <section class="container">
   <div class="row">
     <div class="col-12 col-sm-12 text-center">
-      <h2 class="title hp title-generic"><span>By Category</span></h2>
+      <h2 class="title hp title-generic">
+        <span>By Category</span>
+      </h2>
     </div>
   </div>
   <div class="row">
@@ -12,24 +14,21 @@
           <a href="{{ collection.url }}">
             {% if block.settings.image_overide %}
               {{
-                block.settings.image_overide
-                | img_url: 'large'
-                | img_tag: collection.title
-              }}
+                 block.settings.image_overide
+                 | img_url: 'large'
+                 | img_tag: collection.title }}
             {% else %}
               {{
-                collection.products.first
-                | img_url: 'large'
-                | img_tag: collection.title
-              }}
+                 collection.products.first
+                 | img_url: 'large'
+                 | img_tag: collection.title }}
             {% endif %}
           </a>
         </figure>
         <h3 class="subheading text-center">
           <a href="{{ collection.url }}">{{ collection.title }}</a>
         </h3>
-        <a class="button secondary" href="{{ collection.url }}"
-          >Shop {% render 'icon-chevron' -%}
+        <a class="button secondary" href="{{ collection.url }}">Shop {% render 'icon-chevron' -%}
         </a>
       </div>
     {% endfor %}
@@ -76,32 +75,31 @@
   }
 </style>
 {% schema %}
-{
-  "name": "Shop By Section",
-  "max_blocks": 8,
-  "blocks": [
-    {
-      "type": "collection",
-      "name": "Shop By Category",
-      "settings": [
-        {
-          "type": "collection",
-          "id": "collection",
-          "label": "Collection"
-        },
-        {
-          "type": "image_picker",
-          "id": "image_overide",
-          "label": "Image - if blank, first prod image will be used"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Shop By Categories",
-      "category": "Components"
-    }
-  ]
-}
+  {
+    "name": "Shop By Section",
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Shop By Category",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }, {
+            "type": "image_picker",
+            "id": "image_overide",
+            "label": "Image - if blank, first prod image will be used"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shop By Categories",
+        "category": "Components"
+      }
+    ]
+  }
 {% endschema %}

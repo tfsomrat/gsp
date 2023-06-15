@@ -1,0 +1,40 @@
+<section class="">
+  <div class="container">
+    {% for product in collections.featured.products %}
+      <div>
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image.src }}" alt="{{ product.featured_image.alt }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<style></style>
+
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "Collection list test",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection List Test",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

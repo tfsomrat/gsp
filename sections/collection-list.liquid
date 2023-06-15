@@ -1,133 +1,144 @@
-{%- capture section_id -%}slider-{{section.id}}{%- endcapture -%}
+{%- capture section_id -%}slider-{{ section.id }}{%- endcapture -%}
 <section class="container collection-list-slider">
-	<div class="page-width">
-		<div class="row">
-			{% if section.settings.title != blank %}
-			<div class="col-12 col-sm-12 text-center">
-				<{% if section.settings.is_h1 == true %}h1{% else %}h2{% endif %} class="title hp title-generic"><span>{{ section.settings.title }}</span></{% if section.settings.is_h1 == true %}h1{% else %}h2{% endif %}>
-			</div>
-			{% endif %}
-			<div class="{{ section_id }}">
-				{% for block in section.blocks limit: section.blocks.size %}
-				{%- assign collection = collections[block.settings.collection] -%}
-				<div class="{{ section_id }}-slide">
-					<a href="{% if collection == empty %}#{% else %}{{ collection.url }}{% endif %}" class="image">
-					{% if collection.image != blank %}
-						<img loading="lazy" class="lazyload" src="{{ 'placeholder-white.jpg' | asset_img_url }}" data-lazy="{{ collection | img_url: '100x110', crop:'center' }}" alt="{{ collection.title }}">
-					{% elsif collection.products.first != blank %}
-						<img loading="lazy" class="lazyload" src="{{ 'placeholder-white.jpg' | asset_img_url }}" data-lazy="{{ collection.products.first | img_url: '100x110', crop:'center' }}" alt="{{ collection.title }}">
-					{% elsif collection == empty %}
-						{% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-						{{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
-					{%- else -%}
-						<img loading="lazy"
-							src="{{ 'placeholder.png' | asset_url }}"
-							data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-							data-sizes="auto"
-							alt="{{ collection }}">
-					{% endif %}
-					</a>
-					<p class="detail">
-						{% if collection == empty %}
-							{{ 'homepage.onboarding.collection_title' | t }}
-						{% else %}
-							<a href="{{ collection.url }}">{{ collection.title }}</a>
-						{% endif %}
-					</p>
-				</div>
-				{% endfor %}
-			</div>
-			{% if section.settings.viewall_link != blank %}
-			<div class="col-12 col-sm-12 text-center">
-				<a class="call-to-action hp" href="{{ section.settings.viewall_link }}">Shop All {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
-			</div>
-			{% endif %}
-		</div>
-	</div>
+  <div class="page-width">
+    <div class="row">
+      {% if section.settings.title != blank %}
+        <div class="col-12 col-sm-12 text-center">
+          <h1{%else%}h2{%endif%} {% if section.settings.is_h1 == true %}class="title hp title-generic">
+            <span>{{ section.settings.title }}</span>
+          </h1{%else%}h2{%endif%}> {% if section.settings.is_h1 == true %}
+        </div>
+      {% endif %}
+      <div class="{{ section_id }}">
+        {% for block in section.blocks limit: section.blocks.size %}
+          {%- assign collection = collections[block.settings.collection] -%}
+          <div class="{{ section_id }}-slide">
+            <a href="{% if collection == empty %}#{% else %}{{ collection.url }}{% endif %}" class="image">
+              {% if collection.image != blank %}
+                <img
+                  loading="lazy"
+                  class="lazyload"
+                  src="{{ 'placeholder-white.jpg' | asset_img_url }}"
+                  data-lazy="{{ collection | img_url: '100x110', crop:'center' }}"
+                  alt="{{ collection.title }}">
+              {% elsif collection.products.first != blank %}
+                <img
+                  loading="lazy"
+                  class="lazyload"
+                  src="{{ 'placeholder-white.jpg' | asset_img_url }}"
+                  data-lazy="{{ collection.products.first | img_url: '100x110', crop:'center' }}"
+                  alt="{{ collection.title }}">
+              {% elsif collection == empty %}
+                {% capture current %}
+                  {% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+              {%- else -%}
+                <img
+                  loading="lazy"
+                  src="{{ 'placeholder.png' | asset_url }}"
+                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                  data-sizes="auto"
+                  alt="{{ collection }}">
+              {% endif %}
+            </a>
+            <p class="detail">
+              {% if collection == empty %}
+                {{ 'homepage.onboarding.collection_title' | t }}
+              {% else %}
+                <a href="{{ collection.url }}">{{ collection.title }}</a>
+              {% endif %}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+      {% if section.settings.viewall_link != blank %}
+        <div class="col-12 col-sm-12 text-center">
+          <a class="call-to-action hp" href="{{ section.settings.viewall_link }}">Shop All {% render 'icon-chevron', fill_color: "#3eaafd", direction: "right" %}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
 </section>
 <style>
-.{{ section_id }}-slide {
-	text-align: center;
-	border-radius: 5px;
-	margin: 10px;
-}
+  .{{ section_id }}-slide {
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px;
+  }
 
-.{{ section_id }}-slide img {
-	margin: auto 5px !important;
-	padding: 20px 10px 10px 10px;
-}
-.{{ section_id }}-slide a.image{
-  display: block;
-}
-.{{ section_id }}-slide .detail, .{{ section_id }}-slide .detail a {
-	color: black;
-	text-decoration: none;
-	margin: 15px 0px 25px;
-	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
-	font-weight: bold;
-	display: none;
-}
+  .{{ section_id }}-slide img {
+    margin: auto 5px !important;
+    padding: 20px 10px 10px !important;
+  }
+  .{{ section_id }}-slide a.image {
+    display: block;
+  }
+  .{{ section_id }}-slide .detail, .{{ section_id }}-slide .detail a {
+    color: black;
+    text-decoration: none;
+    margin: 15px 0 25px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    display: none;
+  }
 
-.collection-list-slider .slick-dots {
+  .collection-list-slider .slick-dots {
     bottom: -25px !important;
-}
-
+  }
 </style>
 <script>
-$(document).ready(function(){
+  $(document).ready(function() {
 
-  //$('.{{ section_id }} a.image').matchHeight();
+// $('.{{ section_id }} a.image').matchHeight();
 
-	$('.{{ section_id }}').slick({
-		infinite: true,
-		lazyLoad: 'ondemand',
-		slidesToShow: 10,
-		arrows: false,
-		slidesToScroll: 1,
-		autoplay: true,
-		speed: 15000,
-		autoplaySpeed: 0,
-        cssEase: 'linear',
-		arrows: true,
-		dots: false,
-		responsive: [
-			{
-				breakpoint: 920,
-				settings: {
-					arrows: true,
-					dots: false,
-					centerMode: true,
-					centerPadding: '40px',
-					slidesToShow: 8,
-					slidesToScroll: 1
-				}
-			},
-			{
-				breakpoint: 720,
-				settings: {
-					arrows: true,
-					dots: false,
-					centerMode: true,
-					centerPadding: '40px',
-					slidesToShow: 3,
-					slidesToScroll: 1
-				}
-			},
-			{
-				breakpoint: 568,
-				settings: {
-					arrows: true,
-					dots: false,
-					centerMode: true,
-					centerPadding: '40px',
-					slidesToShow: 1,
-					slidesToScroll: 1
-				}
-			}
-		]
-	});
-})
+    $('. {{ section_id }}').slick({
+      infinite: true,
+      lazyLoad: 'ondemand',
+      slidesToShow: 10,
+      arrows: false,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 15000,
+      autoplaySpeed: 0,
+      cssEase: 'linear',
+      arrows: true,
+      dots: false,
+      responsive: [
+        {
+          breakpoint: 920,
+          settings: {
+            arrows: true,
+            dots: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 8,
+            slidesToScroll: 1
+          }
+        }, {
+          breakpoint: 720,
+          settings: {
+            arrows: true,
+            dots: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        }, {
+          breakpoint: 568,
+          settings: {
+            arrows: true,
+            dots: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  })
 </script>
 {% if section.blocks.size == 0 %}
   {% render 'no-blocks' %}
@@ -143,46 +154,40 @@ $(document).ready(function(){
         "id": "title",
         "label": "Heading",
         "default": "Collection list"
-	  },
-	  {
-            "type": "checkbox",
-            "id": "is_h1",
-            "label": "Tick for H1"
-        },
-
-	  {
-			"type":      "select",
-			"id":        "title_icon",
-			"label":     "Title Icon",
-			"options": [
-							{
-									"value": "title-generic",
-									"label": "Generic"
-							},
-							{
-									"value": "title-dog",
-									"label": "Dog"
-							},
-							{
-									"value": "title-cat",
-									"label": "Cat"
-							},
-							{
-									"value": "title-furry",
-									"label": "Furry Animals"
-							},
-							{
-									"value": "title-reptiles",
-									"label": "Reptiles"
-							},
-							{
-									"value": "title-bird",
-									"label": "Bird"
-							}
-			],
-			"default":   "title-dog"
-		 },
-      {
+      }, {
+        "type": "checkbox",
+        "id": "is_h1",
+        "label": "Tick for H1"
+      }, {
+        "type": "select",
+        "id": "title_icon",
+        "label": "Title Icon",
+        "options": [
+          {
+            "value": "title-generic",
+            "label": "Generic"
+          },
+          {
+            "value": "title-dog",
+            "label": "Dog"
+          },
+          {
+            "value": "title-cat",
+            "label": "Cat"
+          },
+          {
+            "value": "title-furry",
+            "label": "Furry Animals"
+          }, {
+            "value": "title-reptiles",
+            "label": "Reptiles"
+          }, {
+            "value": "title-bird",
+            "label": "Bird"
+          }
+        ],
+        "default": "title-dog"
+      }, {
         "type": "url",
         "id": "viewall_link",
         "label": "View All link"
@@ -208,11 +213,9 @@ $(document).ready(function(){
         "blocks": [
           {
             "type": "collection"
-          },
-          {
+          }, {
             "type": "collection"
-          },
-          {
+          }, {
             "type": "collection"
           }
         ]
