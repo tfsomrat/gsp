@@ -1568,10 +1568,24 @@
             "settings": {
               "title": "Hello World"
             }
+          },
+          "ac2f3b9c-ef75-4f58-8176-e1adcec43232": {
+            "type": "text",
+            "settings": {
+              "title": "How are you"
+            }
+          },
+          "e9b48cf9-9a52-420f-aace-792d46e6359e": {
+            "type": "text",
+            "settings": {
+              "title": "this is crazy"
+            }
           }
         },
         "block_order": [
-          "b8eeab75-89ba-4b4a-b084-f951d3bd6363"
+          "b8eeab75-89ba-4b4a-b084-f951d3bd6363",
+          "ac2f3b9c-ef75-4f58-8176-e1adcec43232",
+          "e9b48cf9-9a52-420f-aace-792d46e6359e"
         ],
         "settings": {
           "heading": ""
