@@ -5,19 +5,18 @@
 <section id="{{ section_id }}">
   <div class="hero-slider">
     {% for block in section.blocks %}
-      {% comment %} <div class="hero-slider-slide" style="background-image: url({{ block.settings.image | image_url: 'master' }});"> {% endcomment %}
       <div class="hero-slider-slide">
         <img
           class="hero-slider-image d-none d-sm-block"
           loading="eager"
-          src="{{ 'banner.png' | asset_img_url: '1920x' }}"
+          src="{{ block.settings.image | asset_img_url: '1920x' }}"
           height="auto"
           width="1920"
           alt="banner" />
         <img
           class="hero-slider-image d-block d-sm-none"
           loading="eager"
-          src="{{ 'banner-mobile.png' | asset_img_url: '1920x' }}"
+          src="{{ block.settings.image_mobile | asset_img_url: '565x' }}"
           height="auto"
           width="565"
           alt="banner" />

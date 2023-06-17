@@ -1,59 +1,52 @@
-{% capture thisListItem %}
-  {% comment %}capture the product listing to show in the relvat places below{% endcomment %}
-  <div class="collection__list-item">
-    <div class="collection__list-item-image">
-      {% for tag in product.tags %}
-        {% if tag contains 'free-delivery' %}
-          <img
-            loading="lazy"
-            height="auto"
-            width="auto"
-            src="{{ 'free-delivery.png' | asset_img_url }}"
-            alt="Free Delivery">
-        {% endif %}
-      {% endfor %}
-      <a href="{{ product.url }}">
+<div class="collection__list-item">
+  <div class="collection__list-item-image">
+    {% for tag in product.tags %}
+      {% if tag contains 'free-delivery' %}
         <img
           loading="lazy"
-          class="product__grid-image lazyload"
-          data-lazy="{{ product | img_url: '300x300' }}"
-          data-src="{{ img_url }}"
-          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-          data-sizes="auto"
-          alt="{{ product.image.alt | escape }}"
-          width="300"
-          height="300">
-      </a>
-    </div>
-    {% if product.title != blank %}
-      <h3 class="detail">{{ product.title }}</h3>
-    {% endif %}
-    {% render 'product-price' %}
-      <form action="/cart/add"
-      data-productid="{{ product.id }}"
-      method="post"
-      enctype="multipart/form-data"
-      class="add-to-cart"
-      data-cart-submit>
-      <!-- Begin ReCharge code -->
-      {% if product.available %}
-        {% render 'subscription-product' %}{% endif %}
-      <!-- End ReCharge code -->
-
-      {% assign current_variant = product.selected_or_first_available_variant %}
-      <select
-        style="display:none"
-        name="id[]"
-        class="no-js"
-        data-product-select>
-        {% for variant in product.variants %}
-          <option {% if variant == current_variant %}selected="selected"{% endif %}{% unless variant.available %}disabled="disabled"{% endunless %}value="{{ variant.id }}">
-            {{ variant.title }}
-          </option>
-        {% endfor %}
-      </select>
-    </form>
+          height="auto"
+          width="auto"
+          src="{{ 'free-delivery.png' | asset_img_url }}"
+          alt="Free Delivery">
+      {% endif %}
+    {% endfor %}
+    <a href="{{ product.url }}">
+      <img
+        loading="lazy"
+        class="product__grid-image lazyload"
+        data-lazy="{{ product | img_url: '300x300' }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-sizes="auto"
+        alt="{{ product.image.alt | escape }}"
+        width="300"
+        height="300">
+    </a>
   </div>
-{% endcapture %}
+  <h3>{{ product.title }}</h3>
+  {% render 'product-price' %}
+    <form action="/cart/add"
+    data-productid="{{ product.id }}"
+    method="post"
+    enctype="multipart/form-data"
+    class="add-to-cart"
+    data-cart-submit>
+    <!-- Begin ReCharge code -->
+    {% if product.available %}
+      {% render 'subscription-product' %}{% endif %}
+    <!-- End ReCharge code -->
 
-{{ thisListItem }}
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    <select
+      style="display:none"
+      name="id[]"
+      class="no-js"
+      data-product-select>
+      {% for variant in product.variants %}
+        <option {% if variant == current_variant %}selected="selected"{% endif %}{% unless variant.available %}disabled="disabled"{% endunless %}value="{{ variant.id }}">
+          {{ variant.title }}
+        </option>
+      {% endfor %}
+    </select>
+  </form>
+</div>

@@ -1,19 +1,22 @@
 {%- assign collection = collections[section.settings.collection] -%}
 
-<div class="container" style="max-width: 1400px; margin: auto;">
-  {% if section.settings.title != blank %}
-    <h2 class="title hp title-generic">
-      <span>{{ section.settings.title }}</span>
-    </h2>
-  {% endif %}
-  <div class="{{ collection.handle }}-slider">
-    {% liquid
-      for product in collection.products limit: 12
-      render 'test-product-list-item'
-      endfor
-    %}
+<section>
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="title hp title-generic">
+        <span>{{ section.settings.title }}</span>
+      </h2>
+    {% endif %}
+    <div class="{{ collection.handle }}-slider">
+      {% liquid
+        for product in collection.products limit: 12
+        render 'test-product-list-item'
+        endfor
+      %}
+    </div>
+
   </div>
-</div>
+</section>
 
 
 <style>
