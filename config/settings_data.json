@@ -1284,13 +1284,21 @@
           "title": "Pet supplies delivered on <br> your schedule",
           "subscribe_link": ""
         }
+      },
+      "87b95d38-69ed-43a7-bdab-c84aed6892a5": {
+        "type": "news-letter",
+        "settings": {
+          "title": "Never miss out when your favorite stuff goes on sale!",
+          "content": "<p>Subscribe to our newsletter and get 10% off your first purchase<\/p>"
+        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
       "e0f68727-36e6-4d29-b36e-7a0be9a50045",
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
-      "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a"
+      "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
+      "87b95d38-69ed-43a7-bdab-c84aed6892a5"
     ]
   }
 }
