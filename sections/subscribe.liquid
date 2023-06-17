@@ -15,10 +15,10 @@
     <div class="text-center pet-subscribe">
       <img
         class="main-img"
-        width="full"
+        width="auto"
         height="auto"
         loading="lazy"
-        src="{{ 'subscribe-dogs.png' | asset_img_url }}"
+        src="{{ 'subscribe-dogs.png' | asset_img_url: "1920x" }}"
         alt="dogs" />
       <div class="subscribe-title d-flex align-items-center">
         <h4>It’s so <br/>easy</h4>
@@ -42,38 +42,12 @@
       {% for block in section.blocks %}
         <div class="col-lg-4">
           <div class="subscribe-card">
-            <h1>1</h1>
-            <h3>
-              Savings on <br/>
-              top of savings!
-            </h3>
-            <p>
-              Subscriber discounts are added to your other savings on 50+
-              brands
-            </p>
+            <h1>{{ forloop.index }}</h1>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.content }}</p>
           </div>
         </div>
       {% endfor %}
-      <div class="col-lg-4">
-        <div class="subscribe-card">
-          <h1>2</h1>
-          <h3>
-            Get exclusive <br/>
-            rewards
-          </h3>
-          <p>Get early access to any upcoming sales and special offers</p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="subscribe-card">
-          <h1>3</h1>
-          <h3>
-            Delivery schedules<br/>
-            that suit your busy life
-          </h3>
-          <p>And you can cancel your order at anytime</p>
-        </div>
-      </div>
     </div>
     <div class="text-center">
       <a href="/collection/all" class="shop-now">SHOPNOW</a>
