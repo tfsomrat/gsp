@@ -1,0 +1,123 @@
+<section class="news-letter">
+  <div class="container">
+    <div class="has-gradient position-relative d-none d-lg-block">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="news-letter-desc">
+            <h3 class="mb-2 mb-xl-3">
+              {{ section.settings.title }}
+            </h3>
+            {{ section.settings.content }}
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <img
+            class="position-absolute top-0 dog"
+            width="221"
+            height="380"
+            loading="lazy"
+            src="{{ 'newsletter-dog.png' | asset_img_url: "500x" }}"
+            alt="dog" />
+          <img
+            class="position-absolute qr-code"
+            width="180"
+            height="180"
+            loading="lazy"
+            src="{{ 'qr-code.png' | asset_img_url: "500x" }}"
+            alt="Qr-code" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Style -->
+<style>
+
+  .news-letter .news-letter-desc h3 {
+    color: #1c75ba;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .news-letter .news-letter-desc h3 {
+      font-size: 36px;
+      line-height: 47px;
+    }
+  }
+
+  .news-letter .news-letter-desc p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .news-letter .news-letter-desc p {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  .news-letter .dog {
+    width: 192px;
+    height: 290px;
+    transform: translateY(-25%);
+    right: 40px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .news-letter .dog {
+      transform: translateY(-25%);
+      right: 60px;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .news-letter .qr-code {
+    right: 155px;
+    width: 155px;
+    height: 155px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .news-letter .qr-code {
+      right: 195px;
+      width: auto;
+      height: auto;
+    }
+  }
+</style>
+
+
+<!-- Schema -->
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Never miss out when your favorite stuff goes on sale!"
+      }, {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content",
+        "default": "<p>Subscribe to our newsletter and get 10% off your first purchase</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Newsletter",
+        "category": "Modules"
+      }
+    ]
+  }
+{% endschema %}
