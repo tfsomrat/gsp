@@ -1245,12 +1245,32 @@
           "title": "Test Featured collection",
           "collection": "featured"
         }
+      },
+      "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a": {
+        "type": "subscribe",
+        "blocks": {
+          "953cfc7a-656b-498f-a69e-117834eeba27": {
+            "type": "step",
+            "settings": {
+              "title": "Savings on top of savings!",
+              "content": "<p><strong>Subscriber discounts are added to your other savings on 50+ brands<\/strong><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "953cfc7a-656b-498f-a69e-117834eeba27"
+        ],
+        "settings": {
+          "title": "Pet supplies delivered on <br> your schedule",
+          "subscribe_link": ""
+        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
       "e0f68727-36e6-4d29-b36e-7a0be9a50045",
-      "b054fe34-20dc-45d2-aa1f-305104c9f277"
+      "b054fe34-20dc-45d2-aa1f-305104c9f277",
+      "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a"
     ]
   }
 }
