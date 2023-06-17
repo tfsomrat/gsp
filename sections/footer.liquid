@@ -1,4 +1,4 @@
-<div class="klaviyo-form-RJ8f6g"></div>
+{% comment %} <div class="klaviyo-form-RJ8f6g"></div>
 <footer class="site-footer">
   <div class="page-width container">
     <div class="row">
@@ -103,7 +103,372 @@
       </div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
+
+<footer>
+  <div class="container">
+    <div
+      class="footer-header-row row justify-content-between align-items-center"
+    >
+      <div class="did-you-know-column col-lg-auto">
+        <div class="d-flex align-items-center">
+          <h2 class="did-you-know-heading mr-3">Did you know?...</h2>
+          <img
+            width="144"
+            height="156"
+            loading="lazy"
+            src="{{ 'animal-feed.png' | asset_img_url: "200x" }}"
+            alt="animal-feed"
+            class="did-you-know-image"
+          />
+        </div>
+      </div>
+      <div class="contribution-column col-lg-5">
+        <p class="contribution-text">
+          We contribute excess or expired inventory to a
+          <b>local animal shelter</b>
+        </p>
+      </div>
+      <div class="learn-more-column col-lg-auto">
+        <a href="#" class="learn-more-button">Learn more</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-7 mt-4">
+        <div class="footer-content-row row has-border">
+          <div class="footer-logo-column col-lg-4">
+            <div class="footer-logo-wrapper pt-0">
+              <img
+                loading="lazy"
+                width="162"
+                height="146"
+                src="{{ 'footer-logo.png' | asset_img_url: "200x" }}"
+                alt="footer-logo"
+                class="footer-logo-image"
+              />
+              <h2 class="my-2">500,000</h2>
+              <p>
+                Happy pets <br />
+                since 2019
+              </p>
+            </div>
+          </div>
+          <div class="footer-column col-lg-4">
+            <div class="ask-expert-wrapper">
+              <h2 class="ask-expert-heading">Ask the Expert</h2>
+              <ul class="expert-category-list">
+                {% for link in linklists['footer-categories'].links %}
+                <li class="expert-category-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="footer-column col-lg-4">
+            <div class="more-info-wrapper">
+              <h2 class="more-info-heading">More Info</h2>
+              <ul class="more-info-list">
+                {% for link in linklists[section.settings.footer_linklist_2_links].links %}
+                <li class="expert-category-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row has-border">
+          <div class="col-lg-6">
+            <div class="footer-column pt-0">
+              <h2>Get Set Connect</h2>
+              {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, TikTok, Tumblr, YouTube, Vimeo, Google' | split: ', ' -%}
+              <ul class="ml-auto social-icons">
+                {% for social in social_accounts %}
+                {%- assign social_handle = social | handleize -%}
+                {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+                {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+                {% if settings[social_link] != blank %}
+                  <li>
+                    <a
+                      href="{{ settings[social_link] }}"
+                      title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}"
+                    >
+                    <img
+                      loading="eager"
+                      height="auto"
+                      width="auto"
+                      src="{{ social_handle | prepend: 'icon-' | append: '.svg' | asset_url }}"
+                      alt="{{ social_handle }}"/>
+                    </a>
+                  </li>
+                {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="footer-column">
+              <h2>Get Set Connect</h2>
+              {% unless shop.enabled_payment_types != empty %}
+              <img width="182" height="44" loading="lazy" 
+              src="{{ 'payments.png' | asset_img_url: "200x" }}" alt="payments" />
+              {% endunless %}
+              {% unless shop.enabled_payment_types == empty %}
+                <span class="visually-hidden">
+                  {{- 'layout.footer.payment_methods' | t -}}
+                </span>
+                <ul class="footer__payment-icons">
+                  {% for type in shop.enabled_payment_types %}
+                    <li>
+                      {{ type | payment_type_svg_tag: class: 'icon' }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endunless %}
+            </div>
+          </div>
+        </div>
+        <script
+          src="https://widget.reviews.co.uk/rich-snippet-reviews-widgets/dist.js"
+          type="text/javascript"
+        ></script>
+        <div id="text-banner-widget"></div>
+
+        <script>
+          richSnippetReviewsWidgets('text-banner-widget', {
+            store: 'get-set-pet',
+            starsClr: '#f47e27',
+            textClr: '#313131',
+            logoClr: '#12cf6c',
+            widgetName: 'text-banner',
+            css: '.TextBanner{margin: 0; background-color: #fff; padding: 18px 0 20px 0; border-radius: 6px;}',
+          });
+        </script>
+        <div class="customer-opinion mt-3">
+          <div
+            class="d-flex justify-content-between align-items-center mb-2"
+          >
+            <h4 class="mr-4">
+              Our customers say: <b><i>Excellent</i></b>
+            </h4>
+            <ul class="starts m-0">
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li><i class="fa-solid fa-star"></i></li>
+            </ul>
+          </div>
+          <p class="mb-0">
+            <b>4.94</b> out of 5 stars, based on <b>3,444</b> Reviews on
+            <b>REVIEWS.io</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="copywrite d-block d-lg-none">
+    © 2023 GetSetPet Ltd. All Rights Reserved.
+  </p>
+</footer>
+
+<style>
+footer {
+  padding-top: 32px;
+  background: #6eafde;
+}
+
+footer .did-you-know-column h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .did-you-know-column h2 {
+    font-size: 36px;
+    line-height: 54px;
+  }
+}
+
+.did-you-know-column img {
+  width: 45px;
+  height: 49px;
+}
+
+@media only screen and (min-width: 768px) {
+  .did-you-know-column img {
+    width: auto;
+    height: auto;
+  }
+}
+
+footer .contribution-column p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .contribution-column p {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+footer .learn-more-column a {
+  padding: 10px 65px;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  background: #1c75ba;
+  box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.32);
+  border-radius: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .learn-more-column a {
+    font-size: 18px;
+    line-height: 27px;
+    padding: 10px 48px;
+  }
+}
+
+footer .footer-content-row {
+  margin-bottom: 30px;
+}
+
+footer .footer-content-row h2 {
+  font-weight: 300;
+  font-size: 32px;
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .footer-content-row h2 {
+    font-size: 36px;
+  }
+}
+
+footer .footer-content-row p {
+  font-weight: 500;
+  color: #fff;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+@media only screen and (min-width: 768px) {
+  footer .footer-content-row p {
+    font-size: 21px;
+    line-height: 28px;
+  }
+}
+
+footer .footer-column h2 {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 27px;
+  margin-bottom: 12px;
+}
+
+footer .footer-content-row .footer-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 9px;
+}
+
+footer .footer-content-row .footer-column li {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #fff;
+}
+
+footer .footer-content-row .footer-column li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+footer .social-icons {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+footer .social-icons li a {
+  width: 28px;
+  height: 28px;
+  text-decoration: none;
+}
+
+footer .social-icons li:not(:last-child) {
+  margin-right: 13px;
+}
+
+footer .customer-opinion {
+  background: #fff;
+  border-radius: 20px;
+  padding: 17px;
+}
+
+footer .customer-opinion h4 {
+  font-weight: 400;
+  color: #1c75ba;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+footer .customer-opinion p {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+footer .customer-opinion .starts {
+  display: flex;
+  padding: 4px 14px;
+  background: #e9f3fa;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+footer .customer-opinion .starts li {
+  color: #facd4d;
+}
+
+footer .customer-opinion .starts li:not(:last-child) {
+  margin-right: 4px;
+}
+
+footer .copywrite {
+  margin-top: 16px;
+  border-top: 0.5px solid #dadada;
+  text-align: center;
+  color: #dadada;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  font-size: 8px;
+  line-height: 12px;
+}
+
+@media only screen and (max-width: 575px) {
+  .has-border > * > * {
+    padding-block: 32px;
+  }
+
+  .has-border > *:not(:last-child) > * {
+    border-bottom: 1px solid #fff;
+  }
+}
+
+</style>
 
 {% schema %}
 {
