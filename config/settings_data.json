@@ -1291,6 +1291,15 @@
           "title": "Never miss out when your favorite stuff goes on sale!",
           "content": "<p>Subscribe to our newsletter and get 10% off your first purchase<\/p>"
         }
+      },
+      "f9698704-ce43-4b5f-91ff-580b8b8bdb23": {
+        "type": "get-help",
+        "settings": {
+          "title": "Need help with anything?",
+          "faq_link": "",
+          "phone_number": "000 000 000",
+          "email": ""
+        }
       }
     },
     "content_for_index": [
@@ -1298,7 +1307,8 @@
       "e0f68727-36e6-4d29-b36e-7a0be9a50045",
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
-      "87b95d38-69ed-43a7-bdab-c84aed6892a5"
+      "87b95d38-69ed-43a7-bdab-c84aed6892a5",
+      "f9698704-ce43-4b5f-91ff-580b8b8bdb23"
     ]
   }
 }
