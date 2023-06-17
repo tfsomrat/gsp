@@ -1262,11 +1262,19 @@
               "title": "Get exclusive rewards",
               "content": "<p><strong>Get early access to any upcoming sales and special offers<\/strong><\/p>"
             }
+          },
+          "0a46d017-0f9e-40f7-b1d8-6004e68ab0c1": {
+            "type": "step",
+            "settings": {
+              "title": "Delivery schedules that suit your busy life",
+              "content": "<p><strong>And you can cancel your order at anytime<\/strong><\/p>"
+            }
           }
         },
         "block_order": [
           "953cfc7a-656b-498f-a69e-117834eeba27",
-          "43235163-4e34-459f-bc46-33d54e7f3f87"
+          "43235163-4e34-459f-bc46-33d54e7f3f87",
+          "0a46d017-0f9e-40f7-b1d8-6004e68ab0c1"
         ],
         "settings": {
           "title": "Pet supplies delivered on <br> your schedule",
