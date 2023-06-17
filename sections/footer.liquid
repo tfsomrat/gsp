@@ -143,7 +143,7 @@
                 loading="lazy"
                 width="162"
                 height="146"
-                src="{{ 'footer-logo.png' | asset_img_url: "200x" }}"
+                src="{{ 'footer-logo.png' | asset_img_url: '200x' }}"
                 alt="footer-logo"
                 class="footer-logo-image"
               />
@@ -233,7 +233,6 @@
           type="text/javascript"
         ></script>
         <div id="text-banner-widget"></div>
-
         <script>
           richSnippetReviewsWidgets('text-banner-widget', {
             store: 'get-set-pet',
@@ -244,6 +243,7 @@
             css: '.TextBanner{margin: 0; background-color: #fff; padding: 18px 0 20px 0; border-radius: 6px;}',
           });
         </script>
+        {% comment %}
         <div class="customer-opinion mt-3">
           <div
             class="d-flex justify-content-between align-items-center mb-2"
@@ -264,6 +264,7 @@
             <b>REVIEWS.io</b>
           </p>
         </div>
+        {% endcomment %}
       </div>
     </div>
   </div>
