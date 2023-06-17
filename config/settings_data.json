@@ -1255,10 +1255,18 @@
               "title": "Savings on top of savings!",
               "content": "<p><strong>Subscriber discounts are added to your other savings on 50+ brands<\/strong><\/p>"
             }
+          },
+          "43235163-4e34-459f-bc46-33d54e7f3f87": {
+            "type": "step",
+            "settings": {
+              "title": "Get exclusive rewards",
+              "content": "<p><strong>Get early access to any upcoming sales and special offers<\/strong><\/p>"
+            }
           }
         },
         "block_order": [
-          "953cfc7a-656b-498f-a69e-117834eeba27"
+          "953cfc7a-656b-498f-a69e-117834eeba27",
+          "43235163-4e34-459f-bc46-33d54e7f3f87"
         ],
         "settings": {
           "title": "Pet supplies delivered on <br> your schedule",
