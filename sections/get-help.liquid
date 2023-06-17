@@ -1,0 +1,260 @@
+<section class="get-help">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="get-help-left">
+          <img
+            loading="lazy"
+            class="rabbit img-fluid"
+            width="472"
+            height="545"
+            src="{{ 'get-help-rabbit.png' | asset_img_url: "500x" }}"
+            alt="rabbit" />
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="get-help-right">
+          <h3>{{ section.settings.title }}</h3>
+          <h5>Get more info about your pet supplies</h5>
+          <div class="row get-help-cards g-sm-3">
+            <div class="col-lg-4">
+              <div class="text-center get-help-card h-100">
+                <img
+                  loading="lazy"
+                  width="59"
+                  height="56"
+                  src="{{ 'get-help-message.png' | asset_img_url: '60x' }}"
+                  alt="message" />
+                <h2>FAQs</h2>
+                <div class="d-none d-sm-block">
+                  <p class="d-none d-sm-block">
+                    Get answers <br/>
+                    right away
+                  </p>
+                  <a href="{{ section.settings.faq_link }}">Read now</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="text-center get-help-card h-100">
+                <img
+                  loading="lazy"
+                  width="59"
+                  height="56"
+                  src="{{ 'get-help-call.png' | asset_img_url: '60x' }}"
+                  alt="message" />
+                <h2>Call</h2>
+                <div class="d-none d-sm-block">
+                  <p>
+                    Talk to a <br/>
+                    real person
+                  </p>
+                  <a href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="text-center get-help-card h-100">
+                <img
+                  loading="lazy"
+                  width="59"
+                  height="56"
+                  src="{{ 'get-help-mail.png' | asset_img_url: '60x' }}"
+                  alt="message" />
+                <h2>Email us</h2>
+                <div class="d-none d-sm-block">
+                  <p>Send your questions <br/>and comments</p>
+                  <a href="mailto:{{ section.settings.email }}">Send now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Style -->
+<style>
+
+  .get-help {
+    padding: 55px 0 !important;
+    background-color: #e6e7e8;
+    background-image: url("/img/bg.png");
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .get-help .get-help-left {
+    text-align: center;
+  }
+
+  .get-help .get-help-left img {
+    width: 221px;
+    height: 220.87px;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-left img {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .get-help .get-help-left {
+      text-align: center;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .get-help .get-help-left {
+      margin-top: -90px;
+    }
+  }
+
+  .get-help .get-help-right h3 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    margin-top: 16px;
+    text-align: center;
+    color: #1c75ba;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-right h3 {
+      margin-top: 16px;
+      font-size: 36px;
+      line-height: 54px;
+    }
+  }
+
+  .get-help .get-help-right h5 {
+    font-size: 10px;
+    line-height: 15px;
+    font-weight: 400;
+    color: #1c75ba;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-right h5 {
+      font-size: 28px;
+      line-height: 42px;
+    }
+  }
+
+  .get-help .get-help-right .get-help-cards > *:nth-child(2) h2 {
+    color: #67b77c;
+  }
+
+  .get-help .get-help-right .get-help-cards > *:nth-child(2) a {
+    background: #67b77c;
+  }
+
+  .get-help .get-help-right .get-help-cards > *:nth-child(3) h2 {
+    color: #8e7aac;
+  }
+
+  .get-help .get-help-right .get-help-cards > *:nth-child(3) a {
+    background: #8e7aac;
+  }
+
+  .get-help .get-help-right .get-help-card {
+    display: flex;
+    max-width: 120px;
+    margin: auto;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-right .get-help-card {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  .get-help .get-help-right .get-help-card img {
+    width: 12px;
+    height: 11px;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-right .get-help-card img {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .get-help .get-help-right .get-help-card h2 {
+    margin-inline: 10px;
+    color: #e75184;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  @media only screen and (min-width: 576px) {
+    .get-help .get-help-right .get-help-card h2 {
+      margin-block: 18px;
+      font-size: 24px;
+      line-height: 36px;
+    }
+  }
+
+  .get-help .get-help-right .get-help-card p {
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+    line-height: 24px;
+  }
+
+  .get-help .get-help-right .get-help-card a {
+    margin-top: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #ffffff;
+    padding: 11px 25px;
+    border-radius: 20px;
+    background: #e75184;
+    border: none;
+  }
+</style>
+
+
+<!-- Schema -->
+{% schema %}
+  {
+    "name": "Get Help",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Need help with anything?"
+      }, {
+        "type": "url",
+        "id": "faq_link",
+        "label": "Faq Link"
+      }, {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone Number"
+      }, {
+        "type": "text",
+        "id": "email",
+        "label": "Email"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Get Help",
+        "category": "Modules"
+      }
+    ]
+  }
+{% endschema %}
