@@ -1,8 +1,4 @@
-{%- capture section_id -%}
-  hero-slider-{{ section.id }}
-{%- endcapture -%}
-
-<section id="{{ section_id }}">
+<section>
   <div class="hero-slider">
     {% for block in section.blocks %}
       <div class="hero-slider-slide">
