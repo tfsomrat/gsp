@@ -9,14 +9,14 @@
         <img
           class="hero-slider-image d-none d-sm-block"
           loading="eager"
-          src="{{ block.settings.image | asset_img_url: '1920x' }}"
+          src="{{ block.settings.image | img_url: '1920x' }}"
           height="auto"
           width="1920"
           alt="banner" />
         <img
           class="hero-slider-image d-block d-sm-none"
           loading="eager"
-          src="{{ block.settings.image_mobile | asset_img_url: '565x' }}"
+          src="{{ block.settings.image_mobile | img_url: '565x' }}"
           height="auto"
           width="565"
           alt="banner" />
