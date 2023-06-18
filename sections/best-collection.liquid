@@ -3,59 +3,59 @@
     <h2>Best Sellers this Month</h2>
     <div class="product-slider-wrapper">
       <div class="product-slider">
-        <div class="text-center product">
-          <div class="batch">
-            <div>
-              <span class="love me-1">
-                <i class="fa-solid fa-heart"></i>
+        {% for product in collections[section.settings.collection].products %}
+          <div class="text-center product">
+            <div class="badge d-block">
+              <div class="on-sale">
+                {% render 'icon-badge-on-sale' %}
+                <span>ON SALE</span>
+              </div>
+            </div>
+            <img
+              loading="lazy"
+              class="img-fluid mx-auto"
+              src="/img/slider-img/1.png"
+              alt="slide-img" />
+            <p class="product-name">Zogoflex Hurley</p>
+            <div class="product-size"></div>
+            <h4 class="product-price">£13.90</h4>
+            <ul class="product-stars">
+              <li>
+                <i class="fa-sharp fa-solid fa-star"></i>
+              </li>
+              <li>
+                <i class="fa-sharp fa-solid fa-star"></i>
+              </li>
+              <li>
+                <i class="fa-sharp fa-solid fa-star"></i>
+              </li>
+              <li>
+                <i class="fa-sharp fa-solid fa-star"></i>
+              </li>
+              <li>
+                <i class="fa-sharp fa-solid fa-star"></i>
+              </li>
+            </ul>
+            <div class="product-review">
+              <span>12 Reviews</span>
+              <span>
+                <i class="fa-sharp fa-solid fa-caret-down"></i>
               </span>
-              <span>STAFF PICK</span>
             </div>
+            <button class="product-cart">
+              <div class="cart-icon">
+                <img
+                  width="18"
+                  height="16"
+                  src="img/cart.svg"
+                  alt="cart">
+              </div>
+              Add to Cart
+            </button>
           </div>
-          <img
-            class="img-fluid mx-auto"
-            src="/img/slider-img/1.png"
-            alt="slide-img">
-          <p class="product-name">Zogoflex Hurley <br> TOPRATED</p>
-          <div class="product-size"></div>
-          <h4 class="product-price">£13.90</h4>
-
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
+        {% endfor %}
         <div class="text-center product">
-          <div class="batch"></div>
+          <div class="badge"></div>
           <img
             width="110"
             height="143"
@@ -102,11 +102,11 @@
           </button>
         </div>
         <div class="text-center product">
-          <div class="batch">
+          <div class="badge">
             <div class="best-seller">
-              <span class="me-1 d-inline-block">
+              <span class="mr-1 d-inline-block">
                 <img
-                  class="me-1"
+                  class="mr-1"
                   src="img/best-seller.png"
                   alt="best-seller">
               </span>
@@ -159,9 +159,9 @@
           </button>
         </div>
         <div class="text-center product">
-          <div class="batch ">
+          <div class="badge ">
             <div class="on-sale">
-              <span class="d-inline-block me-1">
+              <span class="d-inline-block mr-1">
                 <img
                   width="20"
                   height="20"
@@ -222,7 +222,7 @@
           </button>
         </div>
         <div class="text-center product">
-          <div class="batch">
+          <div class="badge">
             <div>
               <span class="love">
                 <i class="fa-solid fa-heart"></i>
@@ -276,9 +276,9 @@
           </button>
         </div>
         <div class="text-center product">
-          <div class="batch">
+          <div class="badge">
             <div class="top-rated">
-              <span class="me-1">
+              <span class="mr-1">
                 <img
                   width="19"
                   height="21"
@@ -338,9 +338,9 @@
           </button>
         </div>
         <div class="text-center product">
-          <div class="batch">
+          <div class="badge">
             <div>
-              <span class="love me-1">
+              <span class="love mr-1">
                 <i class="fa-solid fa-heart"></i>
               </span>
               <span>STAFF PICK</span>
@@ -412,22 +412,22 @@
     }
   }
 
-  .batch {
+  .badge {
     height: 70px;
   }
 
-  .batch + img {
+  .badge + img {
     object-fit: contain;
     height: 80px;
   }
 
   @media only screen and (min-width: 576px) {
-    .batch + img {
+    .badge + img {
       height: 100px;
     }
   }
 
-  .batch > div {
+  .badge > div {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -442,47 +442,31 @@
   }
 
   @media only screen and (min-width: 576px) {
-    .batch > div {
+    .badge > div {
       font-size: 12px;
       line-height: 18px;
     }
   }
 
-  .batch > div:where(.best-seller) {
+  .badge > div:where(.best-seller) {
     background: #8e7aac;
   }
 
-  .batch > div:where(.on-sale) {
+  .badge > div:where(.on-sale) {
     background: #e75184;
   }
 
-  .batch > div:where(.top-rated) {
+  .badge > div:where(.top-rated) {
     background: #67b77c;
   }
 
-  .batch .love {
-    display: inline-block;
-    transform: rotate(-20deg);
+  .badge > div:where(.staff-pick) {
+    background: #67b77c;
   }
 
   .product {
     position: relative;
     padding-block: 10px;
-  }
-
-  .slick-track > *:where(.slick-active):last-child {
-    background-color: red !important;
-  }
-
-  .product-slider .slick-track > *:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 5px;
-    height: 100%;
-    background-image: url('img/slider-border.png');
-    background-size: cover;
   }
 
   .product .product-name {
@@ -640,47 +624,6 @@
     z-index: 999;
   }
 
-  .product-slider::after,
-  .product-slider::before {
-    content: "";
-    position: absolute;
-    z-index: -10;
-  }
-
-  .product-slider::after {
-    transform: translateY(-50%);
-    top: 50%;
-    right: -18px;
-    background-color: transparent;
-    width: 200px;
-    height: 100%;
-    background-image: url('img/slider-right-wing.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
-  }
-
-  .product-slider::before {
-    transform: translateY(-50%);
-    top: 50%;
-    left: -18px;
-    background-color: transparent;
-    width: 200px;
-    height: 100%;
-    background-image: url('img/slider-left-wing.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
-  }
-
-  @media only screen and (min-width: 620px) {
-    .product-slider::after {
-      right: -23px;
-    }
-    .product-slider::before {
-      left: -23px;
-    }
-  }
 
   .pagination {
     border: none;
