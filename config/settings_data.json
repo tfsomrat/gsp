@@ -166,9 +166,9 @@
         "type": "footer",
         "settings": {
           "footer_linklist_1_title": "Pet Care Advice",
-          "footer_linklist_1_links": "",
+          "footer_linklist_1_links": "footer",
           "footer_linklist_2_title": "More Info",
-          "footer_linklist_2_links": "",
+          "footer_linklist_2_links": "footer",
           "show_payment_icons": false
         }
       },
