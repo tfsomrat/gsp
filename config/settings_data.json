@@ -1242,13 +1242,6 @@
           "heading": "5 ways we give pet  owners what they want"
         }
       },
-      "e0f68727-36e6-4d29-b36e-7a0be9a50045": {
-        "type": "test-featured-collection",
-        "settings": {
-          "title": "Test Featured collection",
-          "collection": "featured"
-        }
-      },
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a": {
         "type": "subscribe",
         "blocks": {
@@ -1299,11 +1292,18 @@
           "phone_number": "000 000 000",
           "email": ""
         }
+      },
+      "ab440967-69f1-4048-a28c-9b7bd9790416": {
+        "type": "best-collection",
+        "settings": {
+          "title": "Best Sellers this Month",
+          "collection": ""
+        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
-      "e0f68727-36e6-4d29-b36e-7a0be9a50045",
+      "ab440967-69f1-4048-a28c-9b7bd9790416",
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
       "87b95d38-69ed-43a7-bdab-c84aed6892a5",
