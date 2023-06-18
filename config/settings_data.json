@@ -1297,7 +1297,7 @@
         "type": "best-collection",
         "settings": {
           "title": "Best Sellers this Month",
-          "collection": ""
+          "collection": "featured"
         }
       }
     },
