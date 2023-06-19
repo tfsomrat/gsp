@@ -5,389 +5,235 @@
       <div class="product-slider">
         {% for product in collections[section.settings.collection].products %}
           <div class="text-center product">
-            <div class="badge d-block">
-              <div class="on-sale">
-                {% render 'icon-badge-on-sale' %}
-                <span>ON SALE</span>
-              </div>
+            <div class="product-slider-badge">
+              {% for tag in product.tags %}
+                {% if tag contains 'on-sale' %}
+                  <div class="on-sale">
+                    {% render 'icon-badge-on-sale' %}
+                    <span class="ml-2">ON SALE</span>
+                  </div>
+                {% elsif tag contains 'best-seller' %}
+                  <div class="best-seller">
+                    {% render 'icon-badge-best-seller' %}
+                    <span class="ml-2">BEST SELLER</span>
+                  </div>
+                {% elsif tag contains 'staff-pick' %}
+                  <div class="staff-pick">
+                    {% render 'icon-badge-staff-pick' %}
+                    <span class="ml-2">STAFF PICK</span>
+                  </div>
+                {% elsif tag contains 'top-rated' %}
+                  <div class="top-rated">
+                    {% render 'icon-badge-top-rated' %}
+                    <span class="ml-2">TOP RATED</span>
+                  </div>
+                {% endif %}
+              {% endfor %}
             </div>
+
             <img
               loading="lazy"
               class="img-fluid mx-auto"
-              src="/img/slider-img/1.png"
-              alt="slide-img" />
-            <p class="product-name">Zogoflex Hurley</p>
-            <div class="product-size"></div>
-            <h4 class="product-price">£13.90</h4>
+              src="{{ product | image_url: width: 300, height: 300 }}"
+              alt="{{ product.image.alt | escape }}"
+              width="300"
+              height="300">
+            <p class="product-name">{{ product.title }}</p>
+
+            {% liquid 
+              assign current_variant = product.selected_or_first_available_variant
+              assign nhs_product = false
+              assign nhs_customer = false
+              assign already_in_cart = false
+            %}
+
+            {% liquid
+              for item in cart.items
+                if item.product.title == product.title
+                  assign already_in_cart = true
+                endif
+              endfor 
+            %}
+
+            {% liquid
+              for tag in product.tags
+                if tag contains 'NHS'
+                  assign nhs_product = true
+                endif
+              endfor
+            %}
+
+            {% liquid
+              for tag in customer.tags
+                if tag contains 'nhs_staff'
+                  assign nhs_customer = true
+                endif
+              endfor
+             %}
+
+            <div class="variant-select">
+              <select class="variant-select-box">
+                {% for variant in product.variants %}
+                  <option value="{{ variant.id }}" data-price="{{ variant.price | money }}">{{ variant.title }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="price">
+              {{ product.price | money }}
+            </div>
+            <div class="rating">
+              {% for i in (1..5) %}
+                {% if i <= product.metafields.product.rating %}
+                  <span class="star filled"></span>
+                {% else %}
+                  <span class="star empty"></span>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <button class="add-to-cart" data-product="{{ product.id }}">Add to Cart</button>
+
+            <form
+              action="/cart/add"
+              data-productid="{{ product.id }}"
+              method="post"
+              enctype="multipart/form-data"
+              class="add-to-cart"
+              data-cart-submit>
+              <div class="product__form">
+                <!-- START Product Price -->
+                <div class="price-wrapper" data-price-wrapper>
+                  <div class="product__was-price product-page">
+                    <span class="save" data-compare-price>
+                      {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+                        {{ product.selected_or_first_available_variant.compare_at_price | money }}
+                      {%- endif -%}
+                    </span>
+                  </div>
+                  {% render 'saw_compute_discount' with product %}
+                  <span data-product-price class="price product__price">
+                    {{ current_variant.price | money }}
+                  </span>
+                </div>
+                <!-- END Product Price -->
+
+                <!-- START Hidden Variants -->
+                {% for option in product.options_with_values %}
+                  {% unless option.values contains 'Default Title' %}
+                    <div class="selector-wrapper option-dropdown js">
+                      <label for="SingleOptionSelector-{{ forloop.index0 }}">
+                        {{ option.name }}
+                      </label>
+                      <select
+                        id="SingleOptionSelector-{{ forloop.index0 }}"
+                        data-single-option-selector
+                        data-class="{{ option.name }}"
+                        data-index="option{{ option.position }}">
+                        {% for value in option.values %}
+                          <option value="{{ value | escape }}"{% if option.selected_value == value %}selected="selected"{% endif %}>
+                            {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <label
+                      class="black-label"
+                      style="display:block; padding: 5px 0px 0 0;"
+                      for="SingleOptionSelector-{{ forloop.index0 }}">
+                      {{ option.name }}
+                    </label>
+                    <div class="option-buttons">
+                      {% for value in option.values %}
+                        <label class="product__variant-box {% if option.selected_value == value %}selected{% endif %}"for="{{ value }}"><input
+                            type="radio"
+                            data-sku="{{ product.sku }}"
+                            data-rel="{{ option.name }}"
+                            name="variant-box"
+                            value="{{ value }}"
+                            id="{{ value }}"
+                            {% if option.selected_value == value %}checked="checked"{% endif %}>{{ value }}
+                        </label>
+                      {% endfor %}
+                    </div>
+                  {% endunless %}
+                {% endfor %}
+
+                <!-- END Hidden Variants -->
+                <!-- START Size Boxes -->
+                <select
+                  name="id"
+                  data-productid="{{ product.id }}"
+                  class="no-js"
+                  data-product-select>
+                  {% for variant in product.variants %}
+                    <option {% if variant == current_variant %}selected="selected"{% endif %}{% unless variant.available %}disabled="disabled"{% endunless %} value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <!-- Begin ReCharge code -->
+                {% if product.available %}
+                  {% render 'subscription-product' %}
+                {% endif %}
+                <!-- End ReCharge code -->
+
+                <!-- END Quantity Selector -->
+                <button
+                  type="submit"
+                  name="add"
+                  class="ml-0 mr-0 ml-md-2 mr-md-2 button primary add_to_cart {% unless current_variant.available %}disabled{% endunless %}"
+                  data-add-to-cart
+                  {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                  <span data-add-to-cart-text>
+                    {% if current_variant.available %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                </button>
+              </div>
+            </form>
+
+            {% comment %} 
+            <div class="product-size">
+            <select>
+            <option>Large/Mealon</option>
+            <option>Medium</option>
+            </select>
+            </div>
+            <h4 class="product-price">{{ product.price | money }}</h4>
             <ul class="product-stars">
-              <li>
-                <i class="fa-sharp fa-solid fa-star"></i>
-              </li>
-              <li>
-                <i class="fa-sharp fa-solid fa-star"></i>
-              </li>
-              <li>
-                <i class="fa-sharp fa-solid fa-star"></i>
-              </li>
-              <li>
-                <i class="fa-sharp fa-solid fa-star"></i>
-              </li>
-              <li>
-                <i class="fa-sharp fa-solid fa-star"></i>
-              </li>
+            <li>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            </li>
+            <li>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            </li>
+            <li>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            </li>
+            <li>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            </li>
+            <li>
+            <i class="fa-sharp fa-solid fa-star"></i>
+            </li>
             </ul>
             <div class="product-review">
-              <span>12 Reviews</span>
-              <span>
-                <i class="fa-sharp fa-solid fa-caret-down"></i>
-              </span>
+            <span>12 Reviews</span>
+            <span>
+            <i class="fa-sharp fa-solid fa-caret-down"></i>
+            </span>
             </div>
             <button class="product-cart">
-              <div class="cart-icon">
-                <img
-                  width="18"
-                  height="16"
-                  src="img/cart.svg"
-                  alt="cart">
-              </div>
-              Add to Cart
+            <div class="cart-icon">
+            {% render 'icon-add-to-cart' %}
+            </div>
+            Add to Cart
             </button>
+            {% endcomment %}
           </div>
         {% endfor %}
-        <div class="text-center product">
-          <div class="badge"></div>
-          <img
-            width="110"
-            height="143"
-            class="img-fluid mx-auto"
-            src="/img/slider-img/2.png"
-            alt="slide-img">
-          <p class="product-name">
-            Zogoflex Rumbl <br>Dog Toy</p>
-          <div class="product-size"></div>
-          <h4 class="product-price">£18.10</h4>
-
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
-        <div class="text-center product">
-          <div class="badge">
-            <div class="best-seller">
-              <span class="mr-1 d-inline-block">
-                <img
-                  class="mr-1"
-                  src="img/best-seller.png"
-                  alt="best-seller">
-              </span>
-              <span>BEST SELLER
-              </span>
-            </div>
-          </div>
-          <img
-            width="136"
-            height="150"
-            class="img-fluid mx-auto"
-            src="/img/slider-img/3.png"
-            alt="slide-img">
-          <p class="product-name">Chuckit Fetch <br> Medley</p>
-          <div class="product-size"></div>
-          <h4 class="product-price">£14.99</h4>
-
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
-        <div class="text-center product">
-          <div class="badge ">
-            <div class="on-sale">
-              <span class="d-inline-block mr-1">
-                <img
-                  width="20"
-                  height="20"
-                  src="img/on-sell.png"
-                  alt="on-sale">
-              </span>
-              <span>ON SALE</span>
-            </div>
-          </div>
-          <img
-            width="104"
-            height="174"
-            class="img-fluid mx-auto"
-            src="/img/slider-img/4.png"
-            alt="slide-img">
-          <p class="product-name">
-            All for Paws Mighty Rex <br> Mighty Wheel Dog Toy
-          </p>
-          <div class="product-size">
-            <select>
-              <option>Large/Melon</option>
-              <option>Medium</option>
-            </select>
-          </div>
-          <h4 class="product-price">£5.59</h4>
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
-        <div class="text-center product">
-          <div class="badge">
-            <div>
-              <span class="love">
-                <i class="fa-solid fa-heart"></i>
-              </span>
-              <span>STAFF PICK</span>
-            </div>
-          </div>
-          <img
-            width="175"
-            height="146"
-            class="img-fluid mx-auto"
-            src="/img/slider-img/5.png"
-            alt="slide-img">
-          <p class="product-name">
-            KONG Holiday CoreStrength<br>Bone Dog Toy
-          </p>
-          <div class="product-size"></div>
-          <h4 class="product-price">£4.51</h4>
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
-        <div class="text-center product">
-          <div class="badge">
-            <div class="top-rated">
-              <span class="mr-1">
-                <img
-                  width="19"
-                  height="21"
-                  src="img/top-reated.png"
-                  alt="top-reated">
-              </span>
-              <span>TOP REATED
-              </span>
-            </div>
-          </div>
-          <img
-            width="119"
-            height="164"
-            class="img-fluid mx-auto"
-            src="/img/slider-img/6.png"
-            alt="slide-img">
-          <p class="product-name">GiGwi Jumball <br> Basketball Dog Toy</p>
-          <div class="product-size">
-            <select>
-              <option>Large/Mealon</option>
-              <option>Medium</option>
-            </select>
-          </div>
-          <h4 class="product-price">£13.79</h4>
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
-        <div class="text-center product">
-          <div class="badge">
-            <div>
-              <span class="love mr-1">
-                <i class="fa-solid fa-heart"></i>
-              </span>
-              <span>STAFF PICK</span>
-            </div>
-          </div>
-          <img
-            class="img-fluid mx-auto"
-            src="/img/slider-img/1.png"
-            alt="slide-img">
-          <p class="product-name">Zogoflex Hurley <br> TOPRATED</p>
-          <div class="product-size"></div>
-          <h4 class="product-price">£13.90</h4>
-
-          <ul class="product-stars">
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-            <li>
-              <i class="fa-sharp fa-solid fa-star"></i>
-            </li>
-          </ul>
-          <div class="product-review">
-            <span>12 Reviews</span>
-            <span>
-              <i class="fa-sharp fa-solid fa-caret-down"></i>
-            </span>
-          </div>
-          <button class="product-cart">
-            <div class="cart-icon">
-              <img
-                width="18"
-                height="16"
-                src="img/cart.svg"
-                alt="cart">
-            </div>
-            Add to Cart
-          </button>
-        </div>
       </div>
     </div>
   </div>
@@ -412,22 +258,17 @@
     }
   }
 
-  .badge {
-    height: 70px;
+  .product-slider-badge {
+    height: 40px;
   }
 
-  .badge + img {
-    object-fit: contain;
-    height: 80px;
+  .product-slider-badge svg {
+    width: 20px;
+    height: 20px;
   }
 
-  @media only screen and (min-width: 576px) {
-    .badge + img {
-      height: 100px;
-    }
-  }
 
-  .badge > div {
+  .product-slider-badge > div {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -442,26 +283,26 @@
   }
 
   @media only screen and (min-width: 576px) {
-    .badge > div {
+    .product-slider-badge > div {
       font-size: 12px;
       line-height: 18px;
     }
   }
 
-  .badge > div:where(.best-seller) {
+  .product-slider-badge > div:where(.best-seller) {
     background: #8e7aac;
   }
 
-  .badge > div:where(.on-sale) {
+  .product-slider-badge > div:where(.on-sale) {
     background: #e75184;
   }
 
-  .badge > div:where(.top-rated) {
+  .product-slider-badge > div:where(.top-rated) {
     background: #67b77c;
   }
 
-  .badge > div:where(.staff-pick) {
-    background: #67b77c;
+  .product-slider-badge > div:where(.staff-pick) {
+    background: #6eafde;
   }
 
   .product {
@@ -656,6 +497,30 @@
 
 <script>
   $(document).ready(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      const variantSelects = document.querySelectorAll('.variant-select-box');
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+      variantSelects.forEach(function(select) {
+        select.addEventListener('change', function() {
+          const selectedVariantId = this.value;
+          const selectedVariantPrice = this.options[this.selectedIndex].getAttribute('data-price');
+          const productCard = this.closest('.product-card');
+          const priceElement = productCard.querySelector('.price');
+
+          priceElement.textContent = selectedVariantPrice;
+        });
+      });
+
+      addToCartButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const productId = this.getAttribute('data-product');
+          const selectedVariantId = productCard.querySelector('.variant-select-box').value;
+
+          Shopify.addItem(productId, 1, selectedVariantId);
+        });
+      });
+    });
     $(".product-slider").slick({
       infinite: true,
       slidesToShow: 6,

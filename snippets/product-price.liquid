@@ -1,8 +1,8 @@
 <div class="product__price" data-price-wrapper>
-    <span class="price">{{ product.price | money }}</span>
+  <span class="price">{{ product.price | money }}</span>
 </div>
 {% if product.compare_at_price > product.price %}
-<div class="product__was-price">
+  <div class="product__was-price">
     <span class="was">{{ product.compare_at_price | money }}</span>
-</div>
+  </div>
 {% endif %}

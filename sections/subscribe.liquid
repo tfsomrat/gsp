@@ -1,7 +1,7 @@
 <section class="subscribe">
   <div class="container">
     <div class="col-lg-5 text-center mx-auto">
-      <div class="text-center hand-img">
+      <div class="hand-img">
         <img
           width="170"
           height="118"
@@ -9,7 +9,7 @@
           src="{{ 'hand.png' | asset_img_url }}"
           alt="hand" />
       </div>
-      <a href="{{ section.settings.subscribe_link }}" class="subscribe-button">Subscribe&Save</a>
+      <a href="{{ section.settings.subscribe_link }}" class="subscribe-button">Subscribe & Save</a>
       <h3>{{ section.settings.title }}</h3>
     </div>
     <div class="text-center pet-subscribe">
@@ -95,6 +95,7 @@
   }
 
   .subscribe .subscribe-button {
+    display: inline-block;
     margin-top: 3px;
     border: none;
     border-radius: 50px;
@@ -123,6 +124,7 @@
   @media only screen and (min-width: 768px) {
     .subscribe .pet-subscribe {
       display: block;
+      margin-top: -50px;
     }
   }
 
