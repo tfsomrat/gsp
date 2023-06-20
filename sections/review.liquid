@@ -1,8 +1,4 @@
-{%- capture section_id -%}
-  review-{{ section.id }}
-{%- endcapture -%}
-
-<section id="{{ section_id }}">
+<section>
   <div class="container">
     <div class="review-block">
       <div class="row m-0">
@@ -20,7 +16,8 @@
               {% for block in section.blocks %}
                 <li>
                   <span>{{ forloop.index }}</span>
-                  {{ block.settings.point }}</li>
+                  {{ block.settings.point }}
+                </li>
               {% endfor %}
             </ol>
           </div>
@@ -43,7 +40,7 @@
                 width="auto"
                 src="{{ 'uk-flag.png' | asset_img_url: '42x' }}" />
             </p>
-            <div class="d-flex mt-4 align-items-center">
+            <div class="d-flex mt-4 align-items-center justify-content-center">
               <div class="mr-2 flex-shrink-0">
                 <img
                   class="review-badge"

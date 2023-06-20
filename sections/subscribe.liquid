@@ -40,7 +40,7 @@
 
     <div class="row subscribe-cards g-3 g-lg-2">
       {% for block in section.blocks %}
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-4">
           <div class="subscribe-card">
             <h1>{{ forloop.index }}</h1>
             <h3>{{ block.settings.title }}</h3>
@@ -50,17 +50,15 @@
       {% endfor %}
     </div>
     <div class="text-center">
-      <a href="/collection/all" class="shop-now">SHOPNOW</a>
+      <a href="{{ section.settings.shop_link }}" class="shop-now">SHOP NOW</a>
     </div>
   </div>
 </section>
 
 <!-- Style -->
 <style>
-  @media only screen and (min-width: 768px) {
-    .subscribe {
-      padding-block: 85px;
-    }
+  .subscribe {
+    padding: 85px 0;
   }
 
   .has-gradient {
@@ -265,8 +263,7 @@
     padding: 9px 50px;
     border: none;
     filter: drop-shadow(4px 6px 16px rgba(0, 0, 0, 0.5));
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px;
     display: block;
     width: 100%;
   }
@@ -274,9 +271,9 @@
   @media only screen and (min-width: 768px) {
     .subscribe .shop-now {
       line-height: 54px;
-      font-size: 36px;
+      font-size: 32px;
       padding: 18px 50px;
-      width: auto;
+      width: 300px;
       margin: 32px auto auto;
     }
   }
@@ -298,6 +295,10 @@
         "type": "url",
         "id": "subscribe_link",
         "label": "Subscribe Link"
+      }, {
+        "type": "url",
+        "id": "shop_link",
+        "label": "Shop Now Link"
       }
     ],
     "blocks": [

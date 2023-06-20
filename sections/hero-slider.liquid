@@ -1,4 +1,4 @@
-<section>
+<section class="position-relative">
   <div class="hero-slider">
     {% for block in section.blocks %}
       <div class="hero-slider-slide">
@@ -27,6 +27,14 @@
       </div>
     {% endfor %}
   </div>
+
+  <img
+    class="homepage-first-bg d-none d-md-block"
+    loading="eager"
+    src="{{ 'homepage-first-bg.png' | asset_img_url: '560x' }}"
+    height="auto"
+    width="550"
+    alt="homepage bg" />
 </section>
 
 <!-- Style -->
@@ -142,6 +150,12 @@
   }
   .slick-dots li button:before {
     content: none !important;
+  }
+
+  .homepage-first-bg {
+    position: absolute;
+    top: 100%;
+    left: 0;
   }
 </style>
 

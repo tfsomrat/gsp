@@ -1,6 +1,6 @@
-<section class="news-letter">
+<section class="news-letter d-none d-lg-block">
   <div class="container">
-    <div class="has-gradient position-relative d-none d-lg-block">
+    <div class="has-gradient position-relative">
       <div class="row">
         <div class="col-lg-8">
           <div class="news-letter-desc">
@@ -33,7 +33,9 @@
 
 <!-- Style -->
 <style>
-
+  .news-letter {
+    padding-bottom: 120px;
+  }
   .news-letter .news-letter-desc h3 {
     color: #1c75ba;
     font-weight: 700;
@@ -67,13 +69,13 @@
   .news-letter .dog {
     width: 192px;
     height: 290px;
-    transform: translateY(-25%);
+    transform: translateY(-30%);
     right: 40px;
   }
 
   @media only screen and (min-width: 1200px) {
     .news-letter .dog {
-      transform: translateY(-25%);
+      transform: translateY(-40%);
       right: 60px;
       width: auto;
       height: auto;
