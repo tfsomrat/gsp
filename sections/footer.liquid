@@ -1,33 +1,27 @@
 <footer>
   <div class="container">
-    <div class="footer-header-row row justify-content-between align-items-center">
-      <div class="did-you-know-column col-lg-auto">
-        <div class="d-flex align-items-center">
-          <h2 class="did-you-know-heading mr-3">Did you know?...</h2>
+    {% unless section.settings.show_footer_cta != true %}
+      <div class="row align-items-center footer-cta mb-5">
+        <div class="col-lg-5 d-flex align-items-center mb-4 mb-lg-0">
+          <h2 class="mr-3 text-white font-weight-bold">{{ section.settings.footer_cta_title }}</h2>
           <img
             width="144"
             height="156"
             loading="lazy"
-            src="{{ 'animal-feed.png' | asset_img_url: "200x" }}"
+            src="{{ 'animal-feed.png' | asset_img_url: '200x' }}"
             alt="animal-feed"
-            class="did-you-know-image" />
+            class="img-fluid" />
+        </div>
+        <div class="col-lg-7 d-lg-flex align-items-center">
+          <p>{{ section.settings.footer_cta_content }}</p>
+          <a href="{{ section.settings.footer_cta_btn_url }}" class="footer-cta-btn">Learn more</a>
         </div>
       </div>
-      <div class="contribution-column col-lg-5">
-        <p class="contribution-text">
-          We contribute excess or expired inventory to a
-          <b>local animal shelter</b>
-        </p>
-      </div>
-      <div class="learn-more-column col-lg-auto">
-        <a href="#" class="learn-more-button">Learn more</a>
-      </div>
-    </div>
-
+    {% endunless %}
     <div class="row">
-      <div class="col-lg-7 mt-4">
+      <div class="col-lg-7">
         <div class="footer-content-row row has-border">
-          <div class="footer-logo-column col-lg-4">
+          <div class="footer-logo-column col-md-4">
             <div class="footer-logo-wrapper pt-0">
               <img
                 loading="lazy"
@@ -37,13 +31,10 @@
                 alt="footer-logo"
                 class="footer-logo-image" />
               <h2 class="my-2">500,000</h2>
-              <p>
-                Happy pets <br/>
-                since 2019
-              </p>
+              <p>Happy pets <br/>since 2019</p>
             </div>
           </div>
-          <div class="footer-column col-lg-4">
+          <div class="footer-column col-md-4">
             <div class="ask-expert-wrapper">
               <h2 class="ask-expert-heading">{{ section.settings.footer_linklist_1_title }}</h2>
               <ul class="expert-category-list">
@@ -55,7 +46,7 @@
               </ul>
             </div>
           </div>
-          <div class="footer-column col-lg-4">
+          <div class="footer-column col-md-4">
             <div class="more-info-wrapper">
               <h2 class="more-info-heading">{{ section.settings.footer_linklist_2_title }}</h2>
               <ul class="more-info-list">
@@ -71,7 +62,7 @@
       </div>
       <div class="col-lg-5">
         <div class="row has-border">
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-4">
             <div class="footer-column pt-0">
               <h2>Get Set Connect</h2>
               {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, TikTok, Tumblr, YouTube, Vimeo, Google' | split: ', ' -%}
@@ -96,7 +87,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 col-md-4">
             <div class="footer-column">
               <h2>Get Set Connect</h2>
               {% unless shop.enabled_payment_types == empty %}
@@ -113,44 +104,14 @@
               {% endunless %}
             </div>
           </div>
+          <div class="col-lg-12 col-md-4">
+            <div id="text-banner-widget"></div>
+          </div>
         </div>
-        <div id="text-banner-widget"></div>
-        <script>
-          richSnippetReviewsWidgets('text-banner-widget', {
-            store: 'get-set-pet',
-            starsClr: '#facd4d',
-            textClr: '#313131',
-            logoClr: '#12cf6c',
-            widgetName: 'text-banner',
-            css: '.TextBanner{margin: 0; background-color: #fff; padding: 18px 0 20px 0; border-radius: 20px;} .TextBanner__text{font-size:18px; color: #1C75BA;} .TextBanner__stars{margin-top:0 !important; padding:5px 5px; background-color: #e9f3fa; border-radius: 15px;} .TextBanner .TextBanner__stars.RatingStars--large i.RatingStars__star{font-size:18px}'
-          });
-        </script>
-        {% comment %}
-        <div class="customer-opinion mt-3">
-        <div
-        class="d-flex justify-content-between align-items-center mb-2"
-        >
-        <h4 class="mr-4">
-        Our customers say: <b><i>Excellent</i></b>
-        </h4>
-        <ul class="starts m-0">
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        <li><i class="fa-solid fa-star"></i></li>
-        </ul>
-        </div>
-        <p class="mb-0">
-        <b>4.94</b> out of 5 stars, based on <b>3,444</b> Reviews on
-        <b>REVIEWS.io</b>
-        </p>
-        </div>
-        {% endcomment %}
       </div>
     </div>
   </div>
-  <p class="copywrite d-block d-lg-none">
+  <p class="copywrite d-block d-lg-none mb-0">
     © {{ 'now' | date: '%Y' }} GetSetPet Ltd. All Rights Reserved.
   </p>
 </footer>
@@ -161,63 +122,42 @@
     background: #6eafde;
   }
 
-  footer .did-you-know-column h2 {
-    font-weight: 700;
+  .footer-cta h2 {
+    font-size: 36px;
+    margin-bottom: 0;
+  }
+
+  .footer-cta p {
     font-size: 24px;
-    line-height: 36px;
-    color: #fff;
-  }
-
-  @media only screen and (min-width: 768px) {
-    footer .did-you-know-column h2 {
-      font-size: 36px;
-      line-height: 54px;
-    }
-  }
-
-  .did-you-know-column img {
-    width: 45px;
-    height: 49px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    .did-you-know-column img {
-      width: auto;
-      height: auto;
-    }
-  }
-
-  footer .contribution-column p {
     font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #000000;
+    margin-right: 12%;
   }
 
-  @media only screen and (min-width: 768px) {
-    footer .contribution-column p {
-      font-size: 24px;
-      line-height: 36px;
-    }
-  }
-
-  footer .learn-more-column a {
-    padding: 10px 65px;
+  .footer-cta-btn {
+    padding: 15px 45px;
+    display: inline-block;
     color: #fff;
     border: none;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 18px;
     background: #1c75ba;
     box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.32);
-    border-radius: 20px;
+    border-radius: 30px;
+    white-space: nowrap;
+  }
+  .footer-cta-btn:hover {
+    background: #1c75ba;
+    color: #fff;
   }
 
-  @media only screen and (min-width: 768px) {
-    footer .learn-more-column a {
-      font-size: 18px;
-      line-height: 27px;
-      padding: 10px 48px;
+  @media only screen and (max-width: 768px) {
+    .footer-cta h2 {
+      font-size: 24px;
+    }
+
+    .footer-cta p {
+      font-size: 16px;
+      color: #fff;
     }
   }
 
@@ -333,13 +273,11 @@
     border-top: 0.5px solid #dadada;
     text-align: center;
     color: #dadada;
-    padding-top: 8px;
-    padding-bottom: 16px;
-    font-size: 8px;
-    line-height: 12px;
+    font-size: 12px;
+    padding: 16px 0;
   }
 
-  @media only screen and (max-width: 575px) {
+  @media only screen and (max-width: 767px) {
     .has-border > * > * {
       padding-block: 32px;
     }
@@ -350,29 +288,59 @@
   }
 </style>
 
+<script>
+  richSnippetReviewsWidgets('text-banner-widget', {
+    store: 'get-set-pet',
+    starsClr: '#facd4d',
+    textClr: '#313131',
+    logoClr: '#12cf6c',
+    widgetName: 'text-banner',
+    css: '.TextBanner{margin: 0; background-color: #fff; padding: 18px 0 20px 0; border-radius: 20px;} .TextBanner__text{font-size:18px; color: #1C75BA;} .TextBanner__stars{margin-top:0 !important; padding:5px 5px; background-color: #e9f3fa; border-radius: 15px;} .TextBanner .TextBanner__stars.RatingStars--large i.RatingStars__star{font-size:18px}'
+  });
+</script>
+
 {% schema %}
   {
     "name": "Footer",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "show_footer_cta",
+        "label": "Show Footer CTA",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_title",
+        "label": "Footer CTA Title",
+        "default": "Did you know?..."
+      },
+      {
+        "type": "text",
+        "id": "footer_cta_content",
+        "label": "Footer CTA Content",
+        "default": "We contribute excess or expired inventory to a <strong>local animal shelter</strong>"
+      },
+      {
+        "type": "url",
+        "id": "footer_cta_btn_url",
+        "label": "Footer CTA Button URL"
+      }, {
         "type": "text",
         "id": "footer_linklist_1_title",
         "label": "Footer Column 1 Title",
         "default": "Ask the Expert"
-      },
-      {
+      }, {
         "type": "link_list",
         "id": "footer_linklist_1_links",
         "label": "Footer Column 1 Links",
         "default": "footer"
-      },
-      {
+      }, {
         "type": "text",
         "id": "footer_linklist_2_title",
         "label": "Footer Column 2 Title",
         "default": "More Info"
-      },
-      {
+      }, {
         "type": "link_list",
         "id": "footer_linklist_2_links",
         "label": "Footer Column 2 Links",
