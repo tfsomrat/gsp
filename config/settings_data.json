@@ -165,6 +165,10 @@
       "footer": {
         "type": "footer",
         "settings": {
+          "show_footer_cta": true,
+          "footer_cta_title": "Did you know?...",
+          "footer_cta_content": "We contribute excess or expired inventory to a <strong>local animal shelter<\/strong>",
+          "footer_cta_btn_url": "",
           "footer_linklist_1_title": "Pet Care Advice",
           "footer_linklist_1_links": "footer",
           "footer_linklist_2_title": "More Info",
@@ -1274,7 +1278,8 @@
         ],
         "settings": {
           "title": "Pet supplies delivered on <br> your schedule",
-          "subscribe_link": ""
+          "subscribe_link": "",
+          "shop_link": ""
         }
       },
       "87b95d38-69ed-43a7-bdab-c84aed6892a5": {
@@ -1292,18 +1297,10 @@
           "phone_number": "000 000 000",
           "email": ""
         }
-      },
-      "ab440967-69f1-4048-a28c-9b7bd9790416": {
-        "type": "best-collection",
-        "settings": {
-          "title": "Best Sellers this Month",
-          "collection": "featured"
-        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
-      "ab440967-69f1-4048-a28c-9b7bd9790416",
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
       "87b95d38-69ed-43a7-bdab-c84aed6892a5",
