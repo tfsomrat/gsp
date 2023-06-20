@@ -45,52 +45,54 @@
       </li>
     {% endfor %}
 
+    {% comment %}
     <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-      <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
-      <div class="chevron">
-        {% render 'icon-chevron', fill_color: '#58B0E3' %}
-      </div>
-      <ul class="mobile__navigation-ul-li-ul">
-        <li class="dropdown__last_level">
-          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/contact-us">Contact Us</a>
-        </li>
-        <li class="dropdown__last_level">
-          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs#shipping">Delivery Information</a>
-        </li>
-        <li class="dropdown__last_level">
-          <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs">FAQs</a>
-        </li>
-      </ul>
+    <a class="mobile__navigation-ul-li-a" href="/pages/faqs">Help</a>
+    <div class="chevron">
+    {% render 'icon-chevron', fill_color: '#58B0E3' %}
+    </div>
+    <ul class="mobile__navigation-ul-li-ul">
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/contact-us">Contact Us</a>
+    </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs#shipping">Delivery Information</a>
+    </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/pages/faqs">FAQs</a>
+    </li>
+    </ul>
     </li>
     <li class="mobile__navigation-ul-li mobile-shop-by-pet">
-      <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
-      <div class="chevron">
-        {% render 'icon-chevron', fill_color: '#58B0E3' %}
-      </div>
-      <ul class="mobile__navigation-ul-li-ul">
-        {% if customer %}
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Orders</a>
-          </li>
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/addresses">My Details</a>
-          </li>
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account?view=my-pets">My Pets</a>
-          </li>
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/logout">Log Out</a>
-          </li>
-        {% else %}
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Sign In</a>
-          </li>
-          <li class="dropdown__last_level">
-            <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/register">Register</a>
-          </li>
-        {% endif %}
-      </ul>
+    <a class="mobile__navigation-ul-li-a" href="/collections/all">My Account</a>
+    <div class="chevron">
+    {% render 'icon-chevron', fill_color: '#58B0E3' %}
+    </div>
+    <ul class="mobile__navigation-ul-li-ul">
+    {% if customer %}
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Orders</a>
     </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/addresses">My Details</a>
+    </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account?view=my-pets">My Pets</a>
+    </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/logout">Log Out</a>
+    </li>
+    {% else %}
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account">Sign In</a>
+    </li>
+    <li class="dropdown__last_level">
+    <a class="mobile__navigation-ul-li-ul-li-ul-li-a" href="/account/register">Register</a>
+    </li>
+    {% endif %}
+    </ul>
+    </li>
+    {% endcomment %}
   </ul>
 </div>
 
@@ -246,9 +248,7 @@
         height: 'calc(100% - ' + headerHeight + 'px)'
       });
     }
-
     menuHeight();
-
     function toggleMobileMenu() {
       if ($(window).width() > 993) {
         $('.mobile-navigation').removeClass('active');
