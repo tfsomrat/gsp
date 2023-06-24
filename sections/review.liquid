@@ -31,7 +31,7 @@
               class="d-none d-lg-block"
               src="{{ 'gsp-logo.png' | asset_img_url: '375x' }}"
               alt="{{ shop.name }}" />
-            <p class="header-badge mb-0">
+            <p class="header-badge mb-0 bg-white">
               <strong>#1 Rated</strong>
               Pet Site in the UK
               <img
@@ -120,6 +120,58 @@
     position: absolute;
     top: -50px;
     left: 10%;
+  }
+
+  @media(max-width: 1199px) {
+    .review-care-badge {
+      max-width: 120px;
+      height: auto;
+      top: -40px;
+      left: 5%;
+    }
+    .review-block-content {
+      margin-left: 25%;
+    }
+    .review-block-content .list-styled li {
+      font-size: 13px;
+    }
+  }
+  @media(max-width: 767px) {
+    .review-care-badge {
+      max-width: 100px;
+      height: auto;
+      top: -30px;
+      left: 5%;
+    }
+    .review-block-content {
+      margin-left: 20%;
+    }
+    .review-block-content .list-styled li {
+      font-size: 16px;
+    }
+  }
+  @media(max-width: 565px) {
+    .review-care-badge {
+      max-width: 56px;
+      height: auto;
+      top: -5px;
+    }
+    .review-block-content {
+      margin-left: 40px;
+    }
+    .review-block-content h2 {
+      font-size: 20px;
+    }
+    .review-block-content .list-styled li {
+      font-size: 12px;
+    }
+    .review-block-content .list-styled li span {
+      width: 15px;
+      height: 15px;
+      font-size: 12px;
+      line-height: 15px;
+      margin-right: 5px;
+    }
   }
 
   .review-block-box {

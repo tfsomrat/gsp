@@ -8,7 +8,7 @@
             {{ section.settings.text_one }}
           </a>
         </div>
-        <div id="header-widget"></div>
+        <div id="header-widget" class="header-widget"></div>
         <div>
           <a href="{{ section.settings.link_three }}">
             {{ section.settings.text_three }}
@@ -48,6 +48,10 @@
 
 <!-- Style -->
 <style>
+  .header-widget {
+    margin-top: -4px;
+  }
+
   .header-info {
     padding: 15px 0;
     background: white;
