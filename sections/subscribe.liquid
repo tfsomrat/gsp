@@ -42,8 +42,8 @@
       {% for block in section.blocks %}
         <div class="col-lg-4 mb-4">
           <div class="subscribe-card">
-            <h1>{{ forloop.index }}</h1>
-            <h3>{{ block.settings.title }}</h3>
+            <h1 class="text-white mb-2">{{ forloop.index }}</h1>
+            <h3 class="text-white">{{ block.settings.title }}</h3>
             <p>{{ block.settings.content }}</p>
           </div>
         </div>
@@ -72,13 +72,11 @@
   .subscribe h3 {
     font-weight: 400;
     font-size: 18px;
-    line-height: 22px;
   }
 
   @media only screen and (min-width: 768px) {
     .subscribe h3 {
       font-size: 36px;
-      line-height: 51px;
     }
   }
 
@@ -230,28 +228,25 @@
   }
 
   .subscribe .subscribe-card h3 {
-    font-weight: 500;
     font-size: 20px;
-    line-height: 24px;
   }
 
   @media only screen and (min-width: 768px) {
     .subscribe .subscribe-card h3 {
       font-size: 28px;
-      line-height: 26px;
+      font-weight: 700;
     }
   }
 
   .subscribe .subscribe-card p {
-    font-weight: 700;
     font-size: 14px;
-    line-height: 22px;
+    font-weight: 500;
+    color: #E5E5E5;
   }
 
   @media only screen and (min-width: 768px) {
     .subscribe .subscribe-card p {
       font-size: 18px;
-      line-height: 27px;
     }
   }
 
@@ -264,10 +259,15 @@
     color: #fff;
     padding: 9px 50px;
     border: none;
-    filter: drop-shadow(4px 6px 16px rgba(0, 0, 0, 0.5));
+    box-shadow: 6px 6px 12px #000000;
     font-size: 14px;
     display: block;
     width: 100%;
+  }
+  .subscribe .shop-now:hover {
+    box-shadow: 6px 6px 6px #000000;
+    text-decoration: none;
+    color: #fff;
   }
 
   @media only screen and (min-width: 768px) {
