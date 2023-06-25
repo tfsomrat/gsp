@@ -1253,14 +1253,14 @@
             "type": "step",
             "settings": {
               "title": "Savings on top of savings!",
-              "content": "<p><strong>Subscriber discounts are added to your other savings on 50+ brands<\/strong><\/p>"
+              "content": "<p>Subscriber discounts are added to your other savings on 50+ brands<\/p>"
             }
           },
           "43235163-4e34-459f-bc46-33d54e7f3f87": {
             "type": "step",
             "settings": {
               "title": "Get exclusive rewards",
-              "content": "<p><strong>Get early access to any upcoming sales and special offers<\/strong><\/p>"
+              "content": "<p>Get early access to any upcoming sales and special offers<\/p>"
             }
           },
           "0a46d017-0f9e-40f7-b1d8-6004e68ab0c1": {
