@@ -15,7 +15,7 @@
     alt="bg 2" />
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-5 col-6 mx-auto">
         <div class="get-help-left">
           <img
             loading="lazy"
@@ -29,59 +29,84 @@
       <div class="col-lg-8">
         <div class="get-help-right">
           <h3>{{ section.settings.title }}</h3>
-          <h5>Get more info about your pet supplies</h5>
+          <h5 class="mb-4">Get more info about your pet supplies</h5>
           <div class="row get-help-cards g-lg-3">
-            <div class="col-lg-4">
-              <div class="text-center get-help-card h-100">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="text-center get-help-card h-100 d-none d-lg-block">
                 <img
                   loading="lazy"
                   width="59"
                   height="56"
                   src="{{ 'get-help-message.png' | asset_img_url: '60x' }}"
                   alt="message" />
-                <h2>FAQs</h2>
-                <div class="d-none d-lg-block">
-                  <p class="d-none d-lg-block">
-                    Get answers <br/>
-                    right away
-                  </p>
-                  <a href="{{ section.settings.faq_link }}">Read now</a>
-                </div>
+                <h2 style="color: #E75184;">FAQs</h2>
+                <p>
+                  Get answers <br/>
+                  right away
+                </p>
+                <a href="{{ section.settings.faq_link }}" style="background-color: #E75184;">Read now</a>
+              </div>
+              <div class="d-block d-lg-none text-center">
+                <a class="d-flex align-items-center justify-content-center"  href="{{ section.settings.faq_link }}">
+                  <img
+                    loading="lazy"
+                    width="50"
+                    height="47"
+                    src="{{ 'get-help-message.png' | asset_img_url: '60x' }}"
+                    alt="message" />
+                  <strong class="h4 font-weight-bold ml-3 mb-0" style="color: #E75184;">FAQs</strong>
+                </a>
               </div>
             </div>
-
-            <div class="col-lg-4">
-              <div class="text-center get-help-card h-100">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="text-center get-help-card h-100 d-none d-lg-block">
                 <img
                   loading="lazy"
                   width="59"
                   height="56"
                   src="{{ 'get-help-call.png' | asset_img_url: '60x' }}"
                   alt="message" />
-                <h2>Call</h2>
-                <div class="d-none d-lg-block">
-                  <p>
-                    Talk to a <br/>
-                    real person
-                  </p>
-                  <a href="tel:{{ section.settings.phone_number }}">{{ section.settings.phone_number }}</a>
-                </div>
+                <h2 style="color: #67B77C;">Call</h2>
+                <p>
+                  Talk to a <br/>
+                  real person
+                </p>
+                <a href="tel:{{ section.settings.phone_number }}" style="background-color: #67B77C;">{{ section.settings.phone_number }}</a>
+              </div>
+              <div class="d-block d-lg-none text-center">
+                <a class="d-flex align-items-center justify-content-center"  href="tel:{{ section.settings.phone_number }}">
+                  <img
+                    loading="lazy"
+                    width="50"
+                    height="47"
+                    src="{{ 'get-help-call.png' | asset_img_url: '60x' }}"
+                    alt="message" />
+                  <strong class="h4 font-weight-bold ml-3 mb-0" style="color: #67B77C;">Call</strong>
+                </a>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="text-center get-help-card h-100">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+              <div class="text-center get-help-card h-100 d-none d-lg-block">
                 <img
                   loading="lazy"
                   width="59"
                   height="56"
                   src="{{ 'get-help-mail.png' | asset_img_url: '60x' }}"
                   alt="message" />
-                <h2>Email us</h2>
-                <div class="d-none d-lg-block">
-                  <p>Send your questions <br/>and comments</p>
-                  <a href="mailto:{{ section.settings.email }}">Send now</a>
-                </div>
+                <h2 style="color: #8E7AAC;">Email us</h2>
+                <p>Send your questions <br/>and comments</p>
+                <a href="mailto:{{ section.settings.email }}" style="background-color: #8E7AAC;">Send now</a>
               </div>
+              <div class="d-block d-lg-none text-center">
+                <a class="d-flex align-items-center justify-content-center" href="mailto:{{ section.settings.email }}">
+                  <img
+                    loading="lazy"
+                    width="50"
+                    height="47"
+                    src="{{ 'get-help-mail.png' | asset_img_url: '60x' }}"
+                    alt="message" />
+                  <strong class="h4 font-weight-bold ml-3 mb-0" style="color: #8E7AAC;">Email us</strong>
+                </a>
             </div>
           </div>
         </div>
@@ -92,7 +117,6 @@
 
 <!-- Style -->
 <style>
-
   .get-help {
     padding: 55px 0 !important;
     background-color: #e6e7e8;
@@ -155,8 +179,7 @@
 
   .get-help .get-help-right h3 {
     font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 28px;
     margin-top: 16px;
     text-align: center;
     color: #1c75ba;
@@ -171,7 +194,7 @@
   }
 
   .get-help .get-help-right h5 {
-    font-size: 10px;
+    font-size: 18px;
     line-height: 15px;
     font-weight: 400;
     color: #1c75ba;
@@ -184,22 +207,6 @@
       font-size: 28px;
       line-height: 42px;
     }
-  }
-
-  .get-help .get-help-right .get-help-cards > *:nth-child(2) h2 {
-    color: #67b77c;
-  }
-
-  .get-help .get-help-right .get-help-cards > *:nth-child(2) a {
-    background: #67b77c;
-  }
-
-  .get-help .get-help-right .get-help-cards > *:nth-child(3) h2 {
-    color: #8e7aac;
-  }
-
-  .get-help .get-help-right .get-help-cards > *:nth-child(3) a {
-    background: #8e7aac;
   }
 
   .get-help .get-help-right .get-help-card {
@@ -228,11 +235,7 @@
   }
 
   .get-help .get-help-right .get-help-card h2 {
-    margin-inline: 10px;
-    color: #e75184;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
   }
 
   @media only screen and (min-width: 576px) {
@@ -258,7 +261,6 @@
     color: #ffffff;
     padding: 11px 25px;
     border-radius: 20px;
-    background: #e75184;
     border: none;
     display: inline-block;
   }

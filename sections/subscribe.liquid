@@ -44,7 +44,7 @@
           <div class="subscribe-card">
             <h1 class="text-white mb-2">{{ forloop.index }}</h1>
             <h3 class="text-white">{{ block.settings.title }}</h3>
-            <p>{{ block.settings.content }}</p>
+            {{ block.settings.content }}
           </div>
         </div>
       {% endfor %}
@@ -196,15 +196,10 @@
     text-align: center;
     color: #fff;
     border-radius: 32px;
-    padding: 18px 58px;
+    padding: 20px 20px 10px;
     height: 100%;
   }
 
-  @media only screen and (min-width: 768px) {
-    .subscribe .subscribe-card {
-      padding: 12px 58px;
-    }
-  }
 
   .subscribe-cards > *:nth-child(2) > * {
     background: #67b77c;
@@ -229,12 +224,12 @@
 
   .subscribe .subscribe-card h3 {
     font-size: 20px;
+    font-weight: 700;
   }
 
   @media only screen and (min-width: 768px) {
     .subscribe .subscribe-card h3 {
       font-size: 28px;
-      font-weight: 700;
     }
   }
 
@@ -257,7 +252,7 @@
     font-weight: 700;
     text-align: center;
     color: #fff;
-    padding: 9px 50px;
+    padding: 12px 50px;
     border: none;
     box-shadow: 6px 6px 12px #000000;
     font-size: 14px;
