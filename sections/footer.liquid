@@ -2,15 +2,15 @@
   <div class="container">
     {% unless section.settings.show_footer_cta != true %}
       <div class="row align-items-center footer-cta mb-5">
-        <div class="col-lg-5 d-flex align-items-center mb-4 mb-lg-0">
-          <h2 class="mr-3 text-white font-weight-bold">{{ section.settings.footer_cta_title }}</h2>
+        <div class="col-lg-5 d-lg-flex align-items-center mb-4 mb-lg-0">
           <img
             width="144"
             height="156"
             loading="lazy"
             src="{{ 'animal-feed.png' | asset_img_url: '200x' }}"
             alt="animal-feed"
-            class="img-fluid" />
+            class="img-fluid order-lg-2 mb-3 mb-lg-0" />
+          <h2 class="mr-3 text-white font-weight-bold order-lg-1">{{ section.settings.footer_cta_title }}</h2>
         </div>
         <div class="col-lg-7 d-lg-flex align-items-center">
           <p>{{ section.settings.footer_cta_content }}</p>
@@ -31,7 +31,7 @@
                 alt="footer-logo"
                 class="footer-logo-image" />
               <h2 class="my-2">500,000</h2>
-              <p>Happy pets <br/>since 2019</p>
+              <p class="mb-0">Happy pets since 2019</p>
             </div>
           </div>
           <div class="footer-column col-md-4">
@@ -148,6 +148,8 @@
   .footer-cta-btn:hover {
     background: #1c75ba;
     color: #fff;
+    text-decoration: none;
+    box-shadow: 4px 6px 5px rgba(0, 0, 0, 0.32);
   }
 
   @media only screen and (max-width: 768px) {
@@ -157,10 +159,19 @@
 
     .footer-cta p {
       font-size: 16px;
-      color: #fff;
+    }
+    .footer-cta img {
+      width: 60px;
+      height: auto;
     }
   }
 
+  @media only screen and (max-width: 565px) {
+    .footer-cta-btn {
+      display: block;
+      text-align: center;
+    }
+  }
   footer .footer-content-row {
     margin-bottom: 30px;
   }
@@ -277,13 +288,18 @@
     padding: 16px 0;
   }
 
+
   @media only screen and (max-width: 767px) {
     .has-border > * > * {
       padding-block: 32px;
     }
 
-    .has-border > *:not(:last-child) > * {
-      border-bottom: 1px solid #fff;
+    .has-border > * > * {
+      border-bottom: 1px solid #D1D1D1;
+    }
+    footer .copywrite {
+      border: 0;
+      margin-top: 0;
     }
   }
 </style>

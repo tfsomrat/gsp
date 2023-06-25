@@ -2693,6 +2693,23 @@ a {
   padding: 0 5px !important;
 }
 
+.title-generic-2 {
+   &:before {
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6EAFDE;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      left: 0;
+      transform: translateX(0);
+    }
+  }
+  span {
+    color: #6EAFDE;
+  }
+}
+
 .title-dog {
   position: relative;
   display: inline-block;
