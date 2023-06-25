@@ -1364,10 +1364,17 @@
           "title": "Top Brands",
           "is_h1": false
         }
+      },
+      "6f81f433-ec2f-402d-b714-ea51def3e0bc": {
+        "type": "homepage-nosto-block",
+        "settings": {
+          "recommendation_block": "postion_1"
+        }
       }
     },
     "content_for_index": [
       "8248a5e1-08d1-40f1-a6f8-b191feebc824",
+      "6f81f433-ec2f-402d-b714-ea51def3e0bc",
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
       "87b95d38-69ed-43a7-bdab-c84aed6892a5",
