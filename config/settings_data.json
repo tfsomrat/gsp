@@ -1267,7 +1267,7 @@
             "type": "step",
             "settings": {
               "title": "Delivery schedules that suit your busy life",
-              "content": "<p><strong>And you can cancel your order at anytime<\/strong><\/p>"
+              "content": "<p>And you can cancel your order at anytime<\/p>"
             }
           }
         },
@@ -1297,6 +1297,73 @@
           "phone_number": "000 000 000",
           "email": ""
         }
+      },
+      "dfa5f357-312c-41dc-ab60-64f10ab73e1b": {
+        "type": "brand-logos",
+        "blocks": {
+          "3a7014a6-b1b1-4688-8d6c-a3605c1d6119": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/CSBM-GDAN-AC-D-890-1_7fe510f5-1737-47a7-bb74-0b16aae86bd6.jpg",
+              "brand_link": ""
+            }
+          },
+          "474ae178-d414-4bd3-8de0-b6529b2db106": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/DSCL-GDAN-HB-25-180-2_799b6c12-3654-4011-89f1-4d60cf9de977.jpg",
+              "brand_link": ""
+            }
+          },
+          "b85dff56-6e9a-46e2-83cd-51ec799bf17d": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/DSBM-GDAN-NSM-69-1110-1.jpg",
+              "brand_link": ""
+            }
+          },
+          "5ce08e95-f929-4f24-adb4-827c52dbe41a": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/DSCO-GDAN-H2-25-220-2_68ce21e8-e416-4e40-9c9b-e0d5273ac13a.jpg",
+              "brand_link": ""
+            }
+          },
+          "c9b16149-91b8-43f2-a6e1-0533d6a4d56a": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/CSBM-GDAN-PG-30-580_a4e3345f-9121-4f5d-8fb1-d9ef417a8516.jpg",
+              "brand_link": ""
+            }
+          },
+          "ab27d5f1-4a13-4b69-85ba-361fe299f696": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Untitled3_d95b7f77-5b85-4247-ad48-9dc3bbf627df.jpg",
+              "brand_link": ""
+            }
+          },
+          "1deb3360-a0d7-416f-9235-6c43e7bdc467": {
+            "type": "logo",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Untitled3_d95b7f77-5b85-4247-ad48-9dc3bbf627df.jpg",
+              "brand_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "3a7014a6-b1b1-4688-8d6c-a3605c1d6119",
+          "474ae178-d414-4bd3-8de0-b6529b2db106",
+          "b85dff56-6e9a-46e2-83cd-51ec799bf17d",
+          "5ce08e95-f929-4f24-adb4-827c52dbe41a",
+          "c9b16149-91b8-43f2-a6e1-0533d6a4d56a",
+          "ab27d5f1-4a13-4b69-85ba-361fe299f696",
+          "1deb3360-a0d7-416f-9235-6c43e7bdc467"
+        ],
+        "settings": {
+          "title": "Top Brands",
+          "is_h1": false
+        }
       }
     },
     "content_for_index": [
@@ -1304,7 +1371,8 @@
       "b054fe34-20dc-45d2-aa1f-305104c9f277",
       "78e6a014-00f2-4ee5-9f0d-53e8a6b5ae6a",
       "87b95d38-69ed-43a7-bdab-c84aed6892a5",
-      "f9698704-ce43-4b5f-91ff-580b8b8bdb23"
+      "f9698704-ce43-4b5f-91ff-580b8b8bdb23",
+      "dfa5f357-312c-41dc-ab60-64f10ab73e1b"
     ]
   }
 }
